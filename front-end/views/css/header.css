@@ -1,91 +1,105 @@
 /*=============================================
-TOP
+  SOCIAL Y REGISTRO
 =============================================*/
 
+
 #top ul{
-	padding-top:8px;
+	padding-top:10px;
 }
 
 #top ul li{
 	display:inline;
 	line-height:30px;
-	margin:0px 5px;
+	margin:0px 4px;
 	color:white;
 }
 
 .social ul li a i{
-	font-size:18px;
+	font-size:20px; /*Tamaño de los iconos*/
 	margin:0 1px;
 }
 
-.registro ul{
+.register ul{
 	text-align: right;
-	font-size:12px;
+	font-size:13px;
+}
+/* Botones de inicio sesion */
+.register>ul>li>a:hover{
+	text-decoration: none;
+    color: red;
 }
 
+
 /*=============================================
-HEADER
+    CATEGORIAS
 =============================================*/
 
-header #btnCategorias{
+header #btnCategories{
 	margin:20px 0;
 }
 
-header #btnCategorias p{
+header #btnCategories p{
 	line-height:40px;
 	margin-bottom:0px;
 }
-
-header #btnCategorias p span{
+/* icono desplegable */
+header #btnCategories p span{
 	cursor: pointer;
+	margin-top: 13px;
 }
 
-header #buscador{
+header #search{
 	margin:20px 0;
 }
 
-header #buscador input{
+header #search input{
 	padding:19px;
 	border-radius:0;
 }
 
-header #buscador button{
-	padding:9px;
+header #search button{
+	padding:11.5px;
 	border:1px solid silver;
 	border-radius:0;
+	background-color: var(--main-bg-color);
+	color:white;
 }
 
-header #carrito{
+header #shopCart{
 	margin:20px 0;
 }
 
-header #carrito button{
-	padding:9px 15px;
+header #shopCart button{
+	padding:12px 15px;
 	border:1px solid silver;
 	border-radius:0;
+	background-color: var(--main-bg-color);
+	color: white;
 }
 
-header #carrito p{
+header #shopCart p{
 	padding:2px;
 	padding-left:60px;
 	border:1px solid #aaa;
 	font-size:12px;
 }
 
-header #categorias{
+header #categories{
 	display:none;
 	margin-top:-10px;
 	position: relative;
 	padding-bottom:20px;
 }
-
-header #categorias h4{
-	margin-top:20px;
+/* Posicionamiento titulos  */
+header #categories h4{
+	margin-top:25px;
 	margin-bottom:-10px;
 }
 
-header #categorias hr{
-	border:1px solid rgba(255,255,255,.3);
+/* Linea separadora de los titulos */
+#categories hr{
+	border:1px solid rgba(240, 223, 223, 0.705);
+	margin-bottom: 10px;
 }
 
 
@@ -104,7 +118,7 @@ ESCRITORIO GRANDE (LG revisamos en 1366px en adelante)
 		padding-left:0px;
 	}
 
-	header #carrito{
+	header #shopCart{
 		padding-left:100px;
 	}
 
@@ -125,7 +139,7 @@ ESCRITORIO MEDIANO O TABLET HORIZONTAL (MD revisamos en 1024px)
 		padding-left:0px;
 	}
 
-	header #carrito{
+	header #shopCart{
 		padding-left:70px;
 	}
 
@@ -145,11 +159,11 @@ ESCRITORIO PEQUEÑO O TABLET VERTICAL (SM revisamos en 768px)
 		padding:30px 0px;
 	}
 
-	header #carrito{
+	header #shopCart{
 		padding-left:55px;
 	}
 
-	header #carrito p{
+	header #shopCart p{
 		display:none;
 	}
 
@@ -169,7 +183,7 @@ MOVIL (XS revisamos en 320px)
 		text-align: center;
 	}
 
-	#top #registro{
+	#top #register{
 		border-top:1px solid #222;
 	}
 	
@@ -182,15 +196,15 @@ MOVIL (XS revisamos en 320px)
 		padding-bottom:10px;
 	}
 
-	header #categorias{
+	header #categories{
 		margin-bottom:10px;
 	}
 
-	header #buscador{
+	header #search{
 		margin-bottom:10px;
 	}
 
-	header #carrito{
+	header #shopCart{
 		margin:0px;
 	}
 	

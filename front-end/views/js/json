@@ -1,0 +1,27 @@
+[
+	{
+		"red": "fa-facebook",
+		"style": "colorFacebook",
+		"url": "http://facebook.com/"
+	},
+	{
+		"red": "fa-youtube",
+		"style": "colorYoutube",
+		"url": "http://youtube.com/"
+	},
+	{
+		"red": "fa-twitter",
+		"style": "colorTwitter",
+		"url": "http://twitter.com/"
+	},
+	{
+		"red": "fa-google-plus",
+		"style": "colorGoogle",
+		"url": "http://google.com/"
+	},
+	{
+		"red": "fa-instagram",
+		"style": "colorInstagram",
+		"url": "http://instagram.com/"
+	}
+]
