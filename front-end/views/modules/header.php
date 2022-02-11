@@ -18,7 +18,21 @@
             <!-- /* --------------------------------- social --------------------------------- */ -->
             <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12 social">
                 <ul>
-                    <li>
+                    <?php 
+                    $stylesDB = TemplateController::controllerStyleTemplate();
+
+                    $jsonSocialMedia = json_decode($stylesDB["socialMedia"], true);
+
+                    foreach($jsonSocialMedia as $key => $value){
+                        echo '
+                        <li>
+                        <a href="'.$value["url"].'" target="_blank">
+                            <i class="fa fa-lg '.$value["red"].' socialMedia '.$value["style"].'" aria-hidden="true"></i>
+                        </a>
+                    </li>';
+                    }
+                    ?>
+                    <!-- <li>
                         <a href="https://facebook.com/" target="_blank">
                             <i class="fa fa-lg fa-facebook-square socialMedia colorFacebook" aria-hidden="true"></i>
                         </a>
@@ -46,7 +60,7 @@
                         <a href="https://instagram.com/" target="_blank">
                             <i class="fa fa-lg fa-instagram socialMedia colorInstagram" aria-hidden="true"></i>
                         </a>
-                    </li>   
+                    </li>    -->
 
                 </ul>
             </div>

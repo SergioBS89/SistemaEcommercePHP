@@ -1,8 +1,11 @@
 <?php 
 
+/* -------------------------------------------------------------------------- */
+/*                           CONEXION CREANDO OBJETO                          */
+/* -------------------------------------------------------------------------- */
 class Conection{
 
-    public function conectDB(){
+    static public function conectDB(){
 
         $link = new PDO("mysql:host=localhost;dbname=sistema_ecommerce",
         "root",
