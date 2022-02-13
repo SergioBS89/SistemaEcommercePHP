@@ -18,7 +18,7 @@ class TemplateController
     /*                METODO PARA CAMBIAR LOS ESTILOS DINAMICAMENTE               */
     /* -------------------------------------------------------------------------- */
 
-    public function controllerStyleTemplate(){
+    public static function controllerStyleTemplate(){
 
         //asignamos el valor de la tabla de la base de datos
         $table = "template_styles";

@@ -1,4 +1,8 @@
 
+
+<!-- /* -------------------------------------------------------------------------- */
+/*              PLANTILLA QUE RECOJE TODOS LOS HTML DEL PROYECTO              */
+/* -------------------------------------------------------------------------- */ -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -27,6 +31,7 @@
     
     ?>
 <script src="views/js/header.js"></script>
+<script src="views/js/template.js"></script>
     
 </body>
 </html>

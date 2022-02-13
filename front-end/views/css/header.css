@@ -36,6 +36,7 @@
 
 header #btnCategories{
 	margin:20px 0;
+	border:1px solid silver;
 }
 
 header #btnCategories p{
@@ -53,12 +54,12 @@ header #search{
 }
 
 header #search input{
-	padding:19px;
+	padding:20px;
 	border-radius:0;
 }
 
 header #search button{
-	padding:11.5px;
+	padding:13px;
 	border:1px solid silver;
 	border-radius:0;
 	background-color: var(--main-bg-color);
