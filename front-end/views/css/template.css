@@ -4,7 +4,7 @@ GLOBAL
 
 /* Variable para el color principal */
 :root {
-	--main-bg-color: #47b9c1;
+	--main-bg-color: #e64530;
   }
 
 *{
@@ -39,9 +39,9 @@ a:visited, a:link, a:focus, a:hover, a:active{
 .barraTop a{
 	color:white;
 }
-/* Seccion de las categorias */
+/* Seccion de las categorias, buscador y carrito */
 
-.backColor, .backColor a{
+.backColor, .backColor a, .backColor i{
 	background-color: var(--main-bg-color);
 	color:white;
 }

@@ -19,10 +19,13 @@
             <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12 social">
                 <ul>
                     <?php 
+                    //Lamamos al controlador para la conexion a la base de datos 
                     $stylesDB = TemplateController::controllerStyleTemplate();
-
+                    
+                    // json_decode()--transforma un string(json), en un array
                     $jsonSocialMedia = json_decode($stylesDB["socialMedia"], true);
-
+                    
+                    //Recorremos el resultado de los registros devueltos
                     foreach($jsonSocialMedia as $key => $value){
                         echo '
                         <li>
@@ -31,36 +34,9 @@
                         </a>
                     </li>';
                     }
+                    
                     ?>
-                    <!-- <li>
-                        <a href="https://facebook.com/" target="_blank">
-                            <i class="fa fa-lg fa-facebook-square socialMedia colorFacebook" aria-hidden="true"></i>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="https://youtube.com/" target="_blank">
-                            <i class="fa fa-lg fa-youtube-square socialMedia colorYoutube" aria-hidden="true"></i>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="https://twitter.com/" target="_blank">
-                            <i class="fa fa-lg fa-twitter-square socialMedia colorTwitter" aria-hidden="true"></i>
-                        </a>
-                    </li>  
-
-                    <li>
-                        <a href="https://google.com/" target="_blank">
-                            <i class="fa fa-lg fa-google-plus socialMedia colorGoogle" aria-hidden="true"></i>
-                        </a>
-                    </li>  
-
-                    <li>
-                        <a href="https://instagram.com/" target="_blank">
-                            <i class="fa fa-lg fa-instagram socialMedia colorInstagram" aria-hidden="true"></i>
-                        </a>
-                    </li>    -->
+                    
 
                 </ul>
             </div>
@@ -87,11 +63,18 @@
     
         <div class="row" id="header">
     
-            <!-- /* -------------------------------- logotipo -------------------------------- */ -->
+            <!-- /* -------------------------------- LOGO -------------------------------- */ -->
+           
             <div class="col-lg-3 col-md-3 col-sm-2 col-xs-12" id="logotipo">
-                <a href="#">
-                    <img src="http://localhost/PROYECTOS/SistemaEcommercePHP/back-end/views/img/logos/logo.png" class="img-responsive">
-                </a>
+            
+            <!-- Traigo dinamicamente el logo desde la Base de Datos -->
+            <?php 
+                echo ' <a href="#">
+                    <img src="'.$stylesDB["logo"].'" class="img-responsive">
+                       </a>
+                       '; 
+            ?>
+               
             </div>
     
             <!-- /* --------------------------CATEGORIAS Y BUSCADOR------------------------- */ -->
@@ -116,7 +99,7 @@
                     <span class="input-group-btn">
                         <a href="#">
                             <button class="backColor btn btn-default backColor" type="submit">
-                                <i class="fa fa-search"></i>
+                                <i class="fa fa-search "></i>
                             </button>
                         </a>
                     </span>
