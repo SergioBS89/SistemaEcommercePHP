@@ -8,7 +8,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <title>ECOMMERCE PHP</title>
+    
+    <!-- Cambio dinamico del icono de la pestaña superior -->
+
+    <?php 
+    $iconDinamic = TemplateController::controllerStyleTemplate();
+
+    echo ' <link rel="icon" href="'.$iconDinamic['icon'].'">'
+    ?>
+   
     
     <!-- Estilos de css -->
     <link rel="stylesheet" href="views/css/template.css">

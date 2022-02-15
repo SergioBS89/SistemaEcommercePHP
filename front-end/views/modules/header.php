@@ -74,7 +74,7 @@
                        </a>
                        '; 
             ?>
-               
+                
             </div>
     
             <!-- /* --------------------------CATEGORIAS Y BUSCADOR------------------------- */ -->
@@ -125,89 +125,46 @@
         <!-- /* ------------------------------- CATEGORIAS ------------------------------- */ -->
 
         <div class="col-xs-12 backColor" id="categories">
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
-                <h4>
-                    <a href="#" id="pixelCategories">Category 1</a>
-                </h4>
-                <hr style="width: 100px;">
-                <ul>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                </ul>
-            </div>
 
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
-                <h4>
-                    <a href="#" class="pixelCategories" id="pixelCategories">Category 2</a>
-                </h4>
-                <hr style="width: 100px;">
-                <ul>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                </ul>
-            </div>
+        <!-- /* -------------------------------------------------------------------------- */
+        /*                          CATEGORIAS DINAMICAMENTE                          */
+        /* -------------------------------------------------------------------------- */ -->
 
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
-                <h4>
-                    <a href="#" class="pixelCategories" id="pixelCategories">Category 3</a>
-                </h4>
-                <hr style="width: 100px;">
-                <ul>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                </ul>
-            </div>
+        <?php 
+        
+        //Varible que pide al controlador los resultados de la base de datos de las categorias
+        $categoryDinamic = ProductsController::controllerCategoriesDinamic();
 
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
-                <h4>
-                    <a href="#"class="pixelCategories" id="pixelCategories">Category 4</a>
-                </h4>
-                <hr style="width: 100px;">
-                <ul>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                </ul>
-            </div>
+        //Recorro el resultado obtenido del controlador, asigno el nombre de cada categoria dentro de la etiqueta
 
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
-                <h4>
-                    <a href="#" class="pixelCategories" id="pixelCategories">Category 5</a>
-                </h4>
-                <hr style="width: 100px;">
-                <ul>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                </ul>
-            </div>
+        foreach($categoryDinamic as $key => $value){
 
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
-                <h4>
-                    <a href="#" class="pixelCategories" id="pixelCategories">Category 6</a>
-                </h4>
-                <hr style="width: 100px;">
-                <ul>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                    <li><a href="#" class="pixelSubCategories">Lorem Ipsum </a></li>
-                </ul>
-            </div>
+            echo ' <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+                        <h4>
+                            <a href="#" id="pixelCategories">'.$value['category'].'</a>
+                        </h4>
+                        <hr style="width: 100px;">
+                        <ul>';
+        
+        //Varible que pide al controlador los resultados de la base de datos de las subcategorias,
+        //  toma por parametro el id de cada categoria.
+
+        $subCategoriesDinamic = ProductsController::controllerSubCategoriesDinamic($value['id']);
+        
+         //Recorro el resultado obtenido del controlador, asigno el nombre de cada subcategoria dentro de la etiqueta
+        foreach($subCategoriesDinamic as $key => $value){
+            echo '
+                            <li><a href="#" class="pixelSubCategories">'.$value['subcategory'].'</a></li>
+                            ';
+        }
+            echo '
+                    </ul>
+                </div>';
+        
+        }
+        
+        ?>          
+
         </div>
     </div>
 </header>
