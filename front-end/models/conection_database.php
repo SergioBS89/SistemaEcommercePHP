@@ -6,7 +6,8 @@
 class Conection{
 
     static public function conectDB(){
-
+    
+        //Cambiar ruta cuando subimos a servidor
         $link = new PDO("mysql:host=localhost;dbname=sistema_ecommerce",
         "root",
          "",

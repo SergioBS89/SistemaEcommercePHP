@@ -115,7 +115,7 @@
                 </a>
     
                 <p>YOUR BASKET
-                    <span class="quantityBasket"></span><br>EU € <span class="totalBasket"></span>
+                    <span class="quantityBasket"></span><br>0 € <span class="totalBasket"></span>
                 </p>
     
             </div>
@@ -141,7 +141,7 @@
 
             echo ' <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
                         <h4>
-                            <a href="#" id="pixelCategories">'.$value['category'].'</a>
+                            <a href="'.$value['rute'].'" id="pixelCategories">'.$value['category'].'</a>
                         </h4>
                         <hr style="width: 100px;">
                         <ul>';
@@ -154,7 +154,7 @@
          //Recorro el resultado obtenido del controlador, asigno el nombre de cada subcategoria dentro de la etiqueta
         foreach($subCategoriesDinamic as $key => $value){
             echo '
-                            <li><a href="#" class="pixelSubCategories">'.$value['subcategory'].'</a></li>
+                            <li><a href="'.$value['rute'].'" class="pixelSubCategories">'.$value['subcategory'].'</a></li>
                             ';
         }
             echo '

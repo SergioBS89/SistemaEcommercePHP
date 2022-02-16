@@ -1,0 +1,11 @@
+#   Este archivo impide que se puedan ver en la url el listado de contenidos de un directorio cuando usamos las categorias
+
+Options All -Indexes
+
+# URL AMIGABLES
+
+RewriteEngine On
+
+# Reglas de escritura, las mandamos con variable GET $1 a index.php
+
+RewriteRule ^([-a-zA-Z0-9/]+)$ index.php?rute=$1
