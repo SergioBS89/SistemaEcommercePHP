@@ -35,10 +35,12 @@ a:visited, a:link, a:focus, a:hover, a:active{
 .barraTop{
 	background:black;
 }
-/* color texto */
-.barraTop a{
+/* color texto y barra separadora */
+.barraTop li a, #top ul li{
 	color:white;
 }
+
+
 /* Seccion de las categorias, buscador y carrito */
 
 .backColor, .backColor a, .backColor i{

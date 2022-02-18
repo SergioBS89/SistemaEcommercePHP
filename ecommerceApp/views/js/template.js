@@ -17,11 +17,12 @@ $.ajax({
     var colorText = JSON.parse(res).colorText;
     // console.log(barraTop,textTop,background,colorText);
     
+    //Usando jqery adjunto las variables de la BD a cada una de las propiedades CSS
     $(".backColor, .backColor a, .backColor i").css({
                                         "background": background,
                                         "color": colorText});
     
-    $(".barraTop, barraTop a ").css({
+    $(".barraTop, .barraTop a, #top ul li ").css({
                                     "background": barraTop,
                                     "color":textTop});
     

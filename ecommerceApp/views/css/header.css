@@ -11,7 +11,8 @@
 	display:inline;
 	line-height:30px;
 	margin:0px 4px;
-	color:white;
+	/* desactivado para cambiar color de la barra del login */
+	/* color:rgb(255, 7, 7); */
 }
 
 .social ul li a i{
@@ -24,9 +25,11 @@
 	font-size:13px;
 }
 /* Botones de inicio sesion */
-.register>ul>li>a:hover{
+.register>ul>li>a{
 	text-decoration: none;
-    color: red;
+}
+.register>ul>li>a:hover{
+	color: inherit;
 }
 
 

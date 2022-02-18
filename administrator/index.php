@@ -5,7 +5,7 @@
 require_once "controllers/template_controller_backend.php";
 
 #Creamos el objeto de la clase
-$template = new TemplateControllerBackend();
+$template = new TemplateControllerAdministrator();
 
 #Llamamos a la funcion de la clase
 $template-> getTemplate();

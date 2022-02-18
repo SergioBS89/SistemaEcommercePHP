@@ -19,15 +19,31 @@
     echo ' <link rel="icon" href="'.$iconDinamic['icon'].'">';
 
 
-    /* -------------------- Mantenemos la ruta fija de la url ------------------- */  
+    /* -------------------- RUTA FIJA URL PARA CONSERVAR ESTILOS Y FUNCIONALIDAD JS------------------- */  
 
-    //Llamo al modelo, al archivo static_rute.php para conseguir la ruta fija
+     //Llamo al modelo, al archivo static_rute.php para conseguir la ruta fija que sera el inicio de la ruta de nuestro proyecto
+    //  http://localhost/PROYECTOS/SistemaEcommercePHP/ecommerceApp/
 
-    $ruteStatc=StaticRute::rute();    
+     $ruteStatc=StaticRute::rute();        
+
+    //Posteriormente, todos los productos que se vayan agregando a partir de la URL FIJA, no crearan ningun conflicto con las hojas de 
+    //estilo CSS ni con JS. Lo siguiente es transformar la nueva url en un array para poder manipular esos datos
+    //Un ejemplo de como funciona seria: 
+    //RUTA FIJA--> http://localhost/PROYECTOS/SistemaEcommercePHP/ecommerceApp/ RUTA VARIABLE($_GET["rute"])-->ropa-hombre/camiseta/ofertas
+    //con el metodo explode(), podemos conseguir que que la url varible quede asi-->[ropa-hombre,camiseta,ofertas];
+
+    $ruteArray = array();
+    if(isset($_GET["rute"])){
+
+    //La función explode de php se encarga de dividir o separar una cadena en función de un delimitador($_GET["RUTE"])
+    //es decir, divide la cadena en partes (creando un array) justo donde se 
+    // produce el carácter delimitador.
+    $ruteArray= explode("/", $_GET["rute"]);
+    }    
     ?>
 
 
-   <!-- Agregamos la variable $ruteStatc a todos los links y scripts del documento sin modificar los estilos ni el js -->
+   <!-- Agregamos la variable $ruteStatc a todos los links y scripts del documento-->
     
     <!-- Estilos de css -->
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/template.css">
@@ -46,22 +62,8 @@
     <?php 
     //Llamamos a las vistas en la carpeta modulos
 
-    include "modules/header.php";
-
-
-    //CONVERTIMOS EN ARRAY LA URL, QUE CONTIENE LOS PRODUCTOS QUE SE VAN AGREGANDO Y AYUDANDONOS DE LA BARRA "/" 
-    // PARA SEPARAR LAS POSICIONES DEL ARRAY  EJEMPLO: ropa-hombre/camiseta/oferta50% 
-                                                    // [ropa-hombre,camiseta,ofertas50%]
-
-    $ruteArray= array();
-
-    if(isset($_GET["rute"])){
-
-         $ruteArray= explode("/", $_GET["rute"]);
-        var_dump($ruteArray);
-    }  
-
-    
+    include "modules/header.php";    
+    // var_dump($ruteArray);
     ?>
 <script src="<?php echo $ruteStatc;?>views/js/header.js"></script>
 <script src="<?php echo $ruteStatc;?>views/js/template.js"></script>

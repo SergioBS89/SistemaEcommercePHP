@@ -1,6 +1,6 @@
 <?php 
 
-class TemplateControllerBackend
+class TemplateControllerAdministrator
 {
     public function getTemplate(){
 

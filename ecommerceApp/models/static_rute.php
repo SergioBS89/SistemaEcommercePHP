@@ -11,7 +11,7 @@ class StaticRute{
 
 
         //Cambiar ruta cuando subimos el proyecto
-        return "http://localhost/PROYECTOS/SistemaEcommercePHP/front-end/";
+        return "http://localhost/PROYECTOS/SistemaEcommercePHP/ecommerceApp/";
     }
 }
 
