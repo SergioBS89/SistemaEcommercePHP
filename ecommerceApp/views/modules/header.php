@@ -138,9 +138,10 @@
         //Recorro el resultado obtenido del controlador, asigno el nombre de cada categoria dentro de la etiqueta
 
         foreach($categoryDinamic as $key => $value){
-
+               // Al pulsar en cada una de las categorias, se manda a la url el valor RUTE 
             echo ' <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
                         <h4>
+                     
                             <a href="'.$value['rute'].'" id="pixelCategories">'.$value['category'].'</a>
                         </h4>
                         <hr style="width: 100px;">
@@ -153,7 +154,9 @@
         
          //Recorro el resultado obtenido del controlador, asigno el nombre de cada subcategoria dentro de la etiqueta
         foreach($subCategoriesDinamic as $key => $value){
-            echo '
+             // Al pulsar en cada una de las subcategorias, se manda a la url el valor RUTE 
+            echo '          
+                           
                             <li><a href="'.$value['rute'].'" class="pixelSubCategories">'.$value['subcategory'].'</a></li>
                             ';
         }

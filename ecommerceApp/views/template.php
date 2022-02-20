@@ -26,20 +26,7 @@
 
      $ruteStatc=StaticRute::rute();        
 
-    //Posteriormente, todos los productos que se vayan agregando a partir de la URL FIJA, no crearan ningun conflicto con las hojas de 
-    //estilo CSS ni con JS. Lo siguiente es transformar la nueva url en un array para poder manipular esos datos
-    //Un ejemplo de como funciona seria: 
-    //RUTA FIJA--> http://localhost/PROYECTOS/SistemaEcommercePHP/ecommerceApp/ RUTA VARIABLE($_GET["rute"])-->ropa-hombre/camiseta/ofertas
-    //con el metodo explode(), podemos conseguir que que la url varible quede asi-->[ropa-hombre,camiseta,ofertas];
-
-    $ruteArray = array();
-    if(isset($_GET["rute"])){
-
-    //La función explode de php se encarga de dividir o separar una cadena en función de un delimitador($_GET["RUTE"])
-    //es decir, divide la cadena en partes (creando un array) justo donde se 
-    // produce el carácter delimitador.
-    $ruteArray= explode("/", $_GET["rute"]);
-    }    
+   
     ?>
 
 
@@ -60,10 +47,83 @@
 <body>
     
     <?php 
-    //Llamamos a las vistas en la carpeta modulos
+    
+     /* -------------------------------------------------------------------------- */
+     /*                           VISTAS DE LA PLANTILLA                           */
+     /* -------------------------------------------------------------------------- */
 
     include "modules/header.php";    
-    // var_dump($ruteArray);
+
+    /* -------------------------------------------------------------------------- */
+    /*              MANEJO DE CATEGORIAS Y SUBCATEGORIAS CON LAS URLS             */
+    /* -------------------------------------------------------------------------- */
+
+     //Todos los productos que se vayan agregando a partir de la URL FIJA ( http://localhost/PROYECTOS/SistemaEcommercePHP/ecommerceApp/),
+    // no crearan ningun conflicto con las hojas de estilo CSS ni con JS. Lo siguiente es transformar la nueva url en un array para
+    // poder manipular esos datos.
+    //Un ejemplo de como funciona seria: 
+    //RUTA FIJA--> http://localhost/PROYECTOS/SistemaEcommercePHP/ecommerceApp/ RUTA VARIABLE($_GET["rute"])-->ropa-hombre/camiseta/...
+    //con el metodo explode(), podemos conseguir que que la url varible quede asi-->[ropa-hombre,camiseta,...];
+
+    $ruteArray = array();
+
+    //htaccess manda al index un dato get y comprobamos que existe
+    if(isset($_GET["rute"])){
+
+    //La función explode de php se encarga de dividir o separar una cadena en función de un delimitador($_GET["RUTE"])
+    //es decir, divide la cadena en partes (creando un array, separando cada posicion por la / barra) justo donde se 
+    // produce el carácter delimitador.
+    $ruteArray= explode("/", $_GET["rute"]);
+    
+    //primer valor despues de la url fija
+    $valueURL = $ruteArray[0];     
+    //Columna de la BD de los productos
+    $ruteProduct = "rute";    
+     
+    /* ------------------------------- CATEGORIAS ------------------------------- */
+
+    //Llamo a la funcion del controlador para verificar que existe la categoria en la BD
+    $existProductCategory = ProductsController::controllerCategoriesExisting($ruteProduct,$valueURL);
+    $existProductSubCategories = ProductsController::controllerSubCategoriesExisting($ruteProduct,$valueURL);
+    
+    //Varible con valor nulo que cambia en funcion del valor devuelto de la BD
+    $ruteOkay = null;    
+    
+    //Pregunto si el resultado devuelto de la BD es un array y si el valor ruta es igual al valor de la url
+    if(is_array($existProductCategory) && $existProductCategory["rute"]==$valueURL){
+        
+        $ruteOkay=$value; //Si el valor coincide, la variable deja de ser null
+    } 
+    /* ------------------------------ SUBCATEGORIAS ----------------------------- */
+    //Llamo a la funcion del controlador para verificar que existe la categoria en la BD
+    $existProductSubCategories = ProductsController::controllerSubCategoriesExisting($ruteProduct,$valueURL);
+
+// var_dump($existProductSubCategories["rute"]) A diferencia de las categorias, con las subcat no lo puedo usar porque lanza error
+// debido a que la BD devuelve varios registros al usar fetchAll();
+
+//Por ello tenemos que recorrer el array con FOR EACH
+
+foreach($existProductSubCategories as $key => $val){
+    
+    if(is_array($existProductSubCategories) && $val["rute"]==$valueURL){
+        
+        $ruteOkay=$ruteArray[0]; //Si el valor coincide, la variable deja de ser null
+    } 
+}
+
+/* -------------------------------------------------------------------------- */
+/*          REDIRECCION A LOS ARCHIVOS DE PRODUCTOS SI EXISTEN O NO EXISTEN         */
+/* -------------------------------------------------------------------------- */
+    
+    //Si la varible $ruteOkay, definida arriba, es diferente a null significa que se encontro la categoria en la BD     
+    if($ruteOkay !=null){
+
+        include "modules/existing_products.php";
+    }
+    else {
+    include "modules/error_noProduct.php";
+    }    
+}
     ?>
 <script src="<?php echo $ruteStatc;?>views/js/header.js"></script>
 <script src="<?php echo $ruteStatc;?>views/js/template.js"></script>

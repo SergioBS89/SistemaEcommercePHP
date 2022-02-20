@@ -32,6 +32,34 @@ class ProductsController{
 
         return $res;
     }
+     /* -------------------------------------------------------------------------- */
+    /*                METODO PARA COMPROBAR SI EXISTEN LAS CATEGORIAS       */
+    /* -------------------------------------------------------------------------- */
+
+    public static function controllerCategoriesExisting($ruteProduct,$value){
+
+        //asignamos el valor de la tabla de la base de datos
+        $table = "category";
+        
+        //El controlador le pide al modelo que traiga esa info
+        $res = ProductsModel::checkCategories($table,$ruteProduct,$value);
+
+        return $res;
+    }
+      /* -------------------------------------------------------------------------- */
+    /*                METODO PARA COMPROBAR SI EXISTEN LAS CATEGORIAS       */
+    /* -------------------------------------------------------------------------- */
+
+    public static function controllerSubCategoriesExisting($ruteProduct,$value){
+
+        //asignamos el valor de la tabla de la base de datos
+        $table = "subcategories";
+        
+        //El controlador le pide al modelo que traiga esa info
+        $res = ProductsModel::checkSubCategories($table,$ruteProduct,$value);
+
+        return $res;
+    }
 }
 
 ?>
