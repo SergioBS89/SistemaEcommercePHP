@@ -1,4 +1,5 @@
-#   Este archivo impide que se puedan ver en la url el listado de contenidos de un directorio cuando usamos las categorias
+#   Este archivo impide que se puedan ver en la url el listado de contenidos de un directorio cuando usamos las categorias y subcategorias
+
 
 Options All -Indexes
 
