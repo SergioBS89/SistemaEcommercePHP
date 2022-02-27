@@ -13,18 +13,22 @@ $.ajax({
     
     var barraTop = JSON.parse(res).barraTop;
     var textTop = JSON.parse(res).TextTop;
-    var background = JSON.parse(res).background;
+    var backgroundCat = JSON.parse(res).background;
     var colorText = JSON.parse(res).colorText;
-    // console.log(barraTop,textTop,background,colorText);
     
     //Usando jqery adjunto las variables de la BD a cada una de las propiedades CSS
-    $(".backColor, .backColor a, .backColor i").css({
-                                        "background": background,
-                                        "color": colorText});
+
     
-    $(".barraTop, .barraTop a, #top ul li ").css({
+    //Clases de la barra superior(Background y color del texto)
+    $(".barraTop, .barraTop a, .barraTop li ").css({
                                     "background": barraTop,
                                     "color":textTop});
+
+    //Clases de los colores principales de la seccion categorias y carrito
+    $(".firstColors, .firstColors a,button.firstColors").css({
+        "background": backgroundCat,
+        "color": colorText});
     
     }
+
 })

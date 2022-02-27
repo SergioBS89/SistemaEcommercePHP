@@ -1,26 +1,71 @@
-/*=============================================
-  SOCIAL Y REGISTRO
-=============================================*/
+/* -------------------------------------------------------------------------- */
+/*                               /IMPORTANTE!!!                               */
+/* -------------------------------------------------------------------------- */
+/* -LOS SELECTORES POR ID SON PRINCIPALMENTE LOS CONTENEDORES DE CADA SECCION 
+   -LOS SELECORES POR CLASE SON LOS ELEMENTOS QUE ESTAN DENTRO DE LOS CONTENEDORES*/
+/* -ALGUNAS VECES ES NECESARIO USAR DOS SELECTORES PARA NO CREAR CONFLICTO CON BOOTSTRAP EJEMPLO: ul.miClase */
 
+/* -------------------------------------------------------------------------- */
+/*                               BARRA TOP                                    */
+/* -------------------------------------------------------------------------- */
 
-#top ul{
-	padding-top:10px;
-}
-
-#top ul li{
-	display:inline;
+/*Iconos y login*/
+.barraTop ul li{
 	line-height:30px;
-	margin:0px 4px;
-	/* desactivado para cambiar color de la barra del login */
-	/* color:rgb(255, 7, 7); */
+	display:inline;
+	margin:0px 4px;	
+}
+/* Posicion de los contenedores de iconos y registro */
+#social,#register{
+	margin-top: 70px;
 }
 
-.social ul li a i{
-	font-size:20px; /*Tamaño de los iconos*/
+
+
+/* --------------------------------- ICONOS SOCIALES --------------------------------- */
+
+ /*Tamaño de los iconos*/
+ .social ul li a i{
+	font-size:18px;
 	margin:0 1px;
 }
 
-.register ul{
+/* Tamaño del background de los iconos (Usando el estilo del color original) */
+.socialMedia{
+	width:30px;
+	height:30px;
+	text-align: center;
+	line-height:30px;
+	border-radius: 5px;
+	/*Centrado del background en los iconos */
+	padding-top: 8px;
+	
+}
+
+/* Imagen de hombre y mujer*/
+img.imgTop{
+	width: 150px;
+	position: absolute;
+	left: 20px;
+	bottom: 0;
+}
+
+/* ---------------------------------- LOGO ---------------------------------- */
+/* contenedor del logo */
+#logotipo{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+img.myLogo{
+	width: 300px;
+	height: 130px;
+}
+
+/* ---------------------------------- LOGIN --------------------------------- */
+
+/* Login container */
+#register{
 	text-align: right;
 	font-size:13px;
 }
@@ -32,184 +77,183 @@
 	color: inherit;
 }
 
+/* -------------------------------------------------------------------------- */
+/*                         BOTON CATEGORIAS                        */
+/* -------------------------------------------------------------------------- */
 
-/*=============================================
-    CATEGORIAS
-=============================================*/
-
-header #btnCategories{
+/* Desplegable de las categorias */
+#btnCategories{
 	margin:20px 0;
 	border:1px solid silver;
 }
 
-header #btnCategories p{
-	line-height:40px;
+/* Fuente*/
+#btnCategories p{
 	margin-bottom:0px;
-}
-/* icono desplegable */
-header #btnCategories p span{
-	cursor: pointer;
-	margin-top: 13px;
+	line-height:40px;	
 }
 
-header #search{
+/* Icono del desplegable */
+#btnCategories p span{
+	margin-top: 13px;
+	cursor: pointer;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  BUSCADOR                                  */
+/* -------------------------------------------------------------------------- */
+
+/* Contenedor del buscador */
+#search{
 	margin:20px 0;
 }
 
-header #search input{
+/* Campo del input */
+input.inputSearch{
 	padding:20px;
 	border-radius:0;
 }
-
-header #search button{
+/* Boton del buscador */
+button.btnSearch{
 	padding:13px;
 	border:1px solid silver;
 	border-radius:0;
-	background-color: var(--main-bg-color);
-	color:white;
 }
-
-header #shopCart{
+/* -------------------------------------------------------------------------- */
+/*                                   CARRITO                                  */
+/* -------------------------------------------------------------------------- */
+/* Contenedor carrito */
+#shopCart{
 	margin:20px 0;
 }
-
-header #shopCart button{
+/* Boton del carrito */
+button.btnShopCart{
 	padding:12px 15px;
 	border:1px solid silver;
 	border-radius:0;
-	background-color: var(--main-bg-color);
-	color: white;
 }
-
-header #shopCart p{
+/* Texto interior input */
+#shopCart p{
 	padding:2px;
 	padding-left:60px;
 	border:1px solid #aaa;
 	font-size:12px;
 }
 
-header #categories{
+/* -------------------------------------------------------------------------- */
+/*                DESPLEGABLE DE LAS CATEGORIAS Y SUBCATEGORIAS               */
+/* -------------------------------------------------------------------------- */
+
+/* Contenedor */
+#categories{
 	display:none;
 	margin-top:-10px;
 	position: relative;
 	padding-bottom:20px;
 }
+
 /* Posicionamiento titulos  */
-header #categories h4{
+h4.titlesCat{
 	margin-top:25px;
 	margin-bottom:-10px;
 }
 
 /* Linea separadora de los titulos */
-#categories hr{
+hr.lineTitleCat{
 	border:1px solid rgba(240, 223, 223, 0.705);
 	margin-bottom: 10px;
 }
 
 
-/*=============================================
-ESCRITORIO GRANDE (LG revisamos en 1366px en adelante)
-=============================================*/
+/* -------------------------------------------------------------------------- */
+/*                                 RESPONSIVE                                 */
+/* -------------------------------------------------------------------------- */
 
-@media (min-width:1200px){
+/* Especial PNG top */
 
-	/*=============================================
-	HEADER
-	=============================================*/
-
-	header #logotipo img{
-		padding:20px 60px;
-		padding-left:0px;
-	}
-
-	header #shopCart{
-		padding-left:100px;
-	}
-
+@media (max-width:1480px){
+	/* Imagen de hombre y mujer*/
+img.imgTop{
+display: none;
+}
 }
 
-/*=============================================
-ESCRITORIO MEDIANO O TABLET HORIZONTAL (MD revisamos en 1024px)
-=============================================*/
-
-@media (max-width:1199px) and (min-width:992px){
-
-	/*=============================================
-	HEADER
-	=============================================*/
-
-	header #logotipo img{
-		padding:25px 60px;
-		padding-left:0px;
+/* Escritorio */
+@media (min-width:1200px){
+    
+	/* Posiciona el carrito a la derecha */
+	#shopCart{
+		padding-left:110px;
 	}
+	/* Padding general del logo */
+	img.myLogo{
+		padding:15px;
+	}
+	
+}
 
-	header #shopCart{
+
+/* Escritorio mediano */
+@media (max-width:1199px) and (min-width:992px){
+    
+	#shopCart{
 		padding-left:70px;
 	}
-
+	img.myLogo{
+		padding:18px;
+	}
+   
 }
 
-/*=============================================
-ESCRITORIO PEQUEÑO O TABLET VERTICAL (SM revisamos en 768px)
-=============================================*/
-
+/* tablet */
 @media (max-width:991px) and (min-width:768px){
 
-	/*=============================================
-	HEADER
-	=============================================*/
-
-	header #logotipo img{
-		padding:30px 0px;
+	img.myLogo{
+		padding:22px;
 	}
-
-	header #shopCart{
-		padding-left:55px;
+	#shopCart{
+		padding-left:56px;
 	}
-
-	header #shopCart p{
+	/* Desaparece el input del carrito */
+	#shopCart p{
 		display:none;
 	}
 
 }
 
-/*=============================================
-MOVIL (XS revisamos en 320px)
-=============================================*/
-
+/* Movil */
 @media (max-width:767px){
 
-	/*=============================================
-	TOP
-	=============================================*/
-
-	#top ul{
+	.barraTop ul{
 		text-align: center;
 	}
-
+/* barra de separacion DEL LOGIN CON EL LOGO */
 	#top #register{
-		border-top:1px solid #222;
+		border-top:1px solid rgb(252, 252, 252);
+		/* Cambio del margen superior de los contenedores en responsive */
+		margin-top: 20px;
 	}
-	
-	/*=============================================
-	HEADER
-	=============================================*/
+	/* Correccion del margen superior de los iconos sociales */
+	#social{
+		margin: 20px;
+	}	
+	/* Colocacion centrada del login */
+	.register ul{
+		margin-bottom: 5px;
+	}
 
-	header #logotipo img{
-		padding:30px;
+	#logotipo img{
+		padding:0;
 		padding-bottom:10px;
 	}
-
-	header #categories{
+	#categories{
 		margin-bottom:10px;
 	}
-
-	header #search{
+	#search{
 		margin-bottom:10px;
 	}
-
-	header #shopCart{
+	#shopCart{
 		margin:0px;
 	}
-	
+
 }

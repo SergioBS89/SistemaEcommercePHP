@@ -15,7 +15,7 @@ $('#btnCategories').click(function (e) {
          // Si la pantalla tiene un ancho mayor a 768px se despliega debajo del header
 	}else{
 
-		$("#header").after($("#categories").slideToggle("fast"))
+		$("#containerCat").after($("#categories").slideToggle("fast"))
 		
 	}
 });

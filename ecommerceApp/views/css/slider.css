@@ -1,0 +1,98 @@
+/* -------------------------------------------------------------------------- */
+/*                               /IMPORTANTE!!!                               */
+/* -------------------------------------------------------------------------- */
+/* -LOS SELECTORES POR ID SON PRINCIPALMENTE LOS CONTENEDORES DE CADA SECCION 
+   -LOS SELECORES POR CLASE SON LOS ELEMENTOS QUE ESTAN DENTRO DE LOS CONTENEDORES*/
+/* -ALGUNAS VECES ES NECESARIO USAR DOS SELECTORES PARA NO CREAR CONFLICTO CON BOOTSTRAP EJEMPLO: ul.miClase */
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                   SLIDER                                   */
+/* -------------------------------------------------------------------------- */
+
+
+/* Contenedor slider */
+#slider{
+
+    width: 100%;
+    margin: auto;
+    padding: 0;
+    /* position: relative; */
+    overflow: hidden;
+    margin-top: 50px;
+}
+
+#slider ul{
+    width: 100%;
+    margin: auto;
+    left: 0;
+    position: relative;
+    clear: both;
+    display: table;
+}
+
+#slider ul li{
+    position: relative;
+    float: left;
+    width: 100%;
+    /* height: 600px; */
+
+}
+/* Fondo del slider */
+img.imgSlider{
+    width: 100%;
+    height: 100%;
+}
+
+/*Imagen del producto  */
+
+
+.slideOpcion1 img{
+    position: absolute;
+    opacity: 1;
+    top: 30%;
+    width: 40%;
+    right:8% ;
+}
+
+/* Textos del slider */
+
+.textSlider h1,h2,h3{
+    position: absolute;
+    width: 40%;
+    left: 10%;
+}
+
+.textSlider h1{
+    text-transform: uppercase;
+    font-size: 60px;
+    opacity: 1;
+    top: 20%;
+}
+.textSlider h2{
+    text-transform: uppercase;
+    font-size: 30px;
+    opacity: 1;
+    top: 40%;
+}
+.textSlider h3{
+    text-transform: uppercase;
+    font-size: 17px;
+    opacity: 1;
+    top: 50%;
+}
+
+/* Boton slider */
+.textSlider button{
+    border: 0;
+    position: absolute;
+    top: 70%;
+    left: 10%;
+}
+
+.textSlider button span{
+    margin-left: 10px;
+   
+
+}

@@ -33,8 +33,9 @@
    <!-- Agregamos la variable $ruteStatc a todos los links y scripts del documento-->
     
     <!-- Estilos de css -->
-    <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/template.css">
+    <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/general.css">
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/header.css">
+    <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/slider.css">
     
     <!-- Vinculamos las librerias de bootstrap y jquery -->
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/plugins/bootstrap.min.css">
@@ -67,8 +68,8 @@
 
     $ruteArray = array();
 
-    //htaccess manda al index un dato get y comprobamos que existe
-    if(isset($_GET["rute"])){
+//htaccess manda al index un dato get y comprobamos que existe, si no existe se muestra el Slider con un else mas abajo
+if(isset($_GET["rute"])){
 
     //La función explode de php se encarga de dividir o separar una cadena en función de un delimitador($_GET["RUTE"])
     //es decir, divide la cadena en partes (creando un array, separando cada posicion por la / barra) justo donde se 
@@ -123,10 +124,22 @@ foreach($existProductSubCategories as $key => $val){
     else {
     include "modules/error_noProduct.php";
     }    
+} 
+//SI NO EXISTE $_GET["rute"], hacemos que se muestre el slider en nuestra pagina principal
+else{
+   include "modules/slider.php";
+
 }
     ?>
 <script src="<?php echo $ruteStatc;?>views/js/header.js"></script>
 <script src="<?php echo $ruteStatc;?>views/js/template.js"></script>
-    
+<!-- /* -------------------------------------------------------------------------- */
+/*                                ATRIBUCIONES                                */
+/* -------------------------------------------------------------------------- */ -->
+<!-- clipart humano PNG diseñado por hublot90 de  <a href="https://es.pngtree.com">Pngtree.com</a> -->
+<!-- <a href='https://www.freepik.es/psd/logo'>Psd de Logo creado por freepik - www.freepik.es</a> -->
+<!-- <a href='https://www.freepik.es/vectores/fondo'>Vector de Fondo creado por starline - www.freepik.es</a> -->
+<!-- <a href='https://www.freepik.es/vectores/fondo'>Vector de Fondo creado por starline - www.freepik.es</a> -->
+<!-- <a href='https://www.freepik.es/fotos/fondo'>Foto de Fondo creado por freepik - www.freepik.es</a> -->
 </body>
 </html>

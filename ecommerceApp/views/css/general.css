@@ -1,0 +1,180 @@
+/* -------------------------------------------------------------------------- */
+/*                                 CSS GLOBAL                                 */
+/* -------------------------------------------------------------------------- */
+
+/* Variable para el color principal de la seccion categorias*/
+:root {
+	--main-bg-color: #646464;
+	--main-bg-colorTop: rgb(211, 20, 20);
+  }
+
+*{
+	margin:0px;
+	padding:0px;
+	list-style: none;
+	text-decoration: none;
+	/* font-family: 'Ubunt', sans-serif; */
+	font-family: 'Roboto Slab', serif;
+}
+
+/* Elimina el padding por defecto que trae boostrap */
+ul, ol{
+	padding:0px;
+}
+
+
+/* Elimina el estilo de las categorias y subcate... */
+.catAncor:hover, .subCatAncor:hover{
+	text-decoration: none;
+} 
+
+/* -------------------------------------------------------------------------- */
+/*                       COLORES BARRA TOP Y CATEGORIAS                       */
+/* -------------------------------------------------------------------------- */
+.barraTop{
+	background: var(--main-bg-colorTop);	
+}
+/* color texto barra superior y barra separadora del login*/
+.barraTop li, .barraTop a {
+	color:white;
+}
+
+/* Seccion de las categorias, buscador y carrito */
+
+.firstColors, .firstColors a,button.firstColors{
+	background-color: var(--main-bg-color);
+	color:white;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                        SECCION DE LAS REDES SOCIALES                       */
+/* -------------------------------------------------------------------------- */
+
+
+
+/* ----------------------------- COLORES ICONOS ----------------------------- */
+
+/* Elimina los estilos de los vinculos que trae boostrap */
+.social ul li a,.social ul li a i :hover{
+	text-decoration: none;
+   }
+
+/* Iconos en color blanco */
+
+.whiteFacebook,.whiteYoutube,.whiteGoogle,.whiteTwitter,.whiteInstagram{
+	color:white;
+}
+
+/* Iconos en color negro */
+
+.blackFacebook,.blackYoutube,.blackGoogle,.blackTwitter,.blackInstagram{
+	color:black;
+}
+
+/* Colores originales */
+
+/* Facebook */
+.colorFacebook{
+	color:white;
+	background:#46639f;
+}
+
+/*YOUTUBE*/
+
+.colorYoutube{
+	color:white;
+	background:#d6513e;
+}
+
+/*TWITTER*/
+
+.colorTwitter{
+	color:white;
+	background:#0ab2e6;
+}
+
+/*GOOGLE PLUS*/
+
+.colorGoogle{
+	color:white;
+	background:#d71617;
+}
+
+/*INSTAGRAM*/
+
+.colorInstagram{
+	color:white;
+	background:linear-gradient(45deg, #fca925, #ee1d5f,  #6350a2);
+
+}
+
+
+ /* -------------------------------------------------------------------------- */
+ /*                        PAGINA DE ERROR PRODUCTO NO EXISTE                       */
+ /* -------------------------------------------------------------------------- */
+
+.error{
+	color:rgb(46, 45, 45);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 RESPONSIVE                                 */
+/* -------------------------------------------------------------------------- */
+
+/* Escritorio grande */
+@media (min-width:1200px){
+
+	.col-lg-0{
+		display: none;
+	}
+
+	.error h1{
+		font-size:150px;
+		text-shadow:8px 8px 1px #d1cccc;
+	}
+
+}
+
+/* Escritorio mediano */
+
+@media (max-width:1199px) and (min-width:992px){
+
+	.col-md-0{
+		display: none;
+	}
+
+	.error h1{
+		font-size:100px;
+		text-shadow:6px 6px 1px #c4c0c0;
+	}
+
+}
+
+/* Tablet */
+
+@media (max-width:991px) and (min-width:768px){
+
+	.col-sm-0{
+		display: none;
+	}
+
+	.error h1{
+		font-size:100px;
+		text-shadow:4px 4px 1px #d1cdcd;
+	}
+
+}
+
+/* movil */
+@media (max-width:767px){
+
+	.col-xs-0{
+		display: none;
+	}
+
+	.error h1{
+		font-size:75px;
+		text-shadow:2px 2px 1px #c5c1c1;
+	}
+
+}

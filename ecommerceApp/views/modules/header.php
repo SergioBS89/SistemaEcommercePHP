@@ -5,44 +5,58 @@
 
 
 <!-- /* ----------------------------------------------------------------------*/
-/*                           REDES SOCIALES Y LOGIN                           */
+/*                           REDES SOCIALES , LOGO  Y LOGIN   HEADER                        */
 /* -------------------------------------------------------------------------- */ -->
 
-<!-- Las clases de bootstrap estan separadas con guiones, las creadas por mi usan camelCase-->
-<div class="container-fluid barraTop" id="top">
+<!--IMPORTANTE!!-> Las clases de bootstrap estan separadas con guiones, las creadas por mi usan camelCase-->
+
+
+<div class="container-fluid barraTop"  style="position: relative;" id="top">
+     <!-- /* ------------------------------- PNG DEL TOP ------------------------------ */ -->
+            <!-- CAMBIAR AL SUBIR A SERVIDOR -->
+            <img src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/views/img/logos/imgTop.png" class="imgTop" alt="eoooo">
+            
 
     <div class="container">
-
-        <div class="row">
-
-            <!-- /* --------------------------------- social --------------------------------- */ -->
-            <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12 social">
+       
+        <div class="row" >           
+    
+             <!-- /* ----------------------------- REDES SOCIALES DINAMICAS----------------------------- */ -->
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 social" id="social"> 
                 <ul>
-                    <?php 
-                    //Lamamos al controlador para la conexion a la base de datos 
-                    $stylesDB = TemplateController::controllerStyleTemplate();
+                    <?php   
+                     //Lamamos al controlador para la conexion a la base de datos 
+                    $stylesDB = TemplateController::controllerStyleTemplate();                
                     
                     // json_decode()--transforma un string(json), en un array
                     $jsonSocialMedia = json_decode($stylesDB["socialMedia"], true);
                     
                     //Recorremos el resultado de los registros devueltos
                     foreach($jsonSocialMedia as $key => $value){
+                        // Se imprimen las etiquetas que mostraran todas las redes
                         echo '
                         <li>
                         <a href="'.$value["url"].'" target="_blank">
                             <i class="fa fa-lg '.$value["red"].' socialMedia '.$value["style"].'" aria-hidden="true"></i>
                         </a>
                     </li>';
-                    }
-                    
+                    }                 
                     ?>
-                    
-
                 </ul>
             </div>
 
-            <!-- /* -------------------------------- registro usuarios-------------------------------- */ -->
-            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 register">
+            <!-- /* --------------------------------- LOGO DINAMICO--------------------------------- */ -->
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 " id="logotipo">
+            <?php             
+                echo ' <a href="#">
+                    <img src="'.$stylesDB["logo"].'" class="img-responsive myLogo">
+                       </a>
+                       '; 
+            ?>               
+            </div>
+
+            <!-- /* --------------------------------LOGIN-------------------------------- */ -->
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 register" id="register">
                 <ul>
                 <li><a href="#modalSignIn" data-toggle="modal">Sign in</a></li>
                 <li>|</li>
@@ -55,61 +69,55 @@
 </div>  
 
             <!-- -------------------------------------------------------------------------- */
-            /*                                   HEADER                                   */
+            /*                        CATEGORIAS, CARRITO, BUSCADOR                                  */
             /* -------------------------------------------------------------------------- */ -->
 <header class="container-fluid">
 
     <div class="container">
     
-        <div class="row" id="header">
+        <div class="row" id="containerCat">
     
-            <!-- /* -------------------------------- LOGO -------------------------------- */ -->
-           
-            <div class="col-lg-3 col-md-3 col-sm-2 col-xs-12" id="logotipo">
             
-            <!-- Traigo dinamicamente el logo desde la Base de Datos -->
-            <?php 
-                echo ' <a href="#">
-                    <img src="'.$stylesDB["logo"].'" class="img-responsive">
-                       </a>
-                       '; 
-            ?>
-                
+           
+            <div class="col-lg-3 col-md-3 col-sm-2 col-xs-12 ">          
+            <!--Contenedor vacio para compensar layout de bootstrap-->       
             </div>
-    
-            <!-- /* --------------------------CATEGORIAS Y BUSCADOR------------------------- */ -->
+            
+            <!-- /* ------ Contenedor que contiene el boton de categorias y el buscador ------ */ -->
             <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12">
                 
-                 <!-- /* ----------------------------- boton categoria ---------------------------- */ 
-                 Pull-right usa una clase de bootstrap que desplaza el boton hacia la izquierda-->
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 backColor" id="btnCategories">
+             <!-- /* -----------------------------BOTON DE CATEGORIAS---------------------------- */ -->
+                 
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 firstColors" id="btnCategories">
                 
                     <p>CATEGORIES
+                        <!-- Pull-right usa una clase de bootstrap que desplaza el boton hacia la izquierda -->
                         <span class="pull-right">
                             <i class="fa fa-bars" aria-hidden="true"></i>
                         </span>
                     </p>
                 </div>
     
-                <!-- /* -------------------------------- buscador -------------------------------- */ -->
+                <!-- /* --------------------------------BUSCADOR-------------------------------- */ -->
                 <div class="input-group col-lg-8 col-md-8 col-sm-8 col-xs-12" id="search">
     
-                    <input type="search" name="buscar" class="form-control" placeholder="Search">
+                    <input type="search" name="buscar" class="form-control inputSearch" placeholder="Search">
                     <!-- input-group-btn posiciona el boton de buscador en la misma linea del contenedor -->
                     <span class="input-group-btn">
                         <a href="#">
-                            <button class="backColor btn btn-default backColor" type="submit">
+                            <button class="btn btn-default firstColors btnSearch" type="submit">
                                 <i class="fa fa-search "></i>
                             </button>
                         </a>
                     </span>
                 </div>
+
             </div>
     
             <!-- /* --------------------------- CARRITO DE COMPRAS --------------------------- */ -->
             <div class="col-lg-3 col-md-3 col-sm-2 col-xs-12" id="shopCart">
                 <a href="#">
-                    <button class="btn btn-default pull-left backColor" type="submit">
+                    <button class="btn btn-default pull-left firstColors btnShopCart" type="submit">
                         <i class="fa fa-shopping-cart"></i>
                     </button>
                 </a>
@@ -122,16 +130,16 @@
     
         </div>
 
-        <!-- /* ------------------------------- CATEGORIAS ------------------------------- */ -->
+        <!-- /* ------------------------------- DESPLEGABLE DE CATEGORIAS ------------------------------- */ -->
 
-        <div class="col-xs-12 backColor" id="categories">
+        <div class="col-xs-12 firstColors" id="categories">
 
         <!-- /* -------------------------------------------------------------------------- */
-        /*                          CATEGORIAS DINAMICAMENTE                          */
+        /*                          CATEGORIAS Y SUBCAT.. DINAMICAS                       */
         /* -------------------------------------------------------------------------- */ -->
 
-        <?php 
-        
+        <?php     
+
         //Varible que pide al controlador los resultados de la base de datos de las categorias
         $categoryDinamic = ProductsController::controllerCategoriesDinamic();
 
@@ -140,16 +148,14 @@
         foreach($categoryDinamic as $key => $value){
                // Al pulsar en cada una de las categorias, se manda a la url el valor RUTE 
             echo ' <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
-                        <h4>
+                        <h4 class="titlesCat">
                      
-                            <a href="'.$value['rute'].'" id="pixelCategories">'.$value['category'].'</a>
+                            <a href="'.$value['rute'].'" class="catAncor">'.$value['category'].'</a>
                         </h4>
-                        <hr style="width: 100px;">
+                        <hr class="lineTitleCat" style="width: 100px;">
                         <ul>';
+        // 
         
-        //Varible que pide al controlador los resultados de la base de datos de las subcategorias,
-        //  toma por parametro el id de cada categoria.
-
         $subCategoriesDinamic = ProductsController::controllerSubCategoriesDinamic($value['id']);
         
          //Recorro el resultado obtenido del controlador, asigno el nombre de cada subcategoria dentro de la etiqueta
@@ -157,12 +163,13 @@
              // Al pulsar en cada una de las subcategorias, se manda a la url el valor RUTE 
             echo '          
                            
-                            <li><a href="'.$value['rute'].'" class="pixelSubCategories">'.$value['subcategory'].'</a></li>
+                            <li><a href="'.$value['rute'].'" class="subCatAncor">'.$value['subcategory'].'</a></li>
                             ';
         }
+        // Cierro las etiquetas abiertas en el bloque de arriba
             echo '
-                    </ul>
-                </div>';        
+                        </ul>
+                    </div>';        
         }
         
         ?>          
