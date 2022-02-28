@@ -18,15 +18,17 @@
     width: 100%;
     margin: auto;
     padding: 0;
-    /* position: relative; */
+    position: relative;
     overflow: hidden;
     margin-top: 50px;
 }
 
 #slider ul{
-    width: 100%;
+    /* El ancho es de 600 por que hay 6 slider (num_slider * 100%) */
+    width: 600%;
     margin: auto;
-    left: 0;
+    /* Este porcentaje cambiara dinamicamente para mostrar todos los slides */
+    left: 0%; 
     position: relative;
     clear: both;
     display: table;
@@ -35,8 +37,10 @@
 #slider ul li{
     position: relative;
     float: left;
-    width: 100%;
+    /* Defino el ancho en funcion del numero de fotos del slider (ancho 100% dividido por las img usadas)*/
+    width: calc(100%/6); 
     /* height: 600px; */
+    overflow: hidden;
 
 }
 /* Fondo del slider */
@@ -46,40 +50,51 @@ img.imgSlider{
 }
 
 /*Imagen del producto  */
-
-
-.slideOpcion1 img{
+.productRigth img{
     position: absolute;
     opacity: 1;
-    top: 30%;
+    /* DINAMICO */
+    /* top: 25%;
     width: 40%;
-    right:8% ;
+    right:8% ; */
 }
 
-/* Textos del slider */
+.productLeft img{
+    position: absolute;
+    opacity: 1;
+    /* top: 25%;
+    width: 40%;
+    left:8% ; */
+}
 
-.textSlider h1,h2,h3{
+
+/* Textos del slider IZQUIERDA */
+.textSliderL h1, .textSliderL h2, .textSliderL h3{
     position: absolute;
     width: 40%;
-    left: 10%;
+    left: 8%;
+    text-transform: uppercase;
+    opacity: 1;
+}
+.textSliderR h1,.textSliderR h2,.textSliderR h3{
+    position: absolute;
+    width: 40%;
+    right: 8%;
+    text-align: right;
+    text-transform: uppercase;
+    opacity: 1;
 }
 
 .textSlider h1{
-    text-transform: uppercase;
     font-size: 60px;
-    opacity: 1;
     top: 20%;
 }
 .textSlider h2{
-    text-transform: uppercase;
     font-size: 30px;
-    opacity: 1;
     top: 40%;
 }
 .textSlider h3{
-    text-transform: uppercase;
     font-size: 17px;
-    opacity: 1;
     top: 50%;
 }
 
@@ -87,12 +102,108 @@ img.imgSlider{
 .textSlider button{
     border: 0;
     position: absolute;
-    top: 70%;
-    left: 10%;
+    top: 70%;   
+    padding: 10px;
+   
+}
+/*COLORES TEXTOS SLIDER 1 Y 4*/
+.TextSli1 h1{
+    color: rgb(8, 54, 37);
+}
+.TextSli1 h2{
+    color: rgb(11, 83, 55);
+}
+.TextSli1 h3{
+    color: rgb(32, 134, 95);
+}
+
+/* COLORES TEXTOS SLIDER 2 Y 5 */
+.TextSli2 h1{
+    color: rgb(255, 255, 255);
+}
+.TextSli2 h2{
+    color: rgb(208, 211, 210);
+}
+.TextSli2 h3{
+    color: rgb(157, 158, 158);
+}
+/* COLORES TEXTOS SLIDER 3 Y 6 */
+.TextSli3 h1{
+    color: rgb(0, 0, 0);
+}
+.TextSli3 h2{
+    color: rgb(37, 37, 37);
+}
+.TextSli3 h3{
+    color: rgb(96, 97, 96);
+}
+
+/* BOTONES */
+button.btnR{
+    right:8%;
+    opacity: 1;
+}
+button.btnL{
+    left: 8%;
+    opacity: 1;
 }
 
 .textSlider button span{
-    margin-left: 10px;
-   
+    margin-left: 10px;  
+}
 
+/* FLECHAS */
+#slider .arrow{
+    background-color: rgba(102, 102, 102, 0.705);
+    position: absolute;
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+    z-index: 2;
+}
+#slider .arrow:hover{
+    color: rgb(228, 226, 226);
+    background-color: rgb(19, 18, 18);
+}
+
+.arrow#nextImg{    
+    top: 40%;
+    right: 0;
+    padding: 30px 10px;   
+    font-size: 22px;
+}
+.arrow#backImg{
+    top: 40%;
+    left: 0;
+    padding: 30px 10px;
+    font-size: 22px;  
+}
+/* Paginacion */
+
+ol.pagination{
+position: absolute;
+left: 0;
+bottom: 0;
+width: 100%;
+margin: auto;
+margin-bottom: 10px;
+text-align: center;
+font-size: 20px;
+/* background-color: rgba(102, 102, 102, 0.705); */
+display: flex;
+justify-content: center;
+}
+
+/* estilos del paginador (Cambiando estilos de Bootstrap) */
+#slider .pagination>li>span{
+margin: 0px 0px;
+background-color: transparent;
+color: rgb(226, 208, 231);
+border: none;
+padding: 6px 10px;
+cursor: pointer;
+}
+
+#slider .pagination li:first-child span{
+    color: rgb(39, 39, 39);
 }

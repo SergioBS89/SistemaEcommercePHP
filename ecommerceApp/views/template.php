@@ -133,6 +133,7 @@ else{
     ?>
 <script src="<?php echo $ruteStatc;?>views/js/header.js"></script>
 <script src="<?php echo $ruteStatc;?>views/js/template.js"></script>
+<script src="<?php echo $ruteStatc;?>views/js/slider.js"></script>
 <!-- /* -------------------------------------------------------------------------- */
 /*                                ATRIBUCIONES                                */
 /* -------------------------------------------------------------------------- */ -->
