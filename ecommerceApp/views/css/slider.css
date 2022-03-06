@@ -30,11 +30,14 @@
     margin: auto;
     /* El porcentaje de left cambiara dinamicamente con JS para mostrar todos los slides */
     left: 0%;
+    display: table;
+    clear: both;
 }
 /* Lista de las imagenes del slider */
 #slider ul li{
     position: relative;
-    /* float: left; */
+    /* no tocar */
+    float: left;
     /* Defino el ancho en funcion del numero de fotos del slider (ancho 100% dividido por las img usadas)*/
     width: calc(100%/6); 
     overflow: hidden;

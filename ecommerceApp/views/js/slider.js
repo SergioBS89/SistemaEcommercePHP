@@ -75,7 +75,7 @@ $(next).click(function(){
         moveSlider(numSlider)
     }
         
- },73200)
+ },3200)
 
 /* ---------------------- FUNCION PARA MOVER EL SLIDER Y ANIMAR PRODUCTOS---------------------- */
 
