@@ -36,6 +36,8 @@
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/general.css">
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/header.css">
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/slider.css">
+    <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/responsive.css">
+    <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/normalize.css">
     
     <!-- Vinculamos las librerias de bootstrap y jquery -->
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/plugins/bootstrap.min.css">

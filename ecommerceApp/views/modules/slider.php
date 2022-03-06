@@ -1,148 +1,55 @@
 <!-- 
 /* -------------------------------------------------------------------------- */
-/*                               HTML DEL SLIDER                              */
+/*                               SLIDER                              */
 /* -------------------------------------------------------------------------- */ -->
 
-
+       
 <div class="container-fluid" id="slider">
 
     <div class="row">
 
         <ul>
-            <!-- /* -------------------------------------------------------------------------- */
-            /*                                   SLIDE 1                                  */
-            /* -------------------------------------------------------------------------- */ -->
 
-            <!-- /* -------------------- SLIDER CON PRODUCTO A LA DERECHA -------------------- */ -->
-            <li>
-                <img class="imgSlider" src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/views/img/slider/default/fy.jpg" alt="">
-                <div class="productRigth">
-    
-                    <img src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/views/img/slider/slide1/1.png"
-                     alt="AAAAAAAAAAAAAAAAAAAAAAAAA" style="width: 40%; right: 10%; top: 10%;">
+          <!-- /* -------------------------------------------------------------------------- */
+          /*                              SLIDERS DINAMICOS                             */
+          /* -------------------------------------------------------------------------- */ -->
+        <?php 
+            
+            //creamos el objeto slider y llamamos a la funcion que devuelve desde la base de datos todos los estilos de nuestro slider
+            $slider = SliderController::sliderStyle(); 
+            
+            foreach ($slider as $key => $value){
+           
+            //Todos aquellos registros almacenados en json, son necesarios convertirlos en arrays para poder manipular la informacion    
+            $jsonProductStyles=json_decode($value["styleProduct"],true);
+            $jsonH1Styles = json_decode($value["colorText"],true);
+            $jsonH2Styles = json_decode($value["colorTextH2"],true);
+            $jsonText= json_decode($value["textH1"],true);
+            $jsonButton= json_decode($value["button"],true);
 
-                    <div class="textSliderL textSlider  TextSli1">                 
-    
-                        <h1>Lorem, ipsum</h1>
-                        <h2>Lorem ipsum Lorem ipsun</h2>
-                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid voluptatum eligendi perferendis maxime veniam!</h3>
-                        <a href="#">
-                            <button class="btn btn-default firstColors btnL">SEE PRODUCT <span class="glyphicon glyphicon-play"></span></button>
-                        </a>
-                    </div>
-                </div>
-            </li>
-             <!-- /* -------------------------------------------------------------------------- */
-            /*                                   SLIDE 2                                */
-            /* -------------------------------------------------------------------------- */ -->
-
-             <!-- /* -------------------- SLIDER CON PRODUCTO A LA IZQUIERDA-------------------- */ --> 
-            <li> 
-                <img class="imgSlider" src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/views/img/slider/default/fr2.jpg" alt="">
-                <div class="productLeft">
-    
-                    <img src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/views/img/slider/slide4/4.png"
-                     alt="AAAAAAAAAAAAAAAAAAAAAAAAA" style="width: 35%; left: 10%; top: 8%;">
-                    <div class="textSliderR textSlider TextSli2" style="right: 10%; width:40%;">            
-    
-                        <h1>Lorem, ipsum</h1>
-                        <h2>Lorem ipsum Lorem ipsun</h2>
-                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid voluptatum eligendi perferendis maxime veniam!</h3>
-                        <a href="#">
-                            <button class="btn btn-default firstColors btnR">SEE PRODUCT <span class="glyphicon glyphicon-play"></span></button>
-                        </a>
-                    </div>
-                </div>
-            </li>
-             <!-- /* -------------------------------------------------------------------------- */
-            /*                                   SLIDE 3                                */
-            /* -------------------------------------------------------------------------- */ -->
-
-             <!-- /* -------------------- SLIDER CON PRODUCTO A LA DERECHA -------------------- */ -->
+            //Imprimo uno por uno, todos los registros de la base de datos (6 sliders) y aplico a cada uno las respectivas clases y estilos
+             echo '
              <li>
-                <img class="imgSlider" src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/views/img/slider/default/fw2.jpg" alt="">
-                <div class="productLeft">
-    
-                    <img src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/views/img/slider/slide1/1.png"
-                     alt="AAAAAAAAAAAAAAAAAAAAAAAAA" style="width: 40%; right: 10%; top: 10%;">
-                    <div class="textSliderL textSlider TextSli3" style="left: 10%; width:40%;">                 
-    
-                        <h1>Lorem, ipsum</h1>
-                        <h2>Lorem ipsum Lorem ipsun</h2>
-                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid voluptatum eligendi perferendis maxime veniam!</h3>
-                        <a href="#">
-                            <button class="btn btn-default firstColors btnL">SEE PRODUCT <span class="glyphicon glyphicon-play"></span></button>
-                        </a>
-                    </div>
-                </div>
-            </li>
-              <!-- /* -------------------------------------------------------------------------- */
-            /*                                   SLIDE 4                                */
-            /* -------------------------------------------------------------------------- */ -->
+             <img class="imgSlider" src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/'.$value["background"].'" alt="">
+             <div class ="'.$value["positionProduct"].'">
 
-             <!-- /* -------------------- SLIDER CON PRODUCTO A LA IZQUIERDA-------------------- */ --> 
-             <li> 
-                <img class="imgSlider" src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/views/img/slider/default/fy.jpg" alt="">
-                <div class="productLeft">
-    
-                    <img src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/views/img/slider/slide4/4.png"
-                     alt="AAAAAAAAAAAAAAAAAAAAAAAAA" style="width: 40%; left: 10%; top: 20%;">
-                    <div class="textSliderR textSlider  TextSli1" style="right: 10%; width:40%;">            
-    
-                        <h1>Lorem, ipsum</h1>
-                        <h2>Lorem ipsum Lorem ipsun</h2>
-                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid voluptatum eligendi perferendis maxime veniam!</h3>
-                        <a href="#">
-                            <button class="btn btn-default firstColors btnR">SEE PRODUCT <span class="glyphicon glyphicon-play"></span></button>
-                        </a>
-                    </div>
-                </div>
-            </li>
+                 <img src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/'.$value["product"].'"
+                  alt="" style="width:'.$jsonProductStyles["width"].';top:'.$jsonProductStyles["top"].';">
 
-              <!-- /* -------------------------------------------------------------------------- */
-            /*                                   SLIDE 5                             */
-            /* -------------------------------------------------------------------------- */ -->
+                 <div class="'.$jsonText["positionText"].' textSlider  TextSli1">                 
 
-             <!-- /* -------------------- SLIDER CON PRODUCTO A LA DERECHA -------------------- */ -->
-             <li>
-                <img class="imgSlider" src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/views/img/slider/default/fr2.jpg" alt="">
-                <div class="productLeft">
-    
-                    <img src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/views/img/slider/slide1/1.png"
-                     alt="AAAAAAAAAAAAAAAAAAAAAAAAA" style="width: 40%; right: 10%; top: 20%;">
-                    <div class="textSliderL textSlider  TextSli2" style="left: 10%; width:40%;">                 
-    
-                        <h1>Lorem, ipsum</h1>
-                        <h2>Lorem ipsum Lorem ipsun</h2>
-                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid voluptatum eligendi perferendis maxime veniam!</h3>
-                        <a href="#">
-                            <button class="btn btn-default firstColors btnL">SEE PRODUCT <span class="glyphicon glyphicon-play"></span></button>
-                        </a>
-                    </div>
-                </div>
-            </li>
-              <!-- /* -------------------------------------------------------------------------- */
-            /*                                   SLIDE 6                                */
-            /* -------------------------------------------------------------------------- */ -->
+                    <h1 style="color:'.$jsonH1Styles["color"].';'.$jsonH1Styles["size"].'">'.$jsonText["content"].'</h1>
 
-             <!-- /* -------------------- SLIDER CON PRODUCTO A LA IZQUIERDA-------------------- */ --> 
-             <li> 
-                <img class="imgSlider" src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/views/img/slider/default/fw2.jpg" alt="">
-                <div class="productLeft">
-    
-                    <img src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/views/img/slider/slide4/4.png"
-                     alt="AAAAAAAAAAAAAAAAAAAAAAAAA" style="width: 40%; left: 10%; top: 20%;">
-                    <div class="textSliderR textSlider TextSli3" style="right: 10%; width:40%;">            
-    
-                        <h1>Lorem, ipsum</h1>
-                        <h2>Lorem ipsum Lorem ipsun</h2>
-                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid voluptatum eligendi perferendis maxime veniam!</h3>
-                        <a href="#">
-                            <button class="btn btn-default firstColors btnR">SEE PRODUCT <span class="glyphicon glyphicon-play"></span></button>
-                        </a>
-                    </div>
-                </div>
-            </li>
+                     <h2 style="color:'.$jsonH2Styles["color"].';'.$jsonH2Styles["size"].'">'.$value["textH2"].'</h2>
+                     <a href="'.$jsonButton["urlButton"].'">
+                         <button class="btn btn-default firstColors '.$jsonButton["positionButton"].' ">SEE PRODUCT <span class="glyphicon glyphicon-play"></span></button>
+                     </a>
+                 </div>
+             </div>
+         </li>';
+            }
+            ?>          
+          
         </ul>
         <!-- /* -------------------------------------------------------------------------- */
         /*                                   FLECHAS AVANCE RETROCESO                               */

@@ -1,5 +1,5 @@
 /* -------------------------------------------------------------------------- */
-/*                                 CSS GLOBAL                                 */
+/*                                 CSS GENERAL                               */
 /* -------------------------------------------------------------------------- */
 
 /* Variable para el color principal de la seccion categorias*/
@@ -16,6 +16,8 @@
 	/* font-family: 'Ubunt', sans-serif; */
 	font-family: 'Roboto Slab', serif;
 }
+button:focus {outline:0 !important;}
+
 
 /* Elimina el padding por defecto que trae boostrap */
 ul, ol{
@@ -117,64 +119,4 @@ ul, ol{
 	color:rgb(46, 45, 45);
 }
 
-/* -------------------------------------------------------------------------- */
-/*                                 RESPONSIVE                                 */
-/* -------------------------------------------------------------------------- */
 
-/* Escritorio grande */
-@media (min-width:1200px){
-
-	.col-lg-0{
-		display: none;
-	}
-
-	.error h1{
-		font-size:150px;
-		text-shadow:8px 8px 1px #d1cccc;
-	}
-
-}
-
-/* Escritorio mediano */
-
-@media (max-width:1199px) and (min-width:992px){
-
-	.col-md-0{
-		display: none;
-	}
-
-	.error h1{
-		font-size:100px;
-		text-shadow:6px 6px 1px #c4c0c0;
-	}
-
-}
-
-/* Tablet */
-
-@media (max-width:991px) and (min-width:768px){
-
-	.col-sm-0{
-		display: none;
-	}
-
-	.error h1{
-		font-size:100px;
-		text-shadow:4px 4px 1px #d1cdcd;
-	}
-
-}
-
-/* movil */
-@media (max-width:767px){
-
-	.col-xs-0{
-		display: none;
-	}
-
-	.error h1{
-		font-size:75px;
-		text-shadow:2px 2px 1px #c5c1c1;
-	}
-
-}

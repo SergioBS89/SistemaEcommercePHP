@@ -1,0 +1,356 @@
+/* -------------------------------------------------------------------------- */
+/*                              RESPONSIVE DESIGN                             */
+/* -------------------------------------------------------------------------- */
+
+/* ---------------------------- ESTILOS GENERALES --------------------------- */
+
+/* Escritorio grande */
+@media (min-width:1200px){
+	.col-lg-0{
+		display: none;
+	}
+	.noProduct h1{
+		font-size:150px;
+		text-shadow:8px 8px 1px #d1cccc;
+	}
+}
+
+/* Escritorio mediano */
+
+@media (max-width:1199px) and (min-width:991px){
+	.col-md-0{
+		display: none;
+	}
+	.noProduct h1{
+		font-size:100px;
+		text-shadow:6px 6px 1px #c4c0c0;
+	}
+}
+
+/* Tablet */
+
+@media (max-width:990px) and (min-width:766px){
+	.col-sm-0{
+		display: none;
+	}
+	.noProduct h1{
+		font-size:100px;
+		text-shadow:4px 4px 1px  #c5c1c1;
+	}
+}
+
+/* movil */
+@media (max-width:766px){
+	.col-xs-0{
+		display: none;
+	}
+	.noProduct h1{
+		font-size:75px;
+		text-shadow:2px 2px 1px #c5c1c1;
+	}
+}
+
+/* ----------------------- SECCION HEADER Y CATEGORIAS ---------------------- */
+
+/* Especial PNG top */
+
+@media (max-width:1480px){
+	/* Imagen de hombre y mujer*/
+img.imgTop{
+display: none;
+}
+}
+
+/* Escritorio */
+@media (min-width:1200px){
+    
+	/* Posiciona el carrito a la derecha */
+	#shopCart{
+		padding-left:110px;
+	}
+	/* Padding general del logo */
+	img.myLogo{
+		padding:15px;
+	}	
+}
+
+/* Escritorio mediano */
+@media (max-width:1200px) and (min-width:992px){
+    
+	#shopCart{
+		padding-left:70px;
+	}
+	img.myLogo{
+		padding:18px;
+	}   
+}
+
+/* tablet */
+@media (max-width:992px) and (min-width:768px){
+
+	img.myLogo{
+		padding:22px 10px;
+	}
+	#shopCart{
+		padding-left:56px;
+	}
+	/* Desaparece el input del carrito */
+	#shopCart p{
+		display:none;
+	}
+}
+
+/* Movil */
+@media (max-width:767px){
+
+	.barraTop ul{
+		text-align: center;
+	}
+/* barra de separacion DEL LOGIN CON EL LOGO */
+	#top #register{
+		border-top:1px solid rgb(252, 252, 252);
+		/* Cambio del margen superior de los contenedores en responsive */
+		margin-top: 20px;
+	}
+	/* Correccion del margen superior de los iconos sociales */
+	#social{
+		margin: 20px;
+	}	
+	/* Colocacion centrada del login */
+	.register ul{
+		margin-bottom: 5px;
+	}
+
+	#logotipo img{
+		padding:0px;
+		padding-bottom:10px;
+	}
+	#categories{
+		margin-bottom:10px;
+	}
+	#search{
+		margin-bottom:10px;
+	}
+	#shopCart{
+		margin:0px;
+	}
+}
+
+/* --------------------------- SECCION DEL SLIDER --------------------------- */
+
+
+/* Escritorio grande */
+@media (max-width:1425px) and (min-width:1200px){
+
+	.textSlider h1{
+        font-size: 60px;
+        top: 20%;
+      
+    }
+    .textSlider h2{
+        font-size: 20px;
+		top: 40%;
+	
+    }
+    .textSlider h3{
+        display: none;
+    }
+	/* Boton slider */
+    .textSlider button{    
+		top: 65%;
+		margin: 0px;
+		font-size: 15px;
+		padding: 10px;
+		}
+
+}
+
+/* Escritorio mediano */
+
+@media (max-width:1199px) and (min-width:990px){
+	.textSlider h1{
+        font-size: 45px;
+        top: 20%;
+      
+    }
+    .textSlider h2{
+        font-size: 15px;
+		top: 40%;
+	
+    }
+    .textSlider h3{
+        display: none;
+    }
+	/* Boton slider */
+    .textSlider button{    
+		top: 65%;
+		margin: 0px;
+		font-size: 15px;
+		padding: 10px;
+		}
+		/* FLECHAS */
+		#slider .arrow{
+			font-size: 0.8em;
+		}
+		.arrow#nextImg,.arrow#backImg{    
+		 
+			padding: 15px 6px 17px 6px;   
+			/* font-size: 11px; */
+		}
+		#slider .arrow:hover{
+			background-color: rgba(102, 102, 102, 0.705);
+		}
+}
+
+/* Tablet */
+
+@media (max-width:990px) and (min-width:767px){
+	.textSlider h1{
+        font-size: 35px;
+        top: 20%;
+      
+    }
+    .textSlider h2{
+        font-size: 13px;
+		top: 40%;
+	
+    }
+    .textSlider h3{
+        display: none;
+    }
+	/* Boton slider */
+    .textSlider button{    
+    /* transform: scale(0.5); */
+    top: 65%;
+	margin: 0px;
+	font-size: 10px;
+	padding: 7px;
+    }
+	/* FLECHAS */
+    #slider .arrow{
+        font-size: 0.8em;
+    }
+    .arrow#nextImg,.arrow#backImg{    
+     
+        padding: 15px 6px 17px 6px;   
+        /* font-size: 11px; */
+    }
+	#slider .arrow:hover{
+		background-color: rgba(102, 102, 102, 0.705);
+	}
+	 /* PAGINACION */
+    ol.pagination{
+    font-size: 15px;
+    margin-bottom: 6px;
+}
+    
+    /* estilos del paginador (Cambiando estilos de Bootstrap) */
+    #slider .pagination>li>span{
+    padding: 3px 5px;
+    }    
+}
+/* movil */
+@media (max-width:767px) and (min-width:529px) {
+
+    .textSlider h1{
+        font-size: 30px;
+        top: 30%;
+        margin: 0px 4.5%;
+    }
+    .textSlider h2{
+        font-size: 9px;
+		top: 50%;
+		margin: 0px 4.5%;
+    }
+    .textSlider h3{
+        display: none;
+    }
+    
+/* Boton slider */
+    .textSlider button{    
+        font-size: 8px;
+        top: 65%;
+		margin: 0px 4.5%;
+		padding: 6px;
+    }
+
+/* FLECHAS */
+    #slider .arrow{
+        font-size: 0.8em;
+    }
+    .arrow#nextImg,.arrow#backImg{    
+     
+        padding: 8px 4px 10px 4px;   
+        /* font-size: 11px; */
+    }
+	#slider .arrow:hover{
+		background-color: rgba(102, 102, 102, 0.705);
+	}
+   /* PAGINACION */
+ol.pagination{
+    font-size: 10px;
+    margin-bottom: 5px;
+}
+    
+    /* estilos del paginador (Cambiando estilos de Bootstrap) */
+    #slider .pagination>li>span{
+    padding: 3px 5px;
+    }    
+}
+
+ /* -------------------------------- Movil XS -------------------------------- */
+
+@media (max-width:529px){
+	.textSlider h1{
+        font-size: 18px;
+		margin: 0px 10px;
+		top: 30%;
+    }
+	.textSlider h2{
+        font-size: 7px;
+		top: 50%;
+		margin: 0px 10px;
+    }
+    .textSlider h3{
+        display: none;
+    }
+	/* Boton slider */
+    .textSlider button{    
+        font-size: 5px;
+		padding: 4px;
+		padding-top: 5px;
+        top: 70%;
+		margin: 0px 10px;
+    }
+	.textSlider button span{
+		display: none;
+	}
+	
+
+/* FLECHAS */
+    #slider .arrow{
+        font-size: 0.7em;
+    }
+    .arrow#nextImg,.arrow#backImg{    
+     
+        padding: 6px 3px 8px 3px;   
+        /* font-size: 11px; */
+    }
+	#slider .arrow:hover{
+		background-color: rgba(102, 102, 102, 0.705);
+	}
+   /* PAGINACION */
+ol.pagination{
+    font-size: 8px;
+    margin-bottom: 2px;
+}
+    
+    /* estilos del paginador (Cambiando estilos de Bootstrap) */
+    #slider .pagination>li>span{
+    padding: 2px 4px;
+    }    
+}
+
+
+
+
