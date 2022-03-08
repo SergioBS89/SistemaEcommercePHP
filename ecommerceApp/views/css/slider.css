@@ -16,7 +16,7 @@
 #slider{
     width: 100%;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 30px;
     padding: 0;
     position: relative;
     overflow: hidden;    
@@ -28,6 +28,7 @@
     width: 600%;
     position: relative;
     margin: auto;
+    height: auto;
     /* El porcentaje de left cambiara dinamicamente con JS para mostrar todos los slides */
     left: 0%;
     display: table;
@@ -92,33 +93,6 @@ img.imgSlider{
     font-size: 25px;
     top: 40%;
 }
-
-
-/*COLORES TEXTOS SLIDER 1 Y 4*/
-/* .TextSli1 h1{
-    color: rgb(8, 54, 37);
-}
-.TextSli1 h2{
-    color: rgb(11, 83, 55);
-}
-
-
-/* COLORES TEXTOS SLIDER 2 Y 5 */
-/* .TextSli2 h1{
-    color: rgb(0, 0, 0);
-}
-.TextSli2 h2{
-    color: rgb(37, 37, 37);
-} */
-
-
-/* COLORES TEXTOS SLIDER 3 Y 6 */
-/* .TextSli3 h1{
-    color: rgb(255, 255, 255);
-}
-.TextSli3 h2{
-    color: rgb(208, 211, 210);
-}  */
 
 
 /* BOTON */

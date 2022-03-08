@@ -3,10 +3,13 @@
 /* -------------------------------------------------------------------------- */
 
 /* Variable para el color principal de la seccion categorias*/
+
 :root {
 	--main-bg-color: #646464;
 	--main-bg-colorTop: rgb(211, 20, 20);
+	--color-text-contrast: rgb(255, 255, 255);
   }
+
 
 *{
 	margin:0px;
@@ -16,6 +19,7 @@
 	/* font-family: 'Ubunt', sans-serif; */
 	font-family: 'Roboto Slab', serif;
 }
+
 button:focus {outline:0 !important;}
 
 
@@ -36,9 +40,9 @@ ul, ol{
 .barraTop{
 	background: var(--main-bg-colorTop);	
 }
-/* color texto barra superior y barra separadora del login*/
+/* color texto barra superior y barra separadora del login(Dinamica desde la base de datos)*/
 .barraTop li, .barraTop a {
-	color:white;
+	color:var(--color-text-contrast);
 }
 
 /* Seccion de las categorias, buscador y carrito */

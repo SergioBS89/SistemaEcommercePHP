@@ -38,6 +38,7 @@
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/slider.css">
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/responsive.css">
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/normalize.css">
+    <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/productos.css">
     
     <!-- Vinculamos las librerias de bootstrap y jquery -->
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/plugins/bootstrap.min.css">
@@ -123,13 +124,16 @@ foreach($existProductSubCategories as $key => $val){
 
         include "modules/existing_products.php";
     }
+
     else {
     include "modules/error_noProduct.php";
+ 
     }    
 } 
 //SI NO EXISTE $_GET["rute"], hacemos que se muestre el slider en nuestra pagina principal
 else{
    include "modules/slider.php";
+   include "modules/destacados.html.php";
 
 }
     ?>
