@@ -1,0 +1,240 @@
+/*=============================================
+BANNER
+=============================================*/
+
+/* Contenedor general */
+div.banner{
+	height: auto;
+	position: relative;
+	overflow:hidden;
+	height: 800px;
+	width: 75%;
+	margin-top: 50px;
+    padding: 0;
+}
+.banner img{
+	width: 100%;
+	height: 100%;
+}
+
+/* contenedor del INTERIOR banner */
+.banner .textBanner{
+	position: absolute;
+	top:40%;
+	width: 100%;
+	text-align: center;
+}
+
+.textBanner h1{
+	font-size:65px;
+	line-height:25px;
+	color: var(--main-bg-colorTop);
+}
+img.logoBanner{
+	width: 35%;
+	height: 25%;
+	position: absolute;
+	z-index: 2;
+	left: 54%;
+	transform: translateX(-60%);
+	top: 50%;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                      BARRA SUPERIOR DE SECCION PRODUCTOS                 */
+/* -------------------------------------------------------------------------- */
+
+/* contenedor barra */
+div.barProducts{
+    background: linear-gradient(52deg, rgb(34, 33, 33) 22%, rgb(202, 199, 199) 82%);
+	margin-top: 10px;
+	}
+
+/* Posicionamiento de los elementos */
+.viewProducts{
+display: flex;
+justify-content: end;
+align-items: center;
+} 
+/* Titulo seccion */
+.titleSectionProducts h1{
+	display: inline;
+	margin: 0;
+	color: var(--color-text-contrast);
+}
+/* Boton de see more */
+button.seeMore{
+	border: inherit;
+	color: var(--color-text-contrast);
+}
+/* Contenedor see more */
+button.seemore span{
+	margin-left:10px;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                            LISTADO DE PRODUCTOS                            */
+/* -------------------------------------------------------------------------- */
+.contianerImgProduct{
+	position: relative;
+	}
+
+/* Contenedor de la zona nombre producto */
+.productName{
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	height: 12%;
+}
+
+
+/* Todos los contenedores */
+.products li div{
+	overflow:hidden;
+}
+/* Imagenes de los productos */
+.listProducts img{	
+	background-color: white;
+	background: radial-gradient(circle, rgba(255,255,255,1) 66%, rgb(224, 224, 224) 100%);
+	border: 1px solid var(--main-bg-colorTop);
+	width: 255px;
+	height: 300px;
+	padding: 40px;
+}
+/* contenedor estrellas */
+div.rating{
+	width: 70px;
+}
+/* Estrellas valoracion */
+.starsRating{
+	width: 10px;
+	height: 10px;
+	color: var(--main-bg-color);
+}
+/* zoom producto */
+.products ul li a img:hover{
+	transition: .3s all ease;
+	transform: scale(1.1,1.1);
+}
+
+/* nombre del producto */
+.products h5{
+	display: inline;
+	height: 10px;
+	color:rgb(41, 39, 39);
+	text-transform: uppercase;
+	font-size:13px;
+	font-weight: 700;
+}
+ .price{
+	padding: 0 !important;
+} 
+/* precio sin oferta */
+.price h2{
+	color: rgb(39, 37, 37);
+	margin: 0;
+	font-size: 20px;
+	text-align: left;
+	display: inline-block;
+}
+/* Precio con oferta estilo */
+div.offer h2{
+	color: var(--main-bg-colorTop);
+	font-weight: bolder;
+}
+/* Sticker de offer  */
+.stickerOffer::before{
+content: 'OFFER!';
+color: var(--color-text-contrast);
+padding: 5px;
+background-color: var(--main-bg-colorTop);
+position: absolute;
+top:10px;
+left: 10%;
+}
+
+
+
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                NEW PRODUCTS                                */
+/* -------------------------------------------------------------------------- */
+.containerNewProducts{
+	width: 100%;
+	height: 600px;
+	display: grid;
+	grid-template-columns: 33% 1fr 33%;
+	column-gap: 15px;
+	row-gap: 8px;
+	margin: 0;
+  }
+
+ 
+	.newProducts {
+	  width: 100%;
+	  height: 100%;
+	  /* opacity: 0.7; */
+	  cursor: pointer;
+	}
+
+  .newProducts:nth-child(2) {
+	grid-column: 2/2;
+	grid-row: 1/3;
+  }
+ .newProducts h3{
+	 
+	 text-align: left;
+	 font-size: 50px;
+	 padding: 8px;
+	 transform: scale(0.000001);
+	 text-transform: uppercase;
+	 font-family: 'Permanent Marker', cursive;
+	 margin: 0;
+ }
+
+ .newProducts:hover h3,.newProducts:hover a{
+	 width: 100%;
+	 height: 100%;
+	 transform: scale(1);
+	 text-decoration: none;
+	 color: var(--main-bg-colorTop);
+	 background-color: rgba(0, 0, 0, 0.514);
+ }
+ 
+ .new_A{
+	background: url(../../../administrator/views/img/products/new/choco2.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	  }
+	  .new_B{
+		background: url(../../../administrator/views/img/products/new/bar.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: 30% 40%;
+		
+		  }
+		  .new_C{
+			background: url(../../../administrator/views/img/products/new/batido.jpg);
+			background-size: cover;
+			background-repeat: no-repeat;
+			  }
+			  .new_D{
+				background: url(../../../administrator/views/img/products/new/miel2.jpg);
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position-x: 30%;
+				  }
+				  .new_E{
+					background: url(../../../administrator/views/img/products/new/peanut.jpg);
+					background-size: cover;
+					background-repeat: no-repeat;
+					  }
+
+
+
+ 
+
+

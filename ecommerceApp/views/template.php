@@ -36,9 +36,10 @@
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/general.css">
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/header.css">
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/slider.css">
-    <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/responsive.css">
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/normalize.css">
-    <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/productos.css">
+    <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/products.css">
+    <!-- IMPORTANTE CARGAR EL RESPONSIVE COMO ULTIMO ARCHIVO  -->
+    <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/responsive.css">
     
     <!-- Vinculamos las librerias de bootstrap y jquery -->
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/plugins/bootstrap.min.css">
@@ -47,6 +48,7 @@
     <script src="<?php echo $ruteStatc;?>views/js/plugins/bootstrap.min.js"></script>
     <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Coda+Caption:wght@800&family=Merienda+One&family=Permanent+Marker&display=swap" rel="stylesheet">
 </head>
 <body>
     
@@ -133,7 +135,7 @@ foreach($existProductSubCategories as $key => $val){
 //SI NO EXISTE $_GET["rute"], hacemos que se muestre el slider en nuestra pagina principal
 else{
    include "modules/slider.php";
-   include "modules/destacados.html.php";
+   include "modules/products.php";
 
 }
     ?>

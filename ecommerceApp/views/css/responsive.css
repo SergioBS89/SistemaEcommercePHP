@@ -300,36 +300,49 @@ ol.pagination{
 
  /* -------------------------------- Movil XS -------------------------------- */
 
+ /* DIFERENTE VISTA */
+
 @media (max-width:529px){
+
+	#slider, img.imgSlider{
+		height: 240px;
+	}
 	.textSlider h1{
-        font-size: 18px;
-		margin: 0px 10px;
-		top: 30%;
+     display: none;
     }
 	.textSlider h2{
-        font-size: 7px;
-		top: 50%;
-		margin: 0px 10px;
+       display: none;
     }
-    .textSlider h3{
-        display: none;
-    }
+ 
 	/* Boton slider */
-    .textSlider button{    
-        font-size: 5px;
-		padding: 4px;
-		padding-top: 5px;
-        top: 70%;
-		margin: 0px 10px;
-    }
-	.textSlider button span{
-		display: none;
+    button.btnR, button.btnL{
+		left: initial;
+		right:8%;
+		top: 5%;
+		font-size: 10px;
+		padding: 7px;
 	}
-	
+
+	.productRigth img {
+		position: absolute; 
+		right: 50%;
+		width: 40%;
+		top: 50%;
+		width: calc(100% * 0.5) !important;
+		transform: translateX(50%);
+	}
+	.productLeft img{
+		position: absolute; 
+		left: 50%;
+		width: calc(100% * 0.5) !important;
+		top: 50%;
+		transform: translateX(-50%);
+	}
+		
 
 /* FLECHAS */
     #slider .arrow{
-        font-size: 0.7em;
+        font-size: 1.3em;
     }
     .arrow#nextImg,.arrow#backImg{    
      
@@ -341,8 +354,7 @@ ol.pagination{
 	}
    /* PAGINACION */
 ol.pagination{
-    font-size: 8px;
-    margin-bottom: 2px;
+    display: none;
 }
     
     /* estilos del paginador (Cambiando estilos de Bootstrap) */
@@ -353,4 +365,153 @@ ol.pagination{
 
 
 
+/* -------------------------------------------------------------------------- */
+/*                                  PRODUCTOS                                 */
+/* -------------------------------------------------------------------------- */
 
+/* Escritorio grande */
+@media (min-width:1200px){
+	
+}
+
+/* Escritorio mediano */
+
+@media (max-width:1199px) and (min-width:991px){
+	
+}
+
+/* Tablet */
+
+@media (max-width:990px) and (min-width:640px){
+
+	
+}
+
+/* movil */
+@media (max-width:639px){
+	.titleSectionProducts h1{
+		font-size: 30px;
+	}
+	
+	button.seeMore{
+		font-size: 8px;
+	}
+}
+/* movil */
+@media (max-width:549px){
+	.listProducts li{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-bottom: 20px;	 
+		width: 260px;
+		height: auto;   
+	}
+	ul.listProducts{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+	}
+	.titleSectionProducts h1{
+		font-size: 17px;
+	}
+	button.seeMore{
+		font-size: 8px;
+	}
+ 
+}
+
+
+/* NEW PRODUCTS */
+
+
+/* movil */
+@media (max-width:800px) and (min-width:531px){
+	
+	/* Contenedor de los productos */
+	div.containerNewProducts {
+			  display: flex;
+			  flex-direction: column;
+			  align-items: center;
+			  width: 80%;
+			  height: 2500px;
+			  margin: auto;
+			}   
+			/* Texto */
+			.newProducts h3{	 
+				font-size: 52px ;				
+				transform: scale(1);	
+				color: red;	
+			}	 
+	}
+/* movil xs */
+@media (max-width:530px){
+	  
+div.containerNewProducts {
+		  display: flex;
+		  flex-direction: column;
+		  align-items: center;
+		  width: 90%;
+		  height: 1500px;
+		  margin: auto;
+		}   
+		.newProducts h3{				
+			font-size: 40px;	
+			transform: scale(1);
+			color: red;
+		
+		}
+ 
+}
+
+/* BANNER MOTIVACION */
+@media (max-width:1270px) and (min-width:801px){
+	  
+    div.banner{
+		height: 600px;
+	}
+
+	.textBanner h1{
+		font-size: 40px;
+	}
+	img.logoBanner{
+		width: 50%;
+		height: 25%;
+		top: 60%;
+	}
+
+	}
+@media (max-width:800px) and (min-width:531px){
+	  
+	div.banner{
+		height: 400px;
+	}
+
+	.textBanner h1{
+		font-size: 30px;
+	}
+	img.logoBanner{
+		width: 50%;
+		height: 25%;
+		top: 60%;
+	}
+
+	}
+/* movil xs */
+@media (max-width:530px){
+	  
+div.banner{
+	height: 270px;
+}
+.textBanner h1{
+	font-size: 18px;
+}
+img.logoBanner{
+	width: 50%;
+	height: 25%;
+	top: 60%;
+}
+
+ 
+}
