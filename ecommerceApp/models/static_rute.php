@@ -13,6 +13,14 @@ class StaticRute{
         //Cambiar ruta cuando subimos el proyecto
         return "http://localhost/PROYECTOS/SistemaEcommercePHP/ecommerceApp/";
     }
+
+
+public static function RuteAdministrator(){
+
+    return "http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/";
+
+}
+
 }
 
 ?>

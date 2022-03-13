@@ -3,6 +3,7 @@
 /*                                   SLIDER                                   */
 /* -------------------------------------------------------------------------- */
 
+
 var numSlider = 0
 var focus = $("#sliderPagination li span") //Estilos del color del paginador
 var next = $("#slider #nextImg")//Selector flecha de avance

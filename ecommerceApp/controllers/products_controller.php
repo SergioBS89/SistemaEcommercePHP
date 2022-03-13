@@ -60,6 +60,73 @@ class ProductsController{
 
         return $res;
     }
+
+    /* -------------------------------------------------------------------------- */
+    /*                      METODO PARA MOSTRAR LOS PRODUCTOS                     */
+    /* -------------------------------------------------------------------------- */
+
+    public static function showProducts($orderBy){
+
+    $table = "products";
+
+    $res = ProductsModel::showProductsModel($table,$orderBy);
+
+    return $res;
+    }
+     /* -------------------------------------------------------------------------- */
+    /*                      METODO PARA MOSTRAR LOS PRODUCTOS EN OFERTA                 */
+    /* -------------------------------------------------------------------------- */
+
+    public static function showProductsOnOffer(){
+
+        $table = "products";
+    
+        $res = ProductsModel::showProductsOnOfferModel($table);
+    
+        return $res;
+        }
+
+     /* -------------------------------------------------------------------------- */
+    /*                      METODO PARA MOSTRAR LOS PRODUCTOS EN OFERTA                 */
+    /* -------------------------------------------------------------------------- */
+
+    public static function showProductDescription($ruteProduct,$value){
+
+        $table = "products";
+    
+        $res = ProductsModel::showProductDescriptionModel($table,$ruteProduct,$value);
+    
+        return $res;
+        }
+
+
+       /* -------------------------------------------------------------------------- */
+    /*            METODO PARA LISTAR TODOS LOS PRODUCTOS           */
+    /* -------------------------------------------------------------------------- */
+
+    public static function showProductsPaginator($rowProduct,$valueRow,$numProducts){
+
+        $table = "products";
+    
+        $res = ProductsModel::showProductsPaginatorModel($table,$rowProduct,$valueRow,$numProducts);
+    
+        return $res;
+        }
+
+
+         /* -------------------------------------------------------------------------- */
+    /*                      METODO PARA MOSTRAR LA PAGINACION               */
+    /* -------------------------------------------------------------------------- */
+
+    public static function countProducts($ordenar,$ruteProduct,$value){
+
+        $table = "products";
+    
+        $res = ProductsModel::countProductsModel($table, $ordenar, $ruteProduct, $value);
+    
+        return $res;
+        }
+
 }
 
 ?>

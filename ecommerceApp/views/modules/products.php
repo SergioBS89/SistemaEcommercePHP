@@ -1,3 +1,4 @@
+
 <!-- 
 /* -------------------------------------------------------------------------- */
 /*                       SECCION DE PRODUCTOS EN OFERTA                       */
@@ -9,24 +10,27 @@
 		<div class="row">			
 			<div class="col-xs-12 viewProducts">
 				 <!-- /* --------------------------------- Titulo --------------------------------- */ -->
-				 <div class="col-sm-6 col-xs-6 titleSectionProducts">					
+				<div class="col-sm-6 col-xs-6 titleSectionProducts">					
 					<h1>ON OFFER</h1>
 				</div>
 
 					<!-- /* --------------------------------- ver mas -------------------------------- */ -->
 				    	<div class="col-sm-6 col-xs-6">				
-				    	<a href="articulos-gratis">						
+				    	<a href="onOffer">						
 				    		<button class="btn btn-default firstColors pull-right seeMore">							
 				    			SEE MORE <span class="fa fa-chevron-right"></span>
 				    		</button>
 				    	</a>
 						</div>
-				<!-- </div>		 -->
+				
 
 			</div>
 		</div>
 	</div>
 </div>
+
+
+
 
 <!-- /* -------------------------------------------------------------------------- */
 /*                             PRODUCTOS EN OFERTA                            */
@@ -42,20 +46,27 @@
 		   <!-- /* --------------------------- LISTA DE PRODUCTOS --------------------------- */ -->
     
 		    <ul class="listProducts">
-		    	
-			<!-- /* ------------------------------- producto 1 ------------------------------- */ -->
+
+			<?php 
+            $products = ProductsController::showProductsOnOffer();
+
+            foreach($products as $key => $value){
+
+
+			echo '
+			
 			<li class="col-md-3 col-sm-4 col-xs-6">
 				<div class="containerImgProduct">					
-					<a href="#" class="pixelProducto">						
-						<img src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/views/img/products/img/short.png" class="img-responsive" >
+					<a href="'.$value["rute"].'" class="pixelProducto">						
+						<img src="'.$value["image"].'" class="img-responsive" >
 					</a>
 					<span class="stickerOffer"></span>	
 
                 </div>
-				  <!-- Nombre del producto -->
+				
 				<div class="productName">
-				    <h5>T-shirt team 10<br><br></h5>	
-				    <!-- estrellas -->
+				    <h5>'.$value["name"].'<br><br></h5>	
+				    
 				    <div class="rating">
 				        <i class="fa fa-star starsRating"></i>
 				        <i class="fa fa-star starsRating"></i>
@@ -63,105 +74,22 @@
 				        <i class="fa fa-star starsRating"></i>
 				        <i class="fa fa-star starsRating"></i>
 				    </div>
-				    <!-- precio -->				    
+				 		    
 				    <div class="col-sm-12 col-xs-12 price offer">					
-				    	<h2>99.99$</h2>
+					<span class="oldPrice">'.$value["price"].'</span><h2>'.$value['priceOnOffer'].'	<span>€</span></h2>
 				    </div>
 				</div>
 
-			</li>
-			<!-- /* ------------------------------- PRODUCTO 2 ------------------------------- */ -->
-			<li class="col-md-3 col-sm-4 col-xs-6">
-				<div class="containerImgProduct">					
-					<a href="#" class="pixelProducto">						
-						<img src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/views/img/products/img/multi.png" class="img-responsive" >
-					</a>
-					<span class="stickerOffer"></span>	
-
-                </div>
-				  <!-- Nombre del producto -->
-				<div class="productName">
-				    <h5>T-shirt team 10<br><br></h5>	
-				    <!-- estrellas -->
-				    <div class="rating">
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				    </div>
-				    <!-- precio -->				    
-				    <div class="col-xs-12 price offer">					
-				    	<h2>99.99$</h2>
-				    </div>
-				</div>
-
-			</li>
-			<!-- PRODUCTO 3 -->
-			<li class="col-md-3 col-sm-4 col-xs-6">
-				<div class="containerImgProduct">					
-					<a href="#" class="pixelProducto">						
-						<img src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/views/img/products/img/nk2.png" class="img-responsive" >
-					</a>
-					<span class="stickerOffer"></span>	
-
-                </div>
-				  <!-- Nombre del producto -->
-				<div class="productName">
-				    <h5>T-shirt team 10<br><br></h5>	
-				    <!-- estrellas -->
-				    <div class="rating">
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				    </div>
-				    <!-- precio -->				    
-				    <div class="col-xs-12 price offer ">					
-				    	<h2>99.99$</h2>
-				    </div>
-				</div>
-
-			</li>
-			<li class="col-md-3 col-sm-4 col-xs-6">
-				<div class="containerImgProduct">					
-					<a href="#" class="pixelProducto">						
-						<img src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/views/img/products/img/fat.png" class="img-responsive" >
-					</a>
-					<span class="stickerOffer"></span>	
-
-                </div>
-				  <!-- Nombre del producto -->
-				<div class="productName">
-				    <h5>T-shirt team 10<br><br></h5>	
-				    <!-- estrellas -->
-				    <div class="rating">
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				    </div>
-				    <!-- precio -->				    
-				    <div class="col-xs-12 price offer">					
-				    	<h2>99.99$</h2>
-				    </div>
-				</div>
-
-			</li>
-
+			</li>			
+			';
+			}            
+            ?>    	
 		</ul>	
 
 	</div>
 	</div>
 
 </div>
-
-
-
-
-
 
 
 <!-- /* -------------------------------------------------------------------------- */
@@ -179,7 +107,7 @@
 
 					<!-- /* --------------------------------- ver mas -------------------------------- */ -->
 				    	<div class="col-sm-6 col-xs-6">				
-				    	<a href="articulos-gratis">						
+				    	<a href="bestSeller">						
 				    		<button class="btn btn-default firstColors pull-right seeMore">							
 				    			SEE MORE <span class="fa fa-chevron-right"></span>
 				    		</button>
@@ -208,112 +136,54 @@
 		   <!-- /* --------------------------- LISTA DE PRODUCTOS --------------------------- */ -->
     
 		    <ul class="listProducts">
-		    	
-			<!-- /* ------------------------------- producto 1 ------------------------------- */ -->
+
+			<?php 
+            $orderBy= "numSells";
+            $products = ProductsController::showProducts($orderBy);
+            foreach($products as $key => $value){
+				echo '
+					
 			<li class="col-md-3 col-sm-4 col-xs-6">
-				<div class="containerImgProduct">					
-					<a href="#" class="pixelProducto">						
-						<img src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/views/img/products/img/nkw.png" class="img-responsive" >
-					</a>
-					<!-- <span class="stickerOffer"></span>	 -->
+			<div class="containerImgProduct">					
+				<a href="'.$value["rute"].'" class="pixelProducto">						
+					<img src="'.$value["image"].'" class="img-responsive" >
+				</a>
+			';
+			if($value["offer"]==1){
+				echo '	<span class="stickerOffer"></span>';  
+			}
+			echo '
+			</div>
+			  <!-- Nombre del producto -->
+			<div class="productName">
+				<h5>'.$value["name"].'<br><br></h5>	
+				<!-- estrellas -->
+				<div class="rating">
+					<i class="fa fa-star starsRating"></i>
+					<i class="fa fa-star starsRating"></i>
+					<i class="fa fa-star starsRating"></i>
+					<i class="fa fa-star starsRating"></i>
+					<i class="fa fa-star starsRating"></i>
+				</div>';
+				
+				if($value["offer"]==1){
+					echo'
+					<div class="col-sm-12 col-xs-12 price offer">					
+					<span class="oldPrice">'.$value["price"].'</span><h2>'.$value['priceOnOffer'].'	<span>€</span></h2>';					
+				}
+				else{
+					echo '
+					<div class="col-xs-12 price ">					
+					<h2>'.$value["price"].'<span>€</span></h2>';
+				}
+			echo '
+			</div>
+			</div>
 
-                </div>
-				  <!-- Nombre del producto -->
-				<div class="productName">
-				    <h5>T-shirt team 10<br><br></h5>	
-				    <!-- estrellas -->
-				    <div class="rating">
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				    </div>
-				    <!-- precio -->				    
-				    <div class="col-xs-12 price ">					
-				    	<h2>99.99$</h2>
-				    </div>
-				</div>
-
-			</li>
-			<li class="col-md-3 col-sm-4 col-xs-6">
-				<div class="containerImgProduct">					
-					<a href="#" class="pixelProducto">						
-						<img src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/views/img/products/img/nk7.png" class="img-responsive" >
-					</a>
-					<!-- <span class="stickerOffer"></span>	 -->
-
-                </div>
-				  <!-- Nombre del producto -->
-				<div class="productName">
-				    <h5>T-shirt team 10<br><br></h5>	
-				    <!-- estrellas -->
-				    <div class="rating">
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				    </div>
-				    <!-- precio -->				    
-				    <div class="col-xs-12 price ">					
-				    	<h2>99.99$</h2>
-				    </div>
-				</div>
-
-			</li>
-			<li class="col-md-3 col-sm-4 col-xs-6">
-				<div class="containerImgProduct">					
-					<a href="#" class="pixelProducto">						
-						<img src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/views/img/products/img/nkw3.png" class="img-responsive" >
-					</a>
-					<!-- <span class="stickerOffer"></span>	 -->
-
-                </div>
-				  <!-- Nombre del producto -->
-				<div class="productName">
-				    <h5>T-shirt team 10<br><br></h5>	
-				    <!-- estrellas -->
-				    <div class="rating">
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				    </div>
-				    <!-- precio -->				    
-				    <div class="col-xs-12 price ">					
-				    	<h2>99.99$</h2>
-				    </div>
-				</div>
-
-			</li>
-			<li class="col-md-3 col-sm-4 col-xs-6">
-				<div class="containerImgProduct">					
-					<a href="#" class="pixelProducto">						
-						<img src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/views/img/products/img/nkw6.png" class="img-responsive" >
-					</a>
-					<!-- <span class="stickerOffer"></span>	 -->
-
-                </div>
-				  <!-- Nombre del producto -->
-				<div class="productName">
-				    <h5>T-shirt team 10<br><br></h5>	
-				    <!-- estrellas -->
-				    <div class="rating">
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				    </div>
-				    <!-- precio -->				    
-				    <div class="col-xs-12 price ">					
-				    	<h2>99.99$</h2>
-				    </div>
-				</div>
-
-			</li>
+		</li>';		
+		
+			}
+            ?>
 
 		</ul>	
 
@@ -341,7 +211,7 @@
 
 					<!-- /* --------------------------------- ver mas -------------------------------- */ -->
 				    	<div class="col-sm-6 col-xs-6">				
-				    	<a href="articulos-gratis">						
+				    	<a href="mostViewed">						
 				    		<button class="btn btn-default firstColors pull-right seeMore">							
 				    			SEE MORE <span class="fa fa-chevron-right"></span>
 				    		</button>
@@ -367,124 +237,57 @@
 
 			<hr>
 
-		   <!-- /* --------------------------- LISTA DE PRODUCTOS --------------------------- */ -->
     
 		    <ul class="listProducts">
-		    	
-			<!-- /* ------------------------------- producto 1 ------------------------------- */ -->
+			
+			<?php 
+            $orderBy= "numViews";
+            $products = ProductsController::showProducts($orderBy);
+            foreach($products as $key => $value){
+				echo '
+					
 			<li class="col-md-3 col-sm-4 col-xs-6">
-				<div class="containerImgProduct">					
-					<a href="#" class="pixelProducto">						
-						<img src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/views/img/products/img/watch4.png" class="img-responsive" >
-					</a>
-					<!-- <span class="stickerOffer"></span>	 -->
+			<div class="containerImgProduct">					
+				<a href="'.$value["rute"].'" class="pixelProducto">						
+					<img src="'.$value["image"].'" class="img-responsive" >
+				</a>
+			';
+			if($value["offer"]==1){
+				echo '	<span class="stickerOffer"></span>';  
+			}
+			echo '
+			</div>
+			  <!-- Nombre del producto -->
+			<div class="productName">
+				<h5>'.$value["name"].'<br><br></h5>	
+				<!-- estrellas -->
+				<div class="rating">
+					<i class="fa fa-star starsRating"></i>
+					<i class="fa fa-star starsRating"></i>
+					<i class="fa fa-star starsRating"></i>
+					<i class="fa fa-star starsRating"></i>
+					<i class="fa fa-star starsRating"></i>
+				</div>';
+				
+				if($value["offer"]==1){
+					echo'
+					<div class="col-sm-12 col-xs-12 price offer">					
+					<span class="oldPrice">'.$value["price"].'</span><h2>'.$value['priceOnOffer'].'	<span>€</span></h2>';					
+				}
+				else{
+					echo '
+					<div class="col-xs-12 price ">					
+					<h2>'.$value["price"].'<span>€</span></h2>';
+				}
+			echo '
+			</div>
+			</div>
 
-                </div>
-				  <!-- Nombre del producto -->
-				<div class="productName">
-				    <h5>T-shirt team 10<br><br></h5>	
-				    <!-- estrellas -->
-				    <div class="rating">
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				    </div>
-				    <!-- precio -->				    
-				    <div class="col-xs-12 price ">					
-				    	<h2>99.99$</h2>
-				    </div>
-				</div>
-
-			</li>
-
-			<!-- Producto 2 -->
-
-			<li class="col-md-3 col-sm-4 col-xs-6">
-				<div class="containerImgProduct">					
-					<a href="#" class="pixelProducto">						
-						<img src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/views/img/products/img/sock.png" class="img-responsive" >
-					</a>
-					<!-- <span class="stickerOffer"></span>	 -->
-
-                </div>
-				  <!-- Nombre del producto -->
-				<div class="productName">
-				    <h5>T-shirt team 10<br><br></h5>	
-				    <!-- estrellas -->
-				    <div class="rating">
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				    </div>
-				    <!-- precio -->				    
-				    <div class="col-xs-12 price">					
-				    	<h2>99.99$</h2>
-				    </div>
-				</div>
-
-			</li>
-
-			<!-- Producto 3 -->
-
-			<li class="col-md-3 col-sm-4 col-xs-6">
-				<div class="containerImgProduct">					
-					<a href="#" class="pixelProducto">						
-						<img src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/views/img/products/img/dum4.png" class="img-responsive" >
-					</a>
-					<!-- <span class="stickerOffer"></span>	 -->
-
-                </div>
-				  <!-- Nombre del producto -->
-				<div class="productName">
-				    <h5>T-shirt team 10<br><br></h5>	
-				    <!-- estrellas -->
-				    <div class="rating">
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				    </div>
-				    <!-- precio -->				    
-				    <div class="col-xs-12 price ">					
-				    	<h2>99.99$</h2>
-				    </div>
-				</div>
-
-			</li>
-
-			<!-- Producto 4 -->
-
-			<li class="col-md-3 col-sm-4 col-xs-6">
-				<div class="containerImgProduct">					
-					<a href="#" class="pixelProducto">						
-						<img src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/views/img/products/img/fut6.png" class="img-responsive" >
-					</a>
-					<!-- <span class="stickerOffer"></span>	 -->
-
-                </div>
-				  <!-- Nombre del producto -->
-				<div class="productName">
-				    <h5>T-shirt team 10<br><br></h5>	
-				    <!-- estrellas -->
-				    <div class="rating">
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				        <i class="fa fa-star starsRating"></i>
-				    </div>
-				    <!-- precio -->				    
-				    <div class="col-xs-12 price ">					
-				    	<h2>200.20$</h2>
-				    </div>
-				</div>
-
-			</li>
+		</li>';		
+		
+			}
+            ?>
+		
 		</ul>	
 
 	</div>

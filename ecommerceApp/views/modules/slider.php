@@ -38,9 +38,9 @@
 
                  <div class="'.$jsonText["positionText"].' textSlider  TextSli1">                 
 
-                    <h1 style="color:'.$jsonH1Styles["color"].';'.$jsonH1Styles["size"].'">'.$jsonText["content"].'</h1>
+                    <h1 style="color:'.$jsonH1Styles["color"].'; font-size:'.$jsonH1Styles["size"].'">'.$jsonText["content"].'</h1>
 
-                     <h2 style="color:'.$jsonH2Styles["color"].';'.$jsonH2Styles["size"].'">'.$value["textH2"].'</h2>
+                     <h2 style="color:'.$jsonH2Styles["color"].';font-size:'.$jsonH2Styles["size"].'">'.$value["textH2"].'</h2>
                      <a href="'.$jsonButton["urlButton"].'">
                          <button class="btn btn-default firstColors '.$jsonButton["positionButton"].' ">SEE PRODUCT <span class="glyphicon glyphicon-play"></span></button>
                      </a>
