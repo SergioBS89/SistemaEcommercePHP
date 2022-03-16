@@ -14,8 +14,8 @@
 *{
 	margin:0px;
 	padding:0px;
-	list-style: none;
-	text-decoration: none;
+	list-style: none !important;
+	text-decoration: none !important;
 	/* font-family: 'Ubunt', sans-serif; */
 	font-family: 'Roboto Slab', serif;
 }
@@ -52,6 +52,22 @@ ul, ol{
 	color:white;
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                 PAGINACION                                 */
+/* -------------------------------------------------------------------------- */
+a.pagActive{
+	background-color: var(--main-bg-color) !important;
+	color:white !important;
+}
+ul.pagination>li>a{
+	background-color: transparent;
+	color: black;
+}
+ul.pagination>li>a:hover{
+	background-color:inherit;
+	color: inherit;
+	z-index: 0;	
+}
 /* -------------------------------------------------------------------------- */
 /*                        SECCION DE LAS REDES SOCIALES                       */
 /* -------------------------------------------------------------------------- */

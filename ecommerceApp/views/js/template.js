@@ -1,11 +1,14 @@
 
+// Traigo la ruta estatica desde template.php
+var ruteStatic = $("#ruteStatic").val();
+
 /* --------- PETICION AJAX PARA OBTENER LOS DATOS DEL LADO SERVIDOR --------- */
 
 //Realizamos la peticion AJAX para pode obtener los datos de ajaxStylesDinamic.php
 
 $.ajax({
 
-    url:"ajax/ajaxStylesDinamic.php",
+    url: ruteStatic + "ajax/ajaxStylesDinamic.php",
     success: function(res){
     
     // El resultado que obtenemos es de tipo sting, para cambiar el tipo a json y poder manipular los datos hacemos uso de JSON.parse(),
@@ -32,8 +35,8 @@ $.ajax({
      // Otras clases y fuentes
      $(".arrow, .titleSectionProducts h1").css({
         "color": colorText});    
-    }
-    
+    }  
    
 
 })
+

@@ -1,5 +1,4 @@
-
-
+<h1>BUSQUEDA DE PRODUCTOS</h1>
 
 <?php
 
@@ -79,61 +78,11 @@ LISTAR PRODUCTOS
 
 			<?php
 
-			
-			/*=============================================
-			LLAMADA DE PRODUCTOS DE CATEGORÍAS, SUBCATEGORÍAS Y DESTACADOS
-			=============================================*/
+		
 
-			// Si la url es OnOffer
-			if($valueURL == "onOffer"){
-
-				$rowProduct = "offer" ;
-				$valueRow = 1;
-				$order = "priceOnOffer";
-			
-            // Si url es bestSeller
-			}else if($valueURL == "bestSeller"){
-
-				$rowProduct = null;
-				$valueRow= null;
-				$order = "numSells";
-			
-            // Si url es mostViewed
-			}else if($valueURL == "mostViewed"){
-
-				$rowProduct = null;
-				$valueRow = null;
-				$order= "numViews";		
-
-			}else{
-        
-
-			// COMPROBAMOS QUE EXISTEN LAS RUTAS DE LOS PRODUCTOS EN LA DB
-			$row="rute";
-			$valueURL=$ruteArray[0];
-            $order="id";
-			$isCategory = ProductsController::controllerCategoriesExisting($row,$valueURL);
-            
-			// si la URL no es de categorias
-			if(! $isCategory){
-
-				$isSubCategory = ProductsController::controllerSubCategoriesExisting($row,$valueURL);
-
-				$valueRow=$isSubCategory[0]["id"];
-				$rowProduct="id";
-			//  Si la URL es de subcategorias
-			}else{
-				$valueRow=$isCategory["id"];
-				$rowProduct="id_category";
-			}
-			// Si la URL es una categorias y subca, toma estos valores
-			// $order="id";	
-            // $mode="DESC";		
-            }
-
-            /*=============================================
-			LLAMADO DE PAGINACIÓN
-			=============================================*/
+        /* -------------------------------------------------------------------------- */
+        /*                              ORDENAR PRODUCTOS                             */
+        /* -------------------------------------------------------------------------- */
 
 			if( isset($ruteArray[1])){
 				
@@ -182,12 +131,13 @@ LISTAR PRODUCTOS
 				$page=0;
 				$mode="DESC";              
 				}           
-
+            
+				if($ruteArray[3]==)
 
 		
 	
             //  LLamada para listar los productos
-			 $listOfProducts = ProductsController::showProductsPaginator($rowProduct,$valueRow,$numProducts,$order,$mode,$page);	 
+			 $listOfProducts = ProductsController::searchingProducts($numProducts,$order,$mode,$page);	 
 			
 				// Llamada para contador de la paginacion
 			$numTotalProducts = ProductsController::countProducts($rowProduct,$valueRow,$order);
@@ -384,10 +334,3 @@ LISTAR PRODUCTOS
 				
 			}
 			?>
-				
-			
-			
-		
-
-			
-

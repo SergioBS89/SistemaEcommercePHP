@@ -16,7 +16,7 @@
 
 					<!-- /* --------------------------------- ver mas -------------------------------- */ -->
 				    	<div class="col-sm-6 col-xs-6">				
-				    	<a href="onOffer">						
+				    	<a href="onOffer/1">						
 				    		<button class="btn btn-default firstColors pull-right seeMore">							
 				    			SEE MORE <span class="fa fa-chevron-right"></span>
 				    		</button>
@@ -107,7 +107,7 @@
 
 					<!-- /* --------------------------------- ver mas -------------------------------- */ -->
 				    	<div class="col-sm-6 col-xs-6">				
-				    	<a href="bestSeller">						
+				    	<a href="bestSeller/1">						
 				    		<button class="btn btn-default firstColors pull-right seeMore">							
 				    			SEE MORE <span class="fa fa-chevron-right"></span>
 				    		</button>
@@ -211,7 +211,7 @@
 
 					<!-- /* --------------------------------- ver mas -------------------------------- */ -->
 				    	<div class="col-sm-6 col-xs-6">				
-				    	<a href="mostViewed">						
+				    	<a href="mostViewed/1">						
 				    		<button class="btn btn-default firstColors pull-right seeMore">							
 				    			SEE MORE <span class="fa fa-chevron-right"></span>
 				    		</button>

@@ -138,13 +138,46 @@ class ProductsModel{
      /* -------------------------------------------------------------------------- */
     /*           Metodo que devuelve el LISTADO de productos   */
     /* -------------------------------------------------------------------------- */
-    static public function showProductsPaginatorModel($table,$rowProduct,$valueRow,$num){
+    static public function showProductsPaginatorModel($table,$rowProduct,$valueRow,$num,$order,$mode,$page){
 
 		if($rowProduct != null){
 
         
 
-			$stmt = Conection::conectDB()->prepare("SELECT * FROM $table WHERE $rowProduct = :value LIMIT $num");
+			$stmt = Conection::conectDB()->prepare("SELECT * FROM $table WHERE $rowProduct = :value ORDER BY $order $mode LIMIT $page, $num");
+
+		    
+           //Le digo al script sql que el parametro
+           $stmt -> bindParam(":value",$valueRow,PDO::PARAM_STR);
+        //    $stmt -> bindParam(":num",$num,PDO::PARAM_INT);
+			$stmt -> execute();
+			return $stmt -> fetchAll();
+
+		}
+        // SI HAY QUE MOSTRAR LOS PRODUCTOS MOSTVIEWED O BESTSELLER
+        else{
+
+			$stmt = Conection::conectDB()->prepare("SELECT * FROM $table ORDER BY $order $mode LIMIT $page, $num");
+
+			$stmt -> execute();
+
+			return $stmt -> fetchAll();
+
+		}
+		$stmt = null;
+
+	}
+    /*=============================================
+	CONTADOR DE PRODUCTOS PARA LA PAGINACION
+	=============================================*/
+
+	static public function countProductsModel($table,$rowProduct, $valueRow, $order){
+
+        if($rowProduct != null){
+
+        
+
+			$stmt = Conection::conectDB()->prepare("SELECT * FROM $table WHERE $rowProduct = :value");
 
 		    
            //Le digo al script sql que el parametro
@@ -157,30 +190,13 @@ class ProductsModel{
         // SI HAY QUE MOSTRAR LOS PRODUCTOS MOSTVIEWWED O BESTSELLER
         else{
 
-			$stmt = Conection::conectDB()->prepare("SELECT * FROM $table LIMIT $num");
+			$stmt = Conection::conectDB()->prepare("SELECT * FROM $table");
 
 			$stmt -> execute();
 
 			return $stmt -> fetchAll();
 
 		}
-		$stmt = null;
-
-	}
-    /*=============================================
-	LISTAR PRODUCTOS
-	=============================================*/
-
-	static public function countProductsModel($tabla, $ordenar, $ruteProduct, $value){
-
-			$stmt = Conection::conectDB()->prepare("SELECT * FROM $tabla WHERE $ruteProduct = :value ORDER BY $ordenar DESC");
-			  //Le digo al script sql que el parametro
-              $stmt -> bindParam(":value",$value,PDO::PARAM_STR);
-
-			$stmt -> execute();
-
-			return $stmt -> fetchAll();
-
 		$stmt = null;
 
 	}

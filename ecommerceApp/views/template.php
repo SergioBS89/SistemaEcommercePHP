@@ -14,6 +14,9 @@
     <!-- Cambio dinamico del icono de la pestaña superior -->
 
     <?php 
+    // Inicio de sesion para poder usar variables session en todo el proyecto
+    session_start();
+
     $iconDinamic = TemplateController::controllerStyleTemplate();
 
     echo ' <link rel="icon" href="'.$iconDinamic['icon'].'">';
@@ -142,10 +145,12 @@
     if($ruteCatOkay !=null || $valueURL == "onOffer" || $valueURL == "bestSeller" || $valueURL =="mostViewed"){
 
         include "modules/listProducts.php";      
-        include "modules/productos.php";
     }  
     elseif($ruteProductOkay != null){
         include "modules/descriptionProduct.php";
+    }
+    elseif($ruteArray[0]=="SearcH"){
+        include "modules/searchProducts.php";
     }
     else {
     include "modules/error_noProduct.php"; 
@@ -158,9 +163,15 @@ else{
 
 }
     ?>
+<!-- Ruta estitica para manejarla desde JS -->
+<input type="hidden" value="<?php echo $ruteStatc;?>" id="ruteStatic">
+
+
 <script src="<?php echo $ruteStatc;?>views/js/header.js"></script>
 <script src="<?php echo $ruteStatc;?>views/js/template.js"></script>
 <script src="<?php echo $ruteStatc;?>views/js/slider.js"></script>
+<script src="<?php echo $ruteStatc;?>views/js/pagination.js"></script>
+<script src="<?php echo $ruteStatc;?>views/js/search.js"></script>
 <!-- /* -------------------------------------------------------------------------- */
 /*                                ATRIBUCIONES                                */
 /* -------------------------------------------------------------------------- */ -->

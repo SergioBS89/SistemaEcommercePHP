@@ -104,11 +104,11 @@ class ProductsController{
     /*            METODO PARA LISTAR TODOS LOS PRODUCTOS           */
     /* -------------------------------------------------------------------------- */
 
-    public static function showProductsPaginator($rowProduct,$valueRow,$numProducts){
+    public static function showProductsPaginator($rowProduct,$valueRow,$numProducts,$order,$mode,$page){
 
         $table = "products";
     
-        $res = ProductsModel::showProductsPaginatorModel($table,$rowProduct,$valueRow,$numProducts);
+        $res = ProductsModel::showProductsPaginatorModel($table,$rowProduct,$valueRow,$numProducts,$order,$mode,$page);
     
         return $res;
         }
@@ -118,11 +118,11 @@ class ProductsController{
     /*                      METODO PARA MOSTRAR LA PAGINACION               */
     /* -------------------------------------------------------------------------- */
 
-    public static function countProducts($ordenar,$ruteProduct,$value){
+    public static function countProducts($order,$rowProduct,$valueRow){
 
         $table = "products";
     
-        $res = ProductsModel::countProductsModel($table, $ordenar, $ruteProduct, $value);
+        $res = ProductsModel::countProductsModel($table, $order, $rowProduct, $valueRow);
     
         return $res;
         }
