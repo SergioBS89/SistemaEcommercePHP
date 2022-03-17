@@ -1,6 +1,7 @@
-/*=============================================
-BANNER
-=============================================*/
+
+/* -------------------------------------------------------------------------- */
+/*                            BANNER DE MOTIVACION                            */
+/* -------------------------------------------------------------------------- */
 
 /* Contenedor general */
 div.banner{
@@ -71,6 +72,13 @@ button.seeMore{
 /* Contenedor see more */
 button.seemore span{
 	margin-left:10px;
+}
+li.bread, li.bread>a{
+	color: white;
+	text-decoration: none;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
 }
 
 /* -------------------------------------------------------------------------- */

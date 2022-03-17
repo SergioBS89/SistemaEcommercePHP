@@ -7,9 +7,9 @@ $servidor = StaticRute::RuteAdministrator();
 $StaticUrl = StaticRute::rute();
 ?> 
 
-<!--=====================================
-BARRA PRODUCTOS
-======================================-->
+<!-- /* -------------------------------------------------------------------------- */
+/*                         BARRA SUPERIOR DE PRODUCTOS                        */
+/* -------------------------------------------------------------------------- */ -->
 
 <div class="container-fluid well well-sm barProducts">
 
@@ -23,14 +23,14 @@ BARRA PRODUCTOS
 				
 				<div class=" col-xs-6">	
 					  
-						<!--=====================================
-			            BREADCRUMB O MIGAS DE PAN
-			            ======================================-->
-            
-			            <ul class="text-uppercase">
-			            	
-			            	<li><a href="<?php echo $StaticUrl;?>">HOME <span>/</span></a></li>
-			            	<li class="active pagActiva"><?php echo $valueURL ?></li>            
+					<!-- /* -------------------------------------------------------------------------- */
+					/*                                 BREADCRUMBS                                */
+					/* -------------------------------------------------------------------------- */ -->
+						<ul class="text-uppercase" style="margin: 0;">			            	
+			            	<li class="bread"><a style="color: red;" href="<?php echo $StaticUrl;?>">HOME</a></li>
+			            	<li class="bread"><?php echo "<span>/</span> $valueURL"?></li>            
+			            	<li class="bread"><?php
+							if(isset($ruteArray[2])){echo " <span>/</span> $ruteArray[2]";}?></li>                   
 			            </ul>
 			    </div>
 				<div  class="col-xs-6 titleSectionProducts">
@@ -44,7 +44,7 @@ BARRA PRODUCTOS
 					  	// Concatenamos dos varibles para el href
 						echo '<li><a href="'.$StaticUrl.$ruteArray[0].'/1/new">New products</a></li>
 							  <li><a href="'.$StaticUrl.$ruteArray[0].'/1/old">Old products</a></li>
-							  <li><a href="'.$StaticUrl.$ruteArray[0].'/1/cheap">Cheaper products</a></li>
+							  <li><a href="'.$StaticUrl.$ruteArray[0].'/1/cheaper">Cheaper products</a></li>
 							  <li><a href="'.$StaticUrl.$ruteArray[0].'/1/expensive">Expensive products</a></li>
 							
 							  ';
@@ -52,22 +52,16 @@ BARRA PRODUCTOS
 						?>
 
 					  </ul>
-				</div>
-			    
+				</div>		    
 
 			</div>
-			
-            
-			           
 		</div>
-		
+	</div>
 </div>
 
-</div>
-
-<!--=====================================
-LISTAR PRODUCTOS
-======================================-->
+<!-- /* -------------------------------------------------------------------------- */
+/*                            LISTADO DE PRODUCTOS                            */
+/* -------------------------------------------------------------------------- */ -->
 
 <div class="container-fluid products">
 
@@ -80,9 +74,9 @@ LISTAR PRODUCTOS
 			<?php
 
 			
-			/*=============================================
-			LLAMADA DE PRODUCTOS DE CATEGORÍAS, SUBCATEGORÍAS Y DESTACADOS
-			=============================================*/
+	 /* -------------------------------------------------------------------------- */
+	 /*        LISTAR PRODUCTOS EN FUNCION DE CATEGORIAS O BOTONES SEE MORE       */
+	 /* -------------------------------------------------------------------------- */
 
 			// Si la url es OnOffer
 			if($valueURL == "onOffer"){
@@ -151,7 +145,7 @@ LISTAR PRODUCTOS
 									$_SESSION['order']=$mode;
                     	    		$order="price";
 								
-                    	    	}else if($ruteArray[2] == "cheap"){
+                    	    	}else if($ruteArray[2] == "cheaper"){
                     	    		$mode="ASC";
 									$_SESSION['order']=$mode;
                     	    		$order="price";
@@ -165,7 +159,8 @@ LISTAR PRODUCTOS
                         // Si no existe ninguna ruta [2], el modo de orden es descendente
                             } else{    
                                 
-							 $mode=	$_SESSION['order'];
+							//  $mode=	$_SESSION['order'];
+							 $mode=	"DESC";
 							
 							 
                             }
@@ -187,7 +182,7 @@ LISTAR PRODUCTOS
 		
 	
             //  LLamada para listar los productos
-			 $listOfProducts = ProductsController::showProductsPaginator($rowProduct,$valueRow,$numProducts,$order,$mode,$page);	 
+			 $listOfProducts = ProductsController::showProductsList($rowProduct,$valueRow,$numProducts,$order,$mode,$page);	 
 			
 				// Llamada para contador de la paginacion
 			$numTotalProducts = ProductsController::countProducts($rowProduct,$valueRow,$order);
@@ -216,7 +211,7 @@ LISTAR PRODUCTOS
 					
 			<li class="col-md-3 col-sm-4 col-xs-6">
 			<div class="containerImgProduct">					
-				<a href="'.$value["rute"].'" class="pixelProducto">						
+				<a href="'.$StaticUrl.$value["rute"].'" class="pixelProducto">						
 					<img src="'.$value["image"].'" class="img-responsive" >
 				</a>
 			';

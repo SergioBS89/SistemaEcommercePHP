@@ -104,11 +104,11 @@ class ProductsController{
     /*            METODO PARA LISTAR TODOS LOS PRODUCTOS           */
     /* -------------------------------------------------------------------------- */
 
-    public static function showProductsPaginator($rowProduct,$valueRow,$numProducts,$order,$mode,$page){
+    public static function showProductsList($rowProduct,$valueRow,$numProducts,$order,$mode,$page){
 
         $table = "products";
     
-        $res = ProductsModel::showProductsPaginatorModel($table,$rowProduct,$valueRow,$numProducts,$order,$mode,$page);
+        $res = ProductsModel::showProductsListModel($table,$rowProduct,$valueRow,$numProducts,$order,$mode,$page);
     
         return $res;
         }
@@ -126,6 +126,37 @@ class ProductsController{
     
         return $res;
         }
+
+    
+       /* -------------------------------------------------------------------------- */
+    /*            METODO PARA LISTAR LOS PRODUCTOS DEL BUSCADOR         */
+    /* -------------------------------------------------------------------------- */
+
+    public static function searchingProducts($searchProduct,$numProducts,$order,$mode,$page){
+
+        $table = "products";
+    
+        $res = ProductsModel::searchingProductsModel($table,$searchProduct,$numProducts,$order,$mode,$page);
+    
+        return $res;
+        }
+
+
+
+    /* -------------------------------------------------------------------------- */
+    /*            METODO PARA LISTAR TLOS PRODUCTOS DEL BUSCADOR         */
+    /* -------------------------------------------------------------------------- */
+
+    public static function countProductsSearch($searchProduct){
+
+        $table = "products";
+    
+        $res = ProductsModel::countProductsSearchModel($table,$searchProduct);
+    
+        return $res;
+        }
+
+
 
 }
 

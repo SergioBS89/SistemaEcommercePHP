@@ -138,7 +138,7 @@ class ProductsModel{
      /* -------------------------------------------------------------------------- */
     /*           Metodo que devuelve el LISTADO de productos   */
     /* -------------------------------------------------------------------------- */
-    static public function showProductsPaginatorModel($table,$rowProduct,$valueRow,$num,$order,$mode,$page){
+    static public function showProductsListModel($table,$rowProduct,$valueRow,$num,$order,$mode,$page){
 
 		if($rowProduct != null){
 
@@ -201,6 +201,39 @@ class ProductsModel{
 
 	}
 
+    /* -------------------------------------------------------------------------- */
+    /*                        LISTAR PRODUCTOS DEL BUSCADOR                       */
+    /* -------------------------------------------------------------------------- */
+
+	static public function searchingProductsModel($table, $searchProduct,$numProducts,$order,$mode,$page){
+
+		$stmt = Conection::conectDB()->prepare("SELECT * FROM $table WHERE rute like '%$searchProduct%'
+        OR name like '%$searchProduct%' OR description like '%$searchProduct%' ORDER BY $order $mode LIMIT $page, $numProducts");
+
+		$stmt -> execute();
+
+		return $stmt -> fetchAll();
+
+		$stmt = null;
+
+	}
+    /* -------------------------------------------------------------------------- */
+    /*                          CONTAR PRODUCTOS BUSCADOR                         */
+    /* -------------------------------------------------------------------------- */
+
+	static public function countProductsSearchModel($table,$searchProduct){
+
+		$stmt = Conection::conectDB()->prepare("SELECT * FROM $table WHERE rute like '%$searchProduct%' OR name like '%$searchProduct%'
+         OR description like '%$searchProduct%'");
+
+		$stmt -> execute();
+
+		return $stmt -> fetchAll();
+
+		$stmt = null;
+
+	} 
+
     }
     
 
@@ -247,23 +280,7 @@ class ProductsModel{
 
 	}
 
-	/*=============================================
-	BUSCADOR
-	=============================================*/
-
-	static public function mdlBuscarProductos($tabla, $busqueda, $ordenar, $modo, $base, $tope){
-
-		$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE ruta like '%$busqueda%' OR titulo like '%$busqueda%' OR titular like '%$busqueda%' OR descripcion like '%$busqueda%' ORDER BY $ordenar $modo LIMIT $base, $tope");
-
-		$stmt -> execute();
-
-		return $stmt -> fetchAll();
-
-		$stmt -> close();
-
-		$stmt = null;
-
-	}
+	
 
 	/*=============================================
 	LISTAR PRODUCTOS

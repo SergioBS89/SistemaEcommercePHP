@@ -157,7 +157,7 @@ $StaticUrl = StaticRute::rute();
                         <h4 class="titlesCat">
                            
                         <!-- concateno la url fija para evitar duplicar la url en las categorias-->
-                            <a href="'.$StaticUrl.$value['rute'].'" class="catAncor">'.$value['category'].'</a>
+                            <a href="'.$StaticUrl.$value['rute'].'/1" class="catAncor">'.$value['category'].'</a>
                         </h4>
                         <hr class="lineTitleCat" style="width: 100px;">
                         <ul>';
@@ -170,7 +170,7 @@ $StaticUrl = StaticRute::rute();
              // Al pulsar en cada una de las subcategorias, se manda a la url el valor RUTE 
             echo '          
                         <!-- concateno la url fija para evitar duplicar la url en las categorias-->
-                            <li><a href="'.$StaticUrl.$value['rute'].'" class="subCatAncor">'.$value['subcategory'].'</a></li>
+                            <li><a href="'.$StaticUrl.$value['rute'].'/1" class="subCatAncor">'.$value['subcategory'].'</a></li>
                             ';
         }
         // Cierro las etiquetas abiertas en el bloque de arriba
