@@ -1,0 +1,33 @@
+
+
+div.userBar{
+    display: flex;
+    align-items: center;
+}
+
+div.userBar img{
+    width: 6%;
+    margin-left: 20px;
+    background-color: white;
+}
+
+div.userBar span{
+    margin-left: 20px;
+    font-size: 20px;
+    color: 
+    var(--color-text-contrast);
+}
+
+#navComments a{
+    color: black;
+}
+
+div.comment h5{
+text-align: justify;
+padding: 8px 8px;
+}
+
+/* ESTILOS DE BOOTSTRAP */
+div.panel-default>.panel-heading{
+    background-color: var(--main-bg-color);
+}

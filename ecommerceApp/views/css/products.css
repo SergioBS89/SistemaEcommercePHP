@@ -84,7 +84,7 @@ li.bread, li.bread>a{
 /* -------------------------------------------------------------------------- */
 /*                            LISTADO DE PRODUCTOS                            */
 /* -------------------------------------------------------------------------- */
-.contianerImgProduct{
+.containerImgProduct{
 	position: relative;
 	}
 
@@ -153,10 +153,10 @@ div.offer h2{
 }
 /* Precio tachado  */
 span.oldPrice{
-	text-decoration: line-through;
+	text-decoration: line-through !important;
 	margin-right: 5px;
 	font-size: 20px;
-	color: rgb(41, 40, 40);
+	color: var(--main-bg-color);
 }
 /* Sticker de offer  */
 .stickerOffer::before{

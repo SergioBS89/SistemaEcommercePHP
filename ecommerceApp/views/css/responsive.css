@@ -140,11 +140,12 @@ display: none;
 
 
 /* Escritorio grande */
-@media (max-width:1425px) and (min-width:1200px){
+@media (max-width:1500px) and (min-width:1200px){
 
 	.textSlider h1{
         font-size: 60px;
         top: 20%;
+		width: 100%;
       
     }
     .textSlider h2{
@@ -169,13 +170,14 @@ display: none;
 
 @media (max-width:1199px) and (min-width:990px){
 	.textSlider h1{
-        font-size: 45px;
-        top: 20%;
+        font-size: 45px !important;
+        top: 20% !important;
+		width: 100%;
       
     }
     .textSlider h2{
-        font-size: 15px;
-		top: 40%;
+        font-size: 15px !important;
+		top: 40% !important;
 	
     }
     .textSlider h3{
@@ -206,13 +208,14 @@ display: none;
 
 @media (max-width:990px) and (min-width:767px){
 	.textSlider h1{
-        font-size: 35px;
-        top: 20%;
+        font-size: 35px !important;
+        top: 20% !important;
+		width: 100%;
       
     }
     .textSlider h2{
-        font-size: 13px;
-		top: 40%;
+        font-size: 12px !important;
+		top: 40% !important;
 	
     }
     .textSlider h3{
@@ -253,14 +256,16 @@ display: none;
 @media (max-width:767px) and (min-width:529px) {
 
     .textSlider h1{
-        font-size: 30px;
-        top: 30%;
+        font-size: 30px !important;
+        top: 30% !important;
         margin: 0px 4.5%;
+		width: 80%;
     }
     .textSlider h2{
-        font-size: 9px;
-		top: 50%;
+        font-size: 8px !important;
+		top: 50% !important;
 		margin: 0px 4.5%;
+		
     }
     .textSlider h3{
         display: none;
@@ -305,37 +310,46 @@ ol.pagination{
 @media (max-width:529px){
 
 	#slider, img.imgSlider{
-		height: 240px;
+		height: 400px;
 	}
 	.textSlider h1{
-     display: none;
+        font-size: 35px !important;
+        top: 70% !important;
+		width: 100%;	
+		text-align: center !important;
     }
+	.textSliderL h1,.textSliderR h1{
+		left: initial;
+		right: initial;
+	}
 	.textSlider h2{
        display: none;
+	   color: rgb(93, 8, 133);
     }
  
 	/* Boton slider */
     button.btnR, button.btnL{
 		left: initial;
-		right:8%;
-		top: 5%;
+		right:50%;
+		top: 90%;
 		font-size: 10px;
 		padding: 7px;
+		transform: translateX(50%);
 	}
 
 	.productRigth img {
 		position: absolute; 
 		right: 50%;
 		width: 40%;
-		top: 50%;
-		width: calc(100% * 0.5) !important;
+		/* top: 50%; */
+		width: calc(100% * 0.6) !important;
 		transform: translateX(50%);
 	}
 	.productLeft img{
 		position: absolute; 
 		left: 50%;
-		width: calc(100% * 0.5) !important;
-		top: 50%;
+		width: calc(100% * 0.6) !important;
+		/* top: 50%; */
 		transform: translateX(-50%);
 	}
 		
@@ -419,6 +433,11 @@ ol.pagination{
 	button.seeMore{
 		font-size: 8px;
 	}
+	.listProducts img{
+		padding: 20px;
+		height: 250px;
+	}
+
  
 }
 

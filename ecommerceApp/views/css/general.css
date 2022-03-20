@@ -8,6 +8,7 @@
 	--main-bg-color: #646464;
 	--main-bg-colorTop: rgb(211, 20, 20);
 	--color-text-contrast: rgb(255, 255, 255);
+	--color-text-header: rgb(255, 255, 255);
   }
 
 
@@ -49,7 +50,7 @@ ul, ol{
 
 .firstColors, .firstColors a,button.firstColors{
 	background-color: var(--main-bg-color);
-	color:white;
+	color:var(--color-text-contrast);
 }
 
 /* -------------------------------------------------------------------------- */

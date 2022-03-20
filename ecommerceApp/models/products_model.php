@@ -221,6 +221,23 @@ class ProductsModel{
     /*                          CONTAR PRODUCTOS BUSCADOR                         */
     /* -------------------------------------------------------------------------- */
 
+	static public function descriptionProductModel($table,$rute){
+
+		$stmt = Conection::conectDB()->prepare("SELECT * FROM $table WHERE rute = :value");
+        $stmt -> bindParam(":value",$rute,PDO::PARAM_STR);
+		$stmt -> execute();
+        
+        //Uso de fetch porque solo devuelve un solo registro
+		return $stmt -> fetch();
+
+		$stmt = null;
+
+	} 
+
+     /* -------------------------------------------------------------------------- */
+    /*                          CONTAR PRODUCTOS BUSCADOR                         */
+    /* -------------------------------------------------------------------------- */
+
 	static public function countProductsSearchModel($table,$searchProduct){
 
 		$stmt = Conection::conectDB()->prepare("SELECT * FROM $table WHERE rute like '%$searchProduct%' OR name like '%$searchProduct%'

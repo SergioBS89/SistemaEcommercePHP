@@ -15,7 +15,7 @@ class StaticRute{
     }
 
 
-public static function RuteAdministrator(){
+public static function ruteAdministrator(){
 
     return "http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/";
 

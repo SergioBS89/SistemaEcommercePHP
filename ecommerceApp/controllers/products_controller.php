@@ -156,6 +156,19 @@ class ProductsController{
         return $res;
         }
 
+    
+     /* -------------------------------------------------------------------------- */
+    /*            METODO QUE DEVUELVE EL RESULTADO DE UN PRODUCTO PARA LA DESCRIPCION       */
+    /* -------------------------------------------------------------------------- */
+
+    public static function descriptionProduct($rute){
+
+        $table = "products";
+    
+        $res = ProductsModel::descriptionProductModel($table,$rute);
+    
+        return $res;
+        }
 
 
 }

@@ -41,7 +41,8 @@
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/slider.css">
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/normalize.css">
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/products.css">
-    <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/productos.css">
+    <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/productDescription.css">
+    <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/comments.css">
     <!-- IMPORTANTE CARGAR EL RESPONSIVE COMO ULTIMO ARCHIVO  -->
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/responsive.css">
     
@@ -75,7 +76,10 @@
     Un ejemplo de como funciona seria: 
     RUTA FIJA--> http://localhost/PROYECTOS/SistemaEcommercePHP/ecommerceApp/ RUTA VARIABLE($_GET["rute"])-->ropa-hombre/camiseta/...
     con el metodo explode(), podemos conseguir que que la url varible quede asi-->[ropa-hombre,camiseta,...];*/
-
+    
+    /* -------------------------------------------------------------------------- */
+    /*                 VARIBLE SUPER IMPORTANTE PARA LAS RUTAS URL                */
+    /* -------------------------------------------------------------------------- */
     $ruteArray = array();
 
     //htaccess manda al index un dato get y comprobamos que existe, si no existe se muestra el Slider con un else mas abajo
@@ -172,6 +176,7 @@ else{
 <script src="<?php echo $ruteStatc;?>views/js/slider.js"></script>
 <script src="<?php echo $ruteStatc;?>views/js/pagination.js"></script>
 <script src="<?php echo $ruteStatc;?>views/js/search.js"></script>
+<script src="<?php echo $ruteStatc;?>views/js/imgZoom.js"></script>
 <!-- /* -------------------------------------------------------------------------- */
 /*                                ATRIBUCIONES                                */
 /* -------------------------------------------------------------------------- */ -->

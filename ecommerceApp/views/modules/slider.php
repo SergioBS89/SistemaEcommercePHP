@@ -36,7 +36,9 @@
                  <img src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/'.$value["product"].'"
                   alt="" style="width:'.$jsonProductStyles["width"].';top:'.$jsonProductStyles["top"].';">
 
-                 <div class="'.$jsonText["positionText"].' textSlider  TextSli1">                 
+                 <div class="'.$jsonText["positionText"].' textSlider  TextSli1">  
+                 
+                
 
                     <h1 style="color:'.$jsonH1Styles["color"].'; font-size:'.$jsonH1Styles["size"].'">'.$jsonText["content"].'</h1>
 

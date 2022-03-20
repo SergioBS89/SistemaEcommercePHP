@@ -92,6 +92,7 @@ img.imgSlider{
 .textSlider h1{
     font-size: 60px;
     top: 20%;
+    width: 100%;
 }
 .textSlider h2{
     font-size: 25px;

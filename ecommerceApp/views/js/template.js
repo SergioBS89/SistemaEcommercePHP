@@ -19,10 +19,11 @@ $.ajax({
     var background = JSON.parse(res).bgButtons;
     var colorText = JSON.parse(res).colorTextContrast;
     
-    //Usando jqery adjunto las variables de la BD a cada una de las propiedades CSS
+    /* -------------------------------------------------------------------------- */
+    /*                      CON JQUERY CAMBIO ALGUNOS ESTILOS                     */
+    /* -------------------------------------------------------------------------- */    
 
-    
-    //Clases de la barra superior
+    //Clases de la barra superior del header
     $(".barraTop, .barraTop a, .barraTop li ").css({
                                     "background": barraTop,
                                     "color":textTop});
@@ -35,6 +36,14 @@ $.ajax({
      // Otras clases y fuentes
      $(".arrow, .titleSectionProducts h1").css({
         "color": colorText});    
+    
+        /* -------------------------------------------------------------------------- */
+        /*             AQUI CAMBIO DINAMICAMENTE LAS VARIBLES GLOBALES CSS            */
+        /* -------------------------------------------------------------------------- */
+    document.documentElement.style.setProperty('--main-bg-colorTop', barraTop);
+    document.documentElement.style.setProperty('--main-bg-color', background);
+    document.documentElement.style.setProperty('--color-text-contrast', colorText);
+    document.documentElement.style.setProperty('--color-text-header', textTop);
     }  
    
 
