@@ -17,6 +17,7 @@
     // Inicio de sesion para poder usar variables session en todo el proyecto
     session_start();
 
+
     $iconDinamic = TemplateController::controllerStyleTemplate();
 
     echo ' <link rel="icon" href="'.$iconDinamic['icon'].'">';
@@ -43,14 +44,46 @@
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/products.css">
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/productDescription.css">
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/comments.css">
+
     <!-- IMPORTANTE CARGAR EL RESPONSIVE COMO ULTIMO ARCHIVO  -->
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/responsive.css">
     
     <!-- Vinculamos las librerias de bootstrap y jquery -->
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/plugins/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/plugins/font-awesome.min.css">
+ 
+ 
+    
     <script src="<?php echo $ruteStatc;?>views/js/plugins/jquery.min.js"></script>
     <script src="<?php echo $ruteStatc;?>views/js/plugins/bootstrap.min.js"></script>
+
+
+    <!-- /* -------------------------------------------------------------------------- */
+    /*                                  ALERTIFY                                  */
+    /* -------------------------------------------------------------------------- */ -->
+  
+<!-- JavaScript -->
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+
+<!-- 
+    RTL version
+-->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.rtl.min.css"/>
+
+
+   
+
+    
+  
     <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
@@ -155,6 +188,13 @@
     }
     elseif($ruteArray[0]=="SearcH"){
         include "modules/searchProducts.php";
+      
+    }
+    elseif($valueURL == "exit" ){
+        include "modules/exit.php";
+    }
+    elseif($valueURL == "profile" ){
+        include "modules/profile.php";
     }
     else {
     include "modules/error_noProduct.php"; 
@@ -177,6 +217,9 @@ else{
 <script src="<?php echo $ruteStatc;?>views/js/pagination.js"></script>
 <script src="<?php echo $ruteStatc;?>views/js/search.js"></script>
 <script src="<?php echo $ruteStatc;?>views/js/imgZoom.js"></script>
+<script src="<?php echo $ruteStatc;?>views/js/countViews.js"></script>
+<script src="<?php echo $ruteStatc;?>views/js/login.js"></script>
+<script src="<?php echo $ruteStatc;?>views/js/validations.js"></script>
 <!-- /* -------------------------------------------------------------------------- */
 /*                                ATRIBUCIONES                                */
 /* -------------------------------------------------------------------------- */ -->

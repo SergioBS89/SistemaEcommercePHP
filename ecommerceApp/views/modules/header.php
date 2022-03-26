@@ -6,9 +6,10 @@
 <!-- Rutas url fijas -->
 <?php
 
-$servidor = StaticRute::RuteAdministrator();
+$StaticUrlAdmin = StaticRute::RuteAdministrator();
 $StaticUrl = StaticRute::rute();
 ?> 
+
 
 <!-- /* ----------------------------------------------------------------------*/
 /*                           REDES SOCIALES , LOGO  Y LOGIN   HEADER                        */
@@ -62,17 +63,206 @@ $StaticUrl = StaticRute::rute();
             </div>
 
             <!-- /* --------------------------------LOGIN-------------------------------- */ -->
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 register" id="register">
+            <div  class="col-lg-4 col-md-4 col-sm-4 col-xs-12 register" id="register">
                 <ul>
-                <li><a href="#modalSignIn" data-toggle="modal">Sign in</a></li>
-                <li>|</li>
-                <li><a href="#modalSignUp" data-toggle="modal">Sign up</a></li>
+
+                <?php if(isset($_SESSION["session"])){
+
+                    if($_SESSION["session"]==1){
+
+                    echo'
+                  <!--  <img style="width: 10%;" class="img-circle pull-left" src="'.$StaticUrlAdmin.'views/img/users/default/sos.png">-->
+                    <li><a href="'.$StaticUrl.'profile">My profile</a></li>
+                    <li>|</li>
+                    <li><a href="'.$StaticUrl.'exit">Close</a></li>
+                    ';
+                
+            }
+            }
+            else {
+                    echo '
+                    <li><a href="#modalSignIn" data-toggle="modal" data-target="#myModalIn">Sign In</a></li>
+                    <li>|</li>
+                    <li><a href="#modalSignUp" data-toggle="modal" data-target="#myModalUp">Sign Up</a></li>
+                    ';
+               
+                }
+               
+                
+                    ?>
+              
                 </ul>
             </div>
         </div>
 
     </div>
 </div>  
+
+
+ <!-- /* -------------------------------------------------------------------------- */
+ /*                         VENTANA MODAL PARA EL LOGIN                        */
+ /* -------------------------------------------------------------------------- */ -->
+<div id="myModalIn" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+         <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header firstColors">
+              <button style="color: red; font-size: 35px;" type="button" class="close" data-dismiss="modal">&times;</button>
+              <h3 class="modal-title ">Sign In<i class="glyphicon glyphicon-log-in" style="margin-left: 3px;"></i></h3>
+              
+            </div>
+            <div class="modal-body modalBody">
+                
+                <form method="POST">
+                  
+                   <div class="contLogin">
+                        <br>
+                        <div class="containerInputs">                                            
+                           <!--   username-->
+                                <span style="margin-left: 7px;">
+                                    <i class="fa fa-user"></i>
+                                </span>
+                                <input class="formInput" id="nameIN" type="text" placeholder="Username" name="user">                                            
+                            <br>                                            
+                            <br>                                                                                
+                                <!--Contraseña-->                                            
+                              <span class="input-item">
+                              <i class="fa fa-key"></i>
+                              </span>
+                  
+                              <input class="formInput" type="password" placeholder="Password" id="passIN"  name="pass" >                                       
+                              <span style="margin-left: 3px;">
+                                   <i class="fa fa-eye" aria-hidden="true"  type="button" id="eye"></i>
+                              </span>                                          
+                         
+                          <br>
+                          <br>
+                 
+                             <!--    Boton LogIn -->
+                            <button class="logIn" type="submit"> Log In </button>
+                            <br>
+                        </div>                                       
+                   
+                        <!-- <div class="otherButtons pull-right">                                    
+                           <button 
+                            data-dismiss="modal" class="btn forgotButton">Forgot Password</button>                                                        
+                        </div> -->
+                    </div>  
+                </form>                                
+            </div>                                
+        </div>            
+    </div>
+</div>
+
+<!-- /* -------------------------------------------------------------------------- */
+/*                   LLAMADA AL METODO DE INICIO SESION          */
+/* -------------------------------------------------------------------------- */ -->
+
+<?php 
+$userIN = new UsersController();
+$userIN-> valSignIn();
+if(isset($_POST["user"])){
+    echo"eiiii";
+}
+
+?>                  
+
+
+
+<!-- /* -------------------------------------------------------------------------- */
+ /*                         VENTANA MODAL PARA EL REGISTRO                */
+ /* -------------------------------------------------------------------------- */ -->
+ <div id="myModalUp" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+         <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header firstColors">
+              <button style="color: red; font-size: 35px;" type="button" class="close" data-dismiss="modal">&times;</button>
+              <h3 class="modal-title text-lime">Sign Up <i class="fa fa-user-plus" aria-hidden="true"></i></h3>
+              
+            </div>
+            <div class="modal-body modalBody">
+                <!-- <div class="overlay"> -->
+                  <!-- /* -------------------------------------------------------------------------- */
+                  /*                                    LOGIN REGISTRO                               */
+                  /* -------------------------------------------------------------------------- */ -->
+                <form method="POST" onsubmit="return signUp();">
+                   <!--   con = Container  for items in the form-->
+                   <div class="contLogin">
+                        <br>
+                        <div class="containerInputs">                                            
+                           <!--   username-->
+                                <span style="margin-left: 5px;">
+                                    <i class="fa fa-user"></i>
+                                </span>
+                                <input class="formInput" id="nameUP" type="text" placeholder="   Username" name="username">                                            
+                            <br>                                            
+                            <br>    
+                              <!--   email-->
+                              <span>
+                                    <i class="fa">@</i>
+                                </span>
+                                <input class="formInput" id="emailUP" type="email" placeholder="Email" name="email" >   
+                                <br>                                                                         
+                                <br>                                                                         
+                                <!--Contraseña-->                                            
+                              <span>
+                              <i class="fa fa-key"></i>
+                              </span>
+                  
+                              <input class="formInput" id="passUP" type="password" placeholder="Password" name="password">                                       
+                              <span style="margin-left: 3px;">
+                                 
+                              </span>                                          
+                         
+                          <br>
+                          <br>
+                             <!--Repite contraseña-->                                            
+                             <span class="input-item">
+                              <i class="fa fa-key"></i>
+                              </span>
+                  
+                              <input class="formInput" id="repeatPass" type="password" placeholder="Repeat Password"required>                                       
+                              <span style="margin-left: 3px;">
+                                  
+                              </span>    
+                 
+                             <!--    Boton crear cuenta-->
+                            <button class="logIn" style="margin-top: 20px;">Create Account</button>
+                            <br>
+                        </div>                                       
+                   
+                        <div class="otherButtons pull-right">                                    
+                           <!-- <button class="btn forgotButton">Forgot Password</button>   -->
+                           <div class="changeModal pull-right firstColors">
+                          <a href="#myModal"  data-toggle="modal"
+                            data-dismiss="modal"> Sign In </a>                               
+                           <i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>
+                           </div>
+                                                 
+                        </div>
+                    </div>  
+                   
+                </form>                                
+            </div>                                
+        </div>            
+    </div>
+</div>                        
+<!-- /* -------------------------------------------------------------------------- */
+/*                   LLAMADA AL METODO DE REGISTRO USUARIOS                   */
+/* -------------------------------------------------------------------------- */ -->
+<?php 
+$user = new UsersController();
+$user-> signUpUsers();
+if(isset($_POST["username"])){
+    echo"eiiiiinnnnn";
+}
+
+?>
+
+
+
+                        
 
             <!-- -------------------------------------------------------------------------- */
             /*                        CATEGORIAS, CARRITO, BUSCADOR                                  */
@@ -110,6 +300,7 @@ $StaticUrl = StaticRute::rute();
                     <input type="search" name="searchProduct" class="form-control inputSearch" placeholder="Search">
                     <!-- input-group-btn posiciona el boton de buscador en la misma linea del contenedor -->
                     <span class="input-group-btn">
+                        <!-- Al pulsar, se manda a la url el valor de SearcH/1/new para una posterior busqueda -->
                         <a href="<?php echo $StaticUrl;?>SearcH/1/new">
                             <button class="btn btn-default firstColors btnSearch" type="submit">
                                 <i class="fa fa-search "></i>
@@ -119,6 +310,10 @@ $StaticUrl = StaticRute::rute();
                 </div>
 
             </div>
+
+          
+
+
     
             <!-- /* --------------------------- CARRITO DE COMPRAS --------------------------- */ -->
             <div class="col-lg-3 col-md-3 col-sm-2 col-xs-12" id="shopCart">
@@ -184,6 +379,7 @@ $StaticUrl = StaticRute::rute();
         </div>
     </div>
 </header>
+
 
 
 

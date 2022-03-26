@@ -58,7 +58,7 @@ $descritionProduct=ProductsController::descriptionProduct($rute);
 ?>
 <!-- 
  /* -------------------------------------------------------------------------- */
- /*                       SECCION INFORMACION DEL PRODUCO                      */
+ /*                       SECCION INFORMACION DEL PRODUCTO                      */
  /* -------------------------------------------------------------------------- */ -->
 
  <div class="container-fluid">
@@ -67,6 +67,7 @@ $descritionProduct=ProductsController::descriptionProduct($rute);
 
             <div class="col-md-5 col-sm-6 col-xs-12 zoomImg">                
 			    
+			<!-- Clase de bootstrap para las imagenes  -->
 				 <img id="productDesc" class="img-thumbnail" src="<?php echo $descritionProduct['image'] ?>" alt="what happen">
                 
             </div>
@@ -132,7 +133,7 @@ $descritionProduct=ProductsController::descriptionProduct($rute);
 			    		<i class="fa fa-shopping-cart" style="margin:0px 5px"></i>
 			    		<?php echo$descritionProduct["numSells"]; ?> times sold |
 			    		<i class="fa fa-eye" style="margin:0px 5px"></i>
-			    		viewed by <span><?php echo $descritionProduct["numViews"] ?></span> persons
+			    		viewed by <span id="viewsProducts"><?php echo $descritionProduct["numViews"] ?></span> persons
 			    	</span>    
 				</h4>					
 				
@@ -217,7 +218,7 @@ $descritionProduct=ProductsController::descriptionProduct($rute);
 			    <div class="panel panel-default">
 				      
 				    <div class="panel-heading text-uppercase userBar">
-				        <img class="img-circle pull-left" src="<?php echo $staticUrlAdmin ?>views/img/users/default/as.png">
+				        <img class="img-circle pull-left" src="<?php echo $staticUrlAdmin ?>views/img/users/default/as.jpg">
 				    	<span>Monica Perez Lopez</span>
 				    </div>
 				     
@@ -309,14 +310,20 @@ $descritionProduct=ProductsController::descriptionProduct($rute);
 		<div class="row">
 
 		   <!-- /* -------------------------------------------------------------------------- */
-		   /*                       LISTA DE PRODUCTOS RELACIONADOS                      */
+		   /*                       LISTA DE PRODUCTOS                    */
 		   /* -------------------------------------------------------------------------- */ -->
     
 		    <ul class="listProducts">
 
 			<?php 
-            $orderBy= "numSells";
-            $products = ProductsController::showProducts($orderBy);
+            $orderBy= "id";
+			// Nos devuelve el numero de la catetoria, subcategoria y ruta  para buscar productos similares
+			$valueRow=$descritionProduct["id_category"];
+			$valueRow2=$descritionProduct["id_subCat"];
+			$valueRow3=$descritionProduct["rute"];
+			
+            $products = ProductsController::showProductsRelated($valueRow,$valueRow2,$valueRow3,$orderBy);
+			
             foreach($products as $key => $value){
 				echo '
 					

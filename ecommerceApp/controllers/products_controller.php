@@ -144,7 +144,7 @@ class ProductsController{
 
 
     /* -------------------------------------------------------------------------- */
-    /*            METODO PARA LISTAR TLOS PRODUCTOS DEL BUSCADOR         */
+    /*            METODO PARA CONTAR LOS PRODUCTOS DEL BUSCADOR         */
     /* -------------------------------------------------------------------------- */
 
     public static function countProductsSearch($searchProduct){
@@ -166,6 +166,31 @@ class ProductsController{
         $table = "products";
     
         $res = ProductsModel::descriptionProductModel($table,$rute);
+    
+        return $res;
+    }
+      /* -------------------------------------------------------------------------- */
+    /*                      METODO PARA MOSTRAR LOS PRODUCTOS  REALCIONADOS                   */
+    /* -------------------------------------------------------------------------- */
+
+    public static function showProductsRelated($valueRow,$valueRow2,$valueRow3,$orderBy){
+
+        $table = "products";
+    
+        $res = ProductsModel::showProductsRelatedModel($table,$valueRow,$valueRow2,$valueRow3,$orderBy);
+    
+        return $res;
+        }
+
+            /* -------------------------------------------------------------------------- */
+    /*                      METODO PARA ACTUALIZAR EL NUMERO DE VISTAS EN LA BASE DE DATOS                  */
+    /* -------------------------------------------------------------------------- */
+
+    public static function updateNumViews($dates){
+
+        $table = "products";
+    
+        $res = ProductsModel::updateNumViewsModel($table,$dates);
     
         return $res;
         }

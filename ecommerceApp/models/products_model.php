@@ -250,69 +250,50 @@ class ProductsModel{
 		$stmt = null;
 
 	} 
+      /* -------------------------------------------------------------------------- */
+    /*                          CONTAR PRODUCTOS BUSCADOR                         */
+    /* -------------------------------------------------------------------------- */
 
+	static public function showProductsRelatedModel($table,$valueRow,$valueRow2,$valueRow3,$orderBy){
+
+		$stmt = Conection::conectDB()->prepare("SELECT * FROM $table WHERE $valueRow = id_category AND $valueRow2 = id_subCat 
+        AND :value <> rute  ORDER BY $orderBy LIMIT 4");
+        $stmt -> bindParam(":value",$valueRow3,PDO::PARAM_STR);
+		$stmt -> execute();
+
+		return $stmt -> fetchAll();
+
+		$stmt = null;
+
+	} 
+
+/* -------------------------------------------------------------------------- */
+/*                         ACTUALIZAR NUMERO DE VISTAS DE PRODUCTOS                   */
+/* -------------------------------------------------------------------------- */
+
+	static public function updateNumViewsModel($tabla, $dates){
+
+        $stmt = Conection::conectDB()->prepare("UPDATE $tabla SET numViews = :rowProduct WHERE rute = :rute");
+
+        $stmt -> bindParam(":rowProduct", $dates["counter"], PDO::PARAM_STR);
+		$stmt -> bindParam(":rute", $dates["rute"], PDO::PARAM_STR);
+		
+
+		if($stmt -> execute()){
+
+			return "ok";
+		
+		}else{
+
+			return "error";	
+
+		}
+
+		$stmt = null;
+
+    }
     }
     
 
 ?>
 
-<!-- /*=============================================
-	MOSTRAR INFOPRODUCTO
-	=============================================*/
-
-	static public function mdlMostrarInfoProducto($tabla, $item, $valor){
-
-		$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
-
-		$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
-
-		$stmt -> execute();
-
-		return $stmt -> fetch();
-
-		$stmt -> close();
-
-		$stmt = null;
-
-	}
-
-	
-	/*=============================================
-	MOSTRAR BANNER
-	=============================================*/
-
-	static public function mdlMostrarBanner($tabla, $ruta){
-
-		$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE ruta = :ruta");
-
-		$stmt -> bindParam(":ruta", $ruta, PDO::PARAM_STR);
-
-		$stmt -> execute();
-
-		return $stmt -> fetch();
-
-		$stmt -> close();
-
-		$stmt = null;
-
-	}
-
-	
-
-	/*=============================================
-	LISTAR PRODUCTOS
-	=============================================*/
-
-	static public function mdlListarProductosBusqueda($tabla, $busqueda){
-
-		$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE ruta like '%$busqueda%' OR titulo like '%$busqueda%' OR titular like '%$busqueda%' OR descripcion like '%$busqueda%'");
-
-		$stmt -> execute();
-
-		return $stmt -> fetchAll();
-
-		$stmt -> close();
-
-		$stmt = null;
-
-	} -->

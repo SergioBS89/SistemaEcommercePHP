@@ -67,7 +67,7 @@ img.myLogo{
 /* Login container */
 #register{
 	text-align: right;
-	font-size:13px;
+	font-size:15px;
 }
 /* Botones de inicio sesion */
 .register>ul>li>a{
@@ -76,6 +76,7 @@ img.myLogo{
 .register>ul>li>a:hover{
 	color: inherit;
 }
+
 
 /* -------------------------------------------------------------------------- */
 /*                         BOTON CATEGORIAS                        */
@@ -164,4 +165,100 @@ hr.lineTitleCat{
 	margin-bottom: 10px;
 }
 
+
+/* -------------------------------------------------------------------------- */
+/*                                 LOGIN MODAL                                */
+/* -------------------------------------------------------------------------- */
+
+
+.modalBody form {
+    width: auto;
+    min-height: 270px;
+    height: auto;
+    /* border-radius: 5px; */
+    margin: 2% auto;
+    box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
+    padding: 2%;
+    background-image: linear-gradient(-225deg, #5e5b5b 50%, #f37878 50%);
+}
+
+/* form Container */
+form .contLogin{
+ 
+	display: flex;
+	justify-content: space-around;
+	align-items: flex-start;
+	flex-direction: column;
+}
+.containerInputs{
+	min-height: 180px;
+	height: auto;
+	width: 100%;
+    
+	padding-left: 20px;
+	
+}
+
+.formInput{
+	width: 60%;
+	height: 40px;
+	border: 0;
+	text-align: center;
+	font-size: 15px;
+}
+.formInput:focus{
+	border-color: var(--main-bg-colorTop) !important;
+}
+/* Iconos */
+.containerInputs i{
+	font-size: 30px;
+	color: white;
+	margin-right: 10px;
+}
+button.logIn{
+	
+	background-color: var(--main-bg-colorTop);
+	font-size: 18px;
+	padding: 5px 20px;
+	color: white;
+	border: 0;
+	border-radius: 5px;
+}
+#eye{
+	cursor: pointer;
+}
+
+div.otherButtons{
+	position: relative;
+	width: 100%;
+	padding: 0 20px;
+}
+
+.otherButtons button{
+	font-size: 18px;
+	padding: 5px 20px;
+	border: 0;
+}
+button.forgotButton{
+	font-size: 14px;
+	background-color: rgb(255, 255, 255);
+}
+
+div.changeModal{
+	width: 100px;
+	height: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;	
+}
+
+.alertify .ajs-commands button{
+	position: absolute;
+	color: red;
+	right: 0;
+}
+.alertify .ajs-footer .ajs-buttons .ajs-button.ajs-ok{
+	color: var(--main-bg-colorTop) !important;
+}
 

@@ -21,7 +21,12 @@
 	font-family: 'Roboto Slab', serif;
 }
 
-button:focus {outline:0 !important;}
+button:focus {
+	outline:0 !important;}
+
+body{
+	padding-right: 0 !important;
+}
 
 
 /* Elimina el padding por defecto que trae boostrap */
