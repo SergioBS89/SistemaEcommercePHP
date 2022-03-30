@@ -44,7 +44,7 @@
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/products.css">
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/productDescription.css">
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/comments.css">
-
+    <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/profile.css">
     <!-- IMPORTANTE CARGAR EL RESPONSIVE COMO ULTIMO ARCHIVO  -->
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/responsive.css">
     
@@ -195,6 +195,9 @@
     }
     elseif($valueURL == "profile" ){
         include "modules/profile.php";
+    }
+    elseif($valueURL == "rate"){
+        include "modules/ratingProduct.php";
     }
     else {
     include "modules/error_noProduct.php"; 

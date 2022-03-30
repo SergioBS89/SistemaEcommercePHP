@@ -73,6 +73,10 @@ font-size: 46px;
 img.img-thumbnail{
     border: 1px solid var(--main-bg-colorTop);
 }
+
+/* -------------------------------------------------------------------------- */
+/*          ESTRELLAS QUE SE MUESTRAN EN LA DESCRIPCION DEL PRODUCTO          */
+/* -------------------------------------------------------------------------- */
 .starsRatingDescription{
 	width: 30px;
 	height: 30px;
@@ -82,3 +86,7 @@ img.img-thumbnail{
 div.ratingDescription{
 	width: 100%;
 }
+
+
+
+

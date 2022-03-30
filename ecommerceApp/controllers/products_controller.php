@@ -47,7 +47,7 @@ class ProductsController{
         return $res;
     }
       /* -------------------------------------------------------------------------- */
-    /*                METODO PARA COMPROBAR SI EXISTEN LAS CATEGORIAS       */
+    /*                METODO PARA COMPROBAR SI EXISTEN LAS SUBCATEGORIAS       */
     /* -------------------------------------------------------------------------- */
 
     public static function controllerSubCategoriesExisting($ruteProduct,$value){
@@ -62,7 +62,7 @@ class ProductsController{
     }
 
     /* -------------------------------------------------------------------------- */
-    /*                      METODO PARA MOSTRAR LOS PRODUCTOS                     */
+    /*                      METODO PARA MOSTRAR LOS PRODUCTOS  PAGINA INICIO                  */
     /* -------------------------------------------------------------------------- */
 
     public static function showProducts($orderBy){
@@ -73,6 +73,18 @@ class ProductsController{
 
     return $res;
     }
+     /* -------------------------------------------------------------------------- */
+    /*                      METODO PARA MOSTRAR LOS PRODUCTOS EN LISTA COMPRAS                 */
+    /* -------------------------------------------------------------------------- */
+
+    public static function showProductsProfile($valueRow){
+
+        $table = "products";
+    
+        $res = ProductsModel::showProductsProfileModel($table,$valueRow);
+    
+        return $res;
+        }
      /* -------------------------------------------------------------------------- */
     /*                      METODO PARA MOSTRAR LOS PRODUCTOS EN OFERTA                 */
     /* -------------------------------------------------------------------------- */

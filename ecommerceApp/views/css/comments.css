@@ -31,3 +31,43 @@ padding: 8px 8px;
 div.panel-default>.panel-heading{
     background-color: var(--main-bg-color);
 }
+
+
+/* -------------------------------------------------------------------------- */
+/*                          ESTILOS DE LAS ESTRELLAS PARA PUNTUAR                       */
+/* -------------------------------------------------------------------------- */
+#form {
+    
+    margin: 0 auto;
+    height: 50px;
+  }
+  
+  #form p {
+    text-align: center;
+  }
+  
+  #form label {
+    font-size: 40px;
+  }
+  
+  #form input[type="radio"] {
+    display: none;
+  }
+  
+  #form label {
+    color: transparent;
+    cursor: pointer;
+  }
+  
+  .clasificacion {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+  }
+  
+  #form label:hover, #form label:hover ~ label {
+    color: var(--main-bg-colorTop);
+  }
+  
+  #form input[type="radio"]:checked ~ label {
+    color: var(--main-bg-colorTop);
+  }

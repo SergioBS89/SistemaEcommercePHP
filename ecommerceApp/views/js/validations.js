@@ -1,7 +1,6 @@
-
-/*=============================================
-CAPTURA DE RUTA
-=============================================*/
+/* -------------------------------------------------------------------------- */
+/*            FUNCION QUE TOMA EL VALOR DE LA URL AL INICIAR SESION           */
+/* -------------------------------------------------------------------------- */
 
 var rute = location.href;
 
@@ -44,7 +43,7 @@ $("#emailUP").change(function(){
 
 			}else{				
 
-				$("#emailUP").parent().before('<div style="margin-left:50px"  class="alert alert-warning"><strong>ERROR:</strong>This email count already exist</div>')
+				$("#emailUP").parent().before('<div style="margin-left:50px"  class="alert alert-warning"><strong>ERROR:</strong>This email account already exist</div>')
 
 					emailRepeat = true;
 			}

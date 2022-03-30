@@ -98,6 +98,23 @@ class ProductsModel{
         $stmt -> null;
     }
 
+     /* -------------------------------------------------------------------------- */
+    /*        METODO PARA MOSTRAR PRODUCTOS EN  LISTA DE COMPRAS  DENTRO DEL PERFIL */
+    /* -------------------------------------------------------------------------- */
+    public static function showProductsProfileModel($table,$valueRow){
+
+        // Traemos un maximo de 4 productos para mostar en las principales secciones
+        $stmt = Conection::conectDB()->prepare("SELECT * FROM $table WHERE id = :value ");   
+        $stmt -> bindParam(":value",$valueRow,PDO::PARAM_STR); 
+        $stmt ->execute();
+        //Usamos fetchAll porque devolvemos varias filas de registros
+        return $stmt -> fetchAll();
+        
+        //Cerramos la conexion
+        $stmt -> null;
+    }
+
+
 
      /* -------------------------------------------------------------------------- */
     /*           Metodo que devuelve los registros de la tabla productos CON OFERTA para la pagina principal      */

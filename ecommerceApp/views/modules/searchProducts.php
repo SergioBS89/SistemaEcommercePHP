@@ -2,7 +2,7 @@
 
 <?php
 
-$servidor = StaticRute::RuteAdministrator();
+$StaticUrlAdmin = StaticRute::RuteAdministrator();
 $StaticUrl = StaticRute::rute();
 ?> 
 <!-- /* -------------------------------------------------------------------------- */

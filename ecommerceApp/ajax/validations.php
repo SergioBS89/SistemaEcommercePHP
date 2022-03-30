@@ -21,23 +21,7 @@ class AjaxValidation{
 
     }
 
-    /* -------------------------------------------------------------------------- */
-    /*        METODO PARA VALIDAR EL INICIO DE SESION CON LOS DATOS DE AJAX       */
-    /* -------------------------------------------------------------------------- */
-
-    // public function valSignIn(){
-
-    //     $dates = array(
-    //     "valueName"=>$this->valueName,
-    //     "valuePass" =>$this->valuePass);
-
-    //     $res=UsersController::valSignIN($dates);
-
-    //     echo $res;
-    // }
- 
-
-
+    
 }
 
 // Comprobamos si llegaron los datos de ajax
@@ -48,11 +32,5 @@ $valEmail ->valueEmail = $_POST["emailRep"];
 $valEmail->emailRep();
 }
 
-// if(isset($_POST["nameIN"])){
 
-// $valSignIN = new AjaxValidation();
-// $valSignIN -> valueName = $_POST["nameIN"];
-// $valSignIN -> valuePass = $_POST["passIN"];
-// $valSignIN ->valSignIn();
-// }
 ?>

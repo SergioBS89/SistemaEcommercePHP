@@ -110,16 +110,7 @@ li.bread, li.bread>a{
 	height: 300px;
 	padding: 40px;
 }
-/* contenedor estrellas */
-div.rating{
-	width: 70px;
-}
-/* Estrellas valoracion */
-.starsRating{
-	width: 10px;
-	height: 10px;
-	color: var(--main-bg-color);
-}
+
 /* zoom producto */
 .products ul li a img:hover{
 	transition: .3s all ease;
@@ -249,7 +240,20 @@ left: 10%;
 					  }
 
 
-
+/* -------------------------------------------------------------------------- */
+/*                            VALORACION PRODUCTOS                            */
+/* -------------------------------------------------------------------------- */
+/* contenedor estrellas */
+div.rating{
+	width: 70px;
+}
+/* Estrellas valoracion */
+.starsRating{
+	width: 10px;
+	height: 10px;
+	color: var(--main-bg-colorTop);
+	
+}
  
 
 

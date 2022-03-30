@@ -161,10 +161,6 @@ $StaticUrl = StaticRute::rute();
 <?php 
 $userIN = new UsersController();
 $userIN-> valSignIn();
-if(isset($_POST["user"])){
-    echo"eiiii";
-}
-
 ?>                  
 
 
@@ -191,7 +187,7 @@ if(isset($_POST["user"])){
                    <div class="contLogin">
                         <br>
                         <div class="containerInputs">                                            
-                           <!--   username-->
+                           <!--nombre usuario-->
                                 <span style="margin-left: 5px;">
                                     <i class="fa fa-user"></i>
                                 </span>
@@ -254,9 +250,6 @@ if(isset($_POST["user"])){
 <?php 
 $user = new UsersController();
 $user-> signUpUsers();
-if(isset($_POST["username"])){
-    echo"eiiiiinnnnn";
-}
 
 ?>
 
