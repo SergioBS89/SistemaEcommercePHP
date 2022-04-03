@@ -66,8 +66,8 @@ if (!isset($_SESSION["session"])) {
                 $row = "id_user";
                 $valueRow = $_SESSION["userId"];
                 $res = UsersController::showOrder($row, $valueRow);
-                ?>
-                <?php
+        
+                
                 if (!$res) {
                     echo '
                     <div class="row">
@@ -101,21 +101,21 @@ if (!isset($_SESSION["session"])) {
                                 <div class=" col-sm-6 col-xs-12 productProfile">
                                     <h1>' . $value2["name"] . '</h1>
                                     ';
-                                if ($value2["offer"] == 1) {
-                                    echo '
+                            if ($value2["offer"] == 1) {
+                                echo '
                                         <h3 class="textProf">Price: <span class="oldPrice">' . $value2["price"] . '</span> / ' . $value2["priceOnOffer"] . '<span>€</span></h3> 
                                         <h3 class="textProf">  Product Purchased On ' . substr($value["date"], 0, -8) . '</h3> 
                                         <br>
                                         ';
-                                } else {
-                                    echo '
+                            } else {
+                                echo '
                                         <h3 class="textProf">Price: ' . $value2["price"] . '</h3>  
                                         <h3 class="textProf"> Product Purchased On ' . substr($value["date"], 0, -8) . '</h3>                                   
                                         <br>
                                         ';
-                                }
-                                if ($value["delivery"] == 0) {
-                                    echo '
+                            }
+                            if ($value["delivery"] == 0) {
+                                echo '
                                     <div class="progress">
                                         <div class="progress-bar progress-bar-danger" role="progressbar" style="width:25%">
                                             Order Processing
@@ -130,8 +130,8 @@ if (!isset($_SESSION["session"])) {
                                             Delivered
                                         </div>
                                     </div>';
-                                } else if ($value["delivery"] == 1) {
-                                    echo '
+                            } else if ($value["delivery"] == 1) {
+                                echo '
                                         <div class="progress">
                                             <div class="progress-bar progress-bar-danger" role="progressbar" style="width:25%">
                                                 Order Processing
@@ -146,8 +146,8 @@ if (!isset($_SESSION["session"])) {
                                                Delivered
                                             </div>
                                         </div>';
-                                } else if ($value["delivery"] == 2) {
-                                    echo '
+                            } else if ($value["delivery"] == 2) {
+                                echo '
                                         <div class="progress">
                                             <div class="progress-bar progress-bar-danger" role="progressbar" style="width:25%">
                                             Order Processing
@@ -162,8 +162,8 @@ if (!isset($_SESSION["session"])) {
                                                 Delivered
                                             </div>
                                         </div>';
-                                } else {
-                                    echo '
+                            } else {
+                                echo '
                                         <div class="progress">
                                             <div class="progress-bar progress-bar-danger" role="progressbar" style="width:25%">
                                             Order Processing
@@ -179,55 +179,121 @@ if (!isset($_SESSION["session"])) {
                                             </div>
                                         </div>
                                         ';
-                                }
-                                echo
-                                '
+                            }
+                            echo
+                            '
                             </div> ';
 
                             /* -------------------------------------------------------------------------- */
-                            /*                 OPCION DE VALORAR PRODUCTO O VER VALORACION                */
+                            /*                 OPCION DE VALORAR PRODUCTO               */
                             /* -------------------------------------------------------------------------- */
 
+                            $idUser = $_SESSION["userId"];
+                            $idProduct = $value2["id"];
 
-                            if ($value["is_rated"] == 0) {
+                            $rate = UsersController::showRates($idProduct, $idUser);
+            
+                            
 
                                 echo '     
-                                    <a href="#modalRate" data-toggle="modal" idComm="">                               
-                                    <button class="btn btn-default firstColors pull-right" data-toggle="modal">
-                                    			
+                                
+                                <div class="col-md-3 col-sm-6 col-xs-12"> 
+                                    <a class="takeId takeIdProduct" href="#modalRate" data-toggle="modal" idComm="'.$rate["id"].'">                               
+                                    <button class="btn btn-default firstColors" style="margin-top:20px;" data-toggle="modal">                                    			
                                        RATE PRODUCT<span style="margin-left:10px" class="fa fa-chevron-right"></span>
                                     </button>
                                     </a>
-                                     ';
-                            } else {
+                                    <br>
+                                    <br>
+                                
 
-                                echo '
-                                    <a href="#modalSeeRate" data-toggle="modal" idComm="">
-                                    <button class="btn btn-default firstColors pull-right" data-toggle="modal">                                    				
-                                       SEE RATING<span style="margin-left:10px" class="fa fa-chevron-right"></span>
-                                    </button> 
-                                    </a> ';
-                            }
-                            }
-                            echo '
+                                     ';
+                                     switch ($rate["rate"]) {
+                                        case 1:
+                                            echo '
+                                            <div>
+                                            Your Rating: '.$rate["rate"].'.0 |
+                                            <i class="starsRating fa fa-star stars"></i>
+                                            <i class="starsRating fa fa-star-o stars"></i>
+                                            <i class="starsRating fa fa-star-o stars"></i>
+                                            <i class="starsRating fa fa-star-o stars"></i>
+                                            <i class="starsRating fa fa-star-o stars"></i>
+                                        </div>';
+                                            break;
+                                        case 2:
+                                                echo '
+                                                <div>
+                                                Your Rating: '.$rate["rate"].'.0 |
+                                                <i class="starsRating fa fa-star stars"></i>
+                                                <i class="starsRating fa fa-star stars"></i>
+                                                <i class="starsRating fa fa-star-o stars"></i>
+                                                <i class="starsRating fa fa-star-o stars"></i>
+                                                <i class="starsRating fa fa-star-o stars"></i>
+                                            </div>';
+                                                break;
+                                        case 3:
+                                            echo '
+                                            <div>
+                                            Your Rating: '.$rate["rate"].'.0 |
+                                            <i class="starsRating fa fa-star stars"></i>
+                                            <i class="starsRating fa fa-star stars"></i>
+                                            <i class="starsRating fa fa-star stars"></i>
+                                            <i class="starsRating fa fa-star-o stars"></i>
+                                            <i class="starsRating fa fa-star-o stars"></i>
+                                        </div>';
+                                            break;
+                                        case 4:
+                                                echo '
+                                            <div>
+                                                Your Rating: '.$rate["rate"].'.0 |
+                                                <i class="starsRating fa fa-star stars"></i>
+                                                <i class="starsRating fa fa-star stars"></i>
+                                                <i class="starsRating fa fa-star stars"></i>
+                                                <i class="starsRating fa fa-star stars"></i>
+                                                <i class="starsRating fa fa-star-o stars"></i>
+                                            </div>';
+                                            break;
+                                        case 5:
+                                                echo '
+                                                <div>
+                                                Your Rating: '.$rate["rate"].'.0 |
+                                                <i class="starsRating fa fa-star stars"></i>
+                                                <i class="starsRating fa fa-star stars"></i>
+                                                <i class="starsRating fa fa-star stars"></i>
+                                                <i class="starsRating fa fa-star stars"></i>
+                                                <i class="starsRating fa fa-star stars"></i>
+                                            </div>                   
+                                   
+                                            ';
+                                                break;       
+                            
+                        }
+                        }
+                        
+                        echo '
+                                           
+                                           <h5>'.$rate["comment"].'</h5>
+                                           
+                            </div>
                         </div>                             
                     </div>
                         ';
                     }
                 }
+              
 
                 ?>
 
                 <!-- </div> -->
 
-                    <!-- /* -------------------------------------------------------------------------- */
+                <!-- /* -------------------------------------------------------------------------- */
                       /*                                 MIS DESEOS                                 */
                        /* -------------------------------------------------------------------------- */ -->
-                    <div id="wishes" class="tab-pane fade">
-        
-                        <h3>Menu 1</h3>
-                        <p>Some content in menu .</p>
-                    </div>
+                <div id="wishes" class="tab-pane fade">
+
+                    <h3>Menu 1</h3>
+                    <p>Some content in menu .</p>
+                </div>
             </div>
 
         </div>
@@ -245,19 +311,84 @@ if (!isset($_SESSION["session"])) {
 </div>
 
 <!-- /* -------------------------------------------------------------------------- */
-/*                          VENTANA MODAL VALORACION                          */
+/*                          VENTANA MODAL PARA INSERTAR NUEVA VALORACION                          */
 /* -------------------------------------------------------------------------- */ -->
 
-<div id="modalSeeRate" class="modal fade modalForm" role="dialog">
 
-<div class="modal-content modal-dialog">
-    <h1>seee</h1>
-</div>
-</div>
+
 
 <div id="modalRate" class="modal fade modalForm" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h2 class="modal-title">USER REVIEW</h2>
+         
 
-<div class="modal-content modal-dialog">
-    <h1>rate</h1>
+            </div>
+            <div class="modal-body modalBody">
+
+                <form method="POST" id="formRate" onsubmit="return valComment()">
+                
+                <!-- INPUT INVISIBLE PARA CONSEGUIR EL ID DEL PRODUCTO QUE VAMOS A VALORAR -->
+                <input type="hidden" value="" id="idModalCreate" name="idRate">
+                    <!--   con = Container  for items in the form-->
+                    <div class="contLogin" style="display: flex; align-items: center;" >
+                        <!-- VALORACION -->
+
+                        <h2 style="text-align: center;" class="clasificacion">
+                            <input id="radio1" type="radio" name="stars" value="5">
+                            <!--
+                          --><label for="radio1">★</label>
+                            <!--
+                          --><input id="radio2" type="radio" name="stars" value="4">
+                            <!--
+                          --><label for="radio2">★</label>
+                            <!--
+                          --><input id="radio3" type="radio" name="stars" value="3">
+                            <!--
+                          --><label for="radio3">★</label>
+                            <!--
+                          --><input id="radio4" type="radio" name="stars" value="2">
+                            <!--
+                          --><label for="radio4">★</label>
+                            <!--
+                          --><input id="radio5" type="radio" name="stars" value="1">
+                            <!--
+                          --><label for="radio5">★</label>
+                        </h2>
+                        <br>
+                            <!--Comentario sobre el producto-->
+
+                            <h4 style="color: white; text-align: center;"> Your opinion is very important for us:</h4>
+                            <textarea style="width: 100%; padding: 10px;" name="comment" rows="4"  id="newComment" maxlength="250"></textarea>
+                           
+                            <br>
+                            <br>
+
+
+
+                            <!--    Boton Update-->
+                            <div style="text-align: center;">
+                            <button class="logIn" style="margin: auto;" style="margin-top: 20px;">RATE PRODUCT</button>
+                            </div>
+                            <br>
+
+                    </div>
+            </div>
+        </div>
+
+        </form>
+    </div>
 </div>
 </div>
+</div>
+<!-- /* -------------------------------------------------------------------------- */
+/*                   LLAMADA AL METODO DE REGISTRO USUARIOS                   */
+/* -------------------------------------------------------------------------- */ -->
+<?php 
+$rating = new UsersController();
+$rating-> newRate();
+?>
+

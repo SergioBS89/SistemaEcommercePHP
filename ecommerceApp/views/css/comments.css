@@ -36,38 +36,38 @@ div.panel-default>.panel-heading{
 /* -------------------------------------------------------------------------- */
 /*                          ESTILOS DE LAS ESTRELLAS PARA PUNTUAR                       */
 /* -------------------------------------------------------------------------- */
-#form {
+#formRate {
     
     margin: 0 auto;
     height: 50px;
   }
   
-  #form p {
-    text-align: center;
-  }
   
-  #form label {
+  #formRate label {
     font-size: 40px;
   }
   
-  #form input[type="radio"] {
+  #formRate input[type="radio"] {
     display: none;
   }
   
-  #form label {
-    color: transparent;
+  #formRate label {
+    color: white;
     cursor: pointer;
   }
   
   .clasificacion {
     direction: rtl;
     unicode-bidi: bidi-override;
+    text-align: center;
   }
   
-  #form label:hover, #form label:hover ~ label {
+  #formRate label:hover, #form label:hover ~ label {
     color: var(--main-bg-colorTop);
   }
   
-  #form input[type="radio"]:checked ~ label {
+  #formRate input[type="radio"]:checked ~ label {
     color: var(--main-bg-colorTop);
   }
+
+  

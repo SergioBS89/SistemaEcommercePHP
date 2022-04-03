@@ -53,6 +53,8 @@ $StaticUrl = StaticRute::rute();
 
 <?php
 
+// BSUCAMOS EN LA BASE DE DATOS SI EXISTE LA RUTE DEL PRODUCTO PARA MOSTRARLO
+
 $rute = $ruteArray[0];
 $descritionProduct = ProductsController::descriptionProduct($rute);
 ?>
@@ -76,15 +78,107 @@ $descritionProduct = ProductsController::descriptionProduct($rute);
 				<div class="col-md-12 textDescription">
 					<!-- NOMBRE -->
 					<h1><?php echo $descritionProduct["name"]; ?></h1>
-					<!-- VALORACION -->
-					<div class="ratingDescription">
-						<i class="fa fa-star starsRatingDescription"></i>
-						<i class="fa fa-star starsRatingDescription"></i>
-						<i class="fa fa-star starsRatingDescription"></i>
-						<i class="fa fa-star starsRatingDescription"></i>
-						<i class="fa fa-star starsRatingDescription"></i>
-					</div>
-					<!-- DESCRIPTION -->
+
+					<!-- /* --------------------------- ESTRELLAS DINAMICAS -------------------------- */ -->
+					<?php
+								// Parametros para mandar a la base de datos 
+								$productId = $descritionProduct["id"];
+								$userId = null;
+
+								$countRates = UsersController::showRates($productId, $userId);
+								$quanRates = 0;
+								$totalRates=0;
+								$mediaRates=0;
+
+								foreach ($countRates as $key => $value3) {
+								
+									if ($value3["rate"] != 0){
+										$quanRates += 1;
+										$totalRates += $value3["rate"];
+										$mediaRates= $totalRates/$quanRates;										
+										
+								}
+								
+								}
+								
+								switch (floor($mediaRates)) {
+									case 1:
+										echo '
+										<div class="ratingDescription">
+										
+										<i class=" starsRatingDescription fa fa-star stars"></i>
+										<i class=" starsRatingDescription fa fa-star-o stars"></i>
+										<i class=" starsRatingDescription fa fa-star-o stars"></i>
+										<i class=" starsRatingDescription fa fa-star-o stars"></i>
+										<i class=" starsRatingDescription fa fa-star-o stars"></i>
+										<span style="font-size:22px"> ('.$quanRates.')</span>
+									</div>';
+										break;
+									case 2:
+										echo '
+											<div class="ratingDescription">
+											
+											<i class=" starsRatingDescription fa fa-star stars"></i>
+											<i class=" starsRatingDescription fa fa-star stars"></i>
+											<i class=" starsRatingDescription fa fa-star-o stars"></i>
+											<i class=" starsRatingDescription fa fa-star-o stars"></i>
+											<i class=" starsRatingDescription fa fa-star-o stars"></i>
+											<span style="font-size:22px"> ('.$quanRates.')</span>
+										</div>';
+										break;
+									case 3:
+										echo '
+										<div class="ratingDescription">
+										
+										<i class=" starsRatingDescription fa fa-star stars"></i>
+										<i class=" starsRatingDescription fa fa-star stars"></i>
+										<i class=" starsRatingDescription fa fa-star stars"></i>
+										<i class=" starsRatingDescription fa fa-star-o stars"></i>
+										<i class=" starsRatingDescription fa fa-star-o stars"></i>
+										<span style="font-size:22px"> ('.$quanRates.')</span>
+									</div>';
+										break;
+									case 4:
+										echo '
+										<div class="ratingDescription">
+											
+											<i class=" starsRatingDescription fa fa-star stars"></i>
+											<i class=" starsRatingDescription fa fa-star stars"></i>
+											<i class=" starsRatingDescription fa fa-star stars"></i>
+											<i class=" starsRatingDescription fa fa-star stars"></i>
+											<i class=" starsRatingDescription fa fa-star-o stars"></i>
+											<span style="font-size:22px"> ('.$quanRates.')</span>
+										</div>
+										
+										';
+										break;
+									case 5:
+										echo '
+											<div class="ratingDescription">
+											<i class=" starsRatingDescription fa fa-star stars"></i>
+											<i class=" starsRatingDescription fa fa-star stars"></i>
+											<i class=" starsRatingDescription fa fa-star stars"></i>
+											<i class=" starsRatingDescription fa fa-star stars"></i>
+											<i class=" starsRatingDescription fa fa-star stars"></i>
+											<span style="font-size:22px"> ('.$quanRates.')</span>
+										</div>';
+										
+										break;
+									default:
+									echo '
+											<div class="ratingDescription">
+											<i class=" starsRatingDescription fa fa-star-o stars"></i>
+											<i class=" starsRatingDescription fa fa-star-o stars"></i>
+											<i class=" starsRatingDescription fa fa-star-o stars"></i>
+											<i class=" starsRatingDescription fa fa-star-o stars"></i>
+											<i class=" starsRatingDescription fa fa-star-o stars"></i>
+										</div>';
+										break;
+								}
+								?>
+
+					 <!-- /* -------------------------- DESCRIPTION PRODUCTO -------------------------- */ -->
+
 					<h4><?php echo $descritionProduct["description"]; ?></h4>
 
 					<!--PRECIO -->
@@ -119,8 +213,8 @@ $descritionProduct = ProductsController::descriptionProduct($rute);
 					</select>
 				</div>
 				<div class="col-md-6 col-xs-12">
-					<button class="btn btn-default btn-block btn-lg firstColors">
-						<a href="#">
+					<button id="addProof" class="btn btn-default btn-block btn-lg firstColors">
+						<a href="">
 							<small>ADD TO CART</small><i class="fa fa-shopping-cart col-md-0"></i>
 						</a>
 					</button>
@@ -129,10 +223,12 @@ $descritionProduct = ProductsController::descriptionProduct($rute);
 					<span class="label label-default infoProduct">
 						<i class="fa fa-clock-o" style="margin-right:5px"></i>
 						<?php echo $descritionProduct["deliver"] ?> days to delivery |
+						<i class="glyphicon glyphicon-scale"style="margin-right:5px"></i>
+						<?php echo $descritionProduct["weight"] ?> kg |
 						<i class="fa fa-shopping-cart" style="margin:0px 5px"></i>
-						<?php echo $descritionProduct["numSells"]; ?> times sold |
+						<?php echo $descritionProduct["numSells"]; ?> purchases |
 						<i class="fa fa-eye" style="margin:0px 5px"></i>
-						viewed by <span id="viewsProducts"><?php echo $descritionProduct["numViews"] ?></span> persons
+						viewed <span id="viewsProducts"><?php echo $descritionProduct["numViews"] ?></span> times
 					</span>
 				</h4>
 
@@ -160,67 +256,82 @@ $descritionProduct = ProductsController::descriptionProduct($rute);
 <div class="container-fluid">
 
 	<div class="container">
+		<?php
+		// Parametros para mandar a la base de datos
+		$productId = $descritionProduct["id"];
+		$userId = null;
+
+		$countComm = UsersController::showRates($productId, $userId);
+		$quan = 0;
+
+		foreach ($countComm as $key => $value2) {
+
+			if ($value2["comment"] != "")
+				$quan += 1;
+		}
+		?>
+
 
 		<div class="row" id="navComments">
 
 			<ul class="nav nav-pills">
-				<li class="firstColors"><a href="#">3 comments</a></li>
-				<li class=""><a href="#">see more</a></li>
-				<li class="pull-right"><a href="#">
-						Media rating: 4.0 |
+				<li class="firstColors" style="margin-left: 15px;"><a href="#"><?php echo $quan ?> comments</a></li>
+				<!-- <li class=""><a href="#">see more</a></li> -->
+				<!-- <li class="pull-right"><a href="#">
+						
 						<i class="starsRating fa fa-star stars"></i>
 						<i class="starsRating fa fa-star stars"></i>
 						<i class="starsRating fa fa-star stars"></i>
 						<i class="starsRating fa fa-star stars"></i>
 						<i class="starsRating fa fa-star-o stars"></i>
-					</a></li>
+					</a></li> -->
 
 
 			</ul>
 		</div>
 		<hr>
-		<!-- LISTA DE COMENTARIOS -->
+		<!-- /* -------------------------- LISTA DE COMENTARIOS -------------------------- */ -->
 
-		<?php 
+		<?php
 
-		
-
-
-    
-        
 		// Parametros para mandar a la base de datos
-	    $productId = $descritionProduct["id"];
-		$userId=null;
+		$productId = $descritionProduct["id"];
+		$userId = null;
 
-		$rates = UsersController::showRates($productId,$userId);
+		$rates = UsersController::showRates($productId, $userId);
+
+
+
+		foreach ($rates as $key => $value) {
+
 		
-		
 
-		foreach($rates as $key => $value){
-
-			$id= $value["id_user"];
+			$id = $value["id_user"];
 
 			// Conocemos el nombre de cada usuario que puso una valoracion
-			$username=UsersController::showName($id);
+			$username = UsersController::showName($id);
 
-			echo '
+			/* ---------------- SI NO EXISTEN COMENTARIOS NO MUESTRA NADA --------------- */
+			if ($value["comment"] != '') {
+
+				echo '
 			<div class="row">
 			<div class="panel-group col-xs-12">
 				<div class="panel panel-default">
 
 					<div class="panel-heading text-uppercase userBar">
-						<img class="img-circle pull-left" src="'.$staticUrlAdmin.'views/img/users/default/sos.png">
-						<span>'.$username["username"].'</span>
+						<img class="img-circle pull-left" src="' . $staticUrlAdmin . 'views/img/users/default/sos.png">
+						<span>' . $username["username"] . '</span>
 					</div>
 
-					<div class="panel-body comment">
-						<h5>'.$value["comment"].'</h5>
+					<div class="panel-body comment" id="noComm">
+						<h5>' . $value["comment"] . '</h5>
 					</div>';
-                switch ($value["rate"]) {
+				switch ($value["rate"]) {
 					case 1:
 						echo '
 						<div class="panel-footer">
-						Rating: '.$value["rate"].'.0 |
+						Rating: ' . $value["rate"] . '.0 |
 						<i class="starsRating fa fa-star stars"></i>
 						<i class="starsRating fa fa-star-o stars"></i>
 						<i class="starsRating fa fa-star-o stars"></i>
@@ -229,20 +340,20 @@ $descritionProduct = ProductsController::descriptionProduct($rute);
 					</div>';
 						break;
 					case 2:
-							echo '
+						echo '
 							<div class="panel-footer">
-							Rating: '.$value["rate"].'.0 |
+							Rating: ' . $value["rate"] . '.0 |
 							<i class="starsRating fa fa-star stars"></i>
 							<i class="starsRating fa fa-star stars"></i>
 							<i class="starsRating fa fa-star-o stars"></i>
 							<i class="starsRating fa fa-star-o stars"></i>
 							<i class="starsRating fa fa-star-o stars"></i>
 						</div>';
-							break;
+						break;
 					case 3:
 						echo '
 						<div class="panel-footer">
-						Rating: '.$value["rate"].'.0 |
+						Rating: ' . $value["rate"] . '.0 |
 						<i class="starsRating fa fa-star stars"></i>
 						<i class="starsRating fa fa-star stars"></i>
 						<i class="starsRating fa fa-star stars"></i>
@@ -251,9 +362,9 @@ $descritionProduct = ProductsController::descriptionProduct($rute);
 					</div>';
 						break;
 					case 4:
-							echo '
+						echo '
 						<div class="panel-footer">
-							Rating: '.$value["rate"].'.0 |
+							Rating: ' . $value["rate"] . '.0 |
 							<i class="starsRating fa fa-star stars"></i>
 							<i class="starsRating fa fa-star stars"></i>
 							<i class="starsRating fa fa-star stars"></i>
@@ -262,36 +373,40 @@ $descritionProduct = ProductsController::descriptionProduct($rute);
 						</div>';
 						break;
 					case 5:
-							echo '
+						echo '
 							<div class="panel-footer">
-							Rating: '.$value["rate"].'.0 |
+							Rating: ' . $value["rate"] . '.0 |
 							<i class="starsRating fa fa-star stars"></i>
 							<i class="starsRating fa fa-star stars"></i>
 							<i class="starsRating fa fa-star stars"></i>
 							<i class="starsRating fa fa-star stars"></i>
 							<i class="starsRating fa fa-star stars"></i>
 						</div>';
-							break;
-					
-					
+						break;	
+				
 				}
-			 echo '
-			    </div>
-			</div>
-		</div>
-			';
+			      
+			        
+			     echo '
+			
+		         </div>
+	             </div>
+                 </div>
+	            ';
+		    }
 		}
 		?>
-		
-		<!--  -->
-	
-	
-
+		          <!-- /* ------ DIV DONDE SE MUESTRA EL MENSAJE DE QUE NO EXISTEN COMENTARIOS ----- */ -->
+		<div id="noComm" class="noComments"></div>
 
 	</div>
 </div>
 
+
 <div class="clearfix"></div>
+
+			                
+					
 
 <!-- /* -------------------------------------------------------------------------- */
  /*                             ARTICULOS RELACIONADOS                        */
@@ -383,3 +498,9 @@ $descritionProduct = ProductsController::descriptionProduct($rute);
 	</div>
 
 </div>
+<!-- /* -------------------------------------------------------------------------- */
+/*             LLAMADA A LA FUNCION DEL MENSAJE DE NO COMENTARIOS             */
+/* -------------------------------------------------------------------------- */ -->
+<script>
+window.onload=noComment();
+</script>

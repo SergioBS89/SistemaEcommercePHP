@@ -77,34 +77,38 @@ class UsersModel{
 		$stmt = null;
     }
 
-       /* -------------------------------------------------------------------------- */
+    /* -------------------------------------------------------------------------- */
     /*                    METODO PARA MOSTRAR LAS CALIFICACIONES DE LOS PRODUCTOS                  */
     /* -------------------------------------------------------------------------- */
     public static function showRatesModel($table,$idProduct,$idUser){
 
-        if($idUser == null){
-
-        $stmt=Conection::conectDB()->prepare("SELECT * FROM $table WHERE id_product = :value");
-        $stmt -> bindParam(":value", $idProduct, PDO::PARAM_STR);
+        if($idUser != null){
+            $stmt=Conection::conectDB()->prepare("SELECT * FROM $table WHERE id_product = :value AND id_user = :value2 ");
+            $stmt -> bindParam(":value", $idProduct, PDO::PARAM_STR);
+            $stmt -> bindParam(":value2",$idUser, PDO::PARAM_STR);
         
+            $stmt -> execute();
     
-		$stmt -> execute();
-
-		return $stmt -> fetchAll();
-        
-		$stmt = null;
-
-    }else{
-        $stmt=Conection::conectDB()->prepare("SELECT * FROM $table WHERE id_product = :value AND id_user = :value2 ");
-        $stmt -> bindParam(":value", $idProduct, PDO::PARAM_STR);
-        $stmt -> bindParam(":value2",$idUser, PDO::PARAM_STR);
+            return $stmt -> fetch();
+            
+            $stmt = null;
+        }
+        else{
+            $stmt=Conection::conectDB()->prepare("SELECT * FROM $table WHERE id_product = :value ");
+            $stmt -> bindParam(":value", $idProduct, PDO::PARAM_STR);
+            
+         
+            $stmt -> execute();
     
-		$stmt -> execute();
+            return $stmt -> fetchAll();
+            
+            $stmt = null;
+            
+        }
 
-		return $stmt -> fetchAll();
-        
-		$stmt = null;
-    }
+    
+       
+    
     }
     /* -------------------------------------------------------------------------- */
     /*                         METODO PARA MOSTRAR NOMBRE                         */
@@ -120,6 +124,27 @@ class UsersModel{
 		return $stmt -> fetch();
         
 		$stmt = null;
+    }
+
+     /* -------------------------------------------------------------------------- */
+    /*                     METODO PARA REGISTRAR VALORACION              */
+    /* -------------------------------------------------------------------------- */
+    public static function newRateModel($table,$dates){
+
+        $stmt=Conection::conectDB()->prepare("UPDATE $table SET rate = :stars, comment = :comment WHERE id = :id");
+        
+        $stmt -> bindParam(":id", $dates["idRate"], PDO::PARAM_STR);
+        $stmt -> bindParam(":comment",$dates["comment"], PDO::PARAM_STR);
+		$stmt -> bindParam(":stars", $dates["stars"], PDO::PARAM_STR);
+		     
+        if($stmt->execute()){
+            return "ok";
+        }else{
+            return "error";
+        }
+        
+      
+        $stmt = null;
     }
 }
 ?>

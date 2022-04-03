@@ -245,7 +245,13 @@ left: 10%;
 /* -------------------------------------------------------------------------- */
 /* contenedor estrellas */
 div.rating{
-	width: 70px;
+	width: 100%;
+}
+
+/* Contador de valoraciones */
+div.rating span{
+	margin-left: 6px;
+	font-size: 14px;
 }
 /* Estrellas valoracion */
 .starsRating{

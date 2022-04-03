@@ -95,9 +95,9 @@ display: none;
 		padding-left:56px;
 	}
 	/* Desaparece el input del carrito */
-	#shopCart p{
+	/* #shopCart p{
 		display:none;
-	}
+	} */
 }
 
 /* Movil */
@@ -132,7 +132,7 @@ display: none;
 		margin-bottom:10px;
 	}
 	#shopCart{
-		margin:0px;
+		margin-top: 20px;
 	}
 }
 

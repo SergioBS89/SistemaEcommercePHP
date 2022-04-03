@@ -43,7 +43,7 @@ $("#emailUP").change(function(){
 
 			}else{				
 
-				$("#emailUP").parent().before('<div style="margin-left:50px"  class="alert alert-warning"><strong>ERROR:</strong>This email account already exist</div>')
+				$("#emailUP").parent().before('<div class="alert alert-warning"><strong>This email account already exist</strong></div>')
 
 					emailRepeat = true;
 			}
@@ -68,7 +68,7 @@ function signUp() {
 		var exReg = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$/;
 		if(!exReg.test(name)){
 
-			$("#nameUP").parent().before('<div style="margin-left:50px" class="alert alert-warning">No numbers or special characters are allowed to Username field</div>')
+			$("#nameUP").parent().before('<div class="alert alert-warning">No numbers or special characters are allowed to Username field</div>')
 
 			return false;
 
@@ -76,7 +76,7 @@ function signUp() {
 
 	}else{
 
-		$("#nameUP").parent().before('<div style="margin-left:100px" class="alert alert-warning">Name field is required</div>')
+		$("#nameUP").parent().before('<div class="alert alert-warning"><strong>Name field is required<strong></div>')
 
 		return false;
 	}
@@ -90,7 +90,7 @@ function signUp() {
 
 		if(!exReg.test(email)){
 
-			$("#emailUP").parent().before('<div  style="margin-left:100px" class="alert alert-danger"><strong>Please, write a correct email</strong></div>')
+			$("#emailUP").parent().before('<div class="alert alert-warning"><strong>Please, write a correct email</strong></div>')
 
 			return false;
 
@@ -98,7 +98,7 @@ function signUp() {
 
 		if(emailRepeat){
 
-			$("#emailUP").parent().before('<div  style="margin-left:100px" class="alert alert-danger"><strong>This email account already exist</strong></div>')
+			$("#emailUP").parent().before('<div class="alert alert-warning"><strong>This email account already exist</strong></div>')
 
 			return false;
 
@@ -106,7 +106,7 @@ function signUp() {
 
 	}else{
 
-		$("#emailUP").parent().before('<div  style="margin-left:100px" class="alert alert-danger"><strong>Email field is required</strong></div>')
+		$("#emailUP").parent().before('<div class="alert alert-warning"><strong>Email field is required</strong></div>')
 
 		return false;
 	}
@@ -121,20 +121,21 @@ function signUp() {
 
 		if(!expReg.test(pass)){
 
-			$("#passUP").parent().before('<div style="margin-left:50px" class="alert alert-warning"><strong>No special characters are allowed to password field </strong></div>')
+			$("#passUP").parent().before('<div class="alert alert-warning"><strong>No special characters are allowed to password field </strong></div>')
 
 			return false;
 
 		}
 	else if( repeatPass != pass){
-		$("#passUP").parent().before('<div style="margin-left:50px" class="alert alert-warning"><strong>Error! Passwords are different</strong></div>')
+		$("#passUP").parent().before('<div class="alert alert-warning"><strong>Passwords are different</strong></div>')
 
 			return false;
+			
 	}
 
 	}else{
 
-		$("#passUP").parent().before('<div style="margin-left:100px" class="alert alert-warning"><strong>Password field is required</strong></div>')
+		$("#passUP").parent().before('<div class="alert alert-warning"><strong>Password field is required</strong></div>')
 
 		return false;
 	}
@@ -147,10 +148,13 @@ $("input").focus(function(){
 
 	$(".alert").remove();
 })
+/* -------------------------------------------------------------------------- */
+/*                         LIMPIAR MENSAJES DE ALERTA                         */
+/* -------------------------------------------------------------------------- */
+$("textarea").focus(function(){
 
-function proof() {
+	$(".alert").remove();
+})
 
-	console.log("eiii");
-  }
 
 

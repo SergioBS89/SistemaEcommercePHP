@@ -80,7 +80,7 @@ img.img-thumbnail{
 .starsRatingDescription{
 	width: 30px;
 	height: 30px;
-	color: var(--main-bg-color);
+	color: var(--main-bg-colorTop);
     font-size: 30px !important;
 }
 div.ratingDescription{

@@ -48,9 +48,10 @@
     <!-- IMPORTANTE CARGAR EL RESPONSIVE COMO ULTIMO ARCHIVO  -->
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/responsive.css">
     
-    <!-- Vinculamos las librerias de bootstrap y jquery -->
+    <!-- Vinculamos las librerias de bootstrap,jquery,font awesome -->
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/plugins/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/plugins/font-awesome.min.css">
+    <!-- <script src="https://kit.fontawesome.com/46bd5c4726.js" crossorigin="anonymous"></script> -->
  
  
     
@@ -186,9 +187,11 @@
     elseif($ruteProductOkay != null){
         include "modules/descriptionProduct.php";
     }
+    elseif($ruteArray[0]=="newProduct"){
+        include "modules/descriptionNewproducts.php";
+    }
     elseif($ruteArray[0]=="SearcH"){
-        include "modules/searchProducts.php";
-      
+        include "modules/searchProducts.php";      
     }
     elseif($valueURL == "exit" ){
         include "modules/exit.php";
@@ -220,7 +223,7 @@ else{
 <script src="<?php echo $ruteStatc;?>views/js/pagination.js"></script>
 <script src="<?php echo $ruteStatc;?>views/js/search.js"></script>
 <script src="<?php echo $ruteStatc;?>views/js/imgZoom.js"></script>
-<script src="<?php echo $ruteStatc;?>views/js/countViews.js"></script>
+<script src="<?php echo $ruteStatc;?>views/js/rateProducts.js"></script>
 <script src="<?php echo $ruteStatc;?>views/js/login.js"></script>
 <script src="<?php echo $ruteStatc;?>views/js/validations.js"></script>
 <!-- /* -------------------------------------------------------------------------- */

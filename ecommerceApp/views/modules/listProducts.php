@@ -108,14 +108,15 @@ $StaticUrl = StaticRute::rute();
             $order="id";
 			$isCategory = ProductsController::controllerCategoriesExisting($row,$valueURL);
             
-			// si la URL no es de categorias
+			// si la UR no es de categorias, buscamos las coincidencias del id Subcat 
 			if(! $isCategory){
 
 				$isSubCategory = ProductsController::controllerSubCategoriesExisting($row,$valueURL);
 
 				$valueRow=$isSubCategory[0]["id"];
-				$rowProduct="id";
-			//  Si la URL es de subcategorias
+				$rowProduct="id_subCat";
+
+			//  Si la URL es de categorias
 			}else{
 				$valueRow=$isCategory["id"];
 				$rowProduct="id_category";

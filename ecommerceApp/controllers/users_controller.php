@@ -7,8 +7,8 @@
 class UsersController
 {
 
-    
-  
+
+
 
 
     /* -------------------------------------------------------------------------- */
@@ -49,7 +49,6 @@ class UsersController
         $res = UsersModel::checkEmailModel($table, $dates);
 
         return $res;
-
     }
 
 
@@ -58,14 +57,15 @@ class UsersController
     /*                          METODO PARA INICIO SESION                         */
     /* -------------------------------------------------------------------------- */
 
-    public static function valSignIn(){
+    public static function valSignIn()
+    {
 
         if (isset($_POST["user"]) && isset($_POST["pass"])) {
 
             $table = "user";
             $dates = $_POST["user"];
             $dat = crypt($_POST["pass"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
-          
+
 
             $res = UsersModel::valSignInModel($table, $dates, $dat);
             // echo $res;
@@ -87,7 +87,7 @@ class UsersController
                            
                     </script>";
 
-                // CREO LAS VARIABLES DE SESIONES 
+                // CREO LAS VARIABLES DE SESIONES DANDOLES LOS VALORES DEVUELTOS DE LA BASE DE DATOS
                 $_SESSION["session"] = 1;
                 $_SESSION["userId"] = $res["id"];
                 $_SESSION["username"] = $res["username"];
@@ -98,38 +98,100 @@ class UsersController
             }
         }
     }
-      /* -------------------------------------------------------------------------- */
+    /* -------------------------------------------------------------------------- */
     /*             METODO PARA MOSTRAR LA LISTA DE COMPRAS DEL USUARIO EN EL PERFIL          */
     /* -------------------------------------------------------------------------- */
 
-    public static function showOrder($row,$valueRow){
+    public static function showOrder($row, $valueRow)
+    {
 
-        $table="orders";
-        $res=UsersModel::showOrderModel($table,$row,$valueRow);
+        $table = "orders";
+        $res = UsersModel::showOrderModel($table, $row, $valueRow);
         return $res;
+    }
+
+    /* -------------------------------------------------------------------------- */
+    /*                       METODO PARA REGISTRO DE VALORACION                 */
+    /* -------------------------------------------------------------------------- */
+
+    public static function newRate()
+    {
+
+        if (isset($_POST["idRate"]) && isset($_POST["comment"]) && isset($_POST["stars"])) {
+
+
+            $dates = array(
+                "idRate" => $_POST["idRate"],
+                "comment" => $_POST["comment"],
+                "stars" => $_POST["stars"]
+            );
+
+            $table = "rating";
+
+            $res = UsersModel::newRateModel($table, $dates);
+
+            if ($res == "ok") {
+
+                echo "<script>
+                alertify
+                .alert('THANK YOU!','Your calification was successfully uploaded',
+                function(isConfirm){
+                    if (isConfirm) {	   
+                      history.back();
+                     } 
+           });
+                
+                </script>";
+            }
+        }
     }
 
     /* -------------------------------------------------------------------------- */
     /*             METODO PARA MOSTRAR LAS CALIFICACIONES DE PRODUCTOS            */
     /* -------------------------------------------------------------------------- */
-    
-    public static function showRates($idProduct,$idUser){
-        $table="rating";
 
-        $res=UsersModel::showRatesModel($table,$idProduct,$idUser);
+    public static function showRates($idProduct, $idUser)
+    {
+
+        $table = "rating";
+
+
+        $res = UsersModel::showRatesModel($table, $idProduct, $idUser);
+
+        if(empty($res)){
+            echo "
+            <script>
+            function noComment(){
+                $('#noComm').append('<h2>NO COMMENTS TO SHOW</h2>');            
+            }
+            </script>
+            ";
+            return $res;           
+        }else
+        echo "
+        <script>
+        function noComment(){
+                      
+        }
+        </script>
+        ";
         return $res;
-    }
+        }
+      
+    
+
+
 
     /* -------------------------------------------------------------------------- */
     /*                  METODO PARA MOSTRAR EL NOMBRE DEL USUARIO                 */
     /* -------------------------------------------------------------------------- */
-    public static function showName($id){
-        $table="user";
+    public static function showName($id)
+    {
+        $table = "user";
 
-        $res=UsersModel::showNameModel($table,$id);
+        $res = UsersModel::showNameModel($table, $id);
         return $res;
     }
-
 }
 
 ?>

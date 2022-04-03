@@ -170,16 +170,24 @@ hr.lineTitleCat{
 /*                                 LOGIN MODAL                                */
 /* -------------------------------------------------------------------------- */
 
+.modal-header{
+	background:linear-gradient(52deg, rgb(34, 33, 33) 22%, rgb(202, 199, 199) 82%) !important;
+	color: white;
+}
 
 .modalBody form {
     width: auto;
-    min-height: 270px;
+    min-height: 400px;
     height: auto;
     /* border-radius: 5px; */
     margin: 2% auto;
     box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
     padding: 2%;
-    background-image: linear-gradient(-225deg, #5e5b5b 50%, #f37878 50%);
+    background-image: linear-gradient(-225deg, #5e5b5bb9 50%, #0a0909a2 50%);
+}
+.modalBodySignIn form, .modalBodyModiRate form{
+	min-height: 200px !important;
+	height: auto;
 }
 
 /* form Container */
@@ -193,10 +201,8 @@ form .contLogin{
 .containerInputs{
 	min-height: 180px;
 	height: auto;
-	width: 100%;
-    
-	padding-left: 20px;
-	
+	width: 100%;    
+	padding-left: 20px;	
 }
 
 .formInput{
@@ -226,6 +232,15 @@ button.logIn{
 }
 #eye{
 	cursor: pointer;
+}
+#eye:active{
+	color: black;
+}
+
+button.close{
+	font-size: 35px;
+	color: black;
+	opacity: 0.8;
 }
 
 div.otherButtons{
@@ -261,4 +276,11 @@ div.changeModal{
 .alertify .ajs-footer .ajs-buttons .ajs-button.ajs-ok{
 	color: var(--main-bg-colorTop) !important;
 }
+
+div.alert-warning{
+	padding: 5px;
+	color: red;
+	text-align: center;
+}
+
 

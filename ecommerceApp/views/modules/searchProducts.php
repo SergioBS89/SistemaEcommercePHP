@@ -166,7 +166,7 @@ LISTAR PRODUCTOS
 					
 			<li class="col-md-3 col-sm-4 col-xs-6">
 			<div class="containerImgProduct">					
-				<a href="'.$value["rute"].'" class="pixelProducto">						
+				<a href="'.$StaticUrl.$value["rute"].'" class="pixelProducto">						
 					<img src="'.$value["image"].'" class="img-responsive" >
 				</a>
 			';
