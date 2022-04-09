@@ -223,15 +223,102 @@ $StaticUrl = StaticRute::rute();
 			</div>
 			  <!-- Nombre del producto -->
 			<div class="productName">
-				<h5>'.$value["name"].'<br><br></h5>	
-				<!-- estrellas -->
-				<div class="rating">
-					<i class="fa fa-star starsRating"></i>
-					<i class="fa fa-star starsRating"></i>
-					<i class="fa fa-star starsRating"></i>
-					<i class="fa fa-star starsRating"></i>
-					<i class="fa fa-star starsRating"></i>
-				</div>';
+				<h5>'.$value["name"].'<br><br></h5>	';
+					/* -------------------------------------------------------------------------- */
+				/*                             ESTRELLAS DINAMICAS                            */
+				/* -------------------------------------------------------------------------- */
+				
+					// Parametros para mandar a la base de datos
+					$productId = $value["id"];
+					$userId = null;
+
+					$countRates = UsersController::showRates($productId, $userId);
+					$quanRates = 0;
+					$totalRates=0;
+					$mediaRates=0;
+
+					foreach ($countRates as $key => $value3) {
+					
+						if ($value3["rate"] != 0){
+							$quanRates += 1;
+							$totalRates += $value3["rate"];
+							$mediaRates= $totalRates/$quanRates;							
+							
+					}
+					
+					}
+					
+					switch (floor($mediaRates)) {
+						case 1:
+							echo '
+							<div class="rating">							
+							<i class=" starsRating fa fa-star stars"></i>
+							<i class=" starsRating fa fa-star-o stars"></i>
+							<i class=" starsRating fa fa-star-o stars"></i>
+							<i class=" starsRating fa fa-star-o stars"></i>
+							<i class=" starsRating fa fa-star-o stars"></i>
+							<span>  ('.$quanRates.')</span>
+						</div>';
+							break;
+						case 2:
+							echo '
+								<div class="rating">								
+								<i class=" starsRating fa fa-star stars"></i>
+								<i class=" starsRating fa fa-star stars"></i>
+								<i class=" starsRating fa fa-star-o stars"></i>
+								<i class=" starsRating fa fa-star-o stars"></i>
+								<i class=" starsRating fa fa-star-o stars"></i>
+								<span> ('.$quanRates.')</span>
+							</div>';
+							break;
+						case 3:
+							echo '
+							<div class="rating">							
+							<i class=" starsRating fa fa-star stars"></i>
+							<i class=" starsRating fa fa-star stars"></i>
+							<i class=" starsRating fa fa-star stars"></i>
+							<i class=" starsRating fa fa-star-o stars"></i>
+							<i class=" starsRating fa fa-star-o stars"></i>
+							<span>  ('.$quanRates.')</span>
+						</div>';
+							break;
+						case 4:
+							echo '
+							<div class="rating">
+								
+								<i class=" starsRating fa fa-star stars"></i>
+								<i class=" starsRating fa fa-star stars"></i>
+								<i class=" starsRating fa fa-star stars"></i>
+								<i class=" starsRating fa fa-star stars"></i>
+								<i class=" starsRating fa fa-star-o stars"></i>
+								<span> ('.$quanRates.')</span>
+							</div>
+							
+							';
+							break;
+						case 5:
+							echo '
+								<div class="rating">
+								<i class=" starsRating fa fa-star stars"></i>
+								<i class=" starsRating fa fa-star stars"></i>
+								<i class=" starsRating fa fa-star stars"></i>
+								<i class=" starsRating fa fa-star stars"></i>
+								<i class=" starsRating fa fa-star stars"></i>
+								<span> ('.$quanRates.')</span>
+							</div>';
+							
+							break;
+						default:
+						echo '
+								<div class="rating">
+								<i class=" starsRating fa fa-star-o stars"></i>
+								<i class=" starsRating fa fa-star-o stars"></i>
+								<i class=" starsRating fa fa-star-o stars"></i>
+								<i class=" starsRating fa fa-star-o stars"></i>
+								<i class=" starsRating fa fa-star-o stars"></i>
+							</div>';
+							break;
+					}
 				
 				if($value["offer"]==1){
 					echo'

@@ -181,6 +181,18 @@ class ProductsController{
     
         return $res;
     }
+    /* -------------------------------------------------------------------------- */
+    /*            METODO QUE DEVUELVE EL RESULTADO DE LOS PRODUCTOS ESPECIALES      */
+    /* -------------------------------------------------------------------------- */
+
+    public static function descriptionNewProduct($rute){
+
+        $table = "new_products";
+    
+        $res = ProductsModel::descriptionNewProductModel($table,$rute);
+    
+        return $res;
+    }
       /* -------------------------------------------------------------------------- */
     /*                      METODO PARA MOSTRAR LOS PRODUCTOS  REALCIONADOS                   */
     /* -------------------------------------------------------------------------- */

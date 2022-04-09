@@ -181,7 +181,9 @@ display: none;
 	
     }
     .textSlider h3{
-        display: none;
+		font-size: 15px !important;
+		top: 50% !important;
+	
     }
 	/* Boton slider */
     .textSlider button{    
@@ -310,7 +312,7 @@ ol.pagination{
 @media (max-width:529px){
 
 	#slider, img.imgSlider{
-		height: 400px;
+		height: 450px;
 	}
 	.textSlider h1{
         font-size: 35px !important;
@@ -324,7 +326,6 @@ ol.pagination{
 	}
 	.textSlider h2{
        display: none;
-	   color: rgb(93, 8, 133);
     }
  
 	/* Boton slider */
@@ -342,13 +343,13 @@ ol.pagination{
 		right: 50%;
 		width: 40%;
 		/* top: 50%; */
-		width: calc(100% * 0.6) !important;
+		width: calc(100% * 0.55) !important;
 		transform: translateX(50%);
 	}
 	.productLeft img{
 		position: absolute; 
 		left: 50%;
-		width: calc(100% * 0.6) !important;
+		width: calc(100% * 0.55) !important;
 		/* top: 50%; */
 		transform: translateX(-50%);
 	}
@@ -356,7 +357,7 @@ ol.pagination{
 
 /* FLECHAS */
     #slider .arrow{
-        font-size: 1.3em;
+        font-size: 1.7em;
     }
     .arrow#nextImg,.arrow#backImg{    
      

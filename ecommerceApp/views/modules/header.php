@@ -227,7 +227,7 @@ $userIN->valSignIn();
                         <div class="otherButtons pull-right">
                             <!-- <button class="btn forgotButton">Forgot Password</button>   -->
                             <div class="changeModal pull-right firstColors">
-                                <a href="#myModal" data-toggle="modal" data-dismiss="modal"> Sign In </a>
+                                <a href="#myModalIn" data-toggle="modal" data-dismiss="modal"> Sign In </a>
                                 <i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>
                             </div>
                         </div>

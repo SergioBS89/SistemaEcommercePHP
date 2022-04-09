@@ -187,7 +187,7 @@
     elseif($ruteProductOkay != null){
         include "modules/descriptionProduct.php";
     }
-    elseif($ruteArray[0]=="newProduct"){
+    elseif($ruteArray[0]=="newProducts"){
         include "modules/descriptionNewproducts.php";
     }
     elseif($ruteArray[0]=="SearcH"){

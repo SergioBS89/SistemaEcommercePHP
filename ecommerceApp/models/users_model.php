@@ -11,13 +11,13 @@ class UsersModel{
     /* -------------------------------------------------------------------------- */
     public static function signUpUsersModel($table,$dates){
 
-        $stmt=Conection::conectDB()->prepare("INSERT INTO $table(username,email,password,picture,whises)
-        VALUES( :username, :email, :password, :picture, :whises)");
+        $stmt=Conection::conectDB()->prepare("INSERT INTO $table(username,email,password,picture)
+        VALUES( :username, :email, :password, :picture)");
         $stmt -> bindParam(":username",$dates["username"], PDO::PARAM_STR);
 		$stmt -> bindParam(":email", $dates["email"], PDO::PARAM_STR);
 		$stmt -> bindParam(":password", $dates["password"], PDO::PARAM_STR);
 		$stmt -> bindParam(":picture", $dates["picture"], PDO::PARAM_STR);
-		$stmt -> bindParam(":whises", $dates["whises"], PDO::PARAM_STR);
+		// $stmt -> bindParam(":whises", $dates["whises"], PDO::PARAM_STR);
          
         if($stmt->execute()){
             return "okay";
@@ -28,6 +28,7 @@ class UsersModel{
       
         $stmt = null;
     }
+
     /* -------------------------------------------------------------------------- */
     /*                       METODO PARA VALIDAR EL INICIO DE SESION                      */
     /* -------------------------------------------------------------------------- */
@@ -76,6 +77,24 @@ class UsersModel{
         
 		$stmt = null;
     }
+   
+
+
+
+    /* -------------------------------------------------------------------------- */
+    /*                    METODO PARA MOSTRAR LA LISTA DE DESEOS                 */
+    /* -------------------------------------------------------------------------- */
+    public static function showWhisesModel($table,$row,$valueRow){
+
+        $stmt=Conection::conectDB()->prepare("SELECT * FROM $table WHERE $row = :value");
+        $stmt -> bindParam(":value", $valueRow, PDO::PARAM_STR);
+
+		$stmt -> execute();
+
+		return $stmt -> fetchAll();
+        
+		$stmt = null;
+    }
 
     /* -------------------------------------------------------------------------- */
     /*                    METODO PARA MOSTRAR LAS CALIFICACIONES DE LOS PRODUCTOS                  */
@@ -104,12 +123,59 @@ class UsersModel{
             
             $stmt = null;
             
-        }
-
-    
+        }  
        
     
     }
+     /* -------------------------------------------------------------------------- */
+    /*                    METODO PARA ELIMINAR PRODUCTO DE LISTA DE DESEOS                  */
+    /* -------------------------------------------------------------------------- */
+    public static function removeWishModel($table,$dates){
+
+        $stmt=Conection::conectDB()->prepare(" DELETE FROM $table WHERE id_user = :value AND id_product = :value2");
+        $stmt -> bindParam(":value", $dates["idUser"], PDO::PARAM_STR);
+        $stmt -> bindParam(":value2", $dates["idProd"], PDO::PARAM_STR);      
+    
+      $stmt -> execute();
+            return "okay";
+      
+    }
+
+
+
+    /* -------------------------------------------------------------------------- */
+    /*              METODO PARA COMPROBAR SI HAY UN PRODUCTO EN LA LISTA DE DESEOS                     */
+    /* -------------------------------------------------------------------------- */
+
+    public static function checkWishListModel($table,$dates){
+
+        $stmt=Conection::conectDB()->prepare("SELECT * FROM $table WHERE id_user = :value AND id_product = :value2");
+        $stmt -> bindParam(":value", $dates["id_user"], PDO::PARAM_STR);
+        $stmt -> bindParam(":value2", $dates["id_product"], PDO::PARAM_STR);
+    
+        $stmt -> execute();
+    
+        return $stmt -> fetch();
+        
+		$stmt = null;
+    }
+
+      /* -------------------------------------------------------------------------- */
+    /*                    METODO PARA AGREGAR PRODUCTO A LISTA DE DESEOS                 */
+    /* -------------------------------------------------------------------------- */
+    public static function addProductListWishModel($table,$dates){
+
+        $stmt=Conection::conectDB()->prepare("INSERT INTO $table(id_user,id_product) VALUES( :value,:value2)");
+        $stmt -> bindParam(":value", $dates["idUser"], PDO::PARAM_STR); 
+        $stmt -> bindParam(":value2", $dates["idProduct"], PDO::PARAM_STR);      
+    
+      $stmt -> execute();
+            return "okay";
+      
+    }
+
+
+
     /* -------------------------------------------------------------------------- */
     /*                         METODO PARA MOSTRAR NOMBRE                         */
     /* -------------------------------------------------------------------------- */

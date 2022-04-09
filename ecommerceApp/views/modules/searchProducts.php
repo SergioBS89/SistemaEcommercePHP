@@ -26,7 +26,7 @@ $StaticUrl = StaticRute::rute();
 			            ======================================-->
             
 			            <ul class="text-uppercase" style="margin: 0;">			            	
-			            	<li class="bread"><a href="<?php echo $StaticUrl;?>">HOME<span>/</span></a></li>
+			            	<li class="bread"><a style="color: red;" href="<?php echo $StaticUrl;?>">HOME</a><span> /</span></li>
 			            	<li class="bread"><?php echo $valueURL ?> <span>/</span></li>            
 			            	<li class="bread"><?php echo $ruteArray[2]?><span>/</span></li>            
 			            	<li class="bread"><?php echo $ruteArray[3]?></li>            

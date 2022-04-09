@@ -24,6 +24,7 @@
             $jsonProductStyles=json_decode($value["styleProduct"],true);
             $jsonH1Styles = json_decode($value["colorText"],true);
             $jsonH2Styles = json_decode($value["colorTextH2"],true);
+            $jsonH3Styles = json_decode($value["colorTextH3"],true);
             $jsonText= json_decode($value["textH1"],true);
             $jsonButton= json_decode($value["button"],true);
 
@@ -43,6 +44,8 @@
                     <h1 style="color:'.$jsonH1Styles["color"].'; font-size:'.$jsonH1Styles["size"].'">'.$jsonText["content"].'</h1>
 
                      <h2 style="color:'.$jsonH2Styles["color"].';font-size:'.$jsonH2Styles["size"].'">'.$value["textH2"].'</h2>
+                     <h3 style="color:'.$jsonH3Styles["color"].';font-size:'.$jsonH3Styles["size"].'">'.$value["textH3"].'</h3>
+
                      <a href="'.$jsonButton["urlButton"].'">
                          <button class="btn btn-default firstColors '.$jsonButton["positionButton"].' ">SEE PRODUCT <span class="glyphicon glyphicon-play"></span></button>
                      </a>

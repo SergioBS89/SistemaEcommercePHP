@@ -235,10 +235,26 @@ class ProductsModel{
 
 	}
     /* -------------------------------------------------------------------------- */
-    /*                          CONTAR PRODUCTOS BUSCADOR                         */
+    /*                         BUSCA LOS PRODUCTOS PARA LA DECRIPCION                  */
     /* -------------------------------------------------------------------------- */
 
 	static public function descriptionProductModel($table,$rute){
+
+		$stmt = Conection::conectDB()->prepare("SELECT * FROM $table WHERE rute = :value");
+        $stmt -> bindParam(":value",$rute,PDO::PARAM_STR);
+		$stmt -> execute();
+        
+        //Uso de fetch porque solo devuelve un solo registro
+		return $stmt -> fetch();
+
+		$stmt = null;
+
+	} 
+     /* -------------------------------------------------------------------------- */
+    /*                         BUSCA LOS PRODUCTOS PARA LA DECRIPCION                  */
+    /* -------------------------------------------------------------------------- */
+
+	static public function descriptionNewProductModel($table,$rute){
 
 		$stmt = Conection::conectDB()->prepare("SELECT * FROM $table WHERE rute = :value");
         $stmt -> bindParam(":value",$rute,PDO::PARAM_STR);
@@ -268,7 +284,7 @@ class ProductsModel{
 
 	} 
       /* -------------------------------------------------------------------------- */
-    /*                          CONTAR PRODUCTOS BUSCADOR                         */
+    /*                       PRODUCTOS RELACIONADOS                     */
     /* -------------------------------------------------------------------------- */
 
 	static public function showProductsRelatedModel($table,$valueRow,$valueRow2,$valueRow3,$orderBy){

@@ -22,6 +22,15 @@ $StaticUrl = StaticRute::rute();
 </div>
 <br>
 
+<?php
+
+// BUSCAMOS EN LA BASE DE DATOS SI EXISTE LA RUTE DEL PRODUCTO PARA MOSTRARLO
+
+$rute = $ruteArray[0];
+$descritionProduct = ProductsController::descriptionProduct($rute);
+
+?>
+
 <div class="contianer-fluid">
 	<div class="container">
 		<div class="row">
@@ -34,14 +43,43 @@ $StaticUrl = StaticRute::rute();
 					</a>
 				</h4>
 			</div>
+           <!-- SI EXISTE UN USUARIO REGISTRADO SE MUESTRA EL BOTON DE AGREGAR A LISTA DE DESEOS -->
+			<?php 
+			if(isset($_SESSION["userId"])){
+			$dates = array(
+				"id_user"=>$_SESSION["userId"],
+				"id_product" => $descritionProduct["id"]
+			);
+			$isWish = UsersController::checkWishList($dates);
 
-			<div class="col-xs-5">
+			
+			
+			if($isWish==false){
+
+				echo '
+				<div class="col-xs-5">
 				<h4 class="pull-right">
-					<a href="#" class="backStore">
-						ADD TO WISHES <span></span> <i class="fa fa-solid fa-heart"></i>
-					</a>
+					<span id="addWishes" href="" class="backStore" idUser =  "'.$_SESSION["userId"].'"
+					 idProd = "'.$descritionProduct["id"].'">
+						ADD TO WISHES <span></span> <i class="fa fa-solid fa-heart-o"></i>
+                    </span>
 				</h4>
-			</div>
+			</div>';
+			}else{
+				echo '
+				<div class="col-xs-5">
+				<h4 class="pull-right">
+					<span class= "backStore">
+						I <span></span> <i class="fa fa-solid fa-heart"></i> THIS PRODUCT
+                    </span>
+				</h4>
+			</div>';
+			}
+			}
+			?>
+			
+
+		
 
 			<div class="clearflix"></div>
 		</div>
@@ -51,13 +89,7 @@ $StaticUrl = StaticRute::rute();
 <hr>
 
 
-<?php
 
-// BSUCAMOS EN LA BASE DE DATOS SI EXISTE LA RUTE DEL PRODUCTO PARA MOSTRARLO
-
-$rute = $ruteArray[0];
-$descritionProduct = ProductsController::descriptionProduct($rute);
-?>
 <!-- 
  /* -------------------------------------------------------------------------- */
  /*                       SECCION INFORMACION DEL PRODUCTO                      */

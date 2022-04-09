@@ -185,7 +185,7 @@ hr.lineTitleCat{
     padding: 2%;
     background-image: linear-gradient(-225deg, #5e5b5bb9 50%, #0a0909a2 50%);
 }
-.modalBodySignIn form, .modalBodyModiRate form{
+.modalBodySignIn form, .modalBodyModiRate form , .modalBodyWishes form{
 	min-height: 200px !important;
 	height: auto;
 }
@@ -281,6 +281,7 @@ div.alert-warning{
 	padding: 5px;
 	color: red;
 	text-align: center;
+	width: 100%;
 }
 
 

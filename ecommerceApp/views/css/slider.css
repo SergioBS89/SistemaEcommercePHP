@@ -71,7 +71,7 @@ img.imgSlider{
 
 
 /* Textos del slider */
-.textSliderL h1, .textSliderL h2{
+.textSliderL h1, .textSliderL h2,.textSliderL h3{
     position: absolute;
     width: 40%;
     left: 8%;
@@ -80,7 +80,7 @@ img.imgSlider{
 
 }
 /* Textos del slider */
-.textSliderR h1,.textSliderR h2{
+.textSliderR h1,.textSliderR h2, .textSliderR h3{
     position: absolute;
     width: 40%;
     right: 8%;
@@ -98,6 +98,22 @@ img.imgSlider{
     font-size: 25px;
     top: 40%;
 }
+.textSlider h3{
+    font-size: 28px;
+    top: 53%;
+    animation-name: colorText;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes colorText {
+    from{
+    
+    }
+    to{
+        color: var(--main-bg-colorTop);
+    }
+}
 
 
 /* BOTON */
@@ -105,7 +121,7 @@ img.imgSlider{
 .textSlider button{
     border: 0;
     position: absolute;
-    top: 65%;   
+    top: 70%;   
     padding: 10px;   
     font-size: 20px;
 }
@@ -170,5 +186,10 @@ cursor: pointer;
 
 #slider .pagination li:first-child span{
     color: rgb(39, 39, 39);
+}
+
+
+.proooff{
+    color: rgb(250, 245, 195);
 }
 

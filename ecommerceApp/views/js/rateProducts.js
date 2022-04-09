@@ -28,7 +28,7 @@ $(window).on("load",function(){
 
 	$.ajax({
 
-		url:"http://localhost/PROYECTOS/SistemaEcommercePHP/ecommerceApp/ajax/ajaxNumViews.php",
+		url:"http://localhost/PROYECTOS/SistemaEcommercePHP/ecommerceApp/ajax/ajaxProducts.php",
 		method:"POST",
 		data: dates,
 		cache: false,
@@ -44,7 +44,7 @@ $(window).on("load",function(){
 
 
 /* -------------------------------------------------------------------------- */
-/*                TOMA EL ID DE LA VALORACION EN LA BASE DE DATOS PARA EL MODAL DE VALORACION DEL PERFIL                */
+/*    TOMA EL ID Y LO COMPARA EN LA BASE DE DATOS PARA EL MODAL DE VALORACION DEL PERFIL  */
 /* -------------------------------------------------------------------------- */
 
 $(".takeId").click(function(){
@@ -52,9 +52,9 @@ $(".takeId").click(function(){
 	// Al pulsar el boton para el modal del rating, este captura el valor del id de la table rate
 	var id = $(this).attr("idComm");
 	
-	// Asigno el valor al input oculto del modal para crear valoracion
+	// Asigno el valor al input oculto del modal para crear valoracion para pasarlo por POST
 	$("#idModalCreate").val(id);
-	// Asigno el valor al input oculto del modal para modificar valoracion
+	// Asigno el valor al input oculto del modal para modificar valoracion para pasarlo por POST
 	$("#idModalComm").val(id);
 	
 })
@@ -93,4 +93,57 @@ $("#showComment").click(function(){
 	return true;
   }
 
+/* -------------------------------------------------------------------------- */
+/*      TOMA EL VALOR DEL ID PARA MANDARLO POR AJAX Y ELIMINAR PRODUCTO LISTA DESEOS*/
+/* -------------------------------------------------------------------------- */
+
+$(".takeIdProduct").click(function(){
+
+	// Al pulsar el boton para el modal del rating, este captura el valor del id de la table rate
+	var id = $(this).attr("idProd");
+	console.log(id);
+	// Asigno el valor al input oculto del modal para eliminar producto pasando por Post el valor
+	$("#idModalWish").val(id);	
+	
+})
+
+/* -------------------------------------------------------------------------- */
+/*                AL PULSAR BOTON DE AGREGAR A LISTA DE DESEOS                */
+/* -------------------------------------------------------------------------- */
+
+$("#addWishes").click(function(){
+
+	alertify
+	.alert('Do you want to add this product to wish list?','',
+	function(isConfirm){
+		if (isConfirm) {	   
+	var idProduct =	$("#addWishes").attr("idProd")
+	var idUser =	$("#addWishes").attr("idUser")
+
+	// console.log(idProduct);
+	// console.log(idUser);
+
+	var dates = new FormData();    
+
+	dates.append("idProduct", idProduct);
+	dates.append("idUser", idUser);
   
+	$.ajax({
+
+		url:"http://localhost/PROYECTOS/SistemaEcommercePHP/ecommerceApp/ajax/ajaxproducts.php",
+		method:"POST",
+		data: dates,
+		cache: false,
+		contentType: false,
+		processData:false,
+		success: function(res){
+        console.log("Result:",res);
+        }
+
+	});
+	location.reload()	 
+		} 
+});
+})
+
+

@@ -109,6 +109,17 @@ class UsersController
         $res = UsersModel::showOrderModel($table, $row, $valueRow);
         return $res;
     }
+     /* -------------------------------------------------------------------------- */
+    /*             METODO PARA MOSTRAR LA LISTA DE DESEOS DEL USUARIO EN EL PERFIL          */
+    /* -------------------------------------------------------------------------- */
+
+    public static function showWhises($row, $valueRow)
+    {
+
+        $table = "wishes";
+        $res = UsersModel::showWhisesModel($table, $row, $valueRow);
+        return $res;
+    }
 
     /* -------------------------------------------------------------------------- */
     /*                       METODO PARA REGISTRO DE VALORACION                 */
@@ -177,6 +188,68 @@ class UsersController
         ";
         return $res;
         }
+
+    /* -------------------------------------------------------------------------- */
+    /*             METODO PARA AGREGAR A LISTA DE DESEOS         */
+    /* -------------------------------------------------------------------------- */
+
+    public static function addProductListWish($dates)
+    {   
+
+        $table = "wishes";
+        $res = UsersModel::addProductListWishModel($table,$dates);
+        // return json_encode($dates);
+        return $res;
+
+    }
+     /* -------------------------------------------------------------------------- */
+    /*             METODO PARA COMPROBAR SI EXISTE UN PRODUCTO EN LA LISTA DE DESEOS         */
+    /* -------------------------------------------------------------------------- */
+
+    public static function checkWishList($dates){
+    
+
+        $table = "wishes";
+        $res = UsersModel::checkWishListModel($table,$dates);
+        
+        return $res;
+    }
+
+     /* -------------------------------------------------------------------------- */
+    /*                       METODO ELIMINAR PRODUCTO LISTA DE DESEOS              */
+    /* -------------------------------------------------------------------------- */
+
+    public static function removeWish()
+    {
+
+        if (isset($_POST["idProdWish"])) {
+
+
+            $dates = array(
+                "idUser" => $_SESSION["userId"],
+                "idProd" => $_POST["idProdWish"]
+               
+            );
+
+            $table = "wishes";
+
+            $res = UsersModel::removeWishModel($table,$dates);
+
+            if ($res == "okay") {
+
+                echo "<script>
+                alertify
+                .alert('OPERATION SUCCESSFUL','The product was removed',
+                function(isConfirm){
+                    if (isConfirm) {	   
+                      history.back();
+                     } 
+           });
+                
+                </script>";
+            }
+        }
+    }
       
     
 
