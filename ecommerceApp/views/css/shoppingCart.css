@@ -1,0 +1,43 @@
+
+div.panelShop div{
+    height: 40px;
+    
+    /* border: 1px solid var(--main-bg-colorTop); */
+}
+
+div.panelShop{
+    height: 40px;
+    background-color: var(--main-bg-color);
+    display: flex;   
+}
+
+div.panelShop h3{
+    margin: 0;
+    margin-left: 20px;
+    color: var(--color-text-contrast);
+    font-size: 20px;
+    margin-top: 10px;
+}
+div.panelBodyShop h3{
+    margin: 0;    
+    font-size: 19px;
+    margin-left: 20px;
+}
+
+div.panelBodyShop{
+  
+    border-bottom: var(--main-bg-colorTop) 1px solid;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+div.panelBodyShop h5{
+    margin-left: 20px;
+}
+div.panButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px !important;
+}

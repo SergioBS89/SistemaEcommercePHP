@@ -45,6 +45,7 @@
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/productDescription.css">
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/comments.css">
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/profile.css">
+    <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/shoppingCart.css">
     <!-- IMPORTANTE CARGAR EL RESPONSIVE COMO ULTIMO ARCHIVO  -->
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/responsive.css">
     
@@ -193,6 +194,9 @@
     elseif($ruteArray[0]=="SearcH"){
         include "modules/searchProducts.php";      
     }
+    elseif($ruteArray[0]=="shoppingCart"){
+        include "modules/shoppingCart.php";      
+    }
     elseif($valueURL == "exit" ){
         include "modules/exit.php";
     }
@@ -226,6 +230,7 @@ else{
 <script src="<?php echo $ruteStatc;?>views/js/rateProducts.js"></script>
 <script src="<?php echo $ruteStatc;?>views/js/login.js"></script>
 <script src="<?php echo $ruteStatc;?>views/js/validations.js"></script>
+<script src="<?php echo $ruteStatc;?>views/js/shoppingCart.js"></script>
 <!-- /* -------------------------------------------------------------------------- */
 /*                                ATRIBUCIONES                                */
 /* -------------------------------------------------------------------------- */ -->

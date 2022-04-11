@@ -32,8 +32,8 @@ if (!isset($_SESSION["session"])) {
 			            BREADCRUMB O MIGAS DE PAN
 			            ======================================-->
                     <ul class="text-uppercase" style="margin: 0;">
-                        <li class="bread"><a href="<?php echo $StaticUrl; ?>">HOME<span>/</span></a></li>
-                        <li class="bread"><?php echo $valueURL ?></li>
+                        <li class="bread"><a style="color: red;" href="<?php echo $StaticUrl; ?>">HOME</a></li>
+                        <li class="bread"><span>/ </span><?php echo $valueURL ?></li>
                     </ul>
                 </div>
                 <div class="col-xs-6 titleSectionProducts">

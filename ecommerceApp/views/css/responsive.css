@@ -535,3 +535,63 @@ img.logoBanner{
 
  
 }
+/* -------------------------------------------------------------------------- */
+/*                             CARRITO DE COMPRAS                             */
+/* -------------------------------------------------------------------------- */
+@media (max-width:1270px) and (min-width:801px){
+	div.panelBodyShop h3{
+		margin: 0;    
+		font-size: 17px;
+		margin-left: 20px;
+	}
+
+
+	}
+@media (max-width:800px) and (min-width:531px){
+	  
+	div.panelBodyShop h3{
+		font-size: 15px;
+		margin-left: 5px;
+	}
+	
+	div.panelBodyShop div{
+		padding: 10px;
+	}
+
+	}
+/* movil xs */
+@media (max-width:530px){
+	  
+div.panelBodyShop h3{
+	font-size: 12px;
+	margin-left: 0 !important;
+}
+
+div.panelBodyShop div{
+	padding: 5px;
+}
+div.panelBodyShop img{
+	width: 60px;
+}
+button.removeItem{
+	font-size: 10px !important;
+	width: 20px;
+    display: flex;
+	justify-content: center;
+}
+div.subtotalBody{
+	padding: 0;
+}
+div.subtotalBody h5{
+	font-size: 11px;
+}
+
+div.panelShop h3{
+	font-size: 13px;
+ text-align: center;
+}
+div.panelShop{
+	height: 35px;
+}
+ 
+}

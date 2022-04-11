@@ -305,14 +305,15 @@ $user->signUpUsers();
         
             <!-- /* --------------------------- CARRITO DE COMPRAS --------------------------- */ -->
             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 pull-right" id="shopCart">
-                <a href="#">
+                <a href="<?php echo $StaticUrl;?>shoppingCart ">
                     <button class="btn btn-default pull-left firstColors btnShopCart" type="submit">
                         <i class="fa fa-shopping-cart"></i>
                     </button>
                 </a>
 
-                <p>YOUR BASKET
-                    <span class="quantityBasket"></span><br>0 € <span class="totalBasket"></span>
+                <p><span class="quantityBasket"></span> PRODUCTS
+                <br> 
+                <span class="totalBasket"></span> €
                 </p>
 
             </div>

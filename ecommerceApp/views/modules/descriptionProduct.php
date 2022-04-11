@@ -231,7 +231,7 @@ $descritionProduct = ProductsController::descriptionProduct($rute);
 			        	';
 					} ?>
 				</div>
-				<div class="col-md-3 col-xs-6">
+				<!-- <div class="col-md-3 col-xs-6">
 					<select class="form-control pull-left" id="chooseQuantity" style="cursor: pointer;">
 						<option value="1">1 unit</option>
 						<option value="2">2 unit</option>
@@ -243,22 +243,30 @@ $descritionProduct = ProductsController::descriptionProduct($rute);
 						<option value="8">8 unit</option>
 						<option value="9">9 unit</option>
 					</select>
-				</div>
+				</div> -->
 				<div class="col-md-6 col-xs-12">
-					<button id="addProof" class="btn btn-default btn-block btn-lg firstColors">
-						<a href="">
-							<small>ADD TO CART</small><i class="fa fa-shopping-cart col-md-0"></i>
-						</a>
+					<button id="addLocalStorage" class="btn btn-default btn-block btn-lg firstColors"
+					 idProductLS="<?php echo $descritionProduct["id"]; ?>"
+					 nameLS="<?php echo $descritionProduct["name"]; ?>"
+					 offerLS="<?php echo $descritionProduct["offer"]; ?>"
+					 priceLS="<?php echo $descritionProduct["price"]; ?>"
+					 priceOfferLS="<?php echo $descritionProduct["priceOnOffer"]; ?>"
+					 discountLS="<?php echo $descritionProduct["discount"]; ?>"
+					 imageLS="<?php echo $descritionProduct["image"]; ?>"
+					 weigthLS="<?php echo $descritionProduct["weight"]; ?>">
+						<!-- <a href=""> -->
+							<small>ADD TO CART </small><i class="fa fa-shopping-cart col-md-0"></i>
+						<!-- </a> -->
 					</button>
 				</div>
 				<h4 style="margin-top: 20px;" class="col-md-12 col-sm-0 col-xs-0">
 					<span class="label label-default infoProduct">
-						<i class="fa fa-clock-o" style="margin-right:5px"></i>
-						<?php echo $descritionProduct["deliver"] ?> days to delivery |
+						<i class="glyphicon glyphicon-inbox" style="margin-right:5px;"></i>						
+						 In Stock <span style="margin: 0 5px 0 3px">  |  </span>
 						<i class="glyphicon glyphicon-scale"style="margin-right:5px"></i>
-						<?php echo $descritionProduct["weight"] ?> kg |
+						 <?php echo $descritionProduct["weight"] ?> kg <span style="margin: 0 5px 0 3px">  |  </span>
 						<i class="fa fa-shopping-cart" style="margin:0px 5px"></i>
-						<?php echo $descritionProduct["numSells"]; ?> purchases |
+						<?php echo $descritionProduct["numSells"]; ?> purchases <span style="margin: 0 5px 0 3px">  |  </span>
 						<i class="fa fa-eye" style="margin:0px 5px"></i>
 						viewed <span id="viewsProducts"><?php echo $descritionProduct["numViews"] ?></span> times
 					</span>
