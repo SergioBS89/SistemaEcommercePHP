@@ -23,22 +23,13 @@ if (localStorage.getItem("listOfProducts") != null) {
             '    <h3 class="nameShopCart">' + showProducts.name + '</h3>' +
             '</div>' +
             '<div class="col-md-2 col-sm-2 col-xs-3 ">' +
-
-            '    <select class="form-select chooseQuantity" style="cursor: pointer;" '+
-            ' priceQuanti='+showProducts.priceOffer+' idQuanti = '+showProducts.id+'> ' +
-            '        <option value="1">1 unit</option>' +
-            '        <option value="2">2 unit</option>' +
-            '        <option value="3">3 unit</option>' +
-            '        <option value="4">4 unit</option>' +
-            '        <option value="5">5 unit</option>' +
-            '        <option value="6">6 unit</option>' +
-            '        <option value="7">7 unit</option>' +
-            '        <option value="8">8 unit</option>' +
-            '        <option value="9">9 unit</option>' +
-            '    </select>' +
+            
+            '<input type="number" class="form-control chooseQuantity" min="1" value="'+showProducts.quantity+'" priceOneUnit='+showProducts.priceOneUnit+' idQuanti = '+showProducts.id+'>'+	
+            
             '</div>' +
-            '<div class="col-md-3  col-sm-2 col-xs-0">' +
-                 '<h3 class="priceShopCart priceQuanti'+ showProducts.id+'"><strong>' + showProducts.priceOffer + ' <span>€</span></strong></h3>' +
+            '<div class="col-md-3  col-sm-2 col-xs-0 priceProductCart">' +
+                 '<h3 class="priceShopCart priceQuanti'+ showProducts.id+'"><strong>' + showProducts.priceOffer + '</strong></h3>' +
+                 '<span style="margin-left:5px"><h3 style="margin:0"><strong"> €</strong></h3></span>'+
             '</div>' +
             '<div class="col-md-1 col-sm-2 col-xs-2">' +
             '<button class="btn btn-default firstColors removeItem pull-right" idProduct="' + showProducts.id + '" weightShopCart="' + showProducts.weight + '">' +
@@ -84,10 +75,11 @@ $("#addLocalStorage").click(function () {
     var name = $(this).attr("nameLS");
     var imageRute = $(this).attr("imageLS");
     // var offer = $(this).attr("offerLS");
-    // var price = $(this).attr("priceLS");
+    var priceOneUnit = $(this).attr("priceLS");
     // var discount = $(this).attr("discountLS");
     var priceOffer = $(this).attr("priceOfferLS");
     var weight = $(this).attr("weigthLS");
+    var quantity ="1"
 
 
     //AÑADIMOS A UN ARRAY TODOS LOS VALORES
@@ -105,10 +97,11 @@ $("#addLocalStorage").click(function () {
         "name": name,
         "image": imageRute,
         // "offer":offer,
-        // "price":price,
+        "priceOneUnit":priceOneUnit,
         // "discount":discount,
         "priceOffer": priceOffer,
-        "weight": weight
+        "weight": weight,
+        "quantity": quantity 
     })
 
 
@@ -152,39 +145,47 @@ $(".removeItem").click(function () {
     $(this).parent().parent().remove();
 
     /* -------------------------------------------------------------------------- */
-    /*           TOMO LOS VALORES DE LOS PRODUCTOS QUE HAY EN EL CARRITO          */
+    /*           TOMO LOS VALORES DE LOS PRODUCTOS QUE HAY EN EL CARRITO (SELECTORES), devolviendo varios obajetos en un array       */
     /* -------------------------------------------------------------------------- */
 
     var id = $(".listProdShopp button")
     var imageRute = $(".listProdShopp img")
     var name = $(".listProdShopp .nameShopCart ")
-    var price = $(".listProdShopp .priceShopCart ")
+    var price = $(".listProdShopp .priceShopCart strong")
+    var priceOneUnit = $(".listProdShopp input")
     var weight = $(".listProdShopp button")
-    // Vacio el array de objetos, para asi crear un nuevo json en el local storage
+    var quantity = $(".listProdShopp .chooseQuantity")
+
+    // Vacio el array de LS, para asi crear un nuevo json en el local storage
     productStorage = []
-
     // SI EXISTEN PRODUCTOS DENTRO DEL LOCAL STORAGE
-
     if(id.length != 0){
   
         // Recorremos el array para conocer los productos que todavia no se han eliminado, para poder crear un nuevo array en el local
         // storage
     for (var i = 0; i < id.length; i++) {
-    
+
+       
         // Almaceno en nuevas varibles los valores que tienen los productos en el html de arriba
-        var idNotRemoved = $(id[i]).attr('idProduct')
-        var nameNotRemoved = $(name[i]).html()
-        var imageNotRemoved = $(imageRute[i]).attr('src')
-        var priceNotRemoved = $(price[i]).html()
-        var weightNotRemoved = $(weight[i]).attr(' weightShopCart')
+        var idValue = $(id[i]).attr('idProduct')
+        var nameValue = $(name[i]).html()
+        var imageValue = $(imageRute[i]).attr('src')
+        var priceValue = $(price[i]).html()
+        var priceOneUnitValue = $(priceOneUnit[i]).attr('priceOneUnit')
+        var weightValue = $(weight[i]).attr(' weightShopCart')
+        var quantityValue =$(quantity[i]).val()
+
+
 
 
         productStorage.push({
-                "id": idNotRemoved,
-                "name": nameNotRemoved,
-                "image": imageNotRemoved,
-                "priceOffer": priceNotRemoved,
-                "weight": weightNotRemoved
+                "id": idValue,
+                "name": nameValue,
+                "image": imageValue,
+                "priceOffer": priceValue,
+                "priceOneUnit": priceOneUnitValue,
+                "weight": weightValue,
+                "quantity":quantityValue
 
         })
         localStorage.setItem('listOfProducts', JSON.stringify(productStorage));
@@ -213,19 +214,58 @@ $(".removeItem").click(function () {
 })
 
 
+
 /* -------------------------------------------------------------------------- */
-/*                          CALCULAR EL PRECIO TOTAL                          */
+/*                          CALCULAR EL PRECIO TRAS INCREMENTO DE UNIDADES                    */
 /* -------------------------------------------------------------------------- */
 
-$(".chooseQuantity").change(function (e) { 
-    e.preventDefault();
+$(document).on("change", ".chooseQuantity", function() {  
     var quantity = $(this).val()
-    var price = $(this).attr('priceQuanti')
+    // var price = $(this).attr('priceQuanti')
+    var price = $(this).attr('priceOneUnit')
     var id = $(this).attr('idQuanti')
-    var numProducts = $(".chooseQuantity")
 
-    console.log(id);
+    //Mando imprimir en el html el resultado de el incremento de unidades seleccionadas
 
-    $(".priceQuanti" + id).html('<strong>' + (quantity * price) + ' <span>€</span></strong>')
+    $(".priceQuanti" + id).html('<strong>' + (quantity * price).toFixed(2) + '</strong>')
+
+     
+    /*           TOMO LOS VALORES DE LOS PRODUCTOS QUE HAY EN EL CARRITO          */  
+
+    var id = $(".listProdShopp button")
+    var imageRute = $(".listProdShopp img")
+    var name = $(".listProdShopp .nameShopCart ")
+    var price = $(".listProdShopp .priceShopCart strong")
+    var priceOneUnit = $(".listProdShopp input")
+    var weight = $(".listProdShopp button")
+    var quanti = $(".listProdShopp .chooseQuantity ")
     
+    //Reinicio del array para el LS
+    productStorage = []
+
+    for (var i = 0; i < id.length; i++) {
+    
+        // Almaceno en nuevas varibles los valores que tienen los productos en el html de arriba
+        var idNotRemoved = $(id[i]).attr('idProduct')
+        var nameNotRemoved = $(name[i]).html()
+        var imageNotRemoved = $(imageRute[i]).attr('src')
+        var priceNotRemoved = $(price[i]).html()
+        var priceOneUnitValue = $(priceOneUnit[i]).attr('priceOneUnit')
+        var weightNotRemoved = $(weight[i]).attr(' weightShopCart')
+        var quantityValue =$(quanti[i]).val()
+
+
+        productStorage.push({
+                "id": idNotRemoved,
+                "name": nameNotRemoved,
+                "image": imageNotRemoved,
+                "priceOffer": priceNotRemoved,
+                "priceOneUnit": priceOneUnitValue,
+                "weight": weightNotRemoved,
+                "quantity":quantityValue
+
+        })
+        localStorage.setItem('listOfProducts', JSON.stringify(productStorage));
+
+    }    
 });

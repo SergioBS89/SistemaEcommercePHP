@@ -248,16 +248,19 @@ $descritionProduct = ProductsController::descriptionProduct($rute);
 					<button id="addLocalStorage" class="btn btn-default btn-block btn-lg firstColors"
 					 idProductLS="<?php echo $descritionProduct["id"]; ?>"
 					 nameLS="<?php echo $descritionProduct["name"]; ?>"
-					 offerLS="<?php echo $descritionProduct["offer"]; ?>"
-					 priceLS="<?php echo $descritionProduct["price"]; ?>"
+					 offerLS="<?php echo $descritionProduct["offer"]; ?>"					 
+					 priceLS="<?php echo $descritionProduct["priceOnOffer"]; ?>"
 					 priceOfferLS="<?php echo $descritionProduct["priceOnOffer"]; ?>"
 					 discountLS="<?php echo $descritionProduct["discount"]; ?>"
 					 imageLS="<?php echo $descritionProduct["image"]; ?>"
-					 weigthLS="<?php echo $descritionProduct["weight"]; ?>">
+					 weigthLS="<?php echo $descritionProduct["weight"]; ?>"					 
+					
+					>
 						<!-- <a href=""> -->
 							<small>ADD TO CART </small><i class="fa fa-shopping-cart col-md-0"></i>
 						<!-- </a> -->
 					</button>
+					
 				</div>
 				<h4 style="margin-top: 20px;" class="col-md-12 col-sm-0 col-xs-0">
 					<span class="label label-default infoProduct">
