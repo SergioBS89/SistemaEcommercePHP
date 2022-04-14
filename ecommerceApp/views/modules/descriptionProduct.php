@@ -249,11 +249,12 @@ $descritionProduct = ProductsController::descriptionProduct($rute);
 					 idProductLS="<?php echo $descritionProduct["id"]; ?>"
 					 nameLS="<?php echo $descritionProduct["name"]; ?>"
 					 offerLS="<?php echo $descritionProduct["offer"]; ?>"					 
+					 priceOneUnit="<?php echo $descritionProduct["priceOnOffer"]; ?>"
 					 priceLS="<?php echo $descritionProduct["priceOnOffer"]; ?>"
-					 priceOfferLS="<?php echo $descritionProduct["priceOnOffer"]; ?>"
 					 discountLS="<?php echo $descritionProduct["discount"]; ?>"
 					 imageLS="<?php echo $descritionProduct["image"]; ?>"
 					 weigthLS="<?php echo $descritionProduct["weight"]; ?>"					 
+					 weightOneUnit="<?php echo $descritionProduct["weight"]; ?>"					 
 					
 					>
 						<!-- <a href=""> -->
@@ -547,3 +548,4 @@ $descritionProduct = ProductsController::descriptionProduct($rute);
 <script>
 window.onload=noComment();
 </script>
+

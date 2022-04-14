@@ -30,10 +30,23 @@ div.panelBodyShop{
     padding: 10px 0;
     display: flex;
     align-items: center;
+    
 }
 
-div.panelBodyShop h5{
+div.subtotal{
+    border-bottom: var(--main-bg-colorTop) 1px solid;
+    padding: 10px 0; 
+}
+
+
+div.subtotal h5{
     margin-left: 20px;
+    display: inline-block;
+}
+
+span.spanCheckout{
+    margin-right: 20px;
+    margin-top: 10px;
 }
 div.panButton{
     display: flex;
@@ -48,3 +61,4 @@ div.priceProductCart{
 input.chooseQuantity{
     width: 90px;
 }
+

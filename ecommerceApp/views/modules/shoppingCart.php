@@ -55,15 +55,18 @@ $StaticUrl = StaticRute::rute();
             <div class="panel-headding panelShop">
                 <h3>SUMMARY</h3>
             </div>
-            <div class="panel-body panelBodyShop subtotalBody">
-                <h5>Subtotal:</h5>
-                <h5 class="subTotal pull-right"></h5>
+
+            <div class="panel-body  subtotal priceSubtotal ">
+                <!-- /* ----------------------------- Codigo desde JS ---------------------------- */ -->
             </div>
-            <div class="panel-body panelBodyShop subtotalBody">
-                <h5>Delivery:</h5>
+            <div class="panel-body subtotal weightDelivery">
+                 <!-- /* ----------------------------- Codigo desde JS ---------------------------- */ -->
             </div>
-            <div class="panel-body panelBodyShop subtotalBody">
-                <h5>Total:</h5>
+            <div class="panel-body subtotal priceDelivery">
+                 <!-- /* ----------------------------- Codigo desde JS ---------------------------- */ -->
+            </div>
+            <div class="panel-body  subtotal priceTotal">
+                <h5>Total:</h5><span class="pull-right"></span>
             </div>
             <div class="panel-body panButton"><button class="btn btn-default firstColors">CHECKOUT</button></div>
         </div>

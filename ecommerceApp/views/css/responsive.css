@@ -579,10 +579,10 @@ button.removeItem{
     display: flex;
 	justify-content: center;
 }
-div.subtotalBody{
+div.subtotal{
 	padding: 0;
 }
-div.subtotalBody h5{
+div.subtotal h5, span.spanCheckout{
 	font-size: 11px;
 }
 
