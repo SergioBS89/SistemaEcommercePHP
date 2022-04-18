@@ -66,7 +66,7 @@ display: none;
     
 	/* Posiciona el carrito a la derecha */
 	#shopCart{
-		padding-left:110px;
+		padding-left:90px;
 	}
 	/* Padding general del logo */
 	img.myLogo{
@@ -78,7 +78,10 @@ display: none;
 @media (max-width:1200px) and (min-width:992px){
     
 	#shopCart{
-		padding-left:70px;
+		padding-left:60px;
+	}
+	#shopCart p{
+		width: 180px;
 	}
 	img.myLogo{
 		padding:18px;
@@ -94,6 +97,7 @@ display: none;
 	#shopCart{
 		padding-left:56px;
 	}
+	
 	/* Desaparece el input del carrito */
 	/* #shopCart p{
 		display:none;
@@ -133,6 +137,22 @@ display: none;
 	}
 	#shopCart{
 		margin-top: 20px;
+	}
+
+	/* CAMBIO DE ICONO CESTA DEL HEADER */
+	#shopCart p{
+		height: 39px;
+		display: flex;
+		justify-content: flex-start;
+		padding-left: 10px;
+		align-items: center;
+	}
+	#shopCart p span {
+		font-size: 17px;
+	}
+
+	#shopCart p :first-child{
+		display: none;
 	}
 }
 

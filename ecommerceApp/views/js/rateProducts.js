@@ -113,10 +113,9 @@ $(".takeIdProduct").click(function(){
 
 $("#addWishes").click(function(){
 
-	alertify
-	.alert('Do you want to add this product to wish list?','',
-	function(isConfirm){
-		if (isConfirm) {	   
+	// .alert('Do you want to add this product to wish list?','',
+	// function(isConfirm){
+	// 	if (isConfirm) {	   
 	var idProduct =	$("#addWishes").attr("idProd")
 	var idUser =	$("#addWishes").attr("idUser")
 
@@ -142,8 +141,7 @@ $("#addWishes").click(function(){
 
 	});
 	location.reload()	 
-		} 
-});
+		
 })
 
 

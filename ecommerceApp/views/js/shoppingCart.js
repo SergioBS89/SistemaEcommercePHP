@@ -44,7 +44,7 @@ if (localStorage.getItem("listOfProducts") != null) {
             '<button class="btn btn-default firstColors removeItem pull-right" idProduct="' + showProducts.id + '" >' +
             '<i class="fa fa-trash"></i></button>' +
             // este div es hidden para obtener el peso de cada producto
-            '<div class="col-md-4 col-sm-4 col-xs-5 ">' +
+            '<div class="hidden">' +
             '    <h3 class="weightOneUnit" >' + showProducts.weightOneUnit + '</h3>' +
             '    <h3 class="weight'+showProducts.id+' weightTotal" wT="'+Number(showProducts.weight)+'"><strong>'+ Number(showProducts.weight).toFixed(2)+'</strong></h3>' +
             '</div>' +
@@ -67,14 +67,12 @@ if (localStorage.getItem("listOfProducts") != null) {
 /*                              CESTA DEL HEADER                              */
 /* -------------------------------------------------------------------------- */
 
-if (localStorage.getItem('quantProd') != null) {
+if (localStorage.getItem('totPrice') != 0) {
 
-    $(".quantityBasket").append(localStorage.getItem("quantProd"))
     $(".totalBasket").append(localStorage.getItem("totPrice"))
 
 } else {
     // Inicio los valores a 0
-    $(".quantityBasket").append(0)
     $(".totalBasket").append(0)
 }
 
@@ -83,7 +81,7 @@ if (localStorage.getItem('quantProd') != null) {
 /* -------------------------------------------------------------------------- */
 /*                       AGREGRA PRODUCTOS LOCAL STORAGE                      */
 /* -------------------------------------------------------------------------- */
-$("#addLocalStorage").click(function () {
+$(".addLocalStorage").click(function () {
 
     // OBTENGO LOS VALORES QUE TENEMOS EN DIFERENTES ATRIBUTOS DEL BOTON ADD TO CART
     var id = $(this).attr("idProductLS");
@@ -106,15 +104,27 @@ $("#addLocalStorage").click(function () {
 
     } else {
 
+        //   SI EL PRODUCTO ESTA YA EN EL CARRITO, IMPIDO QUE SE REPITA
+        var productRepite = JSON.parse(localStorage.getItem("listOfProducts"));
+
+        for(var i = 0; i<productRepite.length;i++){
+
+            if(productRepite[i]["id"]==id){
+                alertify
+                .alert('THIS PRODUCT IS IN YOUR CART', 'Go to cart to checkout')
+              
+                return;
+            }            
+        }
+        
+        //SI NO ESTA, AGREGAMOS EN EL CARRITO Y LO CONCATENO CON POSIBLES PRODUCTOS QUE YA ESTEN DENTRO 
         productStorage.concat(localStorage.getItem("listOfProducts"))
     }
     productStorage.push({
         "id": id,
         "name": name,
         "image": imageRute,
-        // "offer":offer,
         "priceOneUnit":priceOneUnit,
-        // "discount":discount,
         "priceOffer": priceOffer,
         "weight": weight,
         "weightOneUnit": weightOneUnit,
@@ -129,22 +139,16 @@ $("#addLocalStorage").click(function () {
         .alert('PRODUCT WAS ADDED TO SHOPPING CART', 'Go to cart to checkout')
 
 
-
-
-
-
     /* -------------------------------------------------------------------------- */
     /*                      ACTUALIZAR EL CARRITO DEL HEADER                      */
     /* -------------------------------------------------------------------------- */
 
-    var numProducts = Number($(".quantityBasket").html()) + 1
+ 
     // to fixed sirve para limitar los decimales en dos ejem 99.87, solo muestra dos decimales
     var totalPrice = (Number($(".totalBasket").html()) + Number(priceOffer)).toFixed(2)
 
-    $(".quantityBasket").html(numProducts);
     $(".totalBasket").html(totalPrice);
 
-    localStorage.setItem('quantProd', numProducts);
     localStorage.setItem('totPrice', totalPrice);
 });
 
@@ -179,9 +183,11 @@ $(".removeItem").click(function () {
     // Vacio el array de LS, para asi crear un nuevo json en el local storage
     productStorage = []
     // SI EXISTEN PRODUCTOS DENTRO DEL LOCAL STORAGE
+
     if(id.length != 0){
+
         sumTotalPrices()
-  
+    
         // Recorremos el array para conocer los productos que todavia no se han eliminado, para poder crear un nuevo array en el local
         // storage
     for (var i = 0; i < id.length; i++) {
@@ -197,11 +203,7 @@ $(".removeItem").click(function () {
         var weightOneUnit = $(weightOne[i]).html()
         var quantityValue =$(quantity[i]).val()
 
-        // console.log(weightValue);
-
-
-
-
+    
         productStorage.push({
                 "id": idValue,
                 "name": nameValue,
@@ -222,11 +224,10 @@ $(".removeItem").click(function () {
       localStorage.removeItem("listOfProducts")
 
       //Reinicio los valores del carrito
-      localStorage.setItem('quantProd', '0');
+    //   localStorage.setItem('quantProd', '0');
       localStorage.setItem('totPrice', '0');
 
       //Actualizo los valores del carrito con los nuevos valores
-      $(".quantityBasket").html(localStorage.getItem("quantProd"))
       $(".totalBasket").html(localStorage.getItem("totPrice"))
    
     $('#listProdShopp').append('<div style="margin-left:20px;"><h4>Your shopping cart is empty...</h4></div>')
@@ -254,7 +255,7 @@ $(document).on("change", ".chooseQuantity", function() {
     //Mando imprimir en el html el resultado de el incremento de unidades seleccionadas
 
     $(".priceQuanti" + id).html('<strong>' + (quantity * price).toFixed(2) + '</strong>')
-
+     
      //Mando imprimir en el html el resultado de el incremento de unidades seleccionadas
 
      $(".weight" + id).html('<strong>' + (quantity * weight).toFixed(2) + '</strong>')
@@ -304,14 +305,14 @@ $(document).on("change", ".chooseQuantity", function() {
 
     }    
     sumTotalPrices()
-   
+    
 });
 
 
 
 
 /* -------------------------------------------------------------------------- */
-/*                           SUMA TOTAL DEL CARRITO                           */
+/*                           SUMA TOTAL DEL CARRITO Y CESTA                   */
 /* -------------------------------------------------------------------------- */
 
 function sumTotalPrices(){
@@ -334,9 +335,13 @@ function sumTotalPrices(){
     var reducer = (accumulator, curr) => accumulator + curr;
 
     var priceSubtotal = arraySum.reduce(reducer)
-    
-    $(".priceSubtotal").html("<h5>Subtotal:</h5><span class='spanCheckout pull-right'><strong>"+priceSubtotal.toFixed(2)+"€</strong> </span>")
-   
+
+    $(".priceSubtotal").html("<h5>Subtotal:</h5><span class='spanCheckout pull-right'><strong>"+priceSubtotal.toFixed(2)+"</strong><strong> €</strong> </span>")
+     
+    /* ------------------ CAMBIO PRECIO DE LA CESTA DEL HEADER ------------------ */
+    $(".totalBasket").html(priceSubtotal.toFixed(2));
+     localStorage.setItem('totPrice', priceSubtotal.toFixed(2));
+
     /* -------------------------------- DELIVERY -------------------------------- */
     var weightTotal = $(".weightTotal strong")   
     var sumWeigth=[]
@@ -352,17 +357,24 @@ function sumTotalPrices(){
     
     /* --------------------- CONIDICION PARA PRECIO DE ENVIO -------------------- */
     if(priceDelivery <= 1){
-        priceDelivery = 5
-        $(".priceDelivery").html("<h5>Delivery:</h5><span class='spanCheckout pull-right'><strong>"+priceDelivery+"€</strong> </span>")
+        priceDelivery = 5.00
+        $(".priceDelivery").html("<h5>Delivery:</h5><span class='spanCheckout pull-right'><strong>"+priceDelivery+"</strong><strong> €</strong> </span>")
     }
     else if(priceDelivery > 1 && priceDelivery < 5){
-        priceDelivery = 10
-        $(".priceDelivery").html("<h5>Delivery:</h5><span class='spanCheckout pull-right'><strong>"+priceDelivery+"€</strong> </span>")
+        priceDelivery = 10.00
+        $(".priceDelivery").html("<h5>Delivery:</h5><span class='spanCheckout pull-right'><strong>"+priceDelivery+"</strong><strong> €</strong> </span>")
     }
     else{
-        priceDelivery=20
-        $(".priceDelivery").html("<h5>Delivery:</h5><span class='spanCheckout pull-right'><strong>"+priceDelivery+"€</strong> </span>")
+        priceDelivery=20.00
+        $(".priceDelivery").html("<h5>Delivery:</h5><span class='spanCheckout pull-right'><strong>"+priceDelivery+"</strong><strong> €</strong> </span>")
     }
+
+    /* ------------------------------ PRECIO TOTAL ------------------------------ */
+    
+
+   var totalPrice = Number(priceSubtotal + priceDelivery).toFixed(2)
+
+   $(".priceTotal").html("<h5>Total:</h5><span class='spanCheckout pull-right'><strong>"+totalPrice+"</strong><strong> €</strong> </span>")
     }
 
 
@@ -371,9 +383,34 @@ function sumTotalPrices(){
 /*      SI ESTAMOS DENTRO DEL CARRITO DE COMPRAS, LLAMAMOS A LAS FUNCION      */
 /* -------------------------------------------------------------------------- */
 if(window.location == 'http://localhost/PROYECTOS/SistemaEcommercePHP/ecommerceApp/shoppingCart'){
-sumTotalPrices()
+
+    if (localStorage.getItem("listOfProducts") != null){
+        sumTotalPrices()
+    }
+
 }
-if (localStorage.getItem("listOfProducts") != null){
-    sumTotalPrices()
-}
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                         CHECKOUT DEL LOS PRODUCTOS                         */
+/* -------------------------------------------------------------------------- */
+
+$("#checkout").click(function(){
+
+    var TotalAmount = $(".priceTotal span strong").html()
+    
+    $(".finalPayment h4").append("TOTAL AMOUNT: "+ TotalAmount+ "€")
+
+    var order = JSON.parse(localStorage.getItem("listOfProducts"))
+   
+    for (let i = 0; i < order.length; i++) {
+        
+        console.log(order[i]["id"]);
+
+        
+    }
+
+})
+
 

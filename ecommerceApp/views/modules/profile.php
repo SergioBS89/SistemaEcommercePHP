@@ -351,8 +351,15 @@ if (!isset($_SESSION["session"])) {
                                                     ';
                             }
                             echo '
-                                     <a href="#modalRate" data-toggle="modal">                               
-                                     <button class="btn btn-default firstColors" style="margin-top:20px;" data-toggle="modal">                                    			
+                                     <a>                               
+                                     <button class="btn btn-default firstColors addLocalStorage" style="margin-top:20px;"
+                                     idProductLS="'.$value2["id"].'"
+                                     nameLS="'.$value2["name"].'"				 
+                                     priceOneUnit="'.$value2["price"].'"
+                                     priceLS="'.$value2["price"].'"
+                                     imageLS="'.$value2["image"].'"
+                                     weigthLS="'.$value2["weight"].'"					 
+                                     weightOneUnit="'.$value2["weight"].'" >                                    			
                                         ADD TO CART<span style="margin-left:10px" class="fa fa-chevron-right"></span>
                                      </button>
                                     </a>

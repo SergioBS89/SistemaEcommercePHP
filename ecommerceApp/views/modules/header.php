@@ -311,9 +311,9 @@ $user->signUpUsers();
                     </button>
                 </a>
 
-                <p><span class="quantityBasket"></span> PRODUCTS
+                <p><span class="quantityBasket"> TOTAL AMOUNT:</span>
                 <br> 
-                <span class="totalBasket"></span> €
+                <span class="totalBasket"></span><span>€</span>
                 </p>
 
             </div>

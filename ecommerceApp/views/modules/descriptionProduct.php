@@ -59,7 +59,7 @@ $descritionProduct = ProductsController::descriptionProduct($rute);
 				echo '
 				<div class="col-xs-5">
 				<h4 class="pull-right">
-					<span id="addWishes" href="" class="backStore" idUser =  "'.$_SESSION["userId"].'"
+					<span style="cursor:pointer" id="addWishes" href="" class="backStore" idUser =  "'.$_SESSION["userId"].'"
 					 idProd = "'.$descritionProduct["id"].'">
 						ADD TO WISHES <span></span> <i class="fa fa-solid fa-heart-o"></i>
                     </span>
@@ -69,7 +69,7 @@ $descritionProduct = ProductsController::descriptionProduct($rute);
 				echo '
 				<div class="col-xs-5">
 				<h4 class="pull-right">
-					<span class= "backStore">
+					<span class= "backStore" >
 						I <span></span> <i class="fa fa-solid fa-heart"></i> THIS PRODUCT
                     </span>
 				</h4>
@@ -245,7 +245,7 @@ $descritionProduct = ProductsController::descriptionProduct($rute);
 					</select>
 				</div> -->
 				<div class="col-md-6 col-xs-12">
-					<button id="addLocalStorage" class="btn btn-default btn-block btn-lg firstColors"
+					<button class="addLocalStorage btn btn-default btn-block btn-lg firstColors"
 					 idProductLS="<?php echo $descritionProduct["id"]; ?>"
 					 nameLS="<?php echo $descritionProduct["name"]; ?>"
 					 offerLS="<?php echo $descritionProduct["offer"]; ?>"					 
@@ -254,12 +254,9 @@ $descritionProduct = ProductsController::descriptionProduct($rute);
 					 discountLS="<?php echo $descritionProduct["discount"]; ?>"
 					 imageLS="<?php echo $descritionProduct["image"]; ?>"
 					 weigthLS="<?php echo $descritionProduct["weight"]; ?>"					 
-					 weightOneUnit="<?php echo $descritionProduct["weight"]; ?>"					 
-					
+					 weightOneUnit="<?php echo $descritionProduct["weight"]; ?>" 
 					>
-						<!-- <a href=""> -->
 							<small>ADD TO CART </small><i class="fa fa-shopping-cart col-md-0"></i>
-						<!-- </a> -->
 					</button>
 					
 				</div>
