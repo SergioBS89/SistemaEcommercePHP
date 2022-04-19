@@ -46,6 +46,7 @@
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/comments.css">
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/profile.css">
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/shoppingCart.css">
+    <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/footer.css">
     <!-- IMPORTANTE CARGAR EL RESPONSIVE COMO ULTIMO ARCHIVO  -->
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/responsive.css">
     
@@ -186,16 +187,16 @@
         include "modules/listProducts.php";      
     }  
     elseif($ruteProductOkay != null){
-        include "modules/descriptionProduct.php";
+        include "modules/productDescription.php";
     }
-    elseif($ruteArray[0]=="newProducts"){
-        include "modules/descriptionNewproducts.php";
-    }
+    // elseif($ruteArray[0]=="newProducts"){
+    //     include "modules/descriptionNewproducts.php";
+    // }
     elseif($ruteArray[0]=="SearcH"){
         include "modules/searchProducts.php";      
     }
     elseif($ruteArray[0]=="shoppingCart"){
-        include "modules/shoppingCart.php";      
+        include "modules/shoppingCart.php";        
     }
     elseif($valueURL == "exit" ){
         include "modules/exit.php";
@@ -214,7 +215,7 @@
 else{
    include "modules/slider.php";
    include "modules/products.php";
-
+   include "modules/footer.php";
 }
     ?>
 <!-- Ruta estitica para manejarla desde JS -->

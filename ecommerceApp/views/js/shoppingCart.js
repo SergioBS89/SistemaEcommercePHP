@@ -10,7 +10,8 @@ para meterlos en un array*/
 
 if (localStorage.getItem("listOfProducts") != null) {
 
-   
+
+   localStorage.setItem("newOrder","true");
 
     var productStorage = JSON.parse(localStorage.getItem("listOfProducts"))
    
@@ -61,6 +62,7 @@ if (localStorage.getItem("listOfProducts") != null) {
     //Ocultamos el bloque de summary
 
     $("#hideSubtotal").hide()
+    localStorage.setItem('totPrice', '0');
 }
 
 /* -------------------------------------------------------------------------- */
@@ -380,12 +382,18 @@ function sumTotalPrices(){
 
 
 /* -------------------------------------------------------------------------- */
-/*      SI ESTAMOS DENTRO DEL CARRITO DE COMPRAS, LLAMAMOS A LAS FUNCION      */
+/*      SI ESTAMOS DENTRO DEL CARRITO DE COMPRAS, SE EJECUTAN LAS FUNCIONES     */
 /* -------------------------------------------------------------------------- */
 if(window.location == 'http://localhost/PROYECTOS/SistemaEcommercePHP/ecommerceApp/shoppingCart'){
 
     if (localStorage.getItem("listOfProducts") != null){
         sumTotalPrices()
+     
+    }
+    else if(localStorage.getItem("newOrder") == 'false' && localStorage.getItem("totPrice") == 0){
+        alertify
+        .alert('THANK YOU FOR SHOPPING AT SBS FITNESS STORE!','Enjoy your purchases');
+        localStorage.removeItem("newOrder");
     }
 
 }
@@ -401,16 +409,63 @@ $("#checkout").click(function(){
     var TotalAmount = $(".priceTotal span strong").html()
     
     $(".finalPayment h4").append("TOTAL AMOUNT: "+ TotalAmount+ "€")
-
+        
+    var products = []
     var order = JSON.parse(localStorage.getItem("listOfProducts"))
    
     for (let i = 0; i < order.length; i++) {
         
-        console.log(order[i]["id"]);
+        products.push(order[i]["id"])
+   
+ 
+}
 
+    $(".confPay").click(function(){
         
-    }
 
+        var idUser = $("#idUs").val()
+        var name = $("#namePay").val()
+        var adress = $("#adress").val()
+        var city = $("#city").val()
+       
+        console.log(idUser,products,name,adress,city);
+        var dates = new FormData(); 
+	    dates.append("id",  JSON.stringify(products));
+	    dates.append("idUser", idUser);
+	    dates.append("name", name);
+	    dates.append("adress", adress);
+	    dates.append("city", city);
+  
+	$.ajax({
+		url:"http://localhost/PROYECTOS/SistemaEcommercePHP/ecommerceApp/ajax/payment.php",
+		method:"POST",
+		data:dates,
+		cache: false,
+		contentType: false,
+		processData:false,
+		success: function(){
+          
+        }
+
+	}); 
+   localStorage.removeItem("listOfProducts")
+   localStorage.setItem("newOrder","false")
+   localStorage.setItem("totPrice","0")
+})
 })
 
+/* -------------------------------------------------------------------------- */
+/*                           LIMPIAR MODAL CHECKOUT                           */
+/* -------------------------------------------------------------------------- */
+
+$("#closePay").click(function(){
+
+    $(".finalPayment h4").html('')
+})
+
+
+
+
+
+ 
 

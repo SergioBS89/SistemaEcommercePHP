@@ -80,12 +80,12 @@ $("#showComment").click(function(){
 		var exReg = /^[^$%&|<>#]*$/;
 		if(!exReg.test(newComment)){
 
-			$("#newComment").parent().before('<div style="margin-left:50px" class="alert alert-warning">No special characters are allowed to Username field</div>')
+			$("#newComment").parent().before('<div class="alert alert-warning">No special characters are allowed to Username field</div>')
 
 			return false;
 		}
 	}else{
-		$("#newComment").parent().before('<div style="margin-left:50px" class="alert alert-warning">Text area is required, please write a comment</div>')
+		$("#newComment").parent().before('<div class="alert alert-warning">Text area is required, please write a comment</div>')
 	   
 		return false;
 	}

@@ -69,7 +69,19 @@ $StaticUrl = StaticRute::rute();
                 <h5>Total:</h5><span class="pull-right"></span>
             </div>
             <div class="panel-body panButton">
-                <button id="checkout" class="btn btn-default firstColors" href="#modalPayment" data-toggle="modal">CHECKOUT</button>
+                <?php 
+                if(isset($_SESSION["userId"])){
+                    echo '
+                    <button id="checkout" class="btn btn-default firstColors" href="#modalPayment" data-toggle="modal">CHECKOUT</button>
+                    ';
+
+                }else{
+
+                    echo '
+                    <button class="btn btn-default firstColors" href="#myModalIn" data-toggle="modal">START SESSION</button>';
+                }
+                ?>
+               
             </div>
         </div>
     </div>
@@ -88,7 +100,7 @@ $StaticUrl = StaticRute::rute();
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <button id="closePay" type="button" class="close" data-dismiss="modal">&times;</button>
                 <h2 class="modal-title">CONFIRM PAYMENT</h2>
 
 
@@ -99,19 +111,18 @@ $StaticUrl = StaticRute::rute();
                 <div class="contPayment">
                     <br>
                     <br>
-                   
-                        <input class="formInput" type="text" placeholder="Name and Surnames" name="name"  required>
+                        <input id='idUs' type='hidden' value='<?php echo $_SESSION["userId"] ?>'>
+                        <input id="namePay" class="formInput" type="text" placeholder="Name and Surnames" name="name"  required>
                         <br>
                         <br>
-                        <input class="formInput" type="text" placeholder="Adress" name="adress"  required>
+                        <input id="adress" class="formInput" type="text" placeholder="Adress" name="adress"  required>
                         <br>
                         <br>
-                        <input class="formInput" type="text" placeholder="City" name="city" required>
+                        <input id="city" class="formInput" type="text" placeholder="City" name="city" required>
                         <br>
                     
                     <div class="finalPayment">
-                        <h4 style="color: white;"></h4>
-                 
+                        <h4 style="color: white;"></h4>                 
                 </div>
                 </div>
                    
@@ -122,8 +133,13 @@ $StaticUrl = StaticRute::rute();
                     </div>
                     <br>
                 </form>
+              
 
             </div>
         </div>
     </div>
 </div>
+<!-- <?php
+// $newOrder = new UsersController();
+// $newOrder->createOrder();
+?> -->

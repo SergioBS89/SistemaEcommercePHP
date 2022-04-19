@@ -101,7 +101,7 @@ if (!isset($_SESSION["session"])) {
                                 
                                 <div class="col-md-3 col-sm-6 col-xs-12">
                                     <a href="' . $staticRute . $value2["rute"] . '">
-                                        <img  style="width: 100%;" class"img-thumbnail" src="' . $value2["image"] . '">
+                                        <img  style="width: 100%; padding: 30px;" class"img-thumbnail" src="' . $value2["image"] . '">
                                     </a>
                                 </div> 
                                 <!-- div 7 -->
@@ -121,7 +121,7 @@ if (!isset($_SESSION["session"])) {
                                                     <br>
                                                     ';
                             }
-                            if ($value["delivery"] == 0) {
+                            if ($value["stateDelivery"] == 0) {
                                 echo '
                                         <div class="progress">
                                             <div class="progress-bar progress-bar-danger" role="progressbar" style="width:25%">
@@ -137,7 +137,7 @@ if (!isset($_SESSION["session"])) {
                                                 Delivered
                                             </div>
                                         </div>';
-                            } else if ($value["delivery"] == 1) {
+                            } else if ($value["stateDelivery"] == 1) {
                                 echo '
                                         <div class="progress">
                                             <div class="progress-bar progress-bar-danger" role="progressbar" style="width:25%">
@@ -153,7 +153,7 @@ if (!isset($_SESSION["session"])) {
                                                Delivered
                                             </div>
                                         </div>';
-                            } else if ($value["delivery"] == 2) {
+                            } else if ($value["stateDelivery"] == 2) {
                                 echo '
                                         <div class="progress">
                                             <div class="progress-bar progress-bar-danger" role="progressbar" style="width:25%">
@@ -333,7 +333,7 @@ if (!isset($_SESSION["session"])) {
                                 
                                 <div class="col-md-3 col-sm-6 col-xs-12">
                                     <a href="' . $staticRute . $value2["rute"] . '">
-                                        <img  style="width: 100%;" class"img-thumbnail" src="' . $value2["image"] . '">
+                                        <img  style="width: 100%;  padding: 30px;" class"img-thumbnail" src="' . $value2["image"] . '">
                                     </a>
                                 </div> 
                                 <!-- div 7a -->
@@ -355,8 +355,8 @@ if (!isset($_SESSION["session"])) {
                                      <button class="btn btn-default firstColors addLocalStorage" style="margin-top:20px;"
                                      idProductLS="'.$value2["id"].'"
                                      nameLS="'.$value2["name"].'"				 
-                                     priceOneUnit="'.$value2["price"].'"
-                                     priceLS="'.$value2["price"].'"
+                                     priceOneUnit="'.$value2["priceOnOffer"].'"
+                                     priceLS="'.$value2["priceOnOffer"].'"
                                      imageLS="'.$value2["image"].'"
                                      weigthLS="'.$value2["weight"].'"					 
                                      weightOneUnit="'.$value2["weight"].'" >                                    			
@@ -480,7 +480,7 @@ if (!isset($_SESSION["session"])) {
 </div>
 </div>
 <!-- /* -------------------------------------------------------------------------- */
-/*                   LLAMADA AL METODO DE REGISTRO USUARIOS                   */
+/*                   LLAMADA AL METODO ACTUALIZAR RATING               */
 /* -------------------------------------------------------------------------- */ -->
 <?php
 $rating = new UsersController();

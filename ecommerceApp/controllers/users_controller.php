@@ -265,6 +265,27 @@ class UsersController
         $res = UsersModel::showNameModel($table, $id);
         return $res;
     }
+
+
+    /* -------------------------------------------------------------------------- */
+    /*                          METODO PARA CREAR ORDERS                          */
+    /* -------------------------------------------------------------------------- */
+
+    public static function createOrder($dates){
+        $table = "orders";
+        $res = UsersModel::createOrderModel($table, $dates);
+        return $res;    
+    }
+     /* -------------------------------------------------------------------------- */
+    /*                          METODO PARA CREAR VALORACION                        */
+    /* -------------------------------------------------------------------------- */
+
+    public static function createProductRate($dates){
+        $table = "rating";
+        $res2 = UsersModel::createProductRateModel($table, $dates);
+        return $res2;    
+    }
 }
+
 
 ?>

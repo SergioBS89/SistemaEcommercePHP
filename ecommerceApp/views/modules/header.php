@@ -226,9 +226,11 @@ $userIN->valSignIn();
 
                         <div class="otherButtons pull-right">
                             <!-- <button class="btn forgotButton">Forgot Password</button>   -->
-                            <div class="changeModal pull-right firstColors">
+                            <div class="changeModal pull-right">
+                                <button class="btn btn-default buttonSignIn firstColors">
                                 <a href="#myModalIn" data-toggle="modal" data-dismiss="modal"> Sign In </a>
                                 <i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>
+                                </button>
                             </div>
                         </div>
 
@@ -245,7 +247,6 @@ $userIN->valSignIn();
 <?php
 $user = new UsersController();
 $user->signUpUsers();
-
 ?>
 
 

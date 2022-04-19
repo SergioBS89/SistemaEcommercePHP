@@ -34,7 +34,7 @@
              <img class="imgSlider" src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/'.$value["background"].'" alt="">
              <div class ="'.$value["positionProduct"].'">
 
-                 <img src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/'.$value["product"].'"
+                 <img src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/'.$value["image"].'"
                   alt="" style="width:'.$jsonProductStyles["width"].';top:'.$jsonProductStyles["top"].';">
 
                  <div class="'.$jsonText["positionText"].' textSlider  TextSli1">  

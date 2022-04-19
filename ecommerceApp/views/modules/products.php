@@ -9,23 +9,23 @@ $staticRute = StaticRute::rute();
 
 <!-- Con la clase well de bootstrap creamos un padding al contenedor-->
 <div class="container-fluid well well-sm barProducts">
-	<div class="container">		
-		<div class="row">			
+	<div class="container">
+		<div class="row">
 			<div class="col-xs-12 viewProducts">
-				 <!-- /* --------------------------------- Titulo --------------------------------- */ -->
-				<div class="col-sm-6 col-xs-6 titleSectionProducts">					
+				<!-- /* --------------------------------- Titulo --------------------------------- */ -->
+				<div class="col-sm-6 col-xs-6 titleSectionProducts">
 					<h1>ON OFFER</h1>
 				</div>
 
-					<!-- /* --------------------------------- ver mas -------------------------------- */ -->
-				    	<div class="col-sm-6 col-xs-6">				
-				    	<a href="onOffer/1">						
-				    		<button class="btn btn-default firstColors pull-right seeMore">							
-				    			SEE MORE <span class="fa fa-chevron-right"></span>
-				    		</button>
-				    	</a>
-						</div>
-				
+				<!-- /* --------------------------------- ver mas -------------------------------- */ -->
+				<div class="col-sm-6 col-xs-6">
+					<a href="onOffer/1">
+						<button class="btn btn-default firstColors pull-right seeMore">
+							SEE MORE <span class="fa fa-chevron-right"></span>
+						</button>
+					</a>
+				</div>
+
 
 			</div>
 		</div>
@@ -39,62 +39,60 @@ $staticRute = StaticRute::rute();
 /*                             PRODUCTOS EN OFERTA                            */
 /* -------------------------------------------------------------------------- */ -->
 <div class="container-fluid products">
-	
+
 	<div class="container">
-		
+
 		<div class="row">
 
 			<hr>
 
-		   <!-- /* --------------------------- LISTA DE PRODUCTOS --------------------------- */ -->
-    
-		    <ul class="listProducts">
+			<!-- /* --------------------------- LISTA DE PRODUCTOS --------------------------- */ -->
 
-			<?php 
-            $products = ProductsController::showProductsOnOffer();
+			<ul class="listProducts">
 
-            foreach($products as $key => $value){
+				<?php
+				$products = ProductsController::showProductsOnOffer();
+
+				foreach ($products as $key => $value) {
 
 
-			echo '
+					echo '
 			
 			<li class="col-md-3 col-sm-4 col-xs-6">
 				<div class="containerImgProduct">					
-					<a href="'.$value["rute"].'" class="pixelProducto">						
-						<img src="'.$value["image"].'" class="img-responsive" >
+					<a href="' . $value["rute"] . '" class="pixelProducto">						
+						<img src="' . $value["image"] . '" class="img-responsive" >
 					</a>
 					<span class="stickerOffer"></span>	
 
                 </div>
 				<div class="productName">
-				    <h5>'.$value["name"].'</h5>
+				    <h5>' . $value["name"] . '</h5>
 					
 						';
-				
-				/* -------------------------------------------------------------------------- */
-				/*                             ESTRELLAS DINAMICAS                            */
-				/* -------------------------------------------------------------------------- */
-				
+
+					/* -------------------------------------------------------------------------- */
+					/*                             ESTRELLAS DINAMICAS                            */
+					/* -------------------------------------------------------------------------- */
+
 					// Parametros para mandar a la base de datos
 					$productId = $value["id"];
 					$userId = null;
 
 					$countRates = UsersController::showRates($productId, $userId);
 					$quanRates = 0;
-					$totalRates=0;
-					$mediaRates=0;
+					$totalRates = 0;
+					$mediaRates = 0;
 
 					foreach ($countRates as $key => $value3) {
-					
-						if ($value3["rate"] != 0){
+
+						if ($value3["rate"] != 0) {
 							$quanRates += 1;
 							$totalRates += $value3["rate"];
-							$mediaRates= $totalRates/$quanRates;							
-							
+							$mediaRates = $totalRates / $quanRates;
+						}
 					}
-					
-					}
-					
+
 					switch (floor($mediaRates)) {
 						case 1:
 							echo '
@@ -104,7 +102,7 @@ $staticRute = StaticRute::rute();
 							<i class=" starsRating fa fa-star-o stars"></i>
 							<i class=" starsRating fa fa-star-o stars"></i>
 							<i class=" starsRating fa fa-star-o stars"></i>
-							<span>  ('.$quanRates.')</span>
+							<span>  (' . $quanRates . ')</span>
 						</div>';
 							break;
 						case 2:
@@ -115,7 +113,7 @@ $staticRute = StaticRute::rute();
 								<i class=" starsRating fa fa-star-o stars"></i>
 								<i class=" starsRating fa fa-star-o stars"></i>
 								<i class=" starsRating fa fa-star-o stars"></i>
-								<span> ('.$quanRates.')</span>
+								<span> (' . $quanRates . ')</span>
 							</div>';
 							break;
 						case 3:
@@ -126,7 +124,7 @@ $staticRute = StaticRute::rute();
 							<i class=" starsRating fa fa-star stars"></i>
 							<i class=" starsRating fa fa-star-o stars"></i>
 							<i class=" starsRating fa fa-star-o stars"></i>
-							<span>  ('.$quanRates.')</span>
+							<span>  (' . $quanRates . ')</span>
 						</div>';
 							break;
 						case 4:
@@ -138,7 +136,7 @@ $staticRute = StaticRute::rute();
 								<i class=" starsRating fa fa-star stars"></i>
 								<i class=" starsRating fa fa-star stars"></i>
 								<i class=" starsRating fa fa-star-o stars"></i>
-								<span> ('.$quanRates.')</span>
+								<span> (' . $quanRates . ')</span>
 							</div>
 							
 							';
@@ -151,12 +149,12 @@ $staticRute = StaticRute::rute();
 								<i class=" starsRating fa fa-star stars"></i>
 								<i class=" starsRating fa fa-star stars"></i>
 								<i class=" starsRating fa fa-star stars"></i>
-								<span> ('.$quanRates.')</span>
+								<span> (' . $quanRates . ')</span>
 							</div>';
-							
+
 							break;
 						default:
-						echo '
+							echo '
 								<div class="rating">
 								<i class=" starsRating fa fa-star-o stars"></i>
 								<i class=" starsRating fa fa-star-o stars"></i>
@@ -167,21 +165,21 @@ $staticRute = StaticRute::rute();
 							break;
 					}
 
-					echo'
+					echo '
 				
 				    		    
 				    <div class="col-sm-12 col-xs-12 price offer">					
-					<span class="oldPrice">'.$value["price"].'</span><h2>'.$value['priceOnOffer'].'	<span>€</span></h2>
+					<span class="oldPrice">' . $value["price"] . '</span><h2>' . $value['priceOnOffer'] . '	<span>€</span></h2>
 				    </div>
 				</div>
 
 			</li>			
 			';
-			}            
-            ?>    	
-		</ul>	
+				}
+				?>
+			</ul>
 
-	</div>
+		</div>
 	</div>
 
 </div>
@@ -192,22 +190,22 @@ $staticRute = StaticRute::rute();
 /* -------------------------------------------------------------------------- */  -->
 
 <div class="container-fluid well well-sm barProducts">
-	<div class="container">		
-		<div class="row">			
+	<div class="container">
+		<div class="row">
 			<div class="col-xs-12 viewProducts">
-				 <!-- /* --------------------------------- Titulo --------------------------------- */ -->
-				 <div class="col-sm-6 col-xs-6 titleSectionProducts">					
+				<!-- /* --------------------------------- Titulo --------------------------------- */ -->
+				<div class="col-sm-6 col-xs-6 titleSectionProducts">
 					<h1>BEST SELLER</h1>
 				</div>
 
-					<!-- /* --------------------------------- ver mas -------------------------------- */ -->
-				    	<div class="col-sm-6 col-xs-6">				
-				    	<a href="bestSeller/1">						
-				    		<button class="btn btn-default firstColors pull-right seeMore">							
-				    			SEE MORE <span class="fa fa-chevron-right"></span>
-				    		</button>
-				    	</a>
-						</div>
+				<!-- /* --------------------------------- ver mas -------------------------------- */ -->
+				<div class="col-sm-6 col-xs-6">
+					<a href="bestSeller/1">
+						<button class="btn btn-default firstColors pull-right seeMore">
+							SEE MORE <span class="fa fa-chevron-right"></span>
+						</button>
+					</a>
+				</div>
 				<!-- </div>		 -->
 
 			</div>
@@ -221,61 +219,59 @@ $staticRute = StaticRute::rute();
 /*                             PRODUCTOS BEST SELLER                          */
 /* -------------------------------------------------------------------------- */ -->
 <div class="container-fluid products">
-	
+
 	<div class="container">
-		
+
 		<div class="row">
 
 			<hr>
 
-		   <!-- /* --------------------------- LISTA DE PRODUCTOS --------------------------- */ -->
-    
-		    <ul class="listProducts">
+			<!-- /* --------------------------- LISTA DE PRODUCTOS --------------------------- */ -->
 
-			<?php 
-            $orderBy= "numSells";
-            $products = ProductsController::showProducts($orderBy);
-            foreach($products as $key => $value){
-				echo '
+			<ul class="listProducts">
+
+				<?php
+				$orderBy = "numSells";
+				$products = ProductsController::showProducts($orderBy);
+				foreach ($products as $key => $value) {
+					echo '
 					
 			<li class="col-md-3 col-sm-4 col-xs-6">
 			<div class="containerImgProduct">					
-				<a href="'.$value["rute"].'" class="pixelProducto">						
-					<img src="'.$value["image"].'" class="img-responsive" >
+				<a href="' . $value["rute"] . '" class="pixelProducto">						
+					<img src="' . $value["image"] . '" class="img-responsive" >
 				</a>
 			';
-			if($value["offer"]==1){
-				echo '	<span class="stickerOffer"></span>';  
-			}
-			echo '
+					if ($value["offer"] == 1) {
+						echo '	<span class="stickerOffer"></span>';
+					}
+					echo '
 			</div>
 			  <!-- Nombre del producto -->
 			<div class="productName">
-				<h5>'.$value["name"].'<br><br></h5>	';
+				<h5>' . $value["name"] . '<br><br></h5>	';
 					/* -------------------------------------------------------------------------- */
-				/*                             ESTRELLAS DINAMICAS                            */
-				/* -------------------------------------------------------------------------- */
-				
+					/*                             ESTRELLAS DINAMICAS                            */
+					/* -------------------------------------------------------------------------- */
+
 					// Parametros para mandar a la base de datos
 					$productId = $value["id"];
 					$userId = null;
 
 					$countRates = UsersController::showRates($productId, $userId);
 					$quanRates = 0;
-					$totalRates=0;
-					$mediaRates=0;
+					$totalRates = 0;
+					$mediaRates = 0;
 
 					foreach ($countRates as $key => $value3) {
-					
-						if ($value3["rate"] != 0){
+
+						if ($value3["rate"] != 0) {
 							$quanRates += 1;
 							$totalRates += $value3["rate"];
-							$mediaRates= $totalRates/$quanRates;							
-							
+							$mediaRates = $totalRates / $quanRates;
+						}
 					}
-					
-					}
-					
+
 					switch (floor($mediaRates)) {
 						case 1:
 							echo '
@@ -285,7 +281,7 @@ $staticRute = StaticRute::rute();
 							<i class=" starsRating fa fa-star-o stars"></i>
 							<i class=" starsRating fa fa-star-o stars"></i>
 							<i class=" starsRating fa fa-star-o stars"></i>
-							<span>  ('.$quanRates.')</span>
+							<span>  (' . $quanRates . ')</span>
 						</div>';
 							break;
 						case 2:
@@ -296,7 +292,7 @@ $staticRute = StaticRute::rute();
 								<i class=" starsRating fa fa-star-o stars"></i>
 								<i class=" starsRating fa fa-star-o stars"></i>
 								<i class=" starsRating fa fa-star-o stars"></i>
-								<span> ('.$quanRates.')</span>
+								<span> (' . $quanRates . ')</span>
 							</div>';
 							break;
 						case 3:
@@ -307,7 +303,7 @@ $staticRute = StaticRute::rute();
 							<i class=" starsRating fa fa-star stars"></i>
 							<i class=" starsRating fa fa-star-o stars"></i>
 							<i class=" starsRating fa fa-star-o stars"></i>
-							<span>  ('.$quanRates.')</span>
+							<span>  (' . $quanRates . ')</span>
 						</div>';
 							break;
 						case 4:
@@ -319,7 +315,7 @@ $staticRute = StaticRute::rute();
 								<i class=" starsRating fa fa-star stars"></i>
 								<i class=" starsRating fa fa-star stars"></i>
 								<i class=" starsRating fa fa-star-o stars"></i>
-								<span> ('.$quanRates.')</span>
+								<span> (' . $quanRates . ')</span>
 							</div>
 							
 							';
@@ -332,12 +328,12 @@ $staticRute = StaticRute::rute();
 								<i class=" starsRating fa fa-star stars"></i>
 								<i class=" starsRating fa fa-star stars"></i>
 								<i class=" starsRating fa fa-star stars"></i>
-								<span> ('.$quanRates.')</span>
+								<span> (' . $quanRates . ')</span>
 							</div>';
-							
+
 							break;
 						default:
-						echo '
+							echo '
 								<div class="rating">
 								<i class=" starsRating fa fa-star-o stars"></i>
 								<i class=" starsRating fa fa-star-o stars"></i>
@@ -347,29 +343,27 @@ $staticRute = StaticRute::rute();
 							</div>';
 							break;
 					}
-				
-				if($value["offer"]==1){
-					echo'
+
+					if ($value["offer"] == 1) {
+						echo '
 					<div class="col-sm-12 col-xs-12 price offer">					
-					<span class="oldPrice">'.$value["price"].'</span><h2>'.$value['priceOnOffer'].'	<span>€</span></h2>';					
-				}
-				else{
-					echo '
+					<span class="oldPrice">' . $value["price"] . '</span><h2>' . $value['priceOnOffer'] . '	<span>€</span></h2>';
+					} else {
+						echo '
 					<div class="col-xs-12 price ">					
-					<h2>'.$value["price"].'<span>€</span></h2>';
+					<h2>' . $value["price"] . '<span>€</span></h2>';
+					}
+					echo '
+			</div>
+			</div>
+
+		</li>';
 				}
-			echo '
-			</div>
-			</div>
+				?>
 
-		</li>';		
-		
-			}
-            ?>
+			</ul>
 
-		</ul>	
-
-	</div>
+		</div>
 	</div>
 
 </div>
@@ -383,22 +377,22 @@ $staticRute = StaticRute::rute();
 
 <!-- Con la clase well de bootstrap creamos un padding al contenedor-->
 <div class="container-fluid well well-sm barProducts">
-	<div class="container">		
-		<div class="row">			
+	<div class="container">
+		<div class="row">
 			<div class="col-xs-12 viewProducts">
-				 <!-- /* --------------------------------- Titulo --------------------------------- */ -->
-				 <div class="col-sm-6 col-xs-6 titleSectionProducts">					
+				<!-- /* --------------------------------- Titulo --------------------------------- */ -->
+				<div class="col-sm-6 col-xs-6 titleSectionProducts">
 					<h1>MOST VIEWED</h1>
 				</div>
 
-					<!-- /* --------------------------------- ver mas -------------------------------- */ -->
-				    	<div class="col-sm-6 col-xs-6">				
-				    	<a href="mostViewed/1">						
-				    		<button class="btn btn-default firstColors pull-right seeMore">							
-				    			SEE MORE <span class="fa fa-chevron-right"></span>
-				    		</button>
-				    	</a>
-						</div>
+				<!-- /* --------------------------------- ver mas -------------------------------- */ -->
+				<div class="col-sm-6 col-xs-6">
+					<a href="mostViewed/1">
+						<button class="btn btn-default firstColors pull-right seeMore">
+							SEE MORE <span class="fa fa-chevron-right"></span>
+						</button>
+					</a>
+				</div>
 				<!-- </div>		 -->
 
 			</div>
@@ -412,60 +406,58 @@ $staticRute = StaticRute::rute();
 /*                             PRODUCTOS EN OFERTA                            */
 /* -------------------------------------------------------------------------- */ -->
 <div class="container-fluid products">
-	
+
 	<div class="container">
-		
+
 		<div class="row">
 
 			<hr>
 
-    
-		    <ul class="listProducts">
-			
-			<?php 
-            $orderBy= "numViews";
-            $products = ProductsController::showProducts($orderBy);
-            foreach($products as $key => $value){
-				echo '
+
+			<ul class="listProducts">
+
+				<?php
+				$orderBy = "numViews";
+				$products = ProductsController::showProducts($orderBy);
+				foreach ($products as $key => $value) {
+					echo '
 					
 			<li class="col-md-3 col-sm-4 col-xs-6">
 			<div class="containerImgProduct">					
-				<a href="'.$value["rute"].'" class="pixelProducto">						
-					<img src="'.$value["image"].'" class="img-responsive" >
+				<a href="' . $value["rute"] . '" class="pixelProducto">						
+					<img src="' . $value["image"] . '" class="img-responsive" >
 				</a>
 			';
-			if($value["offer"]==1){
-				echo '	<span class="stickerOffer"></span>';  
-			}
-			echo '
+					if ($value["offer"] == 1) {
+						echo '	<span class="stickerOffer"></span>';
+					}
+					echo '
 			</div>
 			  <!-- Nombre del producto -->
 			<div class="productName">
-				<h5>'.$value["name"].'<br><br></h5>	';
+				<h5>' . $value["name"] . '<br><br></h5>	';
 					/* -------------------------------------------------------------------------- */
-				/*                             ESTRELLAS DINAMICAS                            */
-				/* -------------------------------------------------------------------------- */
-				
+					/*                             ESTRELLAS DINAMICAS                            */
+					/* -------------------------------------------------------------------------- */
+
 					// Parametros para mandar a la base de datos
 					$productId = $value["id"];
 					$userId = null;
 
 					$countRates = UsersController::showRates($productId, $userId);
 					$quanRates = 0;
-					$totalRates=0;
-					$mediaRates=0;
+					$totalRates = 0;
+					$mediaRates = 0;
 
 					foreach ($countRates as $key => $value3) {
-					
-						if ($value3["rate"] != 0){
+
+						if ($value3["rate"] != 0) {
 							$quanRates += 1;
 							$totalRates += $value3["rate"];
-							$mediaRates= $totalRates/$quanRates;							
-							
+							$mediaRates = $totalRates / $quanRates;
+						}
 					}
-					
-					}
-					
+
 					switch (floor($mediaRates)) {
 						case 1:
 							echo '
@@ -475,7 +467,7 @@ $staticRute = StaticRute::rute();
 							<i class=" starsRating fa fa-star-o stars"></i>
 							<i class=" starsRating fa fa-star-o stars"></i>
 							<i class=" starsRating fa fa-star-o stars"></i>
-							<span>  ('.$quanRates.')</span>
+							<span>  (' . $quanRates . ')</span>
 						</div>';
 							break;
 						case 2:
@@ -486,7 +478,7 @@ $staticRute = StaticRute::rute();
 								<i class=" starsRating fa fa-star-o stars"></i>
 								<i class=" starsRating fa fa-star-o stars"></i>
 								<i class=" starsRating fa fa-star-o stars"></i>
-								<span> ('.$quanRates.')</span>
+								<span> (' . $quanRates . ')</span>
 							</div>';
 							break;
 						case 3:
@@ -497,7 +489,7 @@ $staticRute = StaticRute::rute();
 							<i class=" starsRating fa fa-star stars"></i>
 							<i class=" starsRating fa fa-star-o stars"></i>
 							<i class=" starsRating fa fa-star-o stars"></i>
-							<span>  ('.$quanRates.')</span>
+							<span>  (' . $quanRates . ')</span>
 						</div>';
 							break;
 						case 4:
@@ -509,7 +501,7 @@ $staticRute = StaticRute::rute();
 								<i class=" starsRating fa fa-star stars"></i>
 								<i class=" starsRating fa fa-star stars"></i>
 								<i class=" starsRating fa fa-star-o stars"></i>
-								<span> ('.$quanRates.')</span>
+								<span> (' . $quanRates . ')</span>
 							</div>
 							
 							';
@@ -522,12 +514,12 @@ $staticRute = StaticRute::rute();
 								<i class=" starsRating fa fa-star stars"></i>
 								<i class=" starsRating fa fa-star stars"></i>
 								<i class=" starsRating fa fa-star stars"></i>
-								<span> ('.$quanRates.')</span>
+								<span> (' . $quanRates . ')</span>
 							</div>';
-							
+
 							break;
 						default:
-						echo '
+							echo '
 								<div class="rating">
 								<i class=" starsRating fa fa-star-o stars"></i>
 								<i class=" starsRating fa fa-star-o stars"></i>
@@ -537,101 +529,79 @@ $staticRute = StaticRute::rute();
 							</div>';
 							break;
 					}
-				
-				if($value["offer"]==1){
-					echo'
+
+					if ($value["offer"] == 1) {
+						echo '
 					<div class="col-sm-12 col-xs-12 price offer">					
-					<span class="oldPrice">'.$value["price"].'</span><h2>'.$value['priceOnOffer'].'	<span>€</span></h2>';					
-				}
-				else{
-					echo '
+					<span class="oldPrice">' . $value["price"] . '</span><h2>' . $value['priceOnOffer'] . '	<span>€</span></h2>';
+					} else {
+						echo '
 					<div class="col-xs-12 price ">					
-					<h2>'.$value["price"].'<span>€</span></h2>';
+					<h2>' . $value["price"] . '<span>€</span></h2>';
+					}
+					echo '
+			</div>
+			</div>
+
+		</li>';
 				}
-			echo '
-			</div>
-			</div>
+				?>
 
-		</li>';		
-		
-			}
-            ?>
-		
-		</ul>	
+			</ul>
 
-	</div>
+		</div>
 	</div>
 
 </div>
+
+
+
+<div class="clearfix"></div>
 
 <!-- /* -------------------------------------------------------------------------- */
 /*                              NUEVOS PRODUCTOS                              */
 /* -------------------------------------------------------------------------- */ -->
-<!-- /* -------------------------------------------------------------------------- */
-/*                       SECCION DE PRODUCTOS MAS VENDIDOS                       */
-/* -------------------------------------------------------------------------- */  -->
 
 
-<div class="container-fluid well well-sm barProducts">
+
+<!-- <div class="container-fluid well well-sm barProducts">
 	<div class="container">		
 		<div class="row">			
-			<div class="col-xs-12 titleSectionProducts">
-				 <!-- /* --------------------------------- Titulo --------------------------------- */ -->					
-					<h1>DISCOVER OUR FREE PRODUCTS </h1>
+			<div class="col-xs-12 titleSectionProducts"> -->
+<!-- /* --------------------------------- Titulo --------------------------------- */ -->
+<!-- <h1>DISCOVER OUR FREE PRODUCTS </h1>
 			</div>
 		</div>
 	</div>
 </div>
-<hr>
+<hr> -->
 <!-- /* ---------------------------- NUEVOS PRODUCTOS ---------------------------- */ -->
-<div class="container-fluid">
-	<div class="container">		
-		 <!--Titulo-->
-		  
-             <!--Contenedor de fotos-->
-            <div class="containerNewProducts">
-                <div class="newproducts new_A""><a href="<?php echo $staticRute?>newProducts/chocolate"><h3>Delicious protein chocolate</h3></a></div>
+<!-- <div class="container-fluid">
+	<div class="container">		 -->
+<!--Titulo-->
+
+<!--Contenedor de fotos-->
+<!-- <div class="containerNewProducts">
+                <div class="newproducts new_A""><a href="<?php echo $staticRute ?>newProducts/chocolate"><h3>Delicious protein chocolate</h3></a></div>
                 <div class="newproducts new_B""><a href="#"><h3>Sugar free energy bars</h3></a></div>
                 <div class="newproducts new_C""><a href="#"><h3>Organic fruit smoothie</h3></a></div>
                 <div class="newproducts new_D""><a href="#"><h3>Fantastic homemade honey</h3></a></div>
                 <div class="newproducts new_E""><a href="#"><h3>Best quality peanut butter</h3></a></div>
             </div>
 	</div>
-</div>
+</div> -->
 
 
 <!-- /* -------------------------------------------------------------------------- */
 /*                            BANNER DE MOTIVACION                            */
 /* -------------------------------------------------------------------------- */ -->
 
-	<!-- /* -------------------------------------------------------------------------- */
+<!-- /* -------------------------------------------------------------------------- */
 	/*                       COMENTARIOS SOBRE MI ECCOMERCE                       */
 	/* -------------------------------------------------------------------------- */ -->
 
-	<!-- /* -------- Dale like si te ha gustado la pagina y deja un comentario ------- */ -->
+<!-- /* -------- Dale like si te ha gustado la pagina y deja un comentario ------- */ -->
 
 
 
-<div class="clearfix"></div> 
 
-
-<!-- <div class="banner container-fluid">
-
-	<img src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/views/img/banner/3.jpg" width="100%">	
-
-	<div class="textBanner textL">
-		<h1 style="color:#fff">IMPOSSIBLE IS JUST A WORD</h1>
-	</div>
-	<img class="logoBanner" src="http://localhost/PROYECTOS/SistemaEcommercePHP/administrator/views/img/banner/logoBanner.png" alt="">
-
-</div> -->
-
-<h1>ABOUT US</h1>
-<br>
-<h2>
-Impulsados por la experiencia de más de una década a tu servicio, caracterizada por la constante búsqueda de la excelencia, te presentamos la mejor selección de productos de nutrición deportiva y alimentación saludable del mercado, con independencia de cuál sea tu disciplina deportiva u objetivo.
-
-Solo podemos invitarte a que compruebes las increíbles virtudes de todos nuestros productos: eficacia, sabor y textura de las fórmulas de nuestras proteínas (con Whey Protein a la cabeza) creatinas, aminoácidos de altura (como BCAA’s), productos BIO... ¡Y todo lo que tenga que ver con el interés incesante por el cuidado de la salud!
-
-¿Cuál es nuestro objetivo? Llevar la Marca HSN a lo más alto y ofrecerte la mayor variedad de Nutrición Deportiva y Dietética Natural y, por último, pero no por eso menos importante, los mejores precios.
-</h2>

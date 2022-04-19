@@ -1,0 +1,37 @@
+/* -------------------------------------------------------------------------- */
+/*                               TEXTO ABOUT US                               */
+/* -------------------------------------------------------------------------- */
+
+div.contTitleText{
+	margin-top: 50px;
+}
+div.contText img{
+
+	width: 400px !important;
+}
+ 
+
+/* -------------------------------------------------------------------------- */
+/*                                   FOOTER                                   */
+/* -------------------------------------------------------------------------- */
+
+div.footer{
+    background-color: black;
+    padding: 30px;
+}
+div.contInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+}
+div.contInfo h2{
+    color: white;
+    text-decoration:underline;
+}
+
+div.contInfo i{
+    font-size: 20px;
+    margin-top: 20px;
+    color: white;
+}

@@ -33,7 +33,7 @@ $("#emailUP").change(function(){
 		contentType: false,
 		processData: false,
 		success:function(res){
-			console.log("respuesta",res);
+			// console.log("respuesta",res);
 			
 			// Si la consulta devuelve un valor mayor a 20 caracteres(existe un usuario)
 			if(res.length<20){

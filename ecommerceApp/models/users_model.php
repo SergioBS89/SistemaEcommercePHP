@@ -212,5 +212,54 @@ class UsersModel{
       
         $stmt = null;
     }
+
+
+
+     /* -------------------------------------------------------------------------- */
+    /*                     METODO PARA CREAR ORDER            */
+    /* -------------------------------------------------------------------------- */
+    public static function createOrderModel($table,$dates){
+
+        $stmt=Conection::conectDB()->prepare("INSERT INTO $table(id_user,id_product,name,adress,location,stateDelivery)
+        VALUES( :idUser, :idProduct, :name, :adress, :city, 0)");
+
+        $stmt -> bindParam(":idUser",$dates["idUser"], PDO::PARAM_STR);
+		$stmt -> bindParam(":idProduct", $dates["idProduct"], PDO::PARAM_STR);
+		$stmt -> bindParam(":name", $dates["name"], PDO::PARAM_STR);
+		$stmt -> bindParam(":adress", $dates["adress"], PDO::PARAM_STR);
+		$stmt -> bindParam(":city", $dates["city"], PDO::PARAM_STR);
+		     
+        if($stmt->execute()){
+            return "ok";
+        }else{
+            return "error";
+        }
+        
+      
+        $stmt = null;
+
+    }
+    
+     /* -------------------------------------------------------------------------- */
+    /*                     METODO PARA CREAR VALORACION       */
+    /* -------------------------------------------------------------------------- */
+    public static function createProductRateModel($table,$dates){
+
+   
+
+        $stmtCreateRate = Conection::conectDB()->prepare("INSERT INTO $table(id_product,id_user,rate,comment)
+        VALUES( :idProduct, :idUser,'', '')");
+         $stmtCreateRate -> bindParam(":idUser",$dates["idUser"], PDO::PARAM_STR);
+         $stmtCreateRate -> bindParam(":idProduct", $dates["idProduct"], PDO::PARAM_STR);
+           
+         if($stmtCreateRate->execute()){
+            return "ok";
+        }else{
+            return "error";
+        }
+
+         $stmtCreateRate = null;
+
+    }
 }
 ?>

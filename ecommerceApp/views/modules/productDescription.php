@@ -37,12 +37,14 @@ $descritionProduct = ProductsController::descriptionProduct($rute);
 			<div class="col-xs-7">
 				<h4>
 					<!-- Volvemos al ultimo punto -->
-					<a href="javascript:history.back()" class=" pull-left backStore">
+					<a href="javascript:history.back()" class=" pull-left backStore" style="margin-left: 20px;">
 
 						<i class="fa fa-reply"></i><span></span> CONTINUE SHOPPING
 					</a>
 				</h4>
 			</div>
+
+
            <!-- SI EXISTE UN USUARIO REGISTRADO SE MUESTRA EL BOTON DE AGREGAR A LISTA DE DESEOS -->
 			<?php 
 			if(isset($_SESSION["userId"])){
@@ -225,25 +227,13 @@ $descritionProduct = ProductsController::descriptionProduct($rute);
 						echo '					
 			        <div class="priceDescription spacePrice">
 					<span  class="percent">' . $descritionProduct["discount"] . ' % OFF!</span>	
-			        <span class="oldPrice">' . $descritionProduct["price"] . '</span>
+			        <span class="oldPrice">' . $descritionProduct["price"] . '<span>€</span></span>
 			        <h2>' . $descritionProduct['priceOnOffer'] . '<span>€</span></h2>
 			        </div>
 			        	';
 					} ?>
 				</div>
-				<!-- <div class="col-md-3 col-xs-6">
-					<select class="form-control pull-left" id="chooseQuantity" style="cursor: pointer;">
-						<option value="1">1 unit</option>
-						<option value="2">2 unit</option>
-						<option value="3">3 unit</option>
-						<option value="4">4 unit</option>
-						<option value="5">5 unit</option>
-						<option value="6">6 unit</option>
-						<option value="7">7 unit</option>
-						<option value="8">8 unit</option>
-						<option value="9">9 unit</option>
-					</select>
-				</div> -->
+			
 				<div class="col-md-6 col-xs-12">
 					<button class="addLocalStorage btn btn-default btn-block btn-lg firstColors"
 					 idProductLS="<?php echo $descritionProduct["id"]; ?>"
@@ -494,9 +484,9 @@ $descritionProduct = ProductsController::descriptionProduct($rute);
 					echo '
 					
 			<li class="col-md-3 col-sm-4 col-xs-6">
-			<div class="containerImgProduct">					
+			<div class="containerImgProduct imgDescription">					
 				<a href="' . $value["rute"] . '" class="pixelProducto">						
-					<img src="' . $value["image"] . '" class="img-responsive" >
+					<img  src="' . $value["image"] . '" class="img-responsive" >
 				</a>
 			';
 					if ($value["offer"] == 1) {

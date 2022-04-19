@@ -48,6 +48,22 @@
 		font-size:75px;
 		text-shadow:2px 2px 1px #c5c1c1;
 	}
+	
+
+	
+/* movil xs */
+@media (max-width:530px){
+	  
+/* BREADCRUMBS */
+ul.text-uppercase{
+	display: none;
+}
+/* Barra de titilos */
+.barProducts{
+	height: 50px;
+}
+	 
+	}
 }
 
 /* ----------------------- SECCION HEADER Y CATEGORIAS ---------------------- */
@@ -132,6 +148,7 @@ display: none;
 	#categories{
 		margin-bottom:10px;
 	}
+	
 	#search{
 		margin-bottom:10px;
 	}
@@ -147,8 +164,9 @@ display: none;
 		padding-left: 10px;
 		align-items: center;
 	}
+	/* Precio total carrito */
 	#shopCart p span {
-		font-size: 17px;
+		font-size: 14px;
 	}
 
 	#shopCart p :first-child{
@@ -332,7 +350,7 @@ ol.pagination{
 @media (max-width:529px){
 
 	#slider, img.imgSlider{
-		height: 450px;
+		height: 500px;
 	}
 	.textSlider h1{
         font-size: 35px !important;
@@ -346,6 +364,16 @@ ol.pagination{
 	}
 	.textSlider h2{
        display: none;
+    }
+	.textSliderL h3,.textSliderR h3{
+		left: initial;
+		right: initial;
+	}
+	.textSlider h3{
+        font-size: 20px !important;
+        top: 80% !important;
+		width: 100%;	
+		text-align: center !important;
     }
  
 	/* Boton slider */
@@ -363,13 +391,13 @@ ol.pagination{
 		right: 50%;
 		width: 40%;
 		/* top: 50%; */
-		width: calc(100% * 0.55) !important;
+		width: calc(100% * 0.60) !important;
 		transform: translateX(50%);
 	}
 	.productLeft img{
 		position: absolute; 
 		left: 50%;
-		width: calc(100% * 0.55) !important;
+		width: calc(100% * 0.70) !important;
 		/* top: 50%; */
 		transform: translateX(-50%);
 	}
@@ -429,7 +457,7 @@ ol.pagination{
 	}
 	
 	button.seeMore{
-		font-size: 8px;
+		font-size: 11px;
 	}
 }
 /* movil */
@@ -452,11 +480,54 @@ ol.pagination{
 		font-size: 17px;
 	}
 	button.seeMore{
-		font-size: 8px;
+		font-size: 10px;
 	}
 	.listProducts img{
-		padding: 20px;
+		padding: 30px;
 		height: 250px;
+	}
+   .catancor{
+	   font-size: 14px;
+   }
+   img.img-thumbnail{
+	   padding: 100px !important;
+   }
+ 
+}
+
+/* -------------------------------------------------------------------------- */
+/*                            PRODUCTOS ZONA DESCRIPTION                            */
+/* -------------------------------------------------------------------------- */
+@media (max-width:549px){
+
+   img.img-thumbnail{
+	   padding: 30px;
+   }
+ div.textDescription h1{
+	 font-size: 34px;
+ }
+ div.priceDescription h2{
+	 font-size: 23px;
+ }
+ div.ratingdescription{
+	 font-size: 8px;
+ }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                               PERFIL USUARIO                               */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width:549px){
+	.progress{
+    display: none;
+	}
+
+	.productProfile h1{
+		font-size: 25px;
+	}
+	.productProfile h3{
+		font-size: 15px !important;
 	}
 
  
@@ -505,58 +576,10 @@ div.containerNewProducts {
  
 }
 
-/* BANNER MOTIVACION */
-@media (max-width:1270px) and (min-width:801px){
-	  
-    div.banner{
-		height: 600px;
-	}
 
-	.textBanner h1{
-		font-size: 40px;
-	}
-	img.logoBanner{
-		width: 50%;
-		height: 25%;
-		top: 60%;
-	}
 
-	}
-@media (max-width:800px) and (min-width:531px){
-	  
-	div.banner{
-		height: 400px;
-	}
-
-	.textBanner h1{
-		font-size: 30px;
-	}
-	img.logoBanner{
-		width: 50%;
-		height: 25%;
-		top: 60%;
-	}
-
-	}
-/* movil xs */
-@media (max-width:530px){
-	  
-div.banner{
-	height: 270px;
-}
-.textBanner h1{
-	font-size: 18px;
-}
-img.logoBanner{
-	width: 50%;
-	height: 25%;
-	top: 60%;
-}
-
- 
-}
 /* -------------------------------------------------------------------------- */
-/*                             CARRITO DE COMPRAS                             */
+/*                ZONA DE CHECKOUT                          */
 /* -------------------------------------------------------------------------- */
 @media (max-width:1270px) and (min-width:801px){
 	div.panelBodyShop h3{
@@ -576,6 +599,10 @@ img.logoBanner{
 	
 	div.panelBodyShop div{
 		padding: 10px;
+	}
+	input.chooseQuantity{
+		width: 35px;
+		height: 18px;
 	}
 
 	}
@@ -613,5 +640,88 @@ div.panelShop h3{
 div.panelShop{
 	height: 35px;
 }
+input.chooseQuantity{
+	width: 30px;
+	height: 15px;
+}
  
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   MODALES                                  */
+/* -------------------------------------------------------------------------- */
+/* movil xs */
+@media (max-width:530px){
+	  
+	h2.modal-title{
+		font-size: 20px;
+	}
+	div.modal-header{
+		height: 50px;
+	}
+	 
+	}
+
+/* -------------------------------------------------------------------------- */
+/*                               TEXTO ABOUT US                               */
+/* -------------------------------------------------------------------------- */
+
+/* movil */
+@media (max-width:800px) and (min-width:531px){
+	
+	
+	div.contText img{
+
+		width: 300px !important;
+	}
+	div.contText{
+
+	display: flex;
+	justify-content: center;
+	}	
+
+	}
+/* movil xs */
+@media (max-width:530px){
+
+	div.contText img{
+
+		width: 260px !important;
+	}
+	div.contText{
+
+	display: flex;
+	justify-content: center;
+	}	 
+	div.contTextH4 h4{
+		font-size: 15px;
+	}
+
+ 
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   FOOTER                                   */
+/* -------------------------------------------------------------------------- */
+@media (max-width:800px) and (min-width:531px){
+	
+	div.contInfo{
+		margin-bottom: 50px;
+		align-items: center;
+	}
+	div.contInfo i{
+		font-size: 18px;
+	}
+
+	}
+/* movil xs */
+@media (max-width:530px){
+
+
+ div.contInfo{
+	 margin-bottom: 50px;
+ }
+ div.contInfo i{
+	 font-size: 15px;
+ }
 }
