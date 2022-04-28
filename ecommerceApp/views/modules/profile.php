@@ -69,6 +69,7 @@ if (!isset($_SESSION["session"])) {
                 <?php
                 $row = "id_user";
                 $valueRow = $_SESSION["userId"];
+                
                 $res = UsersController::showOrder($row, $valueRow);
 
 
@@ -112,15 +113,25 @@ if (!isset($_SESSION["session"])) {
                                 echo '
                                                     <h3 class="textProf">Price: <span class="oldPrice">' . $value2["price"] . '</span> / ' . $value2["priceOnOffer"] . '<span>€</span></h3> 
                                                     <h3 class="textProf">  Product Purchased On ' . substr($value["date"], 0, -8) . '</h3> 
-                                                    <br>
+                                                    
                                                     ';
                             } else {
                                 echo '
                                                     <h3 class="textProf">Price: ' . $value2["price"] . '</h3>  
                                                     <h3 class="textProf"> Product Purchased On ' . substr($value["date"], 0, -8) . '</h3>                                   
-                                                    <br>
+                                                    
                                                     ';
                             }
+
+                            // Muestro los datos personales del cliente
+                            echo '
+                            <h3 class="textProf">Client: ' . $value["name"] . '</h3> 
+                            <h3 class="textProf">Adress: ' . $value["adress"] . '</h3> 
+                            <h3 class="textProf">City: ' . $value["location"] . '</h3> 
+                             '
+                            ;
+                           
+
                             if ($value["stateDelivery"] == 0) {
                                 echo '
                                         <div class="progress">
@@ -529,6 +540,7 @@ $rating->newRate();
 <!-- /* -------------------------------------------------------------------------- */
 /*                   LLAMADA AL METODO REMOVER PRODUCTOS             */
 /* -------------------------------------------------------------------------- */ -->
+
 <?php
 $remove = new UsersController();
 $remove->removeWish();
