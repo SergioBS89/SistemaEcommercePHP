@@ -1,12 +1,14 @@
-#   Este archivo impide que se puedan ver en la url el listado de contenidos de un directorio cuando usamos las categorias y subcategorias
-
+#Este archivo impide que se pueda ver en la url, el listado de contenidos de un directorio cuando usamos las categorias y subcategorias
 
 Options All -Indexes
 
-# URL AMIGABLES
+
+
+#URL AMIGABLES
 
 RewriteEngine On
 
-# Reglas de escritura, las mandamos con variable GET $1 a index.php
+#Reglas de escritura, mandamos con variable GET rute = $1 a index.php, para poder escribir las rutas amigables y la url este mas limpia
+#De esta forma, cada vez que el usuario haga click en algun ancor, este se coloca al final de la url.
 
 RewriteRule ^([-a-zA-Z0-9/]+)$ index.php?rute=$1

@@ -6,7 +6,7 @@ require_once "conection_database.php";
 
 class TemplateModel{
     
-    //Metodo estatico ya que recibe un parametro la funcion
+
     static public function modelStyleTemplate($table){
 
         $stmt = Conection::conectDB()->prepare("SELECT * FROM $table");

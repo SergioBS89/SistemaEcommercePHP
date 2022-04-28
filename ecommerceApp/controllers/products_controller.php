@@ -185,16 +185,16 @@ class ProductsController{
     /*            METODO QUE DEVUELVE EL RESULTADO DE LOS PRODUCTOS ESPECIALES      */
     /* -------------------------------------------------------------------------- */
 
-    public static function descriptionNewProduct($rute){
+    // public static function descriptionNewProduct($rute){
 
-        $table = "new_products";
+    //     $table = "new_products";
     
-        $res = ProductsModel::descriptionNewProductModel($table,$rute);
+    //     $res = ProductsModel::descriptionNewProductModel($table,$rute);
     
-        return $res;
-    }
+    //     return $res;
+    // }
       /* -------------------------------------------------------------------------- */
-    /*                      METODO PARA MOSTRAR LOS PRODUCTOS  REALCIONADOS                   */
+    /*                      METODO PARA MOSTRAR LOS PRODUCTOS REALCIONADOS                   */
     /* -------------------------------------------------------------------------- */
 
     public static function showProductsRelated($valueRow,$valueRow2,$valueRow3,$orderBy){
@@ -207,7 +207,7 @@ class ProductsController{
         }
 
             /* -------------------------------------------------------------------------- */
-    /*                      METODO PARA ACTUALIZAR EL NUMERO DE VISTAS EN LA BASE DE DATOS                  */
+    /*  METODO PARA ACTUALIZAR EL NUMERO DE VISTAS EN LA BASE DE DATOS                  */
     /* -------------------------------------------------------------------------- */
 
     public static function updateNumViews($dates){

@@ -7,7 +7,7 @@ class Conection{
 
     static public function conectDB(){
     
-        //Cambiar ruta cuando subimos a servidor
+        //Cambiar host cuando subimos a servidor
         $link = new PDO("mysql:host=localhost;dbname=sistema_ecommerce",
         "root",
          "",
@@ -16,7 +16,6 @@ class Conection{
               PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
 
         return $link;
-
     }
 }
 ?>

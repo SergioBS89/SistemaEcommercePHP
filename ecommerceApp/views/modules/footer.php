@@ -29,9 +29,17 @@
 			</div>	
 			<div class="col-xs-12 contTextH4">
 			    <h4 style="text-align: justify;">
-				This ecommerce is a final degree project developed by Sergio Berdiell Sanchez.
+				This ecommerce is a Final Degree Project developed by Sergio Berdiell Sanchez.
 				 It is a non-profit work. The images used for the creation of the store, are only for aesthetic purposes.
-				 The project has been developed with the following technologies: PHP, JS, BOOTSTRAP and HTML. 
+				</h4>
+				 <h4>Images had been obtained from: </h4>
+				 <h4>
+					 <a href="https://www.pngwing.com">https://www.pngwing.com</a>
+					 <span> & </span>
+					 <a href="https://www.freepng.es">https://www.freepng.es</a>			
+				 </h4>
+				<h4>				
+				 The project has been developed with the following technologies: HTML, BOOTSTRAP, JS and PHP. 
 			    </h4>
 
 		    </div>

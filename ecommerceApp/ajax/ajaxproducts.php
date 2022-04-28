@@ -44,6 +44,7 @@ if(isset($_POST["counter"])){
 	$numViews -> rute = $_POST["rute"];
 	$numViews -> ajaxViews();
 }
+
 /* ---------------------- DATOS AGREGAR A LISTA DESEOS ---------------------- */
 // Si existe la variable post enviada desde rateProducts.js con ajax
 if(isset($_POST["idProduct"])){

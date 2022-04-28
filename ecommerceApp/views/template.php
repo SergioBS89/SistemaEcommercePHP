@@ -11,12 +11,13 @@
 
     <title>ECOMMERCE PHP</title>
     
-    <!-- Cambio dinamico del icono de la pestaña superior -->
 
     <?php 
     // Inicio de sesion para poder usar variables session en todo el proyecto
     session_start();
 
+    
+    // Cambio dinamico del logo de la pestaña superior 
 
     $iconDinamic = TemplateController::controllerStyleTemplate();
 
@@ -34,7 +35,7 @@
     ?>
 
 
-   <!-- Agregamos la variable $ruteStatc a todos los links y scripts del documento-->
+   <!-- Agregamos la variable $ruteStatc a todos los links y scripts del documento para no tener conflicto con las rutas-->
     
     <!-- Estilos de css -->
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/general.css">
@@ -53,10 +54,7 @@
     <!-- Vinculamos las librerias de bootstrap,jquery,font awesome -->
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/plugins/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/plugins/font-awesome.min.css">
-    <!-- <script src="https://kit.fontawesome.com/46bd5c4726.js" crossorigin="anonymous"></script> -->
- 
- 
-    
+    <!-- <script src="https://kit.fontawesome.com/46bd5c4726.js" crossorigin="anonymous"></script> -->    
     <script src="<?php echo $ruteStatc;?>views/js/plugins/jquery.min.js"></script>
     <script src="<?php echo $ruteStatc;?>views/js/plugins/bootstrap.min.js"></script>
 
@@ -103,7 +101,7 @@
     include "modules/header.php";    
 
     /* -------------------------------------------------------------------------- */
-    /*              MANEJO DE LAS RUTAS DE CATEGORIAS Y SUBCATEGORIAS           */
+    /*              MANEJO DE LAS RUTAS AMIGABLES PARA LAS CATEGORIAS Y SUBCATEGORIAS           */
     /* -------------------------------------------------------------------------- */
 
     /*Todos los productos que se vayan agregando a partir de la URL FIJA ( http://localhost/PROYECTOS/SistemaEcommercePHP/ecommerceApp/),
@@ -117,7 +115,7 @@
     /*                 VARIBLE SUPER IMPORTANTE PARA LAS RUTAS URL                */
     /* -------------------------------------------------------------------------- */
     $ruteArray = array();
-
+   
     //htaccess manda al index un dato get y comprobamos que existe, si no existe se muestra el Slider con un else mas abajo
     if(isset($_GET["rute"])){
 
@@ -127,9 +125,11 @@
     $ruteArray= explode("/", $_GET["rute"]);
     
     //primer valor despues de la url fija
-    $valueURL = $ruteArray[0];     
+    $valueURL = $ruteArray[0];    
+
     //Columna de la BD de los productos
     $ruteProduct = "rute";    
+
     //VARIABLE NULL QUE CAMBIARA EN FUNCION DE SI EXISTE O NO UN PRODUCTO O CATEGORIA
     $ruteCatOkay = null;    
     $ruteProductOkay =null;
@@ -182,7 +182,7 @@
     
     //Si $ruteOkay, definida arriba, ES DIFERENTE A NULL significa que se encontro la ruta el registro de la ruta
     //Ademas, al pulsar en los botones de SEE MORE mando a la pagina de lista productos   
-    if($ruteCatOkay !=null || $valueURL == "onOffer" || $valueURL == "bestSeller" || $valueURL =="mostViewed"){
+    if($ruteCatOkay !=null || $valueURL == "onOffer" || $valueURL == "topsales" || $valueURL =="mostViewed"){
 
         include "modules/listProducts.php";      
     }  

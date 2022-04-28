@@ -1,6 +1,6 @@
 <?php 
 /* -------------------------------------------------------------------------- */
-/*              //Llamada a la template html con programacion POO             */
+/*              Llamada a la template html           */
 /* -------------------------------------------------------------------------- */
 
 //Para poder hacer uso de las clases de otros archivos es necesario el uso de requiere

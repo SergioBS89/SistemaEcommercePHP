@@ -195,12 +195,12 @@ $staticRute = StaticRute::rute();
 			<div class="col-xs-12 viewProducts">
 				<!-- /* --------------------------------- Titulo --------------------------------- */ -->
 				<div class="col-sm-6 col-xs-6 titleSectionProducts">
-					<h1>BEST SELLER</h1>
+					<h1>TOP SALES</h1>
 				</div>
 
 				<!-- /* --------------------------------- ver mas -------------------------------- */ -->
 				<div class="col-sm-6 col-xs-6">
-					<a href="bestSeller/1">
+					<a href="topsales/1">
 						<button class="btn btn-default firstColors pull-right seeMore">
 							SEE MORE <span class="fa fa-chevron-right"></span>
 						</button>

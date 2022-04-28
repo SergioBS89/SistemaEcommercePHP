@@ -17,7 +17,6 @@ class UsersModel{
 		$stmt -> bindParam(":email", $dates["email"], PDO::PARAM_STR);
 		$stmt -> bindParam(":password", $dates["password"], PDO::PARAM_STR);
 		$stmt -> bindParam(":picture", $dates["picture"], PDO::PARAM_STR);
-		// $stmt -> bindParam(":whises", $dates["whises"], PDO::PARAM_STR);
          
         if($stmt->execute()){
             return "okay";
@@ -30,7 +29,7 @@ class UsersModel{
     }
 
     /* -------------------------------------------------------------------------- */
-    /*                       METODO PARA VALIDAR EL INICIO DE SESION                      */
+    /*                       METODO PARA EL INICIO DE SESION                      */
     /* -------------------------------------------------------------------------- */
 
     public static function valSignInModel($table,$dates,$dat){
@@ -112,6 +111,7 @@ class UsersModel{
             
             $stmt = null;
         }
+        // SI EL ID DE USUARIO VIENE VACIO, RETORNA TODAS LAS VALORACIONES
         else{
             $stmt=Conection::conectDB()->prepare("SELECT * FROM $table WHERE id_product = :value ");
             $stmt -> bindParam(":value", $idProduct, PDO::PARAM_STR);
@@ -136,8 +136,12 @@ class UsersModel{
         $stmt -> bindParam(":value", $dates["idUser"], PDO::PARAM_STR);
         $stmt -> bindParam(":value2", $dates["idProd"], PDO::PARAM_STR);      
     
-      $stmt -> execute();
+        if($stmt->execute()){
             return "okay";
+        }else{
+            return "error";
+        }
+        $stmt = null;
       
     }
 
@@ -169,15 +173,19 @@ class UsersModel{
         $stmt -> bindParam(":value", $dates["idUser"], PDO::PARAM_STR); 
         $stmt -> bindParam(":value2", $dates["idProduct"], PDO::PARAM_STR);      
     
-      $stmt -> execute();
+        if($stmt->execute()){
             return "okay";
+        }else{
+            return "error";
+        }
+        $stmt = null;
       
     }
 
 
 
     /* -------------------------------------------------------------------------- */
-    /*                         METODO PARA MOSTRAR NOMBRE                         */
+    /*                         METODO PARA MOSTRAR NOMBRE USUARIO EN LOS COMENTARIOS                       */
     /* -------------------------------------------------------------------------- */
 
     public static function showNameModel($table,$id){
@@ -208,7 +216,6 @@ class UsersModel{
         }else{
             return "error";
         }
-        
       
         $stmt = null;
     }

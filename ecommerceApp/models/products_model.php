@@ -63,7 +63,7 @@ class ProductsModel{
     }
 
  /* -------------------------------------------------------------------------- */
-    /*           Metodo que devuelve los registros de las subcategorias           */
+    /*           Metodo que comprueba si los registros de las subcategorias existen        */
     /* -------------------------------------------------------------------------- */
     public static function checkSubCategories($table,$ruteProduct,$value){
     
@@ -117,7 +117,7 @@ class ProductsModel{
 
 
      /* -------------------------------------------------------------------------- */
-    /*           Metodo que devuelve los registros de la tabla productos CON OFERTA para la pagina principal      */
+    /*  Metodo que devuelve los registros de la tabla productos CON OFERTA para la pagina principal      */
     /* -------------------------------------------------------------------------- */
     public static function showProductsOnOfferModel($table){
 
@@ -153,7 +153,7 @@ class ProductsModel{
     }
 
      /* -------------------------------------------------------------------------- */
-    /*           Metodo que devuelve el LISTADO de productos   */
+    /*           Metodo que devuelve el LISTADO de productos totales   */
     /* -------------------------------------------------------------------------- */
     static public function showProductsListModel($table,$rowProduct,$valueRow,$num,$order,$mode,$page){
 
@@ -171,7 +171,7 @@ class ProductsModel{
 			return $stmt -> fetchAll();
 
 		}
-        // SI HAY QUE MOSTRAR LOS PRODUCTOS MOSTVIEWED O BESTSELLER
+        // SI HAY QUE MOSTRAR LOS PRODUCTOS MOSTVIEWED O TOP SALES
         else{
 
 			$stmt = Conection::conectDB()->prepare("SELECT * FROM $table ORDER BY $order $mode LIMIT $page, $num");
@@ -185,7 +185,7 @@ class ProductsModel{
 
 	}
     /*=============================================
-	CONTADOR DE PRODUCTOS PARA LA PAGINACION
+	CONTADOR DE PRODUCTOS PARA LA PAGINACION POR CATEGORIAS O SUBACATEGORIAS
 	=============================================*/
 
 	static public function countProductsModel($table,$rowProduct, $valueRow, $order){
@@ -204,7 +204,7 @@ class ProductsModel{
 			return $stmt -> fetchAll();
 
 		}
-        // SI HAY QUE MOSTRAR LOS PRODUCTOS MOSTVIEWWED O BESTSELLER
+        // SI HAY QUE MOSTRAR LOS PRODUCTOS TOTALES DE MOSTVIEWWED O BESTSELLER
         else{
 
 			$stmt = Conection::conectDB()->prepare("SELECT * FROM $table");
@@ -254,18 +254,18 @@ class ProductsModel{
     /*                         BUSCA LOS PRODUCTOS PARA LA DECRIPCION                  */
     /* -------------------------------------------------------------------------- */
 
-	static public function descriptionNewProductModel($table,$rute){
+	// static public function descriptionNewProductModel($table,$rute){
 
-		$stmt = Conection::conectDB()->prepare("SELECT * FROM $table WHERE rute = :value");
-        $stmt -> bindParam(":value",$rute,PDO::PARAM_STR);
-		$stmt -> execute();
+	// 	$stmt = Conection::conectDB()->prepare("SELECT * FROM $table WHERE rute = :value");
+    //     $stmt -> bindParam(":value",$rute,PDO::PARAM_STR);
+	// 	$stmt -> execute();
         
-        //Uso de fetch porque solo devuelve un solo registro
-		return $stmt -> fetch();
+    //     //Uso de fetch porque solo devuelve un solo registro
+	// 	return $stmt -> fetch();
 
-		$stmt = null;
+	// 	$stmt = null;
 
-	} 
+	// } 
 
      /* -------------------------------------------------------------------------- */
     /*                          CONTAR PRODUCTOS BUSCADOR                         */

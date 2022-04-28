@@ -30,7 +30,8 @@ class Payment{
     }
 
 }
-// RECIVO UN ARRAY CON AJAX, LO DECODIFICO Y HACEMOS FOREACH ASI PODER RECORRER LOS ELEMENTOS
+// RECIVO UN ARRAY CON AJAX, LO DECODIFICO Y HACEMOS FOREACH PARA ASI PODER RECORRER LOS ELEMENTOS
+
 if(isset($_POST["id"])){
     $array = json_decode($_POST["id"]);
     foreach ($array as $key => $value) {    

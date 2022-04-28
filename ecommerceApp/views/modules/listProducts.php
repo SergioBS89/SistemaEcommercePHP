@@ -85,8 +85,8 @@ $StaticUrl = StaticRute::rute();
 				$valueRow = 1;
 				$order = "priceOnOffer";
 			
-            // Si url es bestSeller
-			}else if($valueURL == "bestSeller"){
+            // Si url es top sales
+			}else if($valueURL == "topsales"){
 
 				$rowProduct = null;
 				$valueRow= null;

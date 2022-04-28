@@ -26,8 +26,7 @@ class UsersController
                 "username" => $_POST["username"],
                 "email" => $_POST["email"],
                 "password" => $enc,
-                "picture" => "",
-                "whises" => ""
+                "picture" => ""
             );
             $table = "user";
 
@@ -154,6 +153,19 @@ class UsersController
                 
                 </script>";
             }
+            else{
+                echo "<script>
+                alertify
+                .alert('ERROR','Something was wrong!',
+                function(isConfirm){
+                    if (isConfirm) {	   
+                      history.back();
+                     } 
+           });
+                
+                </script>";
+
+            }
         }
     }
 
@@ -179,11 +191,10 @@ class UsersController
             ";
             return $res;           
         }else
+        // Función que esta vacia, parqa evitar error en description products
         echo "
         <script>
-        function noComment(){
-                      
-        }
+        function noComment(){}
         </script>
         ";
         return $res;
@@ -224,11 +235,10 @@ class UsersController
 
         if (isset($_POST["idProdWish"])) {
 
-
+        // ES NECESARIO INSTANCIAR LA CLASE EN EL HTML PARA EL USO DE VARIABLES DE SESION DESDE EL CONTROLADOR
             $dates = array(
                 "idUser" => $_SESSION["userId"],
-                "idProd" => $_POST["idProdWish"]
-               
+                "idProd" => $_POST["idProdWish"]               
             );
 
             $table = "wishes";
@@ -247,6 +257,19 @@ class UsersController
            });
                 
                 </script>";
+            }
+            else{
+                echo "<script>
+                alertify
+                .alert('ERROR REMOVING PRODUCT','Something was wrong!',
+                function(isConfirm){
+                    if (isConfirm) {	   
+                      history.back();
+                     } 
+           });
+                
+                </script>";
+
             }
         }
     }
