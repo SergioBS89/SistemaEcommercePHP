@@ -277,23 +277,23 @@ class UsersModel{
      /* -------------------------------------------------------------------------- */
     /*                     METODO PARA CREAR VALORACION       */
     /* -------------------------------------------------------------------------- */
-    public static function createProductRateModel($table,$dates){
+    // public static function createProductRateModel($table,$dates){
 
    
 
-        $stmtCreateRate = Conection::conectDB()->prepare("INSERT INTO $table(id_product,id_user,rate,comment)
-        VALUES( :idProduct, :idUser,'', '')");
-         $stmtCreateRate -> bindParam(":idUser",$dates["idUser"], PDO::PARAM_STR);
-         $stmtCreateRate -> bindParam(":idProduct", $dates["idProduct"], PDO::PARAM_STR);
+    //     $stmtCreateRate = Conection::conectDB()->prepare("INSERT INTO $table(id_product,id_user,rate,comment)
+    //     VALUES( :idProduct, :idUser,'', '')");
+    //      $stmtCreateRate -> bindParam(":idUser",$dates["idUser"], PDO::PARAM_STR);
+    //      $stmtCreateRate -> bindParam(":idProduct", $dates["idProduct"], PDO::PARAM_STR);
            
-         if($stmtCreateRate->execute()){
-            return "ok";
-        }else{
-            return "error";
-        }
+    //      if($stmtCreateRate->execute()){
+    //         return "ok";
+    //     }else{
+    //         return "error";
+    //     }
 
-         $stmtCreateRate = null;
+    //      $stmtCreateRate = null;
 
-    }
+    // }
 }
 ?>

@@ -30,7 +30,7 @@ class Payment{
     }
 
 }
-// RECIVO UN ARRAY CON AJAX, LO DECODIFICO Y HACEMOS FOREACH PARA ASI PODER RECORRER LOS ELEMENTOS
+// RECIVO UN ARRAY CON AJAX EN FORMATO JSON CON LOS PEDIDOS
 
 if(isset($_POST["id"])){
        
@@ -43,18 +43,7 @@ if(isset($_POST["id"])){
     $order-> createOrder();
     }
     
-    // if(isset($_POST["id"])){
-    //     $array = json_decode($_POST["id"]);
-    //     foreach ($array as $key => $value) {    
-    //     $order = new Payment();
-    //     $order ->id = $value;
-    //     $order ->idUser = $_POST["idUser"];
-    //     $order ->name = $_POST["name"];
-    //     $order ->adress = $_POST["adress"];
-    //     $order ->city = $_POST["city"];
-    //     $order-> createOrder();
-    //     }
-    //     }
+  
    
 ?>
 
