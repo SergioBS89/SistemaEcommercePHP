@@ -44,19 +44,31 @@ $(window).on("load",function(){
 
 
 /* -------------------------------------------------------------------------- */
-/*    TOMA EL ID Y LO COMPARA EN LA BASE DE DATOS PARA EL MODAL DE VALORACION DEL PERFIL  */
+/*    TOMA EL ID DE LOS PRODUCTOS PARA CREAR VALORACION   */
 /* -------------------------------------------------------------------------- */
 
 $(".takeId").click(function(){
 
-	// Al pulsar el boton para el modal del rating, este captura el valor del id de la table rate
-	var id = $(this).attr("idComm");
+	// variables de crear valoraciones 
+	var id = $(this).attr("idProdProd");
+	var idUser = $(this).attr("idUserUser");
+
 	
 	// Asigno el valor al input oculto del modal para crear valoracion para pasarlo por POST
 	$("#idModalCreate").val(id);
-	// Asigno el valor al input oculto del modal para modificar valoracion para pasarlo por POST
-	$("#idModalComm").val(id);
+	$("#idModalCreate2").val(idUser);
+
+
+	//Variable de modificar las valoraciones
+	var idComment = $(this).attr("idComment");
 	
+	// Asigno el valor al input oculto del modal para crear valoracion para pasarlo por POST
+	
+	$("#idModalModyf").val(idComment);
+	console.log(idComment);
+	console.log(id);
+	console.log(idUser);
+		
 })
 
 /* -------------------------------------------------------------------------- */
@@ -94,14 +106,14 @@ $("#showComment").click(function(){
   }
 
 /* -------------------------------------------------------------------------- */
-/*      TOMA EL VALOR DEL ID PARA MANDARLO POR AJAX Y ELIMINAR PRODUCTO LISTA DESEOS*/
+/*      TOMA EL VALOR DEL ID DE LOS PRODUCTOS PARA MANDARLO POR AJAX Y ELIMINAR PRODUCTO LISTA DESEOS*/
 /* -------------------------------------------------------------------------- */
 
 $(".takeIdProduct").click(function(){
 
 	// Al pulsar el boton para el modal del rating, este captura el valor del id de la table rate
 	var id = $(this).attr("idProd");
-	console.log(id);
+	// console.log(id);
 	// Asigno el valor al input oculto del modal para eliminar producto pasando por Post el valor
 	$("#idModalWish").val(id);	
 	

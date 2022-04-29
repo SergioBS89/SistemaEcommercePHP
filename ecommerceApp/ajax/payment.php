@@ -20,11 +20,11 @@ class Payment{
             "city" => $this->city);
 
         $res=UsersController::createOrder($dates); 
-        $res2=UsersController::createProductRate($dates); 
+        // $res2=UsersController::createProductRate($dates); 
         
         // Manda al js el okay del la conexion
        echo json_encode($res);
-       echo json_encode($res2);
+    //    echo json_encode($res2);
       
 
     }
@@ -33,17 +33,28 @@ class Payment{
 // RECIVO UN ARRAY CON AJAX, LO DECODIFICO Y HACEMOS FOREACH PARA ASI PODER RECORRER LOS ELEMENTOS
 
 if(isset($_POST["id"])){
-    $array = json_decode($_POST["id"]);
-    foreach ($array as $key => $value) {    
+       
     $order = new Payment();
-    $order ->id = $value;
+    $order ->id = $_POST["id"];
     $order ->idUser = $_POST["idUser"];
     $order ->name = $_POST["name"];
     $order ->adress = $_POST["adress"];
     $order ->city = $_POST["city"];
     $order-> createOrder();
     }
-    }
+    
+    // if(isset($_POST["id"])){
+    //     $array = json_decode($_POST["id"]);
+    //     foreach ($array as $key => $value) {    
+    //     $order = new Payment();
+    //     $order ->id = $value;
+    //     $order ->idUser = $_POST["idUser"];
+    //     $order ->name = $_POST["name"];
+    //     $order ->adress = $_POST["adress"];
+    //     $order ->city = $_POST["city"];
+    //     $order-> createOrder();
+    //     }
+    //     }
    
 ?>
 

@@ -134,7 +134,7 @@ display: none;
 	}
 	/* Correccion del margen superior de los iconos sociales */
 	#social{
-		margin: 20px;
+		margin-bottom: 20px;
 	}	
 	/* Colocacion centrada del login */
 	.register ul{
@@ -490,7 +490,7 @@ ol.pagination{
 	   font-size: 14px;
    }
    img.img-thumbnail{
-	   padding: 100px !important;
+	   padding: 30px !important;
    }
  
 }
@@ -500,9 +500,6 @@ ol.pagination{
 /* -------------------------------------------------------------------------- */
 @media (max-width:549px){
 
-   img.img-thumbnail{
-	   padding: 30px;
-   }
  div.textDescription h1{
 	 font-size: 34px;
  }

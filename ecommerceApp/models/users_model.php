@@ -200,14 +200,18 @@ class UsersModel{
 		$stmt = null;
     }
 
+    
+
      /* -------------------------------------------------------------------------- */
     /*                     METODO PARA REGISTRAR VALORACION              */
     /* -------------------------------------------------------------------------- */
     public static function newRateModel($table,$dates){
 
-        $stmt=Conection::conectDB()->prepare("UPDATE $table SET rate = :stars, comment = :comment WHERE id = :id");
+        $stmt=Conection::conectDB()->prepare("INSERT INTO $table (id_product, id_user, rate, comment) 
+        VALUES(:id,:idUser,:stars,:comment)");
         
         $stmt -> bindParam(":id", $dates["idRate"], PDO::PARAM_STR);
+        $stmt -> bindParam(":idUser", $dates["idUser"], PDO::PARAM_STR);
         $stmt -> bindParam(":comment",$dates["comment"], PDO::PARAM_STR);
 		$stmt -> bindParam(":stars", $dates["stars"], PDO::PARAM_STR);
 		     
@@ -219,6 +223,29 @@ class UsersModel{
       
         $stmt = null;
     }
+
+     /* -------------------------------------------------------------------------- */
+    /*                     METODO PARA MODIFICAR NUEVA VALORACION              */
+    /* -------------------------------------------------------------------------- */
+
+    public static function modifRateModel($table,$dates){
+
+        $stmt=Conection::conectDB()->prepare("UPDATE $table SET rate = :stars, comment = :comment WHERE id = :id");
+        
+        $stmt -> bindParam(":id", $dates["idComment"], PDO::PARAM_STR);
+        $stmt -> bindParam(":comment",$dates["comment"], PDO::PARAM_STR);
+		$stmt -> bindParam(":stars", $dates["stars"], PDO::PARAM_STR);
+		     
+        if($stmt->execute()){
+            return "ok";
+        }else{
+            return "error";
+        }
+      
+        $stmt = null;
+    }
+
+    
 
 
 

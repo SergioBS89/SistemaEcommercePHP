@@ -435,6 +435,8 @@ $("#checkout").click(function(){
 	    dates.append("name", name);
 	    dates.append("adress", adress);
 	    dates.append("city", city);
+
+        // ALAMACENAR ID PRODUCTO COMO JSON
   
 	$.ajax({
 		url:"http://localhost/PROYECTOS/SistemaEcommercePHP/ecommerceApp/ajax/payment.php",

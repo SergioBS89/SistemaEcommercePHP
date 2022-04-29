@@ -17,7 +17,8 @@ $("#search a").click(function(){
 
 $("#search input").change(function(){
 
-	var searching = $("#search input").val();
+	// Eliminamos los espacios de la cadena en el input
+	var searching = $("#search input").val().trim().split(" ").join("");
 
 	var regExpression = /^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]*$/;
 

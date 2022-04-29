@@ -120,18 +120,19 @@ class UsersController
         return $res;
     }
 
-    /* -------------------------------------------------------------------------- */
+     /* -------------------------------------------------------------------------- */
     /*                       METODO PARA REGISTRO DE VALORACION                 */
     /* -------------------------------------------------------------------------- */
 
     public static function newRate()
     {
 
-        if (isset($_POST["idRate"]) && isset($_POST["comment"]) && isset($_POST["stars"])) {
+        if (isset($_POST["produc"]) && isset($_POST["comment"]) && isset($_POST["stars"]) && $_POST["produc"] > 0) {
 
-
+         
             $dates = array(
-                "idRate" => $_POST["idRate"],
+                "idRate" => $_POST["produc"],
+                "idUser" => $_POST["user"],
                 "comment" => $_POST["comment"],
                 "stars" => $_POST["stars"]
             );
@@ -139,6 +140,8 @@ class UsersController
             $table = "rating";
 
             $res = UsersModel::newRateModel($table, $dates);
+
+            // return var_dump($dates);
 
             if ($res == "ok") {
 
@@ -169,6 +172,57 @@ class UsersController
         }
     }
 
+    /* -------------------------------------------------------------------------- */
+    /*                       METODO PARA MODIFICAR DE VALORACION                 */
+    /* -------------------------------------------------------------------------- */
+
+    public static function modifRate()
+    {
+
+        if (isset($_POST["idComment"]) && $_POST["idComment"] > 0) {
+
+         
+            $dates = array(
+                "idComment" => $_POST["idComment"],
+                "comment" => $_POST["comment"],
+                "stars" => $_POST["stars"]
+            );
+
+            $table = "rating";
+
+            $res = UsersModel::modifRateModel($table, $dates);
+
+            // return var_dump($dates);
+
+            if ($res == "ok") {
+
+                echo "<script>
+                alertify
+                .alert('THANK YOU!','Your calification was successfully uploaded',
+                function(isConfirm){
+                    if (isConfirm) {	   
+                      history.back();
+                     } 
+           });
+                
+                </script>";
+            }
+            else{
+                echo "<script>
+                alertify
+                .alert('ERROR','Something was wrong!',
+                function(isConfirm){
+                    if (isConfirm) {	   
+                      history.back();
+                     } 
+           });
+                
+                </script>";
+
+            }
+        }
+    }
+    
     /* -------------------------------------------------------------------------- */
     /*             METODO PARA MOSTRAR LAS CALIFICACIONES DE PRODUCTOS            */
     /* -------------------------------------------------------------------------- */
