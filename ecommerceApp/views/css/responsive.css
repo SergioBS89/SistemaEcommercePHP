@@ -9,9 +9,8 @@
 	.col-lg-0{
 		display: none;
 	}
-	.noProduct h1{
-		font-size:150px;
-		text-shadow:8px 8px 1px #d1cccc;
+	.noProduct h1, .noProduct h2{
+		font-size:42px;
 	}
 }
 
@@ -21,9 +20,8 @@
 	.col-md-0{
 		display: none;
 	}
-	.noProduct h1{
-		font-size:100px;
-		text-shadow:6px 6px 1px #c4c0c0;
+	.noProduct h1 ,.noProduct h2{
+		font-size:40px;
 	}
 }
 
@@ -33,9 +31,9 @@
 	.col-sm-0{
 		display: none;
 	}
-	.noProduct h1{
-		font-size:100px;
-		text-shadow:4px 4px 1px  #c5c1c1;
+	.noProduct h1,.noProduct h2{
+		font-size:30px;
+
 	}
 }
 
@@ -44,9 +42,8 @@
 	.col-xs-0{
 		display: none;
 	}
-	.noProduct h1{
-		font-size:75px;
-		text-shadow:2px 2px 1px #c5c1c1;
+	.noProduct h1,.noProduct h2{
+		font-size:30px;
 	}
 	
 
@@ -61,6 +58,9 @@ ul.text-uppercase{
 /* Barra de titilos */
 .barProducts{
 	height: 50px;
+}
+.noProduct h1,.noProduct h2{
+	font-size:20px;
 }
 	 
 	}
