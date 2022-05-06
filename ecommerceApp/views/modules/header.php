@@ -139,10 +139,6 @@ $StaticUrl = StaticRute::rute();
                             <br>
                         </div>
 
-                        <!-- <div class="otherButtons pull-right">                                    
-                           <button 
-                            data-dismiss="modal" class="btn forgotButton">Forgot Password</button>                                                        
-                        </div> -->
                     </div>
                 </form>
             </div>

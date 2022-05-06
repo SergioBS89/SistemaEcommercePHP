@@ -558,49 +558,6 @@ $staticRute = StaticRute::rute();
 
 <div class="clearfix"></div>
 
-<!-- /* -------------------------------------------------------------------------- */
-/*                              NUEVOS PRODUCTOS                              */
-/* -------------------------------------------------------------------------- */ -->
-
-
-
-<!-- <div class="container-fluid well well-sm barProducts">
-	<div class="container">		
-		<div class="row">			
-			<div class="col-xs-12 titleSectionProducts"> -->
-<!-- /* --------------------------------- Titulo --------------------------------- */ -->
-<!-- <h1>DISCOVER OUR FREE PRODUCTS </h1>
-			</div>
-		</div>
-	</div>
-</div>
-<hr> -->
-<!-- /* ---------------------------- NUEVOS PRODUCTOS ---------------------------- */ -->
-<!-- <div class="container-fluid">
-	<div class="container">		 -->
-<!--Titulo-->
-
-<!--Contenedor de fotos-->
-<!-- <div class="containerNewProducts">
-                <div class="newproducts new_A""><a href="<?php echo $staticRute ?>newProducts/chocolate"><h3>Delicious protein chocolate</h3></a></div>
-                <div class="newproducts new_B""><a href="#"><h3>Sugar free energy bars</h3></a></div>
-                <div class="newproducts new_C""><a href="#"><h3>Organic fruit smoothie</h3></a></div>
-                <div class="newproducts new_D""><a href="#"><h3>Fantastic homemade honey</h3></a></div>
-                <div class="newproducts new_E""><a href="#"><h3>Best quality peanut butter</h3></a></div>
-            </div>
-	</div>
-</div> -->
-
-
-<!-- /* -------------------------------------------------------------------------- */
-/*                            BANNER DE MOTIVACION                            */
-/* -------------------------------------------------------------------------- */ -->
-
-<!-- /* -------------------------------------------------------------------------- */
-	/*                       COMENTARIOS SOBRE MI ECCOMERCE                       */
-	/* -------------------------------------------------------------------------- */ -->
-
-<!-- /* -------- Dale like si te ha gustado la pagina y deja un comentario ------- */ -->
 
 
 
