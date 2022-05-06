@@ -1,16 +1,7 @@
 
 <?php
-
-
-
-
 class UsersController
 {
-
-
-
-
-
     /* -------------------------------------------------------------------------- */
     /*                       METODO PARA REGISTRO DE USUARIO                      */
     /* -------------------------------------------------------------------------- */
@@ -231,26 +222,8 @@ class UsersController
     {
 
         $table = "rating";
-
-
         $res = UsersModel::showRatesModel($table, $idProduct, $idUser);
-
-        // if(empty($res)){
-        //     echo "
-        //     <script>
-        //     function noComment(){
-        //         $('#noComm').append('<h2>NO COMMENTS TO SHOW</h2>');            
-        //     }
-        //     </script>
-        //     ";
-        //     return $res;           
-        // }else
-        // // Función que esta vacia, parqa evitar error en description products
-        // echo "
-        // <script>
-        // function noComment(){}
-        // </script>
-        // ";
+   
         return $res;
         }
 
@@ -326,8 +299,7 @@ class UsersController
 
             }
         }
-    }
-      
+    }   
     
 
 
@@ -353,15 +325,7 @@ class UsersController
         $res = UsersModel::createOrderModel($table, $dates);
         return $res;    
     }
-     /* -------------------------------------------------------------------------- */
-    /*                          METODO PARA CREAR VALORACION                        */
-    /* -------------------------------------------------------------------------- */
-
-    // public static function createProductRate($dates){
-    //     $table = "rating";
-    //     $res2 = UsersModel::createProductRateModel($table, $dates);
-    //     return $res2;    
-    // }
+  
 }
 
 

@@ -113,7 +113,7 @@ $(".takeIdProduct").click(function(){
 
 	// Al pulsar el boton para el modal del rating, este captura el valor del id de la table rate
 	var id = $(this).attr("idProd");
-	// console.log(id);
+
 	// Asigno el valor al input oculto del modal para eliminar producto pasando por Post el valor
 	$("#idModalWish").val(id);	
 	
@@ -125,16 +125,10 @@ $(".takeIdProduct").click(function(){
 
 $("#addWishes").click(function(){
 
-	// .alert('Do you want to add this product to wish list?','',
-	// function(isConfirm){
-	// 	if (isConfirm) {	   
+   
 	var idProduct =	$("#addWishes").attr("idProd")
 	var idUser =	$("#addWishes").attr("idUser")
-
-	// console.log(idProduct);
-	// console.log(idUser);
-
-	var dates = new FormData();    
+    var dates = new FormData();    
 
 	dates.append("idProduct", idProduct);
 	dates.append("idUser", idUser);

@@ -250,22 +250,7 @@ class ProductsModel{
 		$stmt = null;
 
 	} 
-     /* -------------------------------------------------------------------------- */
-    /*                         BUSCA LOS PRODUCTOS PARA LA DECRIPCION                  */
-    /* -------------------------------------------------------------------------- */
 
-	// static public function descriptionNewProductModel($table,$rute){
-
-	// 	$stmt = Conection::conectDB()->prepare("SELECT * FROM $table WHERE rute = :value");
-    //     $stmt -> bindParam(":value",$rute,PDO::PARAM_STR);
-	// 	$stmt -> execute();
-        
-    //     //Uso de fetch porque solo devuelve un solo registro
-	// 	return $stmt -> fetch();
-
-	// 	$stmt = null;
-
-	// } 
 
      /* -------------------------------------------------------------------------- */
     /*                          CONTAR PRODUCTOS BUSCADOR                         */

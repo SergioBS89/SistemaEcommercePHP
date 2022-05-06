@@ -1,27 +1,31 @@
+/* -------------------------------------------------------------------------- */
+/*               CSS DE LA SECCIÓN DE LAS VALORACIONES DE USUARIO              */
+/* -------------------------------------------------------------------------- */
 
-
+/* Barra contenedor del comentario */
 div.userBar{
     display: flex;
     align-items: center;
 }
 
+/*  Imagen del usuario*/
 div.userBar img{
     width: 6%;
     margin-left: 20px;
     background-color: white;
 }
-
+/* Nombre del usuario */
 div.userBar span{
     margin-left: 20px;
     font-size: 20px;
     color: 
     var(--color-text-contrast);
 }
-
-#navComments a{
-    color: black;
-}
-
+/* Bloque numero comentarios */
+ #navComments a{
+    cursor: default;
+} 
+/* Texto del comentario */
 div.comment h5{
 text-align: justify;
 padding: 8px 8px;
@@ -36,12 +40,11 @@ div.panel-default>.panel-heading{
 /* -------------------------------------------------------------------------- */
 /*                          ESTILOS DE LAS ESTRELLAS PARA PUNTUAR                       */
 /* -------------------------------------------------------------------------- */
-#formRate {
-    
+
+#formRate {    
     margin: 0 auto;
     height: 50px;
-  }
-  
+  }  
   
   #formRate label {
     font-size: 40px;

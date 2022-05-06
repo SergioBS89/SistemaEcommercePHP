@@ -232,13 +232,6 @@ else{
 <script src="<?php echo $ruteStatc;?>views/js/login.js"></script>
 <script src="<?php echo $ruteStatc;?>views/js/validations.js"></script>
 <script src="<?php echo $ruteStatc;?>views/js/shoppingCart.js"></script>
-<!-- /* -------------------------------------------------------------------------- */
-/*                                ATRIBUCIONES                                */
-/* -------------------------------------------------------------------------- */ -->
-<!-- clipart humano PNG diseñado por hublot90 de  <a href="https://es.pngtree.com">Pngtree.com</a> -->
-<!-- <a href='https://www.freepik.es/psd/logo'>Psd de Logo creado por freepik - www.freepik.es</a> -->
-<!-- <a href='https://www.freepik.es/vectores/fondo'>Vector de Fondo creado por starline - www.freepik.es</a> -->
-<!-- <a href='https://www.freepik.es/vectores/fondo'>Vector de Fondo creado por starline - www.freepik.es</a> -->
-<!-- <a href='https://www.freepik.es/fotos/fondo'>Foto de Fondo creado por freepik - www.freepik.es</a> -->
+
 </body>
 </html>

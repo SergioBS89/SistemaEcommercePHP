@@ -1,6 +1,8 @@
-
-
 <?php 
+ /* -------------------------------------------------------------------------- */
+ /*                        DATOS PARA CREAR LOS PEDIDOS                        */
+ /* -------------------------------------------------------------------------- */
+
 require_once '../controllers/products_controller.php';
 require_once '../models/products_model.php';
 require_once '../controllers/users_controller.php';

@@ -1,6 +1,8 @@
 
 <?php 
-
+/* -------------------------------------------------------------------------- */
+/*                        DEVUELVE DATOS CSS DINAMICOS                        */
+/* -------------------------------------------------------------------------- */
 require_once '../controllers/template_controller.php';
 require_once '../models/template_model.php';
 

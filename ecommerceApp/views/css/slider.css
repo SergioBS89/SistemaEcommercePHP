@@ -55,18 +55,14 @@ img.imgSlider{
 .productRigth img{
     position: absolute; 
     right: 10%;
-    /* DINAMICO 
-    top: 25%;
-    width: 40%;*/
+   
 }
 
 /* Posicion producto */
 .productLeft img{
     position: absolute;
     left: 10%;
-    /* DINAMICO 
-    top: 25%;
-    width: 40%; */
+
 }
 
 

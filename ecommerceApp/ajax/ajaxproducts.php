@@ -1,4 +1,5 @@
 <?php 
+// RECIBE DATOS PARA ACTUALIZAR EN NUMERO DE VISTAS Y LOS ARTICULOS DE DESEOS
 
 require_once '../controllers/products_controller.php';
 require_once '../models/products_model.php';

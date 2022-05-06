@@ -33,17 +33,13 @@ $(circlePagintr).click(function(){
 
 $(back).click(function(){
     
-    // $(focus).css({'color':colorWhite});
     numSlider--
-    // $(focus[numSlider]).css({"color":colorBlack});
     
     if(numSlider==-1){
     numSlider=totalSlides 
-        // if(numSlider==totalSlides){
-        // $(focus[totalSlides]).css({"color":colorBlack});
-        //  }
+    
     }
-    // nextSlide(numSlider)
+
     moveSlider(numSlider)
     
     })

@@ -3,6 +3,10 @@ require_once '../controllers/users_controller.php';
 require_once '../models/users_model.php';
 
 
+/* -------------------------------------------------------------------------- */
+/*                  RECIBE DATOS PARA VALIDAR EMAIL REPETIDO                  */
+/* -------------------------------------------------------------------------- */
+
 class AjaxValidation{
 
 

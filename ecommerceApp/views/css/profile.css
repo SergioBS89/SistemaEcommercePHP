@@ -1,4 +1,7 @@
 
+/* -------------------------------------------------------------------------- */
+/*              SECCIÓN DEL PERFIL MODIFICANDO ESTILOS BOOTSTRAP              */
+/* -------------------------------------------------------------------------- */
 
 .nav-tabs{
     border-bottom:1px solid var(--main-bg-colorTop) !important;

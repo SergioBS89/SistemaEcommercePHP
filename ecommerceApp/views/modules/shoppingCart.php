@@ -139,7 +139,3 @@ $StaticUrl = StaticRute::rute();
         </div>
     </div>
 </div>
-<!-- <?php
-// $newOrder = new UsersController();
-// $newOrder->createOrder();
-?> -->

@@ -226,7 +226,6 @@ $(".removeItem").click(function () {
       localStorage.removeItem("listOfProducts")
 
       //Reinicio los valores del carrito
-    //   localStorage.setItem('quantProd', '0');
       localStorage.setItem('totPrice', '0');
 
       //Actualizo los valores del carrito con los nuevos valores
@@ -395,11 +394,7 @@ if(window.location == 'http://localhost/PROYECTOS/SistemaEcommercePHP/ecommerceA
         .alert('THANK YOU FOR SHOPPING AT SBS FITNESS STORE!','Enjoy your purchases');
         localStorage.removeItem("newOrder");
     }
-
 }
-
-
-
 /* -------------------------------------------------------------------------- */
 /*                         CHECKOUT DEL LOS PRODUCTOS                         */
 /* -------------------------------------------------------------------------- */

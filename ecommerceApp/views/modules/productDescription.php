@@ -306,18 +306,7 @@ $descritionProduct = ProductsController::descriptionProduct($rute);
 		<div class="row" id="navComments">
 
 			<ul class="nav nav-pills">
-				<li class="firstColors" style="margin-left: 15px;"><a href="#"><?php echo $quan ?> comments</a></li>
-				<!-- <li class=""><a href="#">see more</a></li> -->
-				<!-- <li class="pull-right"><a href="#">
-						
-						<i class="starsRating fa fa-star stars"></i>
-						<i class="starsRating fa fa-star stars"></i>
-						<i class="starsRating fa fa-star stars"></i>
-						<i class="starsRating fa fa-star stars"></i>
-						<i class="starsRating fa fa-star-o stars"></i>
-					</a></li> -->
-
-
+				<li class="firstColors" style="margin-left: 15px;"><a href=""><?php echo $quan ?> comments</a></li>
 			</ul>
 		</div>
 		<hr>
