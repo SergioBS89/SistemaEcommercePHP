@@ -1,0 +1,178 @@
+/* -------------------------------------------------------------------------- */
+/*                        ESTILOS CSS DEL ADMINISTRADOR                       */
+/* -------------------------------------------------------------------------- */
+
+/* Boton del index */
+button.btnAdmin{
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+
+/* Acesso a administrador */
+
+div.colorAdmin{
+    background-color: rgb(250, 250, 187);
+}
+div.contBtnAdm{
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+ 
+}
+/* Ancor  acceso*/
+div.contBtnAdm a {
+    width: 50%;
+    height: 20%; 
+}
+/* Botones */
+div.contBtnAdm button{
+    text-transform: uppercase;
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+}
+
+/* ESTILOS ACCESO.PHP */  
+ .container-acceso{
+    width: 50%;
+    height: 70%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+}
+.header-name{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    /* background-color: rgb(77, 125, 187); */
+    border-radius: 3px;
+    text-align:center;
+    font-size: 22px;
+    padding: 10px;
+    color: white;
+    margin-top: 0 !important;
+}
+
+img.imgAdmin{
+    width: 100px;
+    margin: 0 !important;
+ 
+}
+
+td.td-white{
+    height: 100px;   
+  
+}
+
+table a:hover{
+    text-decoration: none;
+}
+
+/* Posicion de los productos */
+.table>tbody>tr>td{
+    vertical-align:middle !important;
+}
+
+/* contenedor del modal */
+div.modAdminProducts{
+    height: 1200px;
+    background-color: rgb(182, 182, 138);
+}
+
+/* Textos formulario modal */
+div.adminText h5{
+color: rgb(140, 54, 54);
+font-size: 20px;
+}
+
+
+/* ESTILOS DE ARTICULOS.PHP Y USUARIOS.PHP*/
+.titulo-seccion{
+    color: white;
+    margin-left: 3%;
+    font-size: 30px;
+}
+.botPosition{
+    position: absolute;
+    left: 50px;
+    bottom: 40px;
+}
+.botCrear{
+    position: absolute;
+    bottom: 40px;
+    right: 50px;
+}
+.botCrear a{
+    color: white;
+    text-decoration: none;
+}
+.td-white{
+    background-color: white;
+}
+
+td.tdAdmin a:hover{
+text-decoration: none;
+
+}
+
+.disabled {
+    pointer-events:none;
+    opacity:0.6;         
+}
+
+
+.enabled{
+    display: flex;
+    align-items: flex-start;
+    font-size: small;
+    color: rgb(82, 82, 83);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

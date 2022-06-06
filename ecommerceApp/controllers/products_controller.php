@@ -62,7 +62,7 @@ class ProductsController{
     }
 
     /* -------------------------------------------------------------------------- */
-    /*                      METODO PARA MOSTRAR LOS PRODUCTOS  PAGINA INICIO                  */
+    /*                      METODO PARA MOSTRAR LOS PRODUCTOS PAGINA INICIO                  */
     /* -------------------------------------------------------------------------- */
 
     public static function showProducts($orderBy){
@@ -112,7 +112,7 @@ class ProductsController{
         }
 
 
-       /* -------------------------------------------------------------------------- */
+    /* -------------------------------------------------------------------------- */
     /*            METODO PARA LISTAR TODOS LOS PRODUCTOS           */
     /* -------------------------------------------------------------------------- */
 

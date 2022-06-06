@@ -284,7 +284,7 @@ $user->signUpUsers();
 
 
             <!-- /* ------ Contenedor que contiene el boton de categorias ------ */ -->
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+            <div style="margin-left: 0; padding-left: 0;" class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
 
                 <!-- /* -----------------------------BOTON DE CATEGORIAS---------------------------- */ -->
 
@@ -365,3 +365,5 @@ $user->signUpUsers();
         </div>
     </div>
 </header>
+
+    

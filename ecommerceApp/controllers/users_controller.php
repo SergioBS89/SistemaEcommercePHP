@@ -325,6 +325,16 @@ class UsersController
         $res = UsersModel::createOrderModel($table, $dates);
         return $res;    
     }
+
+    /* -------------------------------------------------------------------------- */
+    /*                 METODO PARA COMPROBAR USUARIO ADMINISTRADOR                */
+    /* -------------------------------------------------------------------------- */
+
+    public static function checkAdmin($id){
+        $table ="user";
+        $res = UsersModel::checkAdminModel($table, $id);
+        return $res;
+    }
   
 }
 

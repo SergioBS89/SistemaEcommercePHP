@@ -273,6 +273,17 @@ class UsersModel{
         $stmt = null;
 
     }
+    public static function checkAdminModel($table,$id){
+
+        $stmt=Conection::conectDB()->prepare("SELECT admin FROM $table WHERE id = :value ");
+        $stmt -> bindParam(":value", $id, PDO::PARAM_STR);
+    
+		$stmt -> execute();
+
+		return $stmt -> fetch();
+        
+		$stmt = null;
+    }
     
 }
 ?>

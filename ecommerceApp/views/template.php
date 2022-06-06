@@ -48,6 +48,8 @@
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/profile.css">
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/shoppingCart.css">
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/footer.css">
+    <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/administrator.css">
+   
     <!-- IMPORTANTE CARGAR EL RESPONSIVE COMO ULTIMO ARCHIVO  -->
     <link rel="stylesheet" href="<?php echo $ruteStatc;?>views/css/responsive.css">
     
@@ -91,6 +93,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Coda+Caption:wght@800&family=Merienda+One&family=Permanent+Marker&display=swap" rel="stylesheet">
 </head>
 <body>
+
+
+
     
     <?php 
     
@@ -100,6 +105,31 @@
 
     include "modules/header.php";    
 
+/* -------------------------------------------------------------------------- */
+    /*                           VISTA DEL ADMINISTRADOR                          */
+    /* -------------------------------------------------------------------------- */
+
+    if(isset($_SESSION["userId"])){
+
+    $userIdInSession = $_SESSION["userId"];
+    $userAdmin=0;
+    $userAdmin = UsersController::checkAdmin($userIdInSession);
+
+    if($userAdmin["admin"] == 1){
+
+        echo '      
+        <a href="'.$StaticUrl.'administrator">  
+            <button id="access-admin" class="btn btn-default firstColors btnAdmin">
+            Access to administrator
+            </button>
+        </a>
+         <br>
+         <br>
+        ';
+    }
+    }
+    
+  
     /* -------------------------------------------------------------------------- */
     /*              MANEJO DE LAS RUTAS AMIGABLES PARA LAS CATEGORIAS Y SUBCATEGORIAS           */
     /* -------------------------------------------------------------------------- */
@@ -206,6 +236,15 @@
     }
     elseif($valueURL == "rate"){
         include "modules/ratingProduct.php";
+    }    
+    elseif($valueURL == "administrator"){
+        include "modules/administrator.php";
+    }
+    elseif($valueURL == "admproducts"){
+        include "modules/admin_products.php";
+    }
+    elseif($valueURL == "admusers"){
+        include "modules/admin_users.php";
     }
     else {
     include "modules/error_noProduct.php"; 
@@ -232,6 +271,7 @@ else{
 <script src="<?php echo $ruteStatc;?>views/js/login.js"></script>
 <script src="<?php echo $ruteStatc;?>views/js/validations.js"></script>
 <script src="<?php echo $ruteStatc;?>views/js/shoppingCart.js"></script>
+<script src="<?php echo $ruteStatc;?>views/js/administrator.js"></script>
 
 </body>
 </html>
