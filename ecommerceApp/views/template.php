@@ -246,6 +246,9 @@
     elseif($valueURL == "admusers"){
         include "modules/admin_users.php";
     }
+    elseif($ruteArray[0]=="newProduct"){
+        include "modules/newProduct.php";      
+    }
     else {
     include "modules/error_noProduct.php"; 
     }    

@@ -10,6 +10,10 @@ button.btnAdmin{
 }
 
 
+/* -------------------------------------------------------------------------- */
+/*                         ACCESO PRODUCTOS Y USUARIOS                        */
+/* -------------------------------------------------------------------------- */
+
 /* Acesso a administrador */
 
 div.colorAdmin{
@@ -36,16 +40,11 @@ div.contBtnAdm button{
     font-size: 20px;
 }
 
-/* ESTILOS ACCESO.PHP */  
- .container-acceso{
-    width: 50%;
-    height: 70%;
-    background-color: rgb(255, 255, 255);
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    position: relative;
-}
+/* -------------------------------------------------------------------------- */
+/*                       SECCION DE PRODUCTOS                  */
+/* -------------------------------------------------------------------------- */
+
+
 .header-name{
     position: absolute;
     top: 0;
@@ -92,49 +91,48 @@ font-size: 20px;
 }
 
 
-/* ESTILOS DE ARTICULOS.PHP Y USUARIOS.PHP*/
-.titulo-seccion{
+/* -------------------------------------------------------------------------- */
+/*                          SECCION DE CREAR PRODUCTO                         */
+/* -------------------------------------------------------------------------- */
+
+/* BOTON DE CREAR ARTICULO */
+
+button.buttonCreate{
+
+    margin-bottom: 20px;
+    background-color: rgb(172, 221, 13);
+}
+button.buttonCreate p{
     color: white;
-    margin-left: 3%;
-    font-size: 30px;
+    margin-bottom: 0;
+    margin-right: 10px;
 }
-.botPosition{
-    position: absolute;
-    left: 50px;
-    bottom: 40px;
-}
-.botCrear{
-    position: absolute;
-    bottom: 40px;
-    right: 50px;
-}
-.botCrear a{
+button.buttonCreate i{
     color: white;
+    font-size: 20px;
+}
+button.buttonCreate a{
     text-decoration: none;
-}
-.td-white{
-    background-color: white;
-}
-
-td.tdAdmin a:hover{
-text-decoration: none;
-
-}
-
-.disabled {
-    pointer-events:none;
-    opacity:0.6;         
-}
-
-
-.enabled{
+    width: 100%;
     display: flex;
-    align-items: flex-start;
-    font-size: small;
-    color: rgb(82, 82, 83);
+    justify-content: center;
+    align-items: center;
+}
+/* ELIMINAR ESTILOS HOVER DEL BOTON  */
+.buttonCreate:not([disabled]):not(.disabled).active,
+.buttonCreate:not([disabled]):not(.disabled):active,
+.buttonCreate:not([disabled]):not(.disabled).hover,
+.buttonCreate:not([disabled]):not(.disabled):hover {
+    color: rgb(255, 255, 255) !important;
+    background-color:rgb(172, 221, 13) !important;
+    border-color: rgb(172, 221, 13) !important;
 }
 
-
+/* Formulario de crear producto */
+div.contNewProduct{
+    background-color: #e0e09b;
+    padding: 20px;
+}
 
 
 

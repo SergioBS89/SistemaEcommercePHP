@@ -25,7 +25,7 @@ class AdminController
         return $res;
       }
        /* -------------------------------------------------------------------------- */
-    /*            METODO PARA ACTULIZAR PRODUCTO       */
+    /*            METODO PARA ACTUALIZAR PRODUCTO       */
     /* -------------------------------------------------------------------------- */
 
     public static function updateProduct(){
@@ -138,6 +138,53 @@ class AdminController
     }
     }
 
+       /* -------------------------------------------------------------------------- */
+    /*            METODO PARA CREAR NUEVO PRODUCTO       */
+    /* -------------------------------------------------------------------------- */
 
+    public static function newProduct(){
+
+      if(isset($_POST["nProduct"])){
+
+        $dates = array(
+          
+          "name"=> $_POST["nProduct"],
+          "cat"=> $_POST["cat"],
+          "subcat"=>$_POST["subcat"],
+          "description"=>$_POST["description"],
+          "rute"=>$_POST["rute"],
+          "offer"=>$_POST["offer"],
+          "price"=>$_POST["price"],
+          "disccount"=>$_POST["disccount"],
+          "priceOnOffer"=>$_POST["priceOnOffer"],
+          "image"=>$_POST["image"],
+          "weigth"=>$_POST["weigth"],
+          "delivery"=>$_POST["deliver"],
+          "numViews"=> "0",
+          "numSells"=> "0"
+        );
+       
+      //  return var_dump( $dates);
+      $table = "products";
+      $res = AdminModel::newProductsModel($table,$dates);
+      
+      
+      if ($res == "ok") {
+
+        echo "<script>
+        alertify
+        .alert('OPERATION SUCCESSFUL','The product was created successfull',
+        function(isConfirm){
+            if (isConfirm) {	   
+              history.back();
+             } 
+   });
+        
+        </script>";
+     
+    }
+    }
+    }
+    
   }
 ?>

@@ -103,5 +103,43 @@ class AdminModel{
         $stmt = null;
 }
 
+
+  /* -------------------------------------------------------------------------- */
+    /*          METODO PARA CREAR UN NUEVO PRODUCTO*/
+    /* -------------------------------------------------------------------------- */
+    static public function newProductsModel($table,$dates){
+
+        $stmt = Conection::conectDB()->prepare("INSERT INTO $table(id_category,id_subCat, name, rute, offer,
+         description, price, priceOnOffer, discount, numSells, image, numViews,
+         weight, deliver) VALUES (:idCat,:idSubcat,:name,:rute,:offer,:desc,:price,:priceOnOffer,:disccount,:numSells,
+         :image,:numViews,:weigth,:delivery)");
+
+       
+        $stmt -> bindParam(":name",$dates["name"], PDO::PARAM_STR);
+		$stmt -> bindParam(":idCat", $dates["cat"], PDO::PARAM_STR);
+		$stmt -> bindParam(":idSubcat", $dates["subcat"], PDO::PARAM_STR);
+		$stmt -> bindParam(":desc", $dates["description"], PDO::PARAM_STR);
+		$stmt -> bindParam(":rute", $dates["rute"], PDO::PARAM_STR);
+		$stmt -> bindParam(":offer", $dates["offer"], PDO::PARAM_STR);
+		$stmt -> bindParam(":price", $dates["price"], PDO::PARAM_STR);
+		$stmt -> bindParam(":disccount", $dates["disccount"], PDO::PARAM_STR);
+		$stmt -> bindParam(":priceOnOffer", $dates["priceOnOffer"], PDO::PARAM_STR);
+		$stmt -> bindParam(":image", $dates["image"], PDO::PARAM_STR);
+		$stmt -> bindParam(":weigth", $dates["weigth"], PDO::PARAM_INT);
+		$stmt -> bindParam(":delivery", $dates["delivery"], PDO::PARAM_STR);
+		$stmt -> bindParam(":numViews", $dates["numViews"], PDO::PARAM_INT);
+		$stmt -> bindParam(":numSells", $dates["numSells"], PDO::PARAM_INT);
+
+        if($stmt->execute()){
+            return "ok";
+        }
+    
+        $stmt = null; 
+
+}
+
+
+
+
 }
 ?>

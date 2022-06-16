@@ -2227,7 +2227,7 @@ a:focus {
 .btn-default:hover,
 .btn-default:active,
 .btn-default.hover {
-  background-color: #e7e7e7;
+  background-color: #f7080800;
 }
 .btn-primary {
   background-color: #3c8dbc;
