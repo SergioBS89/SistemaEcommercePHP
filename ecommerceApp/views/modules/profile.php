@@ -464,8 +464,9 @@ if (!isset($_SESSION["session"])) {
                         </div>
                         <div style="display: flex; justify-content: center; margin: 10px;">
                         <!-- Boton recive los datos Js con el valor src de la imagen seleccionada-->
-                            <button sendSRC='' id="btnPicture" class="btn btn-default firstColors">Confirm</button>
+                            <button sendSRC='' sendID='<?php echo $_SESSION["userId"] ?>' id="btnPicture" class="btn btn-default firstColors">Confirm</button>
                         </div>
+                        <?php var_dump($_SESSION["userId"]) ?>
 
 
                     <!-- </div> -->

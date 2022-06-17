@@ -284,6 +284,42 @@ class UsersModel{
         
 		$stmt = null;
     }
+
+
+     /* -------------------------------------------------------------------------- */
+    /*                     METODO PARA CAMBIAR IMAGEN DE PERFIL         */
+    /* -------------------------------------------------------------------------- */
+
+    public static function changePictureModel($table,$dates){
+
+        $stmt=Conection::conectDB()->prepare("UPDATE $table SET picture = :src  WHERE id = :id");
+        
+        $stmt -> bindParam(":src", $dates["src"], PDO::PARAM_STR);
+        $stmt -> bindParam(":id", $dates["id"], PDO::PARAM_STR);
+		     
+        if($stmt->execute()){
+            return "ok";
+        }else{
+            return "error";
+        }
+      
+        $stmt = null;
+    }
     
+
+     /* -------------------------------------------------------------------------- */
+    /*                    METODO QUE RETORNA EL VALOR SRC DE LA IMAGEN DE PERFIL                   */
+    /* -------------------------------------------------------------------------- */
+    public static function imgProfileModel($table,$value){
+
+        $stmt=Conection::conectDB()->prepare("SELECT picture FROM $table WHERE id = :id");
+        $stmt -> bindParam(":id", $value, PDO::PARAM_STR);
+    
+		$stmt -> execute();
+
+		return $stmt -> fetch();
+        
+		$stmt = null;
+    }
 }
 ?>

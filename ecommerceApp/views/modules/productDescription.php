@@ -307,6 +307,7 @@ $descritionProduct = ProductsController::descriptionProduct($rute);
 
 			<ul class="nav nav-pills">
 				<li class="firstColors" style="margin-left: 15px;"><a href=""><?php echo $quan ?> comments</a></li>
+			
 			</ul>
 		</div>
 		<hr>
@@ -318,18 +319,20 @@ $descritionProduct = ProductsController::descriptionProduct($rute);
 		$productId = $descritionProduct["id"];
 		$userId = null;
 
-		$rates = UsersController::showRates($productId, $userId);
+		$rates = UsersController::showRates($productId, $userId);	
 
 
-
-		foreach ($rates as $key => $value) {
-
-		
+		foreach ($rates as $key => $value) {		
 
 			$id = $value["id_user"];
 
 			// Conocemos el nombre de cada usuario que puso una valoracion
 			$username = UsersController::showName($id);
+
+			// Retorno la imagen del usuario que puso la valoración
+		    $imgProfile = UsersController::imgProfile($value["id_user"]);
+
+		 
 
 			/* ---------------- SI NO EXISTEN COMENTARIOS NO MUESTRA NADA --------------- */
 			if ($value["comment"] != '') {
@@ -340,7 +343,7 @@ $descritionProduct = ProductsController::descriptionProduct($rute);
 				<div class="panel panel-default">
 
 					<div class="panel-heading text-uppercase userBar">
-						<img class="img-circle pull-left" src="' . $staticUrlAdmin . 'views/img/users/default/sos.png">
+						<img  style="width: 60px; height: 60px;" class="img-circle pull-left" src="'.$imgProfile["picture"].'">
 						<span>' . $username["username"] . '</span>
 					</div>
 

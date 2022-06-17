@@ -168,6 +168,10 @@ display: none;
 	#shopCart p :first-child{
 		display: none;
 	}
+	/* IMAGEN DE PERFIL DESAPARECE EN MOVIL */
+	img.imgProfileHeader{
+		display: none;
+	}
 }
 
 /* --------------------------- SECCION DEL SLIDER --------------------------- */
@@ -511,7 +515,7 @@ ol.pagination{
 }
 
 /* -------------------------------------------------------------------------- */
-/*                       SELECCION DE FOTO EN EL PERFIL                       */
+/*                       SELECCION DE FOTO EN EL PERFIL USUARIO                      */
 /* -------------------------------------------------------------------------- */
 @media (max-width:1000px){
 

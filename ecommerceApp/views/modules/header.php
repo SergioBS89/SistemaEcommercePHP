@@ -7,6 +7,7 @@
 
 $StaticUrlAdmin = StaticRute::RuteAdministrator();
 $StaticUrl = StaticRute::rute();
+                       
 ?>
 
 
@@ -62,27 +63,46 @@ $StaticUrl = StaticRute::rute();
             </div>
 
             <!-- /* --------------------------------LOGIN-------------------------------- */ -->
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 register" id="register">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 register" id="register" style="position:relative">
                 <ul>
 
                     <?php if (isset($_SESSION["session"])) {
 
                         if ($_SESSION["session"] == 1) {
+                              
+                            // IMAGEN DE PERFIL
+                            $id = $_SESSION["userId"];
+                            $imgProfile = UsersController::imgProfile($id);
+                            
+                            
+                            // Si el usuario no tiene todavia foto, no se muestra
+                            if($imgProfile["picture"] == ""){
+                                echo '
+                                <li><a href="' . $StaticUrl . 'profile">My profile</a></li>
+                                <li>|</li>
+                                <li><a href="' . $StaticUrl . 'exit">Close</a></li>
+                                ';
+                            }
+                            // De lo contrario se imprime la imagen
+                            else{
 
                             echo '
-                  <!--  <img style="width: 10%;" class="img-circle pull-left" src="' . $StaticUrlAdmin . 'views/img/users/default/sos.png">-->
-                    <li><a href="' . $StaticUrl . 'profile">My profile</a></li>
-                    <li>|</li>
-                    <li><a href="' . $StaticUrl . 'exit">Close</a></li>
-                    ';
+                            <img class="img-circle imgProfileHeader" src="'.$imgProfile["picture"].'" alt="">
+                            <li><a href="' . $StaticUrl . 'profile">My profile</a></li>
+                            <li>|</li>
+                            <li><a href="' . $StaticUrl . 'exit">Close</a></li>
+                            ';
                         }
-                    } else {
+                    } 
+                    } 
+                    else {
                         echo '
                     <li><a href="#modalSignIn" data-toggle="modal" data-target="#myModalIn">Sign In</a></li>
                     <li>|</li>
                     <li><a href="#modalSignUp" data-toggle="modal" data-target="#myModalUp">Sign Up</a></li>
                     ';
                     }
+                    
 
 
                     ?>

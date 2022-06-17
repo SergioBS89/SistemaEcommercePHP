@@ -336,6 +336,28 @@ class UsersController
         return $res;
     }
   
+
+
+    /* -------------------------------------------------------------------------- */
+    /*                METODO PARA CAMBIAR IMAGEN DE PERFIL USUARIO                */
+    /* -------------------------------------------------------------------------- */
+
+    public static function changePicture($dates){
+        $table ="user";
+        $res = UsersModel::changePictureModel($table,$dates);
+        return $res;
+    }
+
+    /* -------------------------------------------------------------------------- */
+    /*                METODO QUE RETORNA LA IMAGEN DE USUARIO             */
+    /* -------------------------------------------------------------------------- */
+
+    public static function imgProfile($value){
+        $table ="user";
+        $res = UsersModel::imgProfileModel($table,$value);
+        return $res;
+    }
+
 }
 
 

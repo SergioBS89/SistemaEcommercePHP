@@ -288,4 +288,14 @@ div.alert-warning{
 	margin: 0;
 }
 
-
+/* -------------------------------------------------------------------------- */
+/*                              IMAGEN DE PERFIL                              */
+/* -------------------------------------------------------------------------- */
+img.imgProfileHeader{
+	position: absolute;
+	top: -30px;
+	right: 160px;
+	width: 70px;
+	height: 70px;
+	background-color: white;
+}

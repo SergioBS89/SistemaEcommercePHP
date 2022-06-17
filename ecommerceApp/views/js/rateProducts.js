@@ -142,7 +142,7 @@ $("#addWishes").click(function(){
 		contentType: false,
 		processData:false,
 		success: function(res){
-        console.log("Result:",res);
+        // console.log("Result:",res);
         }
 
 	});

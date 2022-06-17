@@ -10,10 +10,10 @@ div.userBar{
 
 /*  Imagen del usuario*/
 div.userBar img{
-    width: 6%;
     margin-left: 20px;
     background-color: white;
 }
+
 /* Nombre del usuario */
 div.userBar span{
     margin-left: 20px;
