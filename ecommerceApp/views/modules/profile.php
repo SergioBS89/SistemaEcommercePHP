@@ -54,7 +54,7 @@ if (!isset($_SESSION["session"])) {
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#orderList">My Orders</a></li>
             <li><a data-toggle="tab" href="#wishes">Wish List</a></li>
-            <!-- <li><a data-toggle="tab" href="#profile">My Profile</a></li> -->
+            <li><a data-toggle="tab" href="#profile">Profile</a></li>
         </ul>
         <br>
         <!-- div 3 -->
@@ -69,10 +69,10 @@ if (!isset($_SESSION["session"])) {
                 <?php
                 $row = "id_user";
                 $valueRow = $_SESSION["userId"];
-                
+
                 $res = UsersController::showOrder($row, $valueRow);
 
-        
+
                 if (!$res) {
                     echo '
                     <div class="row">
@@ -89,19 +89,19 @@ if (!isset($_SESSION["session"])) {
                     foreach ($res as $key => $value) {
 
                         // Asigno a la variable el valor id del producto que tengo se a comprado
-                        $valueRow = json_decode( $value["id_product"]);
-                        
-                        foreach ($valueRow as $key => $value2) {
-                            
-                        $idProd = (int)$value2;   
-                      
-                    
+                        $valueRow = json_decode($value["id_product"]);
 
-                        // Llamo al controlador para recivir los datos de los productos que coinciden con el id
-                        $product = ProductsController::showProductsProfile($idProd);
-                        foreach ($product as $key => $value3) {
-                            // var_dump($value3);
-                            echo '
+                        foreach ($valueRow as $key => $value2) {
+
+                            $idProd = (int)$value2;
+
+
+
+                            // Llamo al controlador para recivir los datos de los productos que coinciden con el id
+                            $product = ProductsController::showProductsProfile($idProd);
+                            foreach ($product as $key => $value3) {
+                                // var_dump($value3);
+                                echo '
                     <!-- div 5 -->
                     <div class="panel panel-default">
                         <!-- div 6 -->
@@ -116,31 +116,30 @@ if (!isset($_SESSION["session"])) {
                                  <div class=" col-sm-6 col-xs-12 productProfile">
                                      <h1>' . $value3["name"] . '</h1>
                                      ';
-                            if ($value3["offer"] == 1) {
-                                echo '
+                                if ($value3["offer"] == 1) {
+                                    echo '
                                                     <h3 class="textProf">Price: <span class="oldPrice">' . $value3["price"] . '</span> / ' . $value3["priceOnOffer"] . '<span>€</span></h3> 
                                                     <h3 class="textProf">  Product Purchased On ' . substr($value["date"], 0, -8) . '</h3> 
                                                     
                                                     ';
-                            } else {
-                                echo '
+                                } else {
+                                    echo '
                                                     <h3 class="textProf">Price: ' . $value3["price"] . '</h3>  
                                                     <h3 class="textProf"> Product Purchased On ' . substr($value["date"], 0, -8) . '</h3>                                   
                                                     
                                                     ';
-                            }
+                                }
 
-                            // Muestro los datos personales del cliente
-                            echo '
+                                // Muestro los datos personales del cliente
+                                echo '
                             <h3 class="textProf">Client: ' . $value["name"] . '</h3> 
                             <h3 class="textProf">Adress: ' . $value["adress"] . '</h3> 
                             <h3 class="textProf">City: ' . $value["location"] . '</h3> 
-                             '
-                            ;
-                           
+                             ';
 
-                            if ($value["stateDelivery"] == 0) {
-                                echo '
+
+                                if ($value["stateDelivery"] == 0) {
+                                    echo '
                                         <div class="progress">
                                             <div class="progress-bar progress-bar-danger" role="progressbar" style="width:25%">
                                                 Order Processing
@@ -155,8 +154,8 @@ if (!isset($_SESSION["session"])) {
                                                 Delivered
                                             </div>
                                         </div>';
-                            } else if ($value["stateDelivery"] == 1) {
-                                echo '
+                                } else if ($value["stateDelivery"] == 1) {
+                                    echo '
                                         <div class="progress">
                                             <div class="progress-bar progress-bar-danger" role="progressbar" style="width:25%">
                                                 Order Processing
@@ -171,8 +170,8 @@ if (!isset($_SESSION["session"])) {
                                                Delivered
                                             </div>
                                         </div>';
-                            } else if ($value["stateDelivery"] == 2) {
-                                echo '
+                                } else if ($value["stateDelivery"] == 2) {
+                                    echo '
                                         <div class="progress">
                                             <div class="progress-bar progress-bar-danger" role="progressbar" style="width:25%">
                                             Order Processing
@@ -187,8 +186,8 @@ if (!isset($_SESSION["session"])) {
                                                 Delivered
                                             </div>
                                         </div>';
-                            } else {
-                                echo '
+                                } else {
+                                    echo '
                                         <div class="progress">
                                             <div class="progress-bar progress-bar-danger" role="progressbar" style="width:25%">
                                             Order Processing
@@ -204,41 +203,42 @@ if (!isset($_SESSION["session"])) {
                                             </div>
                                         </div>
                                         ';
-                            }
-                            echo '
+                                }
+                                echo '
                                 <!--fin div 7 -->
                                 </div> ';
 
-                            /* -------------------------------------------------------------------------- */
-                            /*                 OPCION DE VALORAR PRODUCTO               */
-                            /* -------------------------------------------------------------------------- */
+                                /* -------------------------------------------------------------------------- */
+                                /*                 OPCION DE VALORAR PRODUCTO               */
+                                /* -------------------------------------------------------------------------- */
 
-                            $idUser = $_SESSION["userId"];
-                            $idProduct = $value3["id"];
+                                $idUser = $_SESSION["userId"];
+                                $idProduct = $value3["id"];
 
-                            $rate = UsersController::showRates($idProduct, $idUser);
-                            
-                            // SI EN LA BASE DE DATOS NOOO HAY VALORACIONES SE MUESTRA ESTO
-                            if($rate == FALSE){
-                            
-                            echo '     
+                                $rate = UsersController::showRates($idProduct, $idUser);
+
+                                // SI EN LA BASE DE DATOS NOOO HAY VALORACIONES SE MUESTRA ESTO
+                                if ($rate == FALSE) {
+
+                                    echo '     
                                 <!-- div 8 -->
                             <div class="col-md-3 col-sm-6 col-xs-12"> 
-                                    <a class="takeId takeIdProduct" href="#modalRate" data-toggle="modal" idUserUser="'.$value["id_user"].'" idProdProd="' .$value3["id"]. '">                               
+                                    <a class="takeId takeIdProduct" href="#modalRate" data-toggle="modal" idUserUser="' . $value["id_user"] . '" idProdProd="' . $value3["id"] . '">                               
                                         <button class="btn btn-default firstColors" style="margin-top:20px;" data-toggle="modal">                                    			
                                            RATE PRODUCT<span style="margin-left:10px" class="fa fa-chevron-right"></span>
                                         </button>
                                     </a>
                                     <br>
                                     <br> 
-                                    ';}
-                            // SI EN LA BASE DE DATOS HAY VALORACIONES SE MUESTRAN
-                            if($rate != FALSE){
+                                    ';
+                                }
+                                // SI EN LA BASE DE DATOS HAY VALORACIONES SE MUESTRAN
+                                if ($rate != FALSE) {
 
-                                echo'
+                                    echo '
                                 <!-- div 8 -->
                                 <div class="col-md-3 col-sm-6 col-xs-12"> 
-                                        <a class="takeId takeIdProduct" href="#modalRate" data-toggle="modal" idComment="'.$rate["id"].'">                               
+                                        <a class="takeId takeIdProduct" href="#modalRate" data-toggle="modal" idComment="' . $rate["id"] . '">                               
                                             <button class="btn btn-default firstColors" style="margin-top:20px;" data-toggle="modal">                                    			
                                                MODIFY RATE<span style="margin-left:10px" class="fa fa-chevron-right"></span>
                                             </button>
@@ -248,10 +248,10 @@ if (!isset($_SESSION["session"])) {
                                         
                                 ';
 
-                               
-                            switch ($rate["rate"]) {
-                                case 1:
-                                    echo '
+
+                                    switch ($rate["rate"]) {
+                                        case 1:
+                                            echo '
                                             <div>
                                             Your Rating: ' . $rate["rate"] . '.0 |
                                             <i class="starsRating fa fa-star stars"></i>
@@ -260,9 +260,9 @@ if (!isset($_SESSION["session"])) {
                                             <i class="starsRating fa fa-star-o stars"></i>
                                             <i class="starsRating fa fa-star-o stars"></i>
                                         </div>';
-                                    break;
-                                case 2:
-                                    echo '
+                                            break;
+                                        case 2:
+                                            echo '
                                                 <div>
                                                 Your Rating: ' . $rate["rate"] . '.0 |
                                                 <i class="starsRating fa fa-star stars"></i>
@@ -271,9 +271,9 @@ if (!isset($_SESSION["session"])) {
                                                 <i class="starsRating fa fa-star-o stars"></i>
                                                 <i class="starsRating fa fa-star-o stars"></i>
                                             </div>';
-                                    break;
-                                case 3:
-                                    echo '
+                                            break;
+                                        case 3:
+                                            echo '
                                             <div>
                                             Your Rating: ' . $rate["rate"] . '.0 |
                                             <i class="starsRating fa fa-star stars"></i>
@@ -282,9 +282,9 @@ if (!isset($_SESSION["session"])) {
                                             <i class="starsRating fa fa-star-o stars"></i>
                                             <i class="starsRating fa fa-star-o stars"></i>
                                         </div>';
-                                    break;
-                                case 4:
-                                    echo '
+                                            break;
+                                        case 4:
+                                            echo '
                                             <div>
                                                 Your Rating: ' . $rate["rate"] . '.0 |
                                                 <i class="starsRating fa fa-star stars"></i>
@@ -293,9 +293,9 @@ if (!isset($_SESSION["session"])) {
                                                 <i class="starsRating fa fa-star stars"></i>
                                                 <i class="starsRating fa fa-star-o stars"></i>
                                             </div>';
-                                    break;
-                                case 5:
-                                    echo '
+                                            break;
+                                        case 5:
+                                            echo '
                                                 <div>
                                                 Your Rating: ' . $rate["rate"] . '.0 |
                                                 <i class="starsRating fa fa-star stars"></i>
@@ -306,19 +306,19 @@ if (!isset($_SESSION["session"])) {
                                             </div>                   
                                    
                                             ';
-                                    break;
-                            }
-                            } 
-                        
-                         if($rate != FALSE){
-                             echo '
+                                            break;
+                                    }
+                                }
+
+                                if ($rate != FALSE) {
+                                    echo '
                              <h5>' . $rate["comment"] . '</h5>
                             
                              ';
-                         }
-                                                
-                        
-                        echo '
+                                }
+
+
+                                echo '
                         <!-- fin div 8 -->                       
                         </div>
                           
@@ -327,14 +327,13 @@ if (!isset($_SESSION["session"])) {
                     <!--fin div 5 -->                            
                     </div>
                                 ';
-                    }
-                   
+                            }
+                        }
                     }
                 }
-            }
-        
-            
-            // 
+
+
+                // 
 
                 ?>
                 <!--fin div 4 -->
@@ -399,13 +398,13 @@ if (!isset($_SESSION["session"])) {
                             echo '
                                      <a>                               
                                      <button class="btn btn-default firstColors addLocalStorage" style="margin-top:20px;"
-                                     idProductLS="'.$value2["id"].'"
-                                     nameLS="'.$value2["name"].'"				 
-                                     priceOneUnit="'.$value2["priceOnOffer"].'"
-                                     priceLS="'.$value2["priceOnOffer"].'"
-                                     imageLS="'.$value2["image"].'"
-                                     weigthLS="'.$value2["weight"].'"					 
-                                     weightOneUnit="'.$value2["weight"].'" >                                    			
+                                     idProductLS="' . $value2["id"] . '"
+                                     nameLS="' . $value2["name"] . '"				 
+                                     priceOneUnit="' . $value2["priceOnOffer"] . '"
+                                     priceLS="' . $value2["priceOnOffer"] . '"
+                                     imageLS="' . $value2["image"] . '"
+                                     weigthLS="' . $value2["weight"] . '"					 
+                                     weightOneUnit="' . $value2["weight"] . '" >                                    			
                                         ADD TO CART<span style="margin-left:10px" class="fa fa-chevron-right"></span>
                                      </button>
                                     </a>
@@ -438,11 +437,44 @@ if (!isset($_SESSION["session"])) {
             <!-- /* -------------------------------------------------------------------------- */
                         /*                            CONFIGURAR MI CUENTA                            */
                         /* -------------------------------------------------------------------------- */ -->
-            <!-- <div id="profile" class="tab-pane fade">
-                        <h3>Menu 1</h3>
-                        <p>Some content in menu 1.</p>
-        
-                    </div> -->
+            <div id="profile" class="tab-pane fade">
+
+                <div class="container-fluid">
+
+                    <!-- <div class="container"> -->
+
+
+                        <div>
+                            <h3>Change user's picture</h3>
+                            <p>Select one of them:</p>
+                        </div>
+                        <div class="gridPictures">
+                            <img src="<?php echo $StaticUrlAdmin . 'views/img/users/default/boy.png' ?>" class="img-circle picProf" alt="">
+                            <img src="<?php echo $StaticUrlAdmin . 'views/img/users/default/cat.png' ?>" class="img-circle picProf" alt="">
+                            <img src="<?php echo $StaticUrlAdmin . 'views/img/users/default/dog.png' ?>" class="img-circle picProf" alt="">
+                            <img src="<?php echo $StaticUrlAdmin . 'views/img/users/default/dog2.png' ?>"class="img-circle picProf" alt="">
+                            <img src="<?php echo $StaticUrlAdmin . 'views/img/users/default/dia.png' ?>" class="img-circle picProf" alt="">
+                            <img src="<?php echo $StaticUrlAdmin . 'views/img/users/default/dia2.png' ?>"class="img-circle picProf" alt="">
+                            <img src="<?php echo $StaticUrlAdmin . 'views/img/users/default/girl.png' ?>"class="img-circle picProf" alt="">
+                            <img src="<?php echo $StaticUrlAdmin . 'views/img/users/default/pop.png' ?>" class="img-circle picProf" alt="">
+                            <img src="<?php echo $StaticUrlAdmin . 'views/img/users/default/samu.png' ?>"class="img-circle picProf" alt="">
+                            <img src="<?php echo $StaticUrlAdmin . 'views/img/users/default/samu2.png'?>"class="img-circle picProf" alt="">
+                            <img src="<?php echo $StaticUrlAdmin . 'views/img/users/default/sos.png' ?>" class="img-circle picProf" alt="">
+                            <img src="<?php echo $StaticUrlAdmin . 'views/img/users/default/girl2.png'?>"class="img-circle picProf" alt="">
+                        </div>
+                        <div style="display: flex; justify-content: center; margin: 10px;">
+                        <!-- Boton recive los datos Js con el valor src de la imagen seleccionada-->
+                            <button sendSRC='' id="btnPicture" class="btn btn-default firstColors">Confirm</button>
+                        </div>
+
+
+                    <!-- </div> -->
+
+                </div>
+
+
+
+            </div>
 
             <!--fin div 3 -->
         </div>
@@ -475,8 +507,8 @@ if (!isset($_SESSION["session"])) {
                     <!-- INPUTS INVISIBLES PARA CONSEGUIR EL ID DEL PRODUCTO Y ID USUARIO QUE VAMOS A VALORAR -->
                     <input type="hidden" value="" id="idModalCreate" name="produc">
                     <input type="hidden" value="" id="idModalCreate2" name="user">
-                      <!-- INPUT INVISIBLE PARA CONSEGUIR EL NUMERO DE ID PRIMARY KEY DEL COMENTARIO QUE VAMOS A VALORAR -->
-                      <input type="hidden" value="" id="idModalModyf" name="idComment">
+                    <!-- INPUT INVISIBLE PARA CONSEGUIR EL NUMERO DE ID PRIMARY KEY DEL COMENTARIO QUE VAMOS A VALORAR -->
+                    <input type="hidden" value="" id="idModalModyf" name="idComment">
                     <!--   con = Container  for items in the form-->
                     <div class="contLogin" style="display: flex; align-items: center;">
                         <!-- VALORACION -->
@@ -568,8 +600,8 @@ $rating->modifRate();
 
                 <form method="POST">
 
-                  <!-- INPUT INVISIBLE PARA CONSEGUIR EL ID DEL PRODUCTO QUE VAMOS A VALORAR -->
-                  <input type="hidden" value="" id="idModalWish" name="idProdWish">
+                    <!-- INPUT INVISIBLE PARA CONSEGUIR EL ID DEL PRODUCTO QUE VAMOS A VALORAR -->
+                    <input type="hidden" value="" id="idModalWish" name="idProdWish">
 
 
                     <!--    Boton Update-->

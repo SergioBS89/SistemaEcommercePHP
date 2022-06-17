@@ -511,6 +511,35 @@ ol.pagination{
 }
 
 /* -------------------------------------------------------------------------- */
+/*                       SELECCION DE FOTO EN EL PERFIL                       */
+/* -------------------------------------------------------------------------- */
+@media (max-width:1000px){
+
+    /* contenedor */
+	div.gridPictures{ 
+	 
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+	
+	/* img */
+	div.gridPictures img {
+		width: 100px;
+		height: 100px;    
+	}
+	}
+	/* img */
+	@media (max-width:500px){
+		div.gridPictures img {
+			width: 70px;
+			height: 70px;  
+		   
+			
+		}
+	}
+	
+
+/* -------------------------------------------------------------------------- */
 /*                ZONA DE CHECKOUT                          */
 /* -------------------------------------------------------------------------- */
 @media (max-width:1270px) and (min-width:801px){

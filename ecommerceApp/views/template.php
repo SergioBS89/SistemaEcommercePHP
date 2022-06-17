@@ -275,6 +275,7 @@ else{
 <script src="<?php echo $ruteStatc;?>views/js/validations.js"></script>
 <script src="<?php echo $ruteStatc;?>views/js/shoppingCart.js"></script>
 <script src="<?php echo $ruteStatc;?>views/js/administrator.js"></script>
+<script src="<?php echo $ruteStatc;?>views/js/changePicture.js"></script>
 
 </body>
 </html>
