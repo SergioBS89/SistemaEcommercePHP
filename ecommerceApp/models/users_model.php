@@ -321,5 +321,19 @@ class UsersModel{
         
 		$stmt = null;
     }
+
+     /* -------------------------------------------------------------------------- */
+    /*                    METODO PARA MOSTRAR LOS COMENTARIOS Y LIKES EN LA SECCION COMMENTS              */
+    /* -------------------------------------------------------------------------- */
+    public static function showCommentsLikesModel($table){
+
+        $stmt=Conection::conectDB()->prepare("SELECT * FROM $table");
+
+		$stmt -> execute();
+
+		return $stmt -> fetchAll();
+        
+		$stmt = null;
+    }
 }
 ?>

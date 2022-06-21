@@ -181,5 +181,107 @@ div.rating span{
 	
 }
 
+/* -------------------------------------------------------------------------- */
+/*                       SECCION DE IMAGEN BEST PRODUCTS                      */
+/* -------------------------------------------------------------------------- */
+
+div.contImgBest{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 80px;
+}
+
+div.contImgBest img{
+	width: 100%;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                       SECCION DE COMENTARIOS Y LIKES                       */
+/* -------------------------------------------------------------------------- */
+
+div.contCommentsUsers{
+	height: 500px; 
+	border: 1px solid red;
+	width: 100%;
+	margin: auto;
+	margin-top: 50px;
+	overflow: hidden;
+}
+/* Clase para expandir el contenedor */
+div.expand{
+	overflow-y: scroll;
+	height: 1000px;
+}
+
+div.panelComments div{
+	display: flex;
+	align-items: center;
+}
+/* Nombre de usuario */
+div.panelComments div h2{
+
+	margin: 0;
+	font-size: 25px;
+	font-weight: bold;
+	margin-left: 20px;
+	margin-right: 20px;
+	text-transform: uppercase;
+}
+/* Fecha */
+div.panelComments div h4{
+
+	margin-top: 20px;
+	font-size: 13px;
+}
+/* Texto comentario */
+div.panelComments div p{
+ 
+	padding-left: 75px;
+	padding-right: 20px;
+	font-family: Arial, Helvetica, sans-serif !important;
+}
+/* Imagen */
+div.panelComments div img{
+	
+   background-color: rgb(236, 227, 227);
+   padding: 5px;
+}
+
+/* Panel del like */
+div.panelComments div.panel-footer{
+ background-color: rgba(241, 234, 234, 0.348);
+ padding: 2px;
+ border: none;
+}
+
+/* Likes */
+div.panelComments div.panel-footer i{
+	font-size: 20px;
+	cursor: pointer;
+	margin-left: 75px;
+	color: var(--main-bg-color);
+
+   }
+
+
+/* Boton de show more */
+
+button.showMoreComm{
+	border: none;
+	font-size: 20px;
+	font-family: 'Righteous', cursive;
+	color: var(--main-bg-colorTop);
+	background-color: initial;
+}
+/* ELIMINAR ESTILOS HOVER DEL BOTON  */
+.showMoreComm:not([disabled]):not(.disabled).active,
+.showMoreComm:not([disabled]):not(.disabled):active,
+.showMoreComm:not([disabled]):not(.disabled).hover,
+.showMoreComm:not([disabled]):not(.disabled):hover {
+    color:var(--main-bg-colorTop)!important;
+    background-color: initial !important;
+    border-color:initial !important;
+}
 
 

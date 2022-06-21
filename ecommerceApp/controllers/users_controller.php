@@ -358,6 +358,17 @@ class UsersController
         return $res;
     }
 
+
+    /* -------------------------------------------------------------------------- */
+    /*     METODO PARA MOSTRAR LOS COMENTARIOS Y LIKES DE LA SECCION COMMENTS     */
+    /* -------------------------------------------------------------------------- */
+    public static function showCommentsLikes(){
+        $table ="comments";
+        $res = UsersModel::showCommentsLikesModel($table);
+        return $res;
+    }
+
+
 }
 
 

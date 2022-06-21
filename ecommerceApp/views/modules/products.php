@@ -559,6 +559,73 @@ $staticRute = StaticRute::rute();
 <div class="clearfix"></div>
 
 
+<!-- 
+/* -------------------------------------------------------------------------- */
+/*                        SECCION IMAGEN BEST PRODUCTS                      */
+/* -------------------------------------------------------------------------- */ -->
+
+<div class="container contImgBest">
+	<img src="<?php echo $StaticUrlAdmin . 'views/img/banner/best.png' ?>" alt="">
+</div>
+
+<!-- 
+/* -------------------------------------------------------------------------- */
+/*               SECCION DE COMENTARIOS Y LIKES DE LA PAGINA WEB              */
+/* -------------------------------------------------------------------------- */ -->
 
 
+<br>
+<br>
+<br>
+<div class="container">
+	<!-- Container para insertar comentario -->
+	<div>
+		<h1>COMMENTS</h1>
+		<p>Leave a comment about your experience using this App.
+		</p>
+		<form method="POST">
+			<input type="text" placeholder="Write here..." style=" padding-left:20px; width: 100%; height: 50px; margin-bottom: 10px;" name="comment">
+			<button class="btn btn-default firstColors">Confirm</button>
+		</form>
+	</div>
+	<?php
 
+
+	?>
+	<div id="contExpand" class="contCommentsUsers ">
+		<div class="panel panel-default panelComments">
+
+			<?php
+			// $idUser = $_SESSION["userId"];
+
+			$comments = UsersController::showCommentsLikes();
+
+			foreach ($comments as $key => $value) {
+
+				// Conocemos el nombre de cada usuario que puso una valoracion
+				$username = UsersController::showName($value["id_user"]);
+				// Retorno la imagen del usuario que puso la valoración
+				$imgProfile = UsersController::imgProfile($value["id_user"]);
+
+
+				echo '
+			<div class="panel-body">
+				<img style="width: 58px; height: 58px;" class="img-circle pull-left" src="' . $imgProfile["picture"] . '">
+				<h2>' . $username["username"] . '</h2>
+				<h4>' . $value["date"] . '</h4>
+			</div>
+			<div class="panel-body" style="padding-top:0">
+				<p>' . $value["comment"] . '</p>
+			</div>
+			<div class="panel-footer">
+			    <i class="fa fa-thumbs-up"><span> ' . $value["likes"] . '</span></i>
+			</div>
+			<hr>';
+			}
+			?>
+		</div>
+		
+	</div>
+	<button id="buttonExpand" class="showMoreComm" style="width: 100%;">SHOW MORE</button>
+	
+</div>
