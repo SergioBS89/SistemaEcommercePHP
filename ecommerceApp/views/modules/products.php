@@ -577,22 +577,49 @@ $staticRute = StaticRute::rute();
 <br>
 <br>
 <br>
+
 <div class="container">
 	<!-- Container para insertar comentario -->
 	<div>
 		<h1>COMMENTS</h1>
+
+		<?php
+
+		if (isset($_SESSION["session"])) {
+
+			echo '
+		
 		<p>Leave a comment about your experience using this App.
 		</p>
 		<form method="POST">
+		    <input type="text" hidden value="' . $_SESSION["userId"] . '" name="idReview">
 			<input type="text" placeholder="Write here..." style=" padding-left:20px; width: 100%; height: 50px; margin-bottom: 10px;" name="comment">
-			<button class="btn btn-default firstColors">Confirm</button>
+			<button type="submit" class="btn btn-default firstColors">CONFIRM</button>
 		</form>
+	
+		';
+		} else {
+			echo '
+		<p>Leave a comment about your experience using this App.
+		</p>
+		<form method="POST">
+			<input disabled type="text" placeholder="Write here..." style=" padding-left:20px; width: 100%; height: 50px; margin-bottom: 10px;" name="comment">
+			<button disabled class="btn btn-default firstColors">START SESSION</button>
+		</form>
+		';
+		}
+		/* -------------------------------------------------------------------------- */
+		/*              LLAMADA A LA FUNCION PARA EJECUTAR ENVIO DE DATOS             */
+		/* -------------------------------------------------------------------------- */
+		$com = new UsersController();
+		$com->newReview();
+		?>
 	</div>
-	<?php
-
-
-	?>
-	<div id="contExpand" class="contCommentsUsers ">
+	<!-- 
+/* -------------------------------------------------------------------------- */
+/*                             ZONA DE COMENTARIOS                            */
+/* -------------------------------------------------------------------------- */ -->
+	<div id="contExpand" class="contCommentsUsers">
 		<div class="panel panel-default panelComments">
 
 			<?php
@@ -609,23 +636,91 @@ $staticRute = StaticRute::rute();
 
 
 				echo '
+			<form method = "POST">
 			<div class="panel-body">
 				<img style="width: 58px; height: 58px;" class="img-circle pull-left" src="' . $imgProfile["picture"] . '">
 				<h2>' . $username["username"] . '</h2>
 				<h4>' . $value["date"] . '</h4>
 			</div>
 			<div class="panel-body" style="padding-top:0">
-				<p>' . $value["comment"] . '</p>
-			</div>
-			<div class="panel-footer">
-			    <i class="fa fa-thumbs-up"><span> ' . $value["likes"] . '</span></i>
-			</div>
-			<hr>';
+				<p>' . $value["comment"] . '</p>';
+
+				/* -------------------------------------------------------------------------- */
+				/*                        SI EL USUARIO ESTA CONECTADO                        */
+				/* -------------------------------------------------------------------------- */
+
+				// SI HAY UN USER CONECTADO, SE CREA EL INPUT CON EL VALOR DEL USUARIO EN LINEA
+				if (isset($_SESSION["userId"])) {
+					echo '
+					<input type="text" hidden value="' . $_SESSION["userId"] . '" name="id">				
+					<input type="text" hidden value="' . $value["id"] . '" name="idComm">					
+					<input type="text" hidden value="' . $value["likes"] . '" name="numLikes">';
+
+					/* ----------------- PREGUNTO SI EL USUARIO YA DIO LIKE O NO ---------------- */
+
+					// Usuario en linea
+					$idUser = $_SESSION["userId"];
+					// id del comentario
+					$idComm = $value["id"];
+					$dates = array(
+						"id" => $idUser,
+						"idComm" => $idComm
+					);
+					$checkLike = UsersController::checkLike($dates);
+				    // Asigno un valor booleano a la varible para imprimir una u otra cosa
+					$bool = false;
+
+					// Recorro el resultado de la base de datos 
+					foreach ($checkLike as $key => $value2) {
+                         
+						// Si existe un like en el comentario, este cambia a true
+						if($value2["numLikes"]>=1){
+							$bool = true;
+						}
+						}
+		
+						if ($bool == true) {
+
+							echo '		
+							</div>
+							<div class="panel-footer">
+								<span class="pull-rigth">' . $value["likes"] . '</span><span class="spanComm" style="margin-left:0"> LIKES</span>				
+								<i class="fa fa-thumbs-up pressLike" style="color:red;"></i>			    
+							</div>
+							<hr>
+							</form>';				
+						}
+						
+
+						if($bool == false){
+							echo '	</div>
+							<div class="panel-footer">
+								<span class="pull-rigth">' . $value["likes"] . '</span><span style="margin-left:0"> LIKES</span>				
+								<button class="reloadButton"><i class="fa fa-thumbs-up"></i></button>			    
+							</div>
+							<hr>
+							</form>';				
+				
+						}				
+				}
+				
+				else{
+					echo '					
+				</div>
+				<div class="panel-footer">
+					<span class="pull-rigth">' . $value["likes"] . '</span><span style="margin-left:0"> LIKES</span>						    
+				</div>
+				<hr>
+				</form>';
+				}
 			}
+			// Llamada para enviar datos
+			$like = new UsersController();
+			$like->addLike();
 			?>
 		</div>
-		
+
 	</div>
 	<button id="buttonExpand" class="showMoreComm" style="width: 100%;">SHOW MORE</button>
-	
+
 </div>

@@ -63,7 +63,7 @@
         <div class="row">
              <div class="col-sm-6 col-xs-12 contInfo ">    
               <u><h2>Contact Information</h2></u>                
-             <i class="fa fa-phone"><span>  653 36 48 46</span></i>
+             <i class="fa fa-phone"><span> +34  653 36 48 46</span></i>
              <i class="fa fa-envelope"><span>  sergiovencillon10@gmail.com</span></i>
              <i class="fa fa-github"><span>  https://github.com/sergio89bs</span></i>
              <i class="glyphicon glyphicon-home"><span>  Binéfar (Huesca) </span></i>                           

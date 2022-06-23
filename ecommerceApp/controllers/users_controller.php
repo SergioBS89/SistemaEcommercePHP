@@ -368,6 +368,89 @@ class UsersController
         return $res;
     }
 
+     /* -------------------------------------------------------------------------- */
+    /*                       METODO PARA REGISTRO DE VALORACION                 */
+    /* -------------------------------------------------------------------------- */
+
+    public static function newReview()
+    {
+
+        if (isset($_POST["comment"])&& isset($_POST["idReview"])) {
+         
+            $dates = array(
+                "idUser" => $_POST["idReview"],
+                "comment" => $_POST["comment"]
+            );
+
+            $table = "comments";
+
+            $res = UsersModel::newReviewModel($table, $dates);
+
+           
+
+            if ($res == "ok") {
+
+                echo "<script>
+                alertify
+                .alert('THANK YOU!','Your review was successfully uploaded',
+                function(isConfirm){
+                    if (isConfirm) {	   
+                      history.back();
+                     } 
+           });
+                
+                </script>";
+            }
+        }
+
+        
+    }
+
+
+    /* -------------------------------------------------------------------------- */
+    /*     METODO PARA MOSTRAR LOS COMENTARIOS Y LIKES DE LA SECCION COMMENTS     */
+    /* -------------------------------------------------------------------------- */
+    public static function addLike(){
+
+        if(isset($_POST["idComm"])){
+
+            $increaseLikes = ($_POST["numLikes"] + 1); 
+
+            $dates = array(
+                "idComm"=>$_POST["idComm"],
+                "id"=>$_POST["id"],
+                "numLikes"=>$increaseLikes );
+
+               
+                $res = UsersModel::addLikeModel($dates);  
+                $res = UsersModel::TotalLikesModel($dates);  
+
+                $cont = 0;
+
+                if($cont == 0){
+                    echo "<script>                      
+                          history.back();
+                        </script>";
+                    $cont++;
+
+                }          
+        }
+        // echo json_encode($dates);
+    }
+
+     /* -------------------------------------------------------------------------- */
+    /*     METODO PARA COMPROBAR SI DOY LIKE EL USUARIO    */
+    /* -------------------------------------------------------------------------- */
+    public static function checkLike($dates){
+        $table ="likes_comments";
+        $res = UsersModel::checkLikeModel($table,$dates);
+        return $res;
+    }
+
+
+
+
+
 
 }
 

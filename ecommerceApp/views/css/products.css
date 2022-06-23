@@ -214,6 +214,10 @@ div.expand{
 	height: 1000px;
 }
 
+div.panelComments{
+	border-bottom: none;
+}
+
 div.panelComments div{
 	display: flex;
 	align-items: center;
@@ -253,17 +257,37 @@ div.panelComments div.panel-footer{
  background-color: rgba(241, 234, 234, 0.348);
  padding: 2px;
  border: none;
+ position: relative;
 }
 
 /* Likes */
 div.panelComments div.panel-footer i{
 	font-size: 20px;
 	cursor: pointer;
-	margin-left: 75px;
+	margin-right: 75px;
 	color: var(--main-bg-color);
-
    }
 
+div.panelComments div.panel-footer span{
+   font-size: 15px;	
+   margin-left: 90px;
+   color: var(--main-bg-color);
+   margin-right: 5px;
+     }
+
+div.panelComments div.panel-footer button{
+	border: none;
+	background-color: initial;
+	position: absolute;
+	width: 20px;
+	right: 90px;
+}
+i.pressLike{
+	position: absolute;
+	right: 17px;
+	margin: 0;
+	cursor: default !important;
+}
 
 /* Boton de show more */
 

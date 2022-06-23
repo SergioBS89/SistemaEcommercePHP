@@ -173,6 +173,8 @@ hr.lineTitleCat{
 .modal-header{
 	background:linear-gradient(52deg, rgb(34, 33, 33) 22%, rgb(202, 199, 199) 82%) !important;
 	color: white;
+	border-left: 0px solid;
+	transform: translateX(-1px);
 }
 
 .modalBody form {

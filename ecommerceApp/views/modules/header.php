@@ -78,9 +78,9 @@ $StaticUrl = StaticRute::rute();
                             // Si el usuario no tiene todavia foto, no se muestra
                             if($imgProfile["picture"] == ""){
                                 echo '
-                                <li><a href="' . $StaticUrl . 'profile">My profile</a></li>
+                                <li><a href="' . $StaticUrl . 'profile">PROFILE</a></li>
                                 <li>|</li>
-                                <li><a href="' . $StaticUrl . 'exit">Close</a></li>
+                                <li><a href="' . $StaticUrl . 'exit">CLOSE</a></li>
                                 ';
                             }
                             // De lo contrario se imprime la imagen
@@ -88,18 +88,18 @@ $StaticUrl = StaticRute::rute();
 
                             echo '
                             <img class="img-circle imgProfileHeader" src="'.$imgProfile["picture"].'" alt="">
-                            <li><a href="' . $StaticUrl . 'profile">My profile</a></li>
+                            <li><a href="' . $StaticUrl . 'profile">PROFILE</a></li>
                             <li>|</li>
-                            <li><a href="' . $StaticUrl . 'exit">Close</a></li>
+                            <li><a href="' . $StaticUrl . 'exit">CLOSE</a></li>
                             ';
                         }
                     } 
                     } 
                     else {
                         echo '
-                    <li><a href="#modalSignIn" data-toggle="modal" data-target="#myModalIn">Sign In</a></li>
+                    <li><a href="#modalSignIn" data-toggle="modal" data-target="#myModalIn">SIGN IN</a></li>
                     <li>|</li>
-                    <li><a href="#modalSignUp" data-toggle="modal" data-target="#myModalUp">Sign Up</a></li>
+                    <li><a href="#modalSignUp" data-toggle="modal" data-target="#myModalUp">SIGN UP</a></li>
                     ';
                     }
                     
@@ -283,7 +283,7 @@ $user->signUpUsers();
                 <!--Boton del buscador-->
                 <div class="input-group col-xs-12" id="search">
 
-                    <input type="search" name="searchProduct" class="form-control inputSearch" placeholder="Search">
+                    <input type="search" name="searchProduct" class="form-control inputSearch" placeholder="Search...">
                     <!-- input-group-btn posiciona el boton de buscador en la misma linea del contenedor -->
                     <span class="input-group-btn">
                         <!-- Al pulsar, se manda a la url el valor de SearcH/1/new para una posterior busqueda -->

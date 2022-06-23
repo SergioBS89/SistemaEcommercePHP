@@ -128,6 +128,7 @@ $("#addWishes").click(function(){
    
 	var idProduct =	$("#addWishes").attr("idProd")
 	var idUser =	$("#addWishes").attr("idUser")
+	
     var dates = new FormData();    
 
 	dates.append("idProduct", idProduct);

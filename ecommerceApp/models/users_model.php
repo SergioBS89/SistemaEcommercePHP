@@ -327,7 +327,7 @@ class UsersModel{
     /* -------------------------------------------------------------------------- */
     public static function showCommentsLikesModel($table){
 
-        $stmt=Conection::conectDB()->prepare("SELECT * FROM $table");
+        $stmt=Conection::conectDB()->prepare("SELECT * FROM $table ORDER BY id DESC");
 
 		$stmt -> execute();
 
@@ -335,5 +335,95 @@ class UsersModel{
         
 		$stmt = null;
     }
+
+       /* -------------------------------------------------------------------------- */
+    /*                     METODO PARA CREAR COMENTARIO          */
+    /* -------------------------------------------------------------------------- */
+    public static function newReviewModel($table,$dates){
+
+        $stmt=Conection::conectDB()->prepare("INSERT INTO $table(id_user,comment,likes)
+        VALUES( :idUser, :comm, 0)");
+
+        $stmt -> bindParam(":idUser",$dates["idUser"], PDO::PARAM_STR);
+		$stmt -> bindParam(":comm", $dates["comment"], PDO::PARAM_STR);	   
+          
+        if($stmt->execute()){
+            return "ok";
+        }else{
+            return "error";
+        }
+        
+      
+        $stmt = null;
+
+    }
+
+     /* -------------------------------------------------------------------------- */
+    /*                     METODO PARA AÑADIR LIKE       */
+    /* -------------------------------------------------------------------------- */
+
+    public static function addLikeModel($dates){
+
+        // if($dates["numLikes"] == 1){
+
+        $stmt=Conection::conectDB()->prepare("INSERT INTO likes_comments ( id_comment, id_user, numLikes) VALUES(:idComm,:id,:numLikes)");
+        
+        $stmt -> bindParam(":id", $dates["id"], PDO::PARAM_STR);
+        $stmt -> bindParam(":idComm", $dates["idComm"], PDO::PARAM_STR);
+        $stmt -> bindParam(":numLikes", $dates["numLikes"], PDO::PARAM_STR);
+		     
+               if($stmt->execute()){
+                   return "ok";
+               }else{
+                   return "error";
+               }
+            //    }
+
+      
+        $stmt = null;
+    }
+
+    /* -------------------------------------------------------------------------- */
+    /*                     METODO PARA SUMAR LIKES TOTALES DE UN COMENTARIO     */
+    /* -------------------------------------------------------------------------- */
+
+    public static function totalLikesModel($dates){
+
+       
+           $stmt=Conection::conectDB()->prepare("UPDATE comments SET likes = :numLikes WHERE id = :idComm");
+
+        //    $stmt -> bindParam(":id", $dates["id"], PDO::PARAM_STR);
+           $stmt -> bindParam(":idComm", $dates["idComm"], PDO::PARAM_STR);
+           $stmt -> bindParam(":numLikes", $dates["numLikes"], PDO::PARAM_STR);
+
+           if($stmt->execute()){
+            return "ok";
+            }else{
+                return "error";
+            
+        }
+      
+        $stmt = null;
+    }
+
+
+     /* -------------------------------------------------------------------------- */
+    /*                    METODO PARA COMPROBAR SI EL USUARIO DIO LIKE A UN COMENTARIO             */
+    /* -------------------------------------------------------------------------- */
+    public static function checkLikeModel($table, $dates){
+
+        $stmt=Conection::conectDB()->prepare("SELECT * FROM $table WHERE id_comment = :idComm AND id_user = :id");
+
+        $stmt -> bindParam(":id", $dates["id"], PDO::PARAM_STR);
+        $stmt -> bindParam(":idComm", $dates["idComm"], PDO::PARAM_STR);
+
+		$stmt -> execute();
+
+		return $stmt -> fetchAll();
+        
+		$stmt = null;
+    }
+
+
 }
 ?>
